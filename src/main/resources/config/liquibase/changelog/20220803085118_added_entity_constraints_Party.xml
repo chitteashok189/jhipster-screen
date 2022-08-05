@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Party.
+    -->
+    <changeSet id="20220803085118-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="party_groupid_id"
+                                 baseTableName="party"
+                                 constraintName="fk_party__party_groupid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="party_group"/>
+
+        <addForeignKeyConstraint baseColumnNames="party_typeid_id"
+                                 baseTableName="party"
+                                 constraintName="fk_party__party_typeid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="party_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="application_userid_id"
+                                 baseTableName="party"
+                                 constraintName="fk_party__application_userid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="application_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="party_roleid_id"
+                                 baseTableName="party"
+                                 constraintName="fk_party__party_roleid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="party_role"/>
+
+        <addForeignKeyConstraint baseColumnNames="personid_id"
+                                 baseTableName="party"
+                                 constraintName="fk_party__personid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="person"/>
+    </changeSet>
+</databaseChangeLog>

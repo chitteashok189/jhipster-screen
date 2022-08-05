@@ -1,0 +1,27 @@
+{
+  "blogApp": {
+    "ennumerationType": {
+      "home": {
+        "title": "Ennumeration Types",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Ennumeration Type",
+        "createOrEditLabel": "Crear o editar Ennumeration Type",
+        "notFound": "Ningún Ennumeration Types encontrado"
+      },
+      "created": "Un nuevo Ennumeration Type ha sido creado con el identificador {{ param }}",
+      "updated": "Un Ennumeration Type ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Ennumeration Type ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Ennumeration Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Ennumeration Type"
+      },
+      "id": "ID",
+      "ennumerationType": "Ennumeration Type",
+      "hasTable": "Has Table",
+      "description": "Description",
+      "ennumeration": "Ennumeration"
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085158",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "climate",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "source",
+      "fieldType": "CliSource",
+      "fieldValues": "Automatic,Manual"
+    },
+    {
+      "fieldName": "airTemperature",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "relativeHumidity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "vPD",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "evapotranspiration",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "barometricPressure",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "seaLevelPressure",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "co2Level",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dewPoint",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "solarRadiation",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "heatIndex",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Climate",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "device",
+      "otherEntityRelationshipName": "climate",
+      "relationshipName": "deviceID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "plantFactory",
+      "otherEntityRelationshipName": "climate",
+      "relationshipName": "plantFactoryID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

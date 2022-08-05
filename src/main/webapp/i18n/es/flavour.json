@@ -1,0 +1,11 @@
+{
+  "blogApp": {
+    "Flavour": {
+      "null": "",
+      "Sweet": "Sweet",
+      "Sour": "Sour",
+      "Salty": "Salty",
+      "Bitter": "Bitter"
+    }
+  }
+}

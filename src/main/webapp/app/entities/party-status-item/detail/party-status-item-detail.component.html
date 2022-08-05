@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="partyStatusItem">
+      <h2 data-cy="partyStatusItemDetailsHeading"><span jhiTranslate="blogApp.partyStatusItem.detail.title">Party Status Item</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.partyStatusItem.id">Id</span></dt>
+        <dd>
+          <span>{{ partyStatusItem.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatusItem.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ partyStatusItem.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatusItem.statusCode">Status Code</span></dt>
+        <dd>
+          <span>{{ partyStatusItem.statusCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatusItem.sequenceID">Sequence ID</span></dt>
+        <dd>
+          <span>{{ partyStatusItem.sequenceID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatusItem.description">Description</span></dt>
+        <dd>
+          <span>{{ partyStatusItem.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatusItem.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ partyStatusItem.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatusItem.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ partyStatusItem.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatusItem.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ partyStatusItem.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatusItem.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ partyStatusItem.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/party-status-item', partyStatusItem.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

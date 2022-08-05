@@ -1,0 +1,88 @@
+<div>
+  <h2 id="page-heading" data-cy="SeasonHeading">
+    <span jhiTranslate="blogApp.season.home.title">Seasons</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.season.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-season"
+        [routerLink]="['/season/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.season.home.createLabel"> Create a new Season </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="seasons?.length === 0">
+    <span jhiTranslate="blogApp.season.home.notFound">No seasons found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="seasons && seasons.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.season.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.season.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.season.seasonType">Season Type</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.season.cropName">Crop Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.season.area">Area</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.season.seasonTime">Season Time</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.season.seasonstartDate">Seasonstart Date</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.season.seasonEndDate">Season End Date</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.season.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.season.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.season.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.season.updatedOn">Updated On</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let season of seasons; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/season', season.id, 'view']">{{ season.id }}</a>
+          </td>
+          <td>{{ season.gUID }}</td>
+          <td jhiTranslate="{{ 'blogApp.SeaType.' + season.seasonType }}">{{ season.seasonType }}</td>
+          <td>{{ season.cropName }}</td>
+          <td>{{ season.area }}</td>
+          <td jhiTranslate="{{ 'blogApp.SeaTime.' + season.seasonTime }}">{{ season.seasonTime }}</td>
+          <td>{{ season.seasonstartDate | formatMediumDatetime }}</td>
+          <td>{{ season.seasonEndDate | formatMediumDatetime }}</td>
+          <td>{{ season.createdBy }}</td>
+          <td>{{ season.createdOn | formatMediumDatetime }}</td>
+          <td>{{ season.updatedBy }}</td>
+          <td>{{ season.updatedOn | formatMediumDatetime }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/season', season.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/season', season.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(season)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

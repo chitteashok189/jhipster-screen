@@ -1,0 +1,71 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085211",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "nutrient",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "nutrientName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "NutrientType",
+      "fieldValues": "Organic,Synthetic"
+    },
+    {
+      "fieldName": "brandName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nutrientLabel",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nutrientForms",
+      "fieldType": "NutForms",
+      "fieldValues": "Solid,Or,Granular,Fertilizers,Liquid"
+    },
+    {
+      "fieldName": "nutrientTypeID",
+      "fieldType": "NutTypeID",
+      "fieldValues": "Inorganic,Mineral,Organic,Fertilizers"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Nutrient",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

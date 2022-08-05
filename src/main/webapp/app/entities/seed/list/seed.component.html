@@ -1,0 +1,90 @@
+<div>
+  <h2 id="page-heading" data-cy="SeedHeading">
+    <span jhiTranslate="blogApp.seed.home.title">Seeds</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.seed.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-seed"
+        [routerLink]="['/seed/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.seed.home.createLabel"> Create a new Seed </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="seeds?.length === 0">
+    <span jhiTranslate="blogApp.seed.home.notFound">No seeds found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="seeds && seeds.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.seed.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.seed.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.seed.breederID">Breeder ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.seed.seedClass">Seed Class</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.seed.variety">Variety</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.seed.seedRate">Seed Rate</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.seed.germinationPercentage">Germination Percentage</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.seed.treatment">Treatment</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.seed.origin">Origin</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.seed.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.seed.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.seed.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.seed.updatedOn">Updated On</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let seed of seeds; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/seed', seed.id, 'view']">{{ seed.id }}</a>
+          </td>
+          <td>{{ seed.gUID }}</td>
+          <td>{{ seed.breederID }}</td>
+          <td jhiTranslate="{{ 'blogApp.SeedClass.' + seed.seedClass }}">{{ seed.seedClass }}</td>
+          <td>{{ seed.variety }}</td>
+          <td jhiTranslate="{{ 'blogApp.SeedRate.' + seed.seedRate }}">{{ seed.seedRate }}</td>
+          <td>{{ seed.germinationPercentage }}</td>
+          <td jhiTranslate="{{ 'blogApp.Treatment.' + seed.treatment }}">{{ seed.treatment }}</td>
+          <td>{{ seed.origin }}</td>
+          <td>{{ seed.createdBy }}</td>
+          <td>{{ seed.createdOn | formatMediumDatetime }}</td>
+          <td>{{ seed.updatedBy }}</td>
+          <td>{{ seed.updatedOn | formatMediumDatetime }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/seed', seed.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/seed', seed.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(seed)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

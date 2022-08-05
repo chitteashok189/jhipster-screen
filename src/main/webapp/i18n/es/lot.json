@@ -1,0 +1,47 @@
+{
+  "blogApp": {
+    "lot": {
+      "home": {
+        "title": "Lots",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Lot",
+        "createOrEditLabel": "Crear o editar Lot",
+        "notFound": "Ningún Lots encontrado"
+      },
+      "created": "Un nuevo Lot ha sido creado con el identificador {{ param }}",
+      "updated": "Un Lot ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Lot ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Lot {{ id }}?"
+      },
+      "detail": {
+        "title": "Lot"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "lotCode": "Lot Code",
+      "lotQRCode": "Lot QR Code",
+      "lotSize": "Lot Size",
+      "unitType": "Unit Type",
+      "seedlingsGerminated": "Seedlings Germinated",
+      "seedlingsDied": "Seedlings Died",
+      "plantsWasted": "Plants Wasted",
+      "traysSown": "Trays Sown",
+      "sowingTime": "Sowing Time",
+      "traysTranplanted": "Trays Tranplanted",
+      "transplantationTime": "Transplantation Time",
+      "plantsHarvested": "Plants Harvested",
+      "harvestTime": "Harvest Time",
+      "packingDate": "Packing Date",
+      "tranportationDate": "Tranportation Date",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "harvest": "Harvest",
+      "inspectionRecord": "Inspection Record",
+      "seedID": "Seed ID",
+      "cropID": "Crop ID"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085139",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "application_user_security_grou",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "fromDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "thruDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ApplicationUserSecurityGroup",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "securityGroup",
+      "otherEntityRelationshipName": "applicationUserSecurityGroupID",
+      "relationshipName": "securityGroup",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "securityGroup",
+      "otherEntityRelationshipName": "applicationUserSecurityGroup",
+      "relationshipName": "securityGroupID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

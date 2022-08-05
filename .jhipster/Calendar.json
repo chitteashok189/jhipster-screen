@@ -1,0 +1,113 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085204",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "calendar",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "calenderDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "calenderYear",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dayOfWeek",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "monthOfYear",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "weekOfMonth",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "weekOfQuarter",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "weekOfYear",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dayOfQuarter",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dayOfYear",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Calendar",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "weather",
+      "otherEntityRelationshipName": "calendarID",
+      "relationshipName": "weather",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "plantFactory",
+      "otherEntityRelationshipName": "calendar",
+      "relationshipName": "plantFactoryID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "zone",
+      "otherEntityRelationshipName": "calendar",
+      "relationshipName": "zoneID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "crop",
+      "otherEntityRelationshipName": "calendar",
+      "relationshipName": "cropID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "tool",
+      "otherEntityRelationshipName": "calendar",
+      "relationshipName": "toolID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "season",
+      "otherEntityRelationshipName": "calendar",
+      "relationshipName": "seasonID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

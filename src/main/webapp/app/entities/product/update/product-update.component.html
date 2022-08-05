@@ -1,0 +1,224 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-product-heading" data-cy="ProductCreateUpdateHeading" jhiTranslate="blogApp.product.home.createOrEditLabel">
+        Create or edit a Product
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="blogApp.product.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.product.gUID" for="field_gUID">G UID</label>
+          <input type="text" class="form-control" name="gUID" id="field_gUID" data-cy="gUID" formControlName="gUID" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.product.productCode" for="field_productCode">Product Code</label>
+          <input
+            type="text"
+            class="form-control"
+            name="productCode"
+            id="field_productCode"
+            data-cy="productCode"
+            formControlName="productCode"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.product.productName" for="field_productName">Product Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="productName"
+            id="field_productName"
+            data-cy="productName"
+            formControlName="productName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.product.productPrice" for="field_productPrice">Product Price</label>
+          <input
+            type="number"
+            class="form-control"
+            name="productPrice"
+            id="field_productPrice"
+            data-cy="productPrice"
+            formControlName="productPrice"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.product.productType" for="field_productType">Product Type</label>
+          <select class="form-control" name="productType" formControlName="productType" id="field_productType" data-cy="productType">
+            <option [ngValue]="null">{{ 'blogApp.ProType.null' | translate }}</option>
+            <option *ngFor="let proType of proTypeValues" [value]="proType">{{ 'blogApp.ProType.' + proType | translate }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.product.uOM" for="field_uOM">U OM</label>
+          <input type="number" class="form-control" name="uOM" id="field_uOM" data-cy="uOM" formControlName="uOM" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.product.otherProductDetails" for="field_otherProductDetails"
+            >Other Product Details</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="otherProductDetails"
+            id="field_otherProductDetails"
+            data-cy="otherProductDetails"
+            formControlName="otherProductDetails"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.product.previousEntry" for="field_previousEntry">Previous Entry</label>
+          <input
+            type="number"
+            class="form-control"
+            name="previousEntry"
+            id="field_previousEntry"
+            data-cy="previousEntry"
+            formControlName="previousEntry"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.product.manufacturer" for="field_manufacturer">Manufacturer</label>
+          <input
+            type="text"
+            class="form-control"
+            name="manufacturer"
+            id="field_manufacturer"
+            data-cy="manufacturer"
+            formControlName="manufacturer"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.product.productDescription" for="field_productDescription"
+            >Product Description</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="productDescription"
+            id="field_productDescription"
+            data-cy="productDescription"
+            formControlName="productDescription"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.product.imageFileName" for="field_imageFileName">Image File Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="imageFileName"
+            id="field_imageFileName"
+            data-cy="imageFileName"
+            formControlName="imageFileName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.product.productEntryName" for="field_productEntryName">Product Entry Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="productEntryName"
+            id="field_productEntryName"
+            data-cy="productEntryName"
+            formControlName="productEntryName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.product.capacity" for="field_capacity">Capacity</label>
+          <input type="number" class="form-control" name="capacity" id="field_capacity" data-cy="capacity" formControlName="capacity" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.product.length" for="field_length">Length</label>
+          <input type="number" class="form-control" name="length" id="field_length" data-cy="length" formControlName="length" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.product.width" for="field_width">Width</label>
+          <input type="number" class="form-control" name="width" id="field_width" data-cy="width" formControlName="width" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.product.height" for="field_height">Height</label>
+          <input type="number" class="form-control" name="height" id="field_height" data-cy="height" formControlName="height" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.product.createdBy" for="field_createdBy">Created By</label>
+          <input type="number" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.product.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.product.updatedBy" for="field_updatedBy">Updated By</label>
+          <input type="number" class="form-control" name="updatedBy" id="field_updatedBy" data-cy="updatedBy" formControlName="updatedBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.product.updatedOn" for="field_updatedOn">Updated On</label>
+          <div class="d-flex">
+            <input
+              id="field_updatedOn"
+              data-cy="updatedOn"
+              type="datetime-local"
+              class="form-control"
+              name="updatedOn"
+              formControlName="updatedOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

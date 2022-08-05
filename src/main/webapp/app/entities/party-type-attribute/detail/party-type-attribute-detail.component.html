@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="partyTypeAttribute">
+      <h2 data-cy="partyTypeAttributeDetailsHeading">
+        <span jhiTranslate="blogApp.partyTypeAttribute.detail.title">Party Type Attribute</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.partyTypeAttribute.id">Id</span></dt>
+        <dd>
+          <span>{{ partyTypeAttribute.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyTypeAttribute.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ partyTypeAttribute.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyTypeAttribute.attributeName">Attribute Name</span></dt>
+        <dd>
+          <span>{{ partyTypeAttribute.attributeName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyTypeAttribute.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ partyTypeAttribute.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyTypeAttribute.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ partyTypeAttribute.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyTypeAttribute.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ partyTypeAttribute.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyTypeAttribute.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ partyTypeAttribute.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/party-type-attribute', partyTypeAttribute.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+{
+  "blogApp": {
+    "partyStatusType": {
+      "home": {
+        "title": "Party Status Types",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Party Status Type",
+        "createOrEditLabel": "Create or edit a Party Status Type",
+        "notFound": "No Party Status Types found"
+      },
+      "created": "A new Party Status Type is created with identifier {{ param }}",
+      "updated": "A Party Status Type is updated with identifier {{ param }}",
+      "deleted": "A Party Status Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Party Status Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Party Status Type"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "parentTypeID": "Parent Type ID",
+      "hasTable": "Has Table",
+      "description": "Description",
+      "childStatusType": "Child Status Type",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On"
+    }
+  }
+}

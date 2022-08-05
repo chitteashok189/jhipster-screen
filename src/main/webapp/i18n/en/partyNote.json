@@ -1,0 +1,30 @@
+{
+  "blogApp": {
+    "partyNote": {
+      "home": {
+        "title": "Party Notes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Party Note",
+        "createOrEditLabel": "Create or edit a Party Note",
+        "notFound": "No Party Notes found"
+      },
+      "created": "A new Party Note is created with identifier {{ param }}",
+      "updated": "A Party Note is updated with identifier {{ param }}",
+      "deleted": "A Party Note is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Party Note {{ id }}?"
+      },
+      "detail": {
+        "title": "Party Note"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "noteID": "Note ID",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "partyID": "Party ID"
+    }
+  }
+}

@@ -1,0 +1,98 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="plantFactoryController">
+      <h2 data-cy="plantFactoryControllerDetailsHeading">
+        <span jhiTranslate="blogApp.plantFactoryController.detail.title">Plant Factory Controller</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.plantFactoryController.id">Id</span></dt>
+        <dd>
+          <span>{{ plantFactoryController.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactoryController.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ plantFactoryController.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactoryController.source">Source</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.PlantSource.' + plantFactoryController.source }}">{{ plantFactoryController.source }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactoryController.airTemperature">Air Temperature</span></dt>
+        <dd>
+          <span>{{ plantFactoryController.airTemperature }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactoryController.relativeHumidity">Relative Humidity</span></dt>
+        <dd>
+          <span>{{ plantFactoryController.relativeHumidity }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactoryController.vPD">V PD</span></dt>
+        <dd>
+          <span>{{ plantFactoryController.vPD }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactoryController.evapotranspiration">Evapotranspiration</span></dt>
+        <dd>
+          <span>{{ plantFactoryController.evapotranspiration }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactoryController.barometricPressure">Barometric Pressure</span></dt>
+        <dd>
+          <span>{{ plantFactoryController.barometricPressure }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactoryController.seaLevelPressure">Sea Level Pressure</span></dt>
+        <dd>
+          <span>{{ plantFactoryController.seaLevelPressure }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactoryController.co2Level">Co 2 Level</span></dt>
+        <dd>
+          <span>{{ plantFactoryController.co2Level }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactoryController.nutrientTankLevel">Nutrient Tank Level</span></dt>
+        <dd>
+          <span>{{ plantFactoryController.nutrientTankLevel }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactoryController.dewPoint">Dew Point</span></dt>
+        <dd>
+          <span>{{ plantFactoryController.dewPoint }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactoryController.heatIndex">Heat Index</span></dt>
+        <dd>
+          <span>{{ plantFactoryController.heatIndex }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactoryController.turbidity">Turbidity</span></dt>
+        <dd>
+          <span>{{ plantFactoryController.turbidity }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactoryController.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ plantFactoryController.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactoryController.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ plantFactoryController.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactoryController.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ plantFactoryController.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactoryController.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ plantFactoryController.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/plant-factory-controller', plantFactoryController.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

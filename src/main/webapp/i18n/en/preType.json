@@ -1,0 +1,11 @@
+{
+  "blogApp": {
+    "PreType": {
+      "null": "",
+      "Rain": "Rain",
+      "Snow": "Snow",
+      "Hail": "Hail",
+      "Sleet": "Sleet"
+    }
+  }
+}

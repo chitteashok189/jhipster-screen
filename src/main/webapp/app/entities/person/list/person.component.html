@@ -1,0 +1,134 @@
+<div>
+  <h2 id="page-heading" data-cy="PersonHeading">
+    <span jhiTranslate="blogApp.person.home.title">People</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.person.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-person"
+        [routerLink]="['/person/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.person.home.createLabel"> Create a new Person </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="people?.length === 0">
+    <span jhiTranslate="blogApp.person.home.notFound">No people found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="people && people.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.person.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.salutation">Salutation</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.firstName">First Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.middleName">Middle Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.lastName">Last Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.personalTitle">Personal Title</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.suffix">Suffix</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.nickName">Nick Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.firstNameLocal">First Name Local</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.middleNameLocal">Middle Name Local</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.lastNameLocal">Last Name Local</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.otherLocal">Other Local</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.gender">Gender</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.birthDate">Birth Date</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.heigth">Heigth</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.weight">Weight</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.mothersMaidenName">Mothers Maiden Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.maritialStatus">Maritial Status</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.socialSecurityNo">Social Security No</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.passportNo">Passport No</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.passportExpiryDate">Passport Expiry Date</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.totalYearsWorkExperience">Total Years Work Experience</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.comments">Comments</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.occupation">Occupation</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.yearswithEmployer">Yearswith Employer</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.monthsWithEmployer">Months With Employer</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.existingCustomer">Existing Customer</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.person.partyID">Party ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let person of people; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/person', person.id, 'view']">{{ person.id }}</a>
+          </td>
+          <td>{{ person.gUID }}</td>
+          <td>{{ person.salutation }}</td>
+          <td>{{ person.firstName }}</td>
+          <td>{{ person.middleName }}</td>
+          <td>{{ person.lastName }}</td>
+          <td>{{ person.personalTitle }}</td>
+          <td>{{ person.suffix }}</td>
+          <td>{{ person.nickName }}</td>
+          <td>{{ person.firstNameLocal }}</td>
+          <td>{{ person.middleNameLocal }}</td>
+          <td>{{ person.lastNameLocal }}</td>
+          <td>{{ person.otherLocal }}</td>
+          <td>{{ person.gender }}</td>
+          <td>{{ person.birthDate | formatMediumDatetime }}</td>
+          <td>{{ person.heigth }}</td>
+          <td>{{ person.weight }}</td>
+          <td>{{ person.mothersMaidenName }}</td>
+          <td>{{ person.maritialStatus }}</td>
+          <td>{{ person.socialSecurityNo }}</td>
+          <td>{{ person.passportNo }}</td>
+          <td>{{ person.passportExpiryDate }}</td>
+          <td>{{ person.totalYearsWorkExperience }}</td>
+          <td>{{ person.comments }}</td>
+          <td>{{ person.occupation }}</td>
+          <td>{{ person.yearswithEmployer }}</td>
+          <td>{{ person.monthsWithEmployer }}</td>
+          <td>{{ person.existingCustomer }}</td>
+          <td>{{ person.createdBy }}</td>
+          <td>{{ person.createdOn | formatMediumDatetime }}</td>
+          <td>{{ person.updatedBy }}</td>
+          <td>{{ person.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="person.partyID">
+              <a [routerLink]="['/party', person.partyID?.id, 'view']">{{ person.partyID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/person', person.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/person', person.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(person)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

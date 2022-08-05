@@ -1,0 +1,70 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="applicationUserSecurityGroup">
+      <h2 data-cy="applicationUserSecurityGroupDetailsHeading">
+        <span jhiTranslate="blogApp.applicationUserSecurityGroup.detail.title">Application User Security Group</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.applicationUserSecurityGroup.id">Id</span></dt>
+        <dd>
+          <span>{{ applicationUserSecurityGroup.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUserSecurityGroup.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ applicationUserSecurityGroup.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUserSecurityGroup.fromDate">From Date</span></dt>
+        <dd>
+          <span>{{ applicationUserSecurityGroup.fromDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUserSecurityGroup.thruDate">Thru Date</span></dt>
+        <dd>
+          <span>{{ applicationUserSecurityGroup.thruDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUserSecurityGroup.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ applicationUserSecurityGroup.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUserSecurityGroup.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ applicationUserSecurityGroup.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUserSecurityGroup.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ applicationUserSecurityGroup.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUserSecurityGroup.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ applicationUserSecurityGroup.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUserSecurityGroup.securityGroupID">Security Group ID</span></dt>
+        <dd>
+          <div *ngIf="applicationUserSecurityGroup.securityGroupID">
+            <a [routerLink]="['/security-group', applicationUserSecurityGroup.securityGroupID?.id, 'view']">{{
+              applicationUserSecurityGroup.securityGroupID?.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/application-user-security-group', applicationUserSecurityGroup.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

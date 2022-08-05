@@ -1,0 +1,118 @@
+<div>
+  <h2 id="page-heading" data-cy="WeatherHeading">
+    <span jhiTranslate="blogApp.weather.home.title">Weathers</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.weather.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-weather"
+        [routerLink]="['/weather/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.weather.home.createLabel"> Create a new Weather </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="weathers?.length === 0">
+    <span jhiTranslate="blogApp.weather.home.notFound">No weathers found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="weathers && weathers.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.weather.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.weather.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.weather.cityID">City ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.weather.startTimestamp">Start Timestamp</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.weather.endTimestamp">End Timestamp</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.weather.weatherStatusID">Weather Status ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.weather.temperature">Temperature</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.weather.feelsLikeTemperature">Feels Like Temperature</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.weather.humidity">Humidity</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.weather.windSpeed">Wind Speed</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.weather.windDirection">Wind Direction</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.weather.pressureinmmhg">Pressureinmmhg</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.weather.visibilityinmph">Visibilityinmph</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.weather.cloudCover">Cloud Cover</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.weather.precipitation">Precipitation</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.weather.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.weather.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.weather.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.weather.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.weather.calendarID">Calendar ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let weather of weathers; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/weather', weather.id, 'view']">{{ weather.id }}</a>
+          </td>
+          <td>{{ weather.gUID }}</td>
+          <td>{{ weather.cityID }}</td>
+          <td>{{ weather.startTimestamp }}</td>
+          <td>{{ weather.endTimestamp }}</td>
+          <td>{{ weather.weatherStatusID }}</td>
+          <td>{{ weather.temperature }}</td>
+          <td>{{ weather.feelsLikeTemperature }}</td>
+          <td>{{ weather.humidity }}</td>
+          <td>{{ weather.windSpeed }}</td>
+          <td>{{ weather.windDirection }}</td>
+          <td>{{ weather.pressureinmmhg }}</td>
+          <td>{{ weather.visibilityinmph }}</td>
+          <td>{{ weather.cloudCover }}</td>
+          <td>{{ weather.precipitation }}</td>
+          <td>{{ weather.createdBy }}</td>
+          <td>{{ weather.createdOn | formatMediumDatetime }}</td>
+          <td>{{ weather.updatedBy }}</td>
+          <td>{{ weather.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="weather.calendarID">
+              <a [routerLink]="['/calendar', weather.calendarID?.id, 'view']">{{ weather.calendarID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/weather', weather.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/weather', weather.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(weather)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

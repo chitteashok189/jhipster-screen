@@ -1,0 +1,97 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085136",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "application_user",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "currentPassword",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "passwordHint",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isSystemEnables",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "hasLoggedOut",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "requirePasswordChange",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "lastCurrencyUom",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "lastLocale",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "lastTimeZone",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "disabledDateTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "successiveFailedLogins",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "applicationUserSecurityGroup",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ApplicationUser",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "applicationUserID",
+      "relationshipName": "party",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "applicationUser",
+      "relationshipName": "partyID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

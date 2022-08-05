@@ -1,0 +1,9 @@
+{
+  "blogApp": {
+    "DosingSource": {
+      "null": "",
+      "Automatic": "Automatic",
+      "Manual": "Manual"
+    }
+  }
+}

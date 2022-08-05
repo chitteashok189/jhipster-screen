@@ -1,0 +1,89 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085129",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "role_type",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "hasTable",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "childRoleType",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "validPartyRelationshipType",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "validFromPartyRelationshipType",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "partyInvitationRoleAssociation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "RoleType",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "partyRole",
+      "otherEntityRelationshipName": "roleTypeID",
+      "relationshipName": "partyRole",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "roleTypeAttribute",
+      "otherEntityRelationshipName": "roleTypeID",
+      "relationshipName": "roleTypeAttribute",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "partyRole",
+      "otherEntityRelationshipName": "roleType",
+      "relationshipName": "partyRoleID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "roleTypeAttribute",
+      "otherEntityRelationshipName": "roleType",
+      "relationshipName": "roleTypeAttributeID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

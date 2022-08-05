@@ -1,0 +1,123 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="lot">
+      <h2 data-cy="lotDetailsHeading"><span jhiTranslate="blogApp.lot.detail.title">Lot</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.lot.id">Id</span></dt>
+        <dd>
+          <span>{{ lot.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.lot.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ lot.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.lot.lotCode">Lot Code</span></dt>
+        <dd>
+          <span>{{ lot.lotCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.lot.lotQRCode">Lot QR Code</span></dt>
+        <dd>
+          <div *ngIf="lot.lotQRCode">
+            <a (click)="openFile(lot.lotQRCode, lot.lotQRCodeContentType)" jhiTranslate="entity.action.open">open</a>
+            {{ lot.lotQRCodeContentType }}, {{ byteSize(lot.lotQRCode) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.lot.lotSize">Lot Size</span></dt>
+        <dd>
+          <span>{{ lot.lotSize }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.lot.unitType">Unit Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.Unit.' + lot.unitType }}">{{ lot.unitType }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.lot.seedlingsGerminated">Seedlings Germinated</span></dt>
+        <dd>
+          <span>{{ lot.seedlingsGerminated }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.lot.seedlingsDied">Seedlings Died</span></dt>
+        <dd>
+          <span>{{ lot.seedlingsDied }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.lot.plantsWasted">Plants Wasted</span></dt>
+        <dd>
+          <span>{{ lot.plantsWasted }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.lot.traysSown">Trays Sown</span></dt>
+        <dd>
+          <span>{{ lot.traysSown }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.lot.sowingTime">Sowing Time</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.Sowing.' + lot.sowingTime }}">{{ lot.sowingTime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.lot.traysTranplanted">Trays Tranplanted</span></dt>
+        <dd>
+          <span>{{ lot.traysTranplanted }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.lot.transplantationTime">Transplantation Time</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.Transplantation.' + lot.transplantationTime }}">{{ lot.transplantationTime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.lot.plantsHarvested">Plants Harvested</span></dt>
+        <dd>
+          <span>{{ lot.plantsHarvested }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.lot.harvestTime">Harvest Time</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.HarTime.' + lot.harvestTime }}">{{ lot.harvestTime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.lot.packingDate">Packing Date</span></dt>
+        <dd>
+          <span>{{ lot.packingDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.lot.tranportationDate">Tranportation Date</span></dt>
+        <dd>
+          <span>{{ lot.tranportationDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.lot.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ lot.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.lot.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ lot.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.lot.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ lot.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.lot.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ lot.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.lot.seedID">Seed ID</span></dt>
+        <dd>
+          <div *ngIf="lot.seedID">
+            <a [routerLink]="['/seed', lot.seedID?.id, 'view']">{{ lot.seedID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.lot.cropID">Crop ID</span></dt>
+        <dd>
+          <div *ngIf="lot.cropID">
+            <a [routerLink]="['/crop', lot.cropID?.id, 'view']">{{ lot.cropID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/lot', lot.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

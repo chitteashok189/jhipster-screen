@@ -1,0 +1,38 @@
+{
+  "blogApp": {
+    "partyRole": {
+      "home": {
+        "title": "Party Roles",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Party Role",
+        "createOrEditLabel": "Crear o editar Party Role",
+        "notFound": "Ningún Party Roles encontrado"
+      },
+      "created": "Un nuevo Party Role ha sido creado con el identificador {{ param }}",
+      "updated": "Un Party Role ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Party Role ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Party Role {{ id }}?"
+      },
+      "detail": {
+        "title": "Party Role"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "fromAgreement": "From Agreement",
+      "toAgreement": "To Agreement",
+      "fromCommunicationEvent": "From Communication Event",
+      "toCommunicationEvent": "To Communication Event",
+      "partyIdFrom": "Party Id From",
+      "partyIdTO": "Party Id TO",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "party": "Party",
+      "roleType": "Role Type",
+      "roleTypeID": "Role Type ID",
+      "partyID": "Party ID"
+    }
+  }
+}

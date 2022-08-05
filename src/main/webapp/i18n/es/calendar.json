@@ -1,0 +1,43 @@
+{
+  "blogApp": {
+    "calendar": {
+      "home": {
+        "title": "Calendars",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Calendar",
+        "createOrEditLabel": "Crear o editar Calendar",
+        "notFound": "Ningún Calendars encontrado"
+      },
+      "created": "Un nuevo Calendar ha sido creado con el identificador {{ param }}",
+      "updated": "Un Calendar ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Calendar ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Calendar {{ id }}?"
+      },
+      "detail": {
+        "title": "Calendar"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "calenderDate": "Calender Date",
+      "calenderYear": "Calender Year",
+      "dayOfWeek": "Day Of Week",
+      "monthOfYear": "Month Of Year",
+      "weekOfMonth": "Week Of Month",
+      "weekOfQuarter": "Week Of Quarter",
+      "weekOfYear": "Week Of Year",
+      "dayOfQuarter": "Day Of Quarter",
+      "dayOfYear": "Day Of Year",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "weather": "Weather",
+      "plantFactoryID": "Plant Factory ID",
+      "zoneID": "Zone ID",
+      "cropID": "Crop ID",
+      "toolID": "Tool ID",
+      "seasonID": "Season ID"
+    }
+  }
+}

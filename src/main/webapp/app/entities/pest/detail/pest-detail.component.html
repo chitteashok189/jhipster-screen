@@ -1,0 +1,76 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="pest">
+      <h2 data-cy="pestDetailsHeading"><span jhiTranslate="blogApp.pest.detail.title">Pest</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.pest.id">Id</span></dt>
+        <dd>
+          <span>{{ pest.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.pest.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ pest.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.pest.threatLevel">Threat Level</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.ThreatLevel.' + pest.threatLevel }}">{{ pest.threatLevel }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.pest.name">Name</span></dt>
+        <dd>
+          <span>{{ pest.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.pest.scientificName">Scientific Name</span></dt>
+        <dd>
+          <span>{{ pest.scientificName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.pest.attachements">Attachements</span></dt>
+        <dd>
+          <span>{{ pest.attachements }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.pest.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ pest.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.pest.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ pest.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.pest.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ pest.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.pest.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ pest.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.pest.scoutingID">Scouting ID</span></dt>
+        <dd>
+          <div *ngIf="pest.scoutingID">
+            <a [routerLink]="['/scouting', pest.scoutingID?.id, 'view']">{{ pest.scoutingID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.pest.plantFactoryID">Plant Factory ID</span></dt>
+        <dd>
+          <div *ngIf="pest.plantFactoryID">
+            <a [routerLink]="['/plant-factory', pest.plantFactoryID?.id, 'view']">{{ pest.plantFactoryID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/pest', pest.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

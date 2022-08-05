@@ -1,0 +1,76 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="seed">
+      <h2 data-cy="seedDetailsHeading"><span jhiTranslate="blogApp.seed.detail.title">Seed</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.seed.id">Id</span></dt>
+        <dd>
+          <span>{{ seed.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.seed.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ seed.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.seed.breederID">Breeder ID</span></dt>
+        <dd>
+          <span>{{ seed.breederID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.seed.seedClass">Seed Class</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.SeedClass.' + seed.seedClass }}">{{ seed.seedClass }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.seed.variety">Variety</span></dt>
+        <dd>
+          <span>{{ seed.variety }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.seed.seedRate">Seed Rate</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.SeedRate.' + seed.seedRate }}">{{ seed.seedRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.seed.germinationPercentage">Germination Percentage</span></dt>
+        <dd>
+          <span>{{ seed.germinationPercentage }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.seed.treatment">Treatment</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.Treatment.' + seed.treatment }}">{{ seed.treatment }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.seed.origin">Origin</span></dt>
+        <dd>
+          <span>{{ seed.origin }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.seed.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ seed.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.seed.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ seed.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.seed.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ seed.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.seed.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ seed.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/seed', seed.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

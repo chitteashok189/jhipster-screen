@@ -1,0 +1,106 @@
+<div>
+  <h2 id="page-heading" data-cy="AlertHeading">
+    <span jhiTranslate="blogApp.alert.home.title">Alerts</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.alert.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-alert"
+        [routerLink]="['/alert/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.alert.home.createLabel"> Create a new Alert </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="alerts?.length === 0">
+    <span jhiTranslate="blogApp.alert.home.notFound">No alerts found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="alerts && alerts.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.alert.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.alert.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.alert.name">Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.alert.alertType">Alert Type</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.alert.description">Description</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.alert.datePeriod">Date Period</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.alert.durationDays">Duration Days</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.alert.minimumTemperature">Minimum Temperature</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.alert.maximumTemperature">Maximum Temperature</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.alert.minHumidity">Min Humidity</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.alert.maxHumidity">Max Humidity</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.alert.precipitationType">Precipitation Type</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.alert.minPrecipitation">Min Precipitation</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.alert.maxPrecipitation">Max Precipitation</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.alert.status">Status</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.alert.remediation">Remediation</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.alert.farmAssigned">Farm Assigned</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.alert.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.alert.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.alert.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.alert.updatedOn">Updated On</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let alert of alerts; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/alert', alert.id, 'view']">{{ alert.id }}</a>
+          </td>
+          <td>{{ alert.gUID }}</td>
+          <td>{{ alert.name }}</td>
+          <td jhiTranslate="{{ 'blogApp.AlertType.' + alert.alertType }}">{{ alert.alertType }}</td>
+          <td>{{ alert.description }}</td>
+          <td>{{ alert.datePeriod }}</td>
+          <td>{{ alert.durationDays }}</td>
+          <td>{{ alert.minimumTemperature }}</td>
+          <td>{{ alert.maximumTemperature }}</td>
+          <td>{{ alert.minHumidity }}</td>
+          <td>{{ alert.maxHumidity }}</td>
+          <td jhiTranslate="{{ 'blogApp.PreType.' + alert.precipitationType }}">{{ alert.precipitationType }}</td>
+          <td>{{ alert.minPrecipitation }}</td>
+          <td>{{ alert.maxPrecipitation }}</td>
+          <td jhiTranslate="{{ 'blogApp.AlertStatus.' + alert.status }}">{{ alert.status }}</td>
+          <td jhiTranslate="{{ 'blogApp.Remediation.' + alert.remediation }}">{{ alert.remediation }}</td>
+          <td>{{ alert.farmAssigned }}</td>
+          <td>{{ alert.createdBy }}</td>
+          <td>{{ alert.createdOn | formatMediumDatetime }}</td>
+          <td>{{ alert.updatedBy }}</td>
+          <td>{{ alert.updatedOn | formatMediumDatetime }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/alert', alert.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/alert', alert.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(alert)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

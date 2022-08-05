@@ -1,0 +1,108 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="alert">
+      <h2 data-cy="alertDetailsHeading"><span jhiTranslate="blogApp.alert.detail.title">Alert</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.alert.id">Id</span></dt>
+        <dd>
+          <span>{{ alert.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.alert.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ alert.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.alert.name">Name</span></dt>
+        <dd>
+          <span>{{ alert.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.alert.alertType">Alert Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.AlertType.' + alert.alertType }}">{{ alert.alertType }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.alert.description">Description</span></dt>
+        <dd>
+          <span>{{ alert.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.alert.datePeriod">Date Period</span></dt>
+        <dd>
+          <span>{{ alert.datePeriod }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.alert.durationDays">Duration Days</span></dt>
+        <dd>
+          <span>{{ alert.durationDays }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.alert.minimumTemperature">Minimum Temperature</span></dt>
+        <dd>
+          <span>{{ alert.minimumTemperature }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.alert.maximumTemperature">Maximum Temperature</span></dt>
+        <dd>
+          <span>{{ alert.maximumTemperature }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.alert.minHumidity">Min Humidity</span></dt>
+        <dd>
+          <span>{{ alert.minHumidity }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.alert.maxHumidity">Max Humidity</span></dt>
+        <dd>
+          <span>{{ alert.maxHumidity }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.alert.precipitationType">Precipitation Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.PreType.' + alert.precipitationType }}">{{ alert.precipitationType }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.alert.minPrecipitation">Min Precipitation</span></dt>
+        <dd>
+          <span>{{ alert.minPrecipitation }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.alert.maxPrecipitation">Max Precipitation</span></dt>
+        <dd>
+          <span>{{ alert.maxPrecipitation }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.alert.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.AlertStatus.' + alert.status }}">{{ alert.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.alert.remediation">Remediation</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.Remediation.' + alert.remediation }}">{{ alert.remediation }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.alert.farmAssigned">Farm Assigned</span></dt>
+        <dd>
+          <span>{{ alert.farmAssigned }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.alert.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ alert.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.alert.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ alert.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.alert.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ alert.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.alert.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ alert.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/alert', alert.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

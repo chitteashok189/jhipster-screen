@@ -1,0 +1,100 @@
+<div>
+  <h2 id="page-heading" data-cy="NutrientHeading">
+    <span jhiTranslate="blogApp.nutrient.home.title">Nutrients</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.nutrient.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-nutrient"
+        [routerLink]="['/nutrient/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.nutrient.home.createLabel"> Create a new Nutrient </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="nutrients?.length === 0">
+    <span jhiTranslate="blogApp.nutrient.home.notFound">No nutrients found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="nutrients && nutrients.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.nutrient.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.nutrient.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.nutrient.nutrientName">Nutrient Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.nutrient.type">Type</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.nutrient.brandName">Brand Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.nutrient.nutrientLabel">Nutrient Label</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.nutrient.nutrientForms">Nutrient Forms</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.nutrient.nutrientTypeID">Nutrient Type ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.nutrient.price">Price</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.nutrient.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.nutrient.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.nutrient.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.nutrient.updatedOn">Updated On</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let nutrient of nutrients; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/nutrient', nutrient.id, 'view']">{{ nutrient.id }}</a>
+          </td>
+          <td>{{ nutrient.gUID }}</td>
+          <td>{{ nutrient.nutrientName }}</td>
+          <td jhiTranslate="{{ 'blogApp.NutrientType.' + nutrient.type }}">{{ nutrient.type }}</td>
+          <td>{{ nutrient.brandName }}</td>
+          <td>{{ nutrient.nutrientLabel }}</td>
+          <td jhiTranslate="{{ 'blogApp.NutForms.' + nutrient.nutrientForms }}">{{ nutrient.nutrientForms }}</td>
+          <td jhiTranslate="{{ 'blogApp.NutTypeID.' + nutrient.nutrientTypeID }}">{{ nutrient.nutrientTypeID }}</td>
+          <td>{{ nutrient.price }}</td>
+          <td>{{ nutrient.createdBy }}</td>
+          <td>{{ nutrient.createdOn | formatMediumDatetime }}</td>
+          <td>{{ nutrient.updatedBy }}</td>
+          <td>{{ nutrient.updatedOn | formatMediumDatetime }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/nutrient', nutrient.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/nutrient', nutrient.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(nutrient)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+{
+  "blogApp": {
+    "pest": {
+      "home": {
+        "title": "Pests",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Pest",
+        "createOrEditLabel": "Crear o editar Pest",
+        "notFound": "Ningún Pests encontrado"
+      },
+      "created": "Un nuevo Pest ha sido creado con el identificador {{ param }}",
+      "updated": "Un Pest ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Pest ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Pest {{ id }}?"
+      },
+      "detail": {
+        "title": "Pest"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "threatLevel": "Threat Level",
+      "name": "Name",
+      "scientificName": "Scientific Name",
+      "attachements": "Attachements",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "pestControl": "Pest Control",
+      "symptom": "Symptom",
+      "scoutingID": "Scouting ID",
+      "plantFactoryID": "Plant Factory ID"
+    }
+  }
+}

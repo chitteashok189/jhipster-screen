@@ -1,0 +1,224 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085156",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "recipe",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "plantName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "recipeType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pHMin",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "pHMax",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "ecMin",
+      "fieldType": "Ec",
+      "fieldValues": "Olericulture,Floriculture,Pomology,Landscaping,Arboriculture,Viticulture"
+    },
+    {
+      "fieldName": "eCMax",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "airTempMax",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "airTempMin",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "humidityMax",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "humidityMin",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nutrientTempMax",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nutrientTempMin",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "luxGermMax",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "luxGermMin",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "lightGermDor",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "lightGermCycle",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "luxGrowMax",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "luxGrowMin",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "lightGrowDor",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "lightGrowCycle",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "co2LightMax",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "co2LightMin",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "co2DarkMax",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "co2DarkMin",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dOMax",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dOMin",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "mediaMoistureMax",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "mediaMoistureMin",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nitrogen",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "phosphorus",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "potassium",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "sulphur",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "calcium",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "magnesium",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "manganese",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "iron",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "boron",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "copper",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "zinc",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "molybdenum",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "germinationTAT",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "identificationComment",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "growingComment",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "usageComment",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Recipe",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "plant",
+      "otherEntityRelationshipName": "recipe",
+      "relationshipName": "plantID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

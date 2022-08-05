@@ -1,0 +1,41 @@
+{
+  "blogApp": {
+    "scouting": {
+      "home": {
+        "title": "Scoutings",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Scouting",
+        "createOrEditLabel": "Crear o editar Scouting",
+        "notFound": "Ningún Scoutings encontrado"
+      },
+      "created": "Un nuevo Scouting ha sido creado con el identificador {{ param }}",
+      "updated": "Un Scouting ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Scouting ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Scouting {{ id }}?"
+      },
+      "detail": {
+        "title": "Scouting"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "scoutingDate": "Scouting Date",
+      "scout": "Scout",
+      "scoutingType": "Scouting Type",
+      "scoutingCoordinates": "Scouting Coordinates",
+      "scoutingArea": "Scouting Area",
+      "cropState": "Crop State",
+      "comments": "Comments",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "pest": "Pest",
+      "disease": "Disease",
+      "symptom": "Symptom",
+      "disorder": "Disorder",
+      "plantFactoryID": "Plant Factory ID",
+      "cropID": "Crop ID"
+    }
+  }
+}

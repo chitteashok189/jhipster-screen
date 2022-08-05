@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="partyAttribute">
+      <h2 data-cy="partyAttributeDetailsHeading"><span jhiTranslate="blogApp.partyAttribute.detail.title">Party Attribute</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.partyAttribute.id">Id</span></dt>
+        <dd>
+          <span>{{ partyAttribute.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyAttribute.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ partyAttribute.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyAttribute.attributeName">Attribute Name</span></dt>
+        <dd>
+          <span>{{ partyAttribute.attributeName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyAttribute.attributeValue">Attribute Value</span></dt>
+        <dd>
+          <span>{{ partyAttribute.attributeValue }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyAttribute.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ partyAttribute.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyAttribute.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ partyAttribute.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyAttribute.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ partyAttribute.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyAttribute.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ partyAttribute.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyAttribute.partyID">Party ID</span></dt>
+        <dd>
+          <div *ngIf="partyAttribute.partyID">
+            <a [routerLink]="['/party', partyAttribute.partyID?.id, 'view']">{{ partyAttribute.partyID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/party-attribute', partyAttribute.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

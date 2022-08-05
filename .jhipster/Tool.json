@@ -1,0 +1,66 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085215",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "tool",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "toolType",
+      "fieldType": "ToolType",
+      "fieldValues": "Spade,Rake,Shovel,Hoe,Hand,Cultivator,Sickle,Wheelbarrow,Pruners,Tractor,Sprayer"
+    },
+    {
+      "fieldName": "toolName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "manufacturer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Tool",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "crop",
+      "otherEntityRelationshipName": "toolID",
+      "relationshipName": "crop",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "calendar",
+      "otherEntityRelationshipName": "toolID",
+      "relationshipName": "calendar",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,98 @@
+<div>
+  <h2 id="page-heading" data-cy="LightHeading">
+    <span jhiTranslate="blogApp.light.home.title">Lights</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.light.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-light"
+        [routerLink]="['/light/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.light.home.createLabel"> Create a new Light </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="lights?.length === 0">
+    <span jhiTranslate="blogApp.light.home.notFound">No lights found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="lights && lights.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.light.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.light.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.light.source">Source</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.light.lightIntensity">Light Intensity</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.light.dailyLightIntegral">Daily Light Integral</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.light.pAR">P AR</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.light.pPFD">P PFD</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.light.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.light.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.light.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.light.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.light.deviceID">Device ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.light.plantFactoryID">Plant Factory ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let light of lights; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/light', light.id, 'view']">{{ light.id }}</a>
+          </td>
+          <td>{{ light.gUID }}</td>
+          <td jhiTranslate="{{ 'blogApp.LightSource.' + light.source }}">{{ light.source }}</td>
+          <td>{{ light.lightIntensity }}</td>
+          <td>{{ light.dailyLightIntegral }}</td>
+          <td>{{ light.pAR }}</td>
+          <td>{{ light.pPFD }}</td>
+          <td>{{ light.createdBy }}</td>
+          <td>{{ light.createdOn | formatMediumDatetime }}</td>
+          <td>{{ light.updatedBy }}</td>
+          <td>{{ light.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="light.deviceID">
+              <a [routerLink]="['/device', light.deviceID?.id, 'view']">{{ light.deviceID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="light.plantFactoryID">
+              <a [routerLink]="['/plant-factory', light.plantFactoryID?.id, 'view']">{{ light.plantFactoryID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/light', light.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/light', light.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(light)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

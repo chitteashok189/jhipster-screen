@@ -1,0 +1,161 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="plant">
+      <h2 data-cy="plantDetailsHeading"><span jhiTranslate="blogApp.plant.detail.title">Plant</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.plant.id">Id</span></dt>
+        <dd>
+          <span>{{ plant.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ plant.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.commonName">Common Name</span></dt>
+        <dd>
+          <span>{{ plant.commonName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.scientificName">Scientific Name</span></dt>
+        <dd>
+          <span>{{ plant.scientificName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.familyName">Family Name</span></dt>
+        <dd>
+          <span>{{ plant.familyName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.plantSpacing">Plant Spacing</span></dt>
+        <dd>
+          <span>{{ plant.plantSpacing }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.seedingMonth">Seeding Month</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.Seeding.' + plant.seedingMonth }}">{{ plant.seedingMonth }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.transplantMonth">Transplant Month</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.TransplantMonth.' + plant.transplantMonth }}">{{ plant.transplantMonth }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.harvestMonth">Harvest Month</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.HarvestMonth.' + plant.harvestMonth }}">{{ plant.harvestMonth }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.originCountry">Origin Country</span></dt>
+        <dd>
+          <span>{{ plant.originCountry }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.yearlyCrops">Yearly Crops</span></dt>
+        <dd>
+          <span>{{ plant.yearlyCrops }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.nativeTemperature">Native Temperature</span></dt>
+        <dd>
+          <span>{{ plant.nativeTemperature }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.nativeHumidity">Native Humidity</span></dt>
+        <dd>
+          <span>{{ plant.nativeHumidity }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.nativeDayDuration">Native Day Duration</span></dt>
+        <dd>
+          <span>{{ plant.nativeDayDuration }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.nativeNightDuration">Native Night Duration</span></dt>
+        <dd>
+          <span>{{ plant.nativeNightDuration }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.nativeSoilMoisture">Native Soil Moisture</span></dt>
+        <dd>
+          <span>{{ plant.nativeSoilMoisture }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.plantingPeriod">Planting Period</span></dt>
+        <dd>
+          <span>{{ plant.plantingPeriod }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.yieldUnit">Yield Unit</span></dt>
+        <dd>
+          <span>{{ plant.yieldUnit }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.growthHeightMin">Growth Height Min</span></dt>
+        <dd>
+          <span>{{ plant.growthHeightMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.growthHeightMax">Growth Height Max</span></dt>
+        <dd>
+          <span>{{ plant.growthHeightMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.grownSpreadMin">Grown Spread Min</span></dt>
+        <dd>
+          <span>{{ plant.grownSpreadMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.grownSpreadMax">Grown Spread Max</span></dt>
+        <dd>
+          <span>{{ plant.grownSpreadMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.grownWeightMax">Grown Weight Max</span></dt>
+        <dd>
+          <span>{{ plant.grownWeightMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.grownWeightMin">Grown Weight Min</span></dt>
+        <dd>
+          <span>{{ plant.grownWeightMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.growingMedia">Growing Media</span></dt>
+        <dd>
+          <span>{{ plant.growingMedia }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.documents">Documents</span></dt>
+        <dd>
+          <span>{{ plant.documents }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.notes">Notes</span></dt>
+        <dd>
+          <span>{{ plant.notes }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.attachments">Attachments</span></dt>
+        <dd>
+          <div *ngIf="plant.attachments">
+            <a (click)="openFile(plant.attachments, plant.attachmentsContentType)" jhiTranslate="entity.action.open">open</a>
+            {{ plant.attachmentsContentType }}, {{ byteSize(plant.attachments) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ plant.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ plant.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ plant.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ plant.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plant.cropID">Crop ID</span></dt>
+        <dd>
+          <div *ngIf="plant.cropID">
+            <a [routerLink]="['/crop', plant.cropID?.id, 'view']">{{ plant.cropID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/plant', plant.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+{
+  "blogApp": {
+    "securityPermission": {
+      "home": {
+        "title": "Security Permissions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Security Permission",
+        "createOrEditLabel": "Create or edit a Security Permission",
+        "notFound": "No Security Permissions found"
+      },
+      "created": "A new Security Permission is created with identifier {{ param }}",
+      "updated": "A Security Permission is updated with identifier {{ param }}",
+      "deleted": "A Security Permission is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Security Permission {{ id }}?"
+      },
+      "detail": {
+        "title": "Security Permission"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "description": "Description",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "securityGroupPermission": "Security Group Permission",
+      "securityGroupPermissionID": "Security Group Permission ID"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "blogApp": {
+    "partyRelationship": {
+      "home": {
+        "title": "Party Relationships",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Party Relationship",
+        "createOrEditLabel": "Crear o editar Party Relationship",
+        "notFound": "Ningún Party Relationships encontrado"
+      },
+      "created": "Un nuevo Party Relationship ha sido creado con el identificador {{ param }}",
+      "updated": "Un Party Relationship ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Party Relationship ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Party Relationship {{ id }}?"
+      },
+      "detail": {
+        "title": "Party Relationship"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "partyIdTo": "Party Id To",
+      "partyIdFrom": "Party Id From",
+      "roleTypeIdFrom": "Role Type Id From",
+      "roleTypeIdTo": "Role Type Id To",
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "relationshipName": "Relationship Name",
+      "positionTitle": "Position Title",
+      "comments": "Comments",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "partyRelationshipType": "Party Relationship Type",
+      "partyRelationshipTypeID": "Party Relationship Type ID",
+      "securityGroupID": "Security Group ID"
+    }
+  }
+}

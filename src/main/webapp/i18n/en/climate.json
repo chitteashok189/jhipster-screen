@@ -1,0 +1,41 @@
+{
+  "blogApp": {
+    "climate": {
+      "home": {
+        "title": "Climates",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Climate",
+        "createOrEditLabel": "Create or edit a Climate",
+        "notFound": "No Climates found"
+      },
+      "created": "A new Climate is created with identifier {{ param }}",
+      "updated": "A Climate is updated with identifier {{ param }}",
+      "deleted": "A Climate is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Climate {{ id }}?"
+      },
+      "detail": {
+        "title": "Climate"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "source": "Source",
+      "airTemperature": "Air Temperature",
+      "relativeHumidity": "Relative Humidity",
+      "vPD": "V PD",
+      "evapotranspiration": "Evapotranspiration",
+      "barometricPressure": "Barometric Pressure",
+      "seaLevelPressure": "Sea Level Pressure",
+      "co2Level": "Co 2 Level",
+      "dewPoint": "Dew Point",
+      "solarRadiation": "Solar Radiation",
+      "heatIndex": "Heat Index",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "deviceID": "Device ID",
+      "plantFactoryID": "Plant Factory ID"
+    }
+  }
+}

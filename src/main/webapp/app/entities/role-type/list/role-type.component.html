@@ -1,0 +1,114 @@
+<div>
+  <h2 id="page-heading" data-cy="RoleTypeHeading">
+    <span jhiTranslate="blogApp.roleType.home.title">Role Types</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.roleType.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-role-type"
+        [routerLink]="['/role-type/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.roleType.home.createLabel"> Create a new Role Type </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="roleTypes?.length === 0">
+    <span jhiTranslate="blogApp.roleType.home.notFound">No roleTypes found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="roleTypes && roleTypes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.roleType.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.roleType.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.roleType.hasTable">Has Table</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.roleType.description">Description</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.roleType.childRoleType">Child Role Type</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.roleType.validPartyRelationshipType">Valid Party Relationship Type</span></th>
+          <th scope="col">
+            <span jhiTranslate="blogApp.roleType.validFromPartyRelationshipType">Valid From Party Relationship Type</span>
+          </th>
+          <th scope="col"><span jhiTranslate="blogApp.roleType.partyInvitationRoleAssociation">Party Invitation Role Association</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.roleType.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.roleType.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.roleType.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.roleType.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.roleType.partyRoleID">Party Role ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.roleType.roleTypeAttributeID">Role Type Attribute ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let roleType of roleTypes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/role-type', roleType.id, 'view']">{{ roleType.id }}</a>
+          </td>
+          <td>{{ roleType.gUID }}</td>
+          <td>{{ roleType.hasTable }}</td>
+          <td>{{ roleType.description }}</td>
+          <td>{{ roleType.childRoleType }}</td>
+          <td>{{ roleType.validPartyRelationshipType }}</td>
+          <td>{{ roleType.validFromPartyRelationshipType }}</td>
+          <td>{{ roleType.partyInvitationRoleAssociation }}</td>
+          <td>{{ roleType.createdBy }}</td>
+          <td>{{ roleType.createdOn | formatMediumDatetime }}</td>
+          <td>{{ roleType.updatedBy }}</td>
+          <td>{{ roleType.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="roleType.partyRoleID">
+              <a [routerLink]="['/party-role', roleType.partyRoleID?.id, 'view']">{{ roleType.partyRoleID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="roleType.roleTypeAttributeID">
+              <a [routerLink]="['/role-type-attribute', roleType.roleTypeAttributeID?.id, 'view']">{{
+                roleType.roleTypeAttributeID?.id
+              }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/role-type', roleType.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/role-type', roleType.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(roleType)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

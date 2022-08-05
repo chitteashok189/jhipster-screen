@@ -1,0 +1,88 @@
+<div>
+  <h2 id="page-heading" data-cy="PartyStatusHeading">
+    <span jhiTranslate="blogApp.partyStatus.home.title">Party Statuses</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.partyStatus.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-party-status"
+        [routerLink]="['/party-status/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.partyStatus.home.createLabel"> Create a new Party Status </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="partyStatuses?.length === 0">
+    <span jhiTranslate="blogApp.partyStatus.home.notFound">No partyStatuses found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="partyStatuses && partyStatuses.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.partyStatus.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyStatus.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyStatus.statusDate">Status Date</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyStatus.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyStatus.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyStatus.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyStatus.updatedOn">Updated On</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let partyStatus of partyStatuses; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/party-status', partyStatus.id, 'view']">{{ partyStatus.id }}</a>
+          </td>
+          <td>{{ partyStatus.gUID }}</td>
+          <td>{{ partyStatus.statusDate | formatMediumDatetime }}</td>
+          <td>{{ partyStatus.createdBy }}</td>
+          <td>{{ partyStatus.createdOn | formatMediumDatetime }}</td>
+          <td>{{ partyStatus.updatedBy }}</td>
+          <td>{{ partyStatus.updatedOn | formatMediumDatetime }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/party-status', partyStatus.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/party-status', partyStatus.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(partyStatus)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,90 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="sensor">
+      <h2 data-cy="sensorDetailsHeading"><span jhiTranslate="blogApp.sensor.detail.title">Sensor</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.sensor.id">Id</span></dt>
+        <dd>
+          <span>{{ sensor.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.sensor.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ sensor.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.sensor.sensorName">Sensor Name</span></dt>
+        <dd>
+          <span>{{ sensor.sensorName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.sensor.sensorModelName">Sensor Model Name</span></dt>
+        <dd>
+          <span>{{ sensor.sensorModelName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.sensor.hardwareID">Hardware ID</span></dt>
+        <dd>
+          <span>{{ sensor.hardwareID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.sensor.port">Port</span></dt>
+        <dd>
+          <span>{{ sensor.port }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.sensor.properties">Properties</span></dt>
+        <dd>
+          <span>{{ sensor.properties }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.sensor.description">Description</span></dt>
+        <dd>
+          <span>{{ sensor.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.sensor.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ sensor.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.sensor.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ sensor.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.sensor.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ sensor.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.sensor.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ sensor.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.sensor.locationID">Location ID</span></dt>
+        <dd>
+          <div *ngIf="sensor.locationID">
+            <a [routerLink]="['/location', sensor.locationID?.id, 'view']">{{ sensor.locationID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.sensor.deviceID">Device ID</span></dt>
+        <dd>
+          <div *ngIf="sensor.deviceID">
+            <a [routerLink]="['/device', sensor.deviceID?.id, 'view']">{{ sensor.deviceID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.sensor.sensorModelID">Sensor Model ID</span></dt>
+        <dd>
+          <div *ngIf="sensor.sensorModelID">
+            <a [routerLink]="['/sensor-model', sensor.sensorModelID?.id, 'view']">{{ sensor.sensorModelID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/sensor', sensor.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

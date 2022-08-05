@@ -1,0 +1,96 @@
+<div>
+  <h2 id="page-heading" data-cy="PestHeading">
+    <span jhiTranslate="blogApp.pest.home.title">Pests</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.pest.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-pest"
+        [routerLink]="['/pest/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.pest.home.createLabel"> Create a new Pest </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="pests?.length === 0">
+    <span jhiTranslate="blogApp.pest.home.notFound">No pests found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="pests && pests.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.pest.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.pest.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.pest.threatLevel">Threat Level</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.pest.name">Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.pest.scientificName">Scientific Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.pest.attachements">Attachements</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.pest.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.pest.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.pest.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.pest.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.pest.scoutingID">Scouting ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.pest.plantFactoryID">Plant Factory ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pest of pests; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/pest', pest.id, 'view']">{{ pest.id }}</a>
+          </td>
+          <td>{{ pest.gUID }}</td>
+          <td jhiTranslate="{{ 'blogApp.ThreatLevel.' + pest.threatLevel }}">{{ pest.threatLevel }}</td>
+          <td>{{ pest.name }}</td>
+          <td>{{ pest.scientificName }}</td>
+          <td>{{ pest.attachements }}</td>
+          <td>{{ pest.createdBy }}</td>
+          <td>{{ pest.createdOn | formatMediumDatetime }}</td>
+          <td>{{ pest.updatedBy }}</td>
+          <td>{{ pest.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="pest.scoutingID">
+              <a [routerLink]="['/scouting', pest.scoutingID?.id, 'view']">{{ pest.scoutingID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="pest.plantFactoryID">
+              <a [routerLink]="['/plant-factory', pest.plantFactoryID?.id, 'view']">{{ pest.plantFactoryID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/pest', pest.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/pest', pest.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(pest)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085207",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "pest",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "threatLevel",
+      "fieldType": "ThreatLevel",
+      "fieldValues": "High,Moderate,Low"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "scientificName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "attachements",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Pest",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "pestControl",
+      "otherEntityRelationshipName": "pestID",
+      "relationshipName": "pestControl",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "symptom",
+      "otherEntityRelationshipName": "pestID",
+      "relationshipName": "symptom",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "scouting",
+      "otherEntityRelationshipName": "pest",
+      "relationshipName": "scoutingID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "plantFactory",
+      "otherEntityRelationshipName": "pest",
+      "relationshipName": "plantFactoryID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

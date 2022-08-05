@@ -1,0 +1,33 @@
+{
+  "blogApp": {
+    "pestControl": {
+      "home": {
+        "title": "Pest Controls",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Pest Control",
+        "createOrEditLabel": "Crear o editar Pest Control",
+        "notFound": "Ningún Pest Controls encontrado"
+      },
+      "created": "Un nuevo Pest Control ha sido creado con el identificador {{ param }}",
+      "updated": "Un Pest Control ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Pest Control ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Pest Control {{ id }}?"
+      },
+      "detail": {
+        "title": "Pest Control"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "natureOfDamage": "Nature Of Damage",
+      "controlType": "Control Type",
+      "controlMeasures": "Control Measures",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "pestID": "Pest ID",
+      "cropID": "Crop ID"
+    }
+  }
+}

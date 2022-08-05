@@ -1,0 +1,104 @@
+<div>
+  <h2 id="page-heading" data-cy="PartyRelationshipTypeHeading">
+    <span jhiTranslate="blogApp.partyRelationshipType.home.title">Party Relationship Types</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.partyRelationshipType.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-party-relationship-type"
+        [routerLink]="['/party-relationship-type/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.partyRelationshipType.home.createLabel"> Create a new Party Relationship Type </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="partyRelationshipTypes?.length === 0">
+    <span jhiTranslate="blogApp.partyRelationshipType.home.notFound">No partyRelationshipTypes found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="partyRelationshipTypes && partyRelationshipTypes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationshipType.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationshipType.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationshipType.hasTable">Has Table</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationshipType.partyRelationshipName">Party Relationship Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationshipType.description">Description</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationshipType.roleTypeIdValidFrom">Role Type Id Valid From</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationshipType.roleTypeIdValidTo">Role Type Id Valid To</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationshipType.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationshipType.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationshipType.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationshipType.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationshipType.partyRelationshipID">Party Relationship ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let partyRelationshipType of partyRelationshipTypes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/party-relationship-type', partyRelationshipType.id, 'view']">{{ partyRelationshipType.id }}</a>
+          </td>
+          <td>{{ partyRelationshipType.gUID }}</td>
+          <td>{{ partyRelationshipType.hasTable }}</td>
+          <td>{{ partyRelationshipType.partyRelationshipName }}</td>
+          <td>{{ partyRelationshipType.description }}</td>
+          <td>{{ partyRelationshipType.roleTypeIdValidFrom }}</td>
+          <td>{{ partyRelationshipType.roleTypeIdValidTo }}</td>
+          <td>{{ partyRelationshipType.createdBy }}</td>
+          <td>{{ partyRelationshipType.createdOn | formatMediumDatetime }}</td>
+          <td>{{ partyRelationshipType.updatedBy }}</td>
+          <td>{{ partyRelationshipType.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="partyRelationshipType.partyRelationshipID">
+              <a [routerLink]="['/party-relationship', partyRelationshipType.partyRelationshipID?.id, 'view']">{{
+                partyRelationshipType.partyRelationshipID?.id
+              }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/party-relationship-type', partyRelationshipType.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/party-relationship-type', partyRelationshipType.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(partyRelationshipType)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

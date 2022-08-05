@@ -1,0 +1,33 @@
+{
+  "blogApp": {
+    "diseaseControl": {
+      "home": {
+        "title": "Disease Controls",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Disease Control",
+        "createOrEditLabel": "Crear o editar Disease Control",
+        "notFound": "Ningún Disease Controls encontrado"
+      },
+      "created": "Un nuevo Disease Control ha sido creado con el identificador {{ param }}",
+      "updated": "Un Disease Control ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Disease Control ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Disease Control {{ id }}?"
+      },
+      "detail": {
+        "title": "Disease Control"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "controlType": "Control Type",
+      "treatment": "Treatment",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "diseaseID": "Disease ID",
+      "cropID": "Crop ID",
+      "symptomID": "Symptom ID"
+    }
+  }
+}

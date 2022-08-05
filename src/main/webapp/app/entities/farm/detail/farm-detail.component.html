@@ -1,0 +1,72 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="farm">
+      <h2 data-cy="farmDetailsHeading"><span jhiTranslate="blogApp.farm.detail.title">Farm</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.farm.id">Id</span></dt>
+        <dd>
+          <span>{{ farm.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.farm.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ farm.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.farm.farmName">Farm Name</span></dt>
+        <dd>
+          <span>{{ farm.farmName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.farm.farmType">Farm Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.FarmType.' + farm.farmType }}">{{ farm.farmType }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.farm.farmDescription">Farm Description</span></dt>
+        <dd>
+          <span>{{ farm.farmDescription }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.farm.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ farm.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.farm.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ farm.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.farm.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ farm.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.farm.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ farm.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.farm.partyID">Party ID</span></dt>
+        <dd>
+          <div *ngIf="farm.partyID">
+            <a [routerLink]="['/party', farm.partyID?.id, 'view']">{{ farm.partyID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.farm.locationID">Location ID</span></dt>
+        <dd>
+          <div *ngIf="farm.locationID">
+            <a [routerLink]="['/location', farm.locationID?.id, 'view']">{{ farm.locationID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/farm', farm.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

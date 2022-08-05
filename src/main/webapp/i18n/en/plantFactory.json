@@ -1,0 +1,45 @@
+{
+  "blogApp": {
+    "plantFactory": {
+      "home": {
+        "title": "Plant Factories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Plant Factory",
+        "createOrEditLabel": "Create or edit a Plant Factory",
+        "notFound": "No Plant Factories found"
+      },
+      "created": "A new Plant Factory is created with identifier {{ param }}",
+      "updated": "A Plant Factory is updated with identifier {{ param }}",
+      "deleted": "A Plant Factory is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Plant Factory {{ id }}?"
+      },
+      "detail": {
+        "title": "Plant Factory"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "plantFactoryName": "Plant Factory Name",
+      "plantFactoryTypeID": "Plant Factory Type ID",
+      "plantFactorySubType": "Plant Factory Sub Type",
+      "plantFactoryDescription": "Plant Factory Description",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "zone": "Zone",
+      "device": "Device",
+      "climate": "Climate",
+      "irrigation": "Irrigation",
+      "dosing": "Dosing",
+      "light": "Light",
+      "crop": "Crop",
+      "calendar": "Calendar",
+      "scouting": "Scouting",
+      "pest": "Pest",
+      "disease": "Disease",
+      "farmID": "Farm ID",
+      "deviceID": "Device ID"
+    }
+  }
+}

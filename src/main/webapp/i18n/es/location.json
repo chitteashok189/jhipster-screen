@@ -1,0 +1,38 @@
+{
+  "blogApp": {
+    "location": {
+      "home": {
+        "title": "Locations",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Location",
+        "createOrEditLabel": "Crear o editar Location",
+        "notFound": "Ningún Locations encontrado"
+      },
+      "created": "Un nuevo Location ha sido creado con el identificador {{ param }}",
+      "updated": "Un Location ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Location ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Location {{ id }}?"
+      },
+      "detail": {
+        "title": "Location"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "buildingNo": "Building No",
+      "street": "Street",
+      "area": "Area",
+      "country": "Country",
+      "state": "State",
+      "city": "City",
+      "postalCode": "Postal Code",
+      "otherAddress": "Other Address",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "farm": "Farm",
+      "sensor": "Sensor"
+    }
+  }
+}

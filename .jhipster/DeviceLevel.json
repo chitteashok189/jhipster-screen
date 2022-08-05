@@ -1,0 +1,75 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085147",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "device_level",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "levelName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deviceLevelType",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "manufacturer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productCode",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "ports",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "properties",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "DeviceLevel",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "device",
+      "otherEntityRelationshipName": "deviceLevelID",
+      "relationshipName": "device",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

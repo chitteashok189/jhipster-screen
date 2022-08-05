@@ -1,0 +1,80 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="light">
+      <h2 data-cy="lightDetailsHeading"><span jhiTranslate="blogApp.light.detail.title">Light</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.light.id">Id</span></dt>
+        <dd>
+          <span>{{ light.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.light.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ light.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.light.source">Source</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.LightSource.' + light.source }}">{{ light.source }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.light.lightIntensity">Light Intensity</span></dt>
+        <dd>
+          <span>{{ light.lightIntensity }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.light.dailyLightIntegral">Daily Light Integral</span></dt>
+        <dd>
+          <span>{{ light.dailyLightIntegral }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.light.pAR">P AR</span></dt>
+        <dd>
+          <span>{{ light.pAR }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.light.pPFD">P PFD</span></dt>
+        <dd>
+          <span>{{ light.pPFD }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.light.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ light.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.light.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ light.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.light.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ light.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.light.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ light.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.light.deviceID">Device ID</span></dt>
+        <dd>
+          <div *ngIf="light.deviceID">
+            <a [routerLink]="['/device', light.deviceID?.id, 'view']">{{ light.deviceID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.light.plantFactoryID">Plant Factory ID</span></dt>
+        <dd>
+          <div *ngIf="light.plantFactoryID">
+            <a [routerLink]="['/plant-factory', light.plantFactoryID?.id, 'view']">{{ light.plantFactoryID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/light', light.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

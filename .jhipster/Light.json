@@ -1,0 +1,74 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085202",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "light",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "source",
+      "fieldType": "LightSource",
+      "fieldValues": "Automatic,Manual"
+    },
+    {
+      "fieldName": "lightIntensity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dailyLightIntegral",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "pAR",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "pPFD",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Light",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "device",
+      "otherEntityRelationshipName": "light",
+      "relationshipName": "deviceID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "plantFactory",
+      "otherEntityRelationshipName": "light",
+      "relationshipName": "plantFactoryID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

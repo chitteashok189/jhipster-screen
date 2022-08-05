@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="partyStatus">
+      <h2 data-cy="partyStatusDetailsHeading"><span jhiTranslate="blogApp.partyStatus.detail.title">Party Status</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.partyStatus.id">Id</span></dt>
+        <dd>
+          <span>{{ partyStatus.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatus.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ partyStatus.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatus.statusDate">Status Date</span></dt>
+        <dd>
+          <span>{{ partyStatus.statusDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatus.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ partyStatus.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatus.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ partyStatus.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatus.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ partyStatus.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatus.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ partyStatus.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/party-status', partyStatus.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,131 @@
+<div>
+  <ul class="nav nav-pills  mb-3" role="tablist">
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" data-bs-toggle="pill" href="/device" role="tab"
+            aria-selected="true">
+            <div class="d-flex align-items-center">
+                <div class="tab-icon">
+                    <span name="partly-sunny-outline" class="me-1"></span>
+                </div>
+                <div class="tab-title">Device</div>
+            </div>
+        </a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link active" data-bs-toggle="pill" href="/sensor" role="tab"
+            aria-selected="false">
+            <div class="d-flex align-items-center">
+                <div class="tab-icon">
+                    <span name="eyedrop-outline" class="me-1"></span>
+                </div>
+                <div class="tab-title">Sensors</div>
+            </div>
+        </a>
+    </li>
+    
+  </ul>
+  <h2 id="page-heading" data-cy="SensorHeading">
+    <span jhiTranslate="blogApp.sensor.home.title">Sensors</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.sensor.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-sensor"
+        [routerLink]="['/sensor/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.sensor.home.createLabel"> Create a new Sensor </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="sensors?.length === 0">
+    <span jhiTranslate="blogApp.sensor.home.notFound">No sensors found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="sensors && sensors.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.sensorName">Sensor Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.sensorModelName">Sensor Model Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.hardwareID">Hardware ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.port">Port</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.properties">Properties</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.description">Description</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.locationID">Location ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.deviceID">Device ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.sensorModelID">Sensor Model ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sensor of sensors; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/sensor', sensor.id, 'view']">{{ sensor.id }}</a>
+          </td>
+          <td>{{ sensor.gUID }}</td>
+          <td>{{ sensor.sensorName }}</td>
+          <td>{{ sensor.sensorModelName }}</td>
+          <td>{{ sensor.hardwareID }}</td>
+          <td>{{ sensor.port }}</td>
+          <td>{{ sensor.properties }}</td>
+          <td>{{ sensor.description }}</td>
+          <td>{{ sensor.createdBy }}</td>
+          <td>{{ sensor.createdOn | formatMediumDatetime }}</td>
+          <td>{{ sensor.updatedBy }}</td>
+          <td>{{ sensor.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="sensor.locationID">
+              <a [routerLink]="['/location', sensor.locationID?.id, 'view']">{{ sensor.locationID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="sensor.deviceID">
+              <a [routerLink]="['/device', sensor.deviceID?.id, 'view']">{{ sensor.deviceID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="sensor.sensorModelID">
+              <a [routerLink]="['/sensor-model', sensor.sensorModelID?.id, 'view']">{{ sensor.sensorModelID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/sensor', sensor.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/sensor', sensor.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(sensor)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

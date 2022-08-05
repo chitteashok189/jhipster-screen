@@ -1,0 +1,70 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085212",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "activity",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "activityType",
+      "fieldType": "ActType",
+      "fieldValues": "Sowing,Pruning,Planting,Irrigation,Dosing,Harvesting,Packing,Storage,Transportation"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Activity",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "zone",
+      "otherEntityRelationshipName": "activity",
+      "relationshipName": "zoneID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "crop",
+      "otherEntityRelationshipName": "activity",
+      "relationshipName": "cropID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

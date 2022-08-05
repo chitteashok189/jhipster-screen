@@ -1,0 +1,248 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-application-user-heading"
+        data-cy="ApplicationUserCreateUpdateHeading"
+        jhiTranslate="blogApp.applicationUser.home.createOrEditLabel"
+      >
+        Create or edit a Application User
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="blogApp.applicationUser.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.applicationUser.gUID" for="field_gUID">G UID</label>
+          <input type="text" class="form-control" name="gUID" id="field_gUID" data-cy="gUID" formControlName="gUID" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.applicationUser.currentPassword" for="field_currentPassword"
+            >Current Password</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="currentPassword"
+            id="field_currentPassword"
+            data-cy="currentPassword"
+            formControlName="currentPassword"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.applicationUser.passwordHint" for="field_passwordHint">Password Hint</label>
+          <input
+            type="text"
+            class="form-control"
+            name="passwordHint"
+            id="field_passwordHint"
+            data-cy="passwordHint"
+            formControlName="passwordHint"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.applicationUser.isSystemEnables" for="field_isSystemEnables"
+            >Is System Enables</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isSystemEnables"
+            id="field_isSystemEnables"
+            data-cy="isSystemEnables"
+            formControlName="isSystemEnables"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.applicationUser.hasLoggedOut" for="field_hasLoggedOut">Has Logged Out</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="hasLoggedOut"
+            id="field_hasLoggedOut"
+            data-cy="hasLoggedOut"
+            formControlName="hasLoggedOut"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.applicationUser.requirePasswordChange" for="field_requirePasswordChange"
+            >Require Password Change</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="requirePasswordChange"
+            id="field_requirePasswordChange"
+            data-cy="requirePasswordChange"
+            formControlName="requirePasswordChange"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.applicationUser.lastCurrencyUom" for="field_lastCurrencyUom"
+            >Last Currency Uom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="lastCurrencyUom"
+            id="field_lastCurrencyUom"
+            data-cy="lastCurrencyUom"
+            formControlName="lastCurrencyUom"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.applicationUser.lastLocale" for="field_lastLocale">Last Locale</label>
+          <input
+            type="number"
+            class="form-control"
+            name="lastLocale"
+            id="field_lastLocale"
+            data-cy="lastLocale"
+            formControlName="lastLocale"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.applicationUser.lastTimeZone" for="field_lastTimeZone">Last Time Zone</label>
+          <input
+            type="number"
+            class="form-control"
+            name="lastTimeZone"
+            id="field_lastTimeZone"
+            data-cy="lastTimeZone"
+            formControlName="lastTimeZone"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.applicationUser.disabledDateTime" for="field_disabledDateTime"
+            >Disabled Date Time</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_disabledDateTime"
+              data-cy="disabledDateTime"
+              type="datetime-local"
+              class="form-control"
+              name="disabledDateTime"
+              formControlName="disabledDateTime"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.applicationUser.successiveFailedLogins" for="field_successiveFailedLogins"
+            >Successive Failed Logins</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="successiveFailedLogins"
+            id="field_successiveFailedLogins"
+            data-cy="successiveFailedLogins"
+            formControlName="successiveFailedLogins"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="blogApp.applicationUser.applicationUserSecurityGroup"
+            for="field_applicationUserSecurityGroup"
+            >Application User Security Group</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="applicationUserSecurityGroup"
+            id="field_applicationUserSecurityGroup"
+            data-cy="applicationUserSecurityGroup"
+            formControlName="applicationUserSecurityGroup"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.applicationUser.createdBy" for="field_createdBy">Created By</label>
+          <input type="number" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.applicationUser.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.applicationUser.updatedBy" for="field_updatedBy">Updated By</label>
+          <input type="number" class="form-control" name="updatedBy" id="field_updatedBy" data-cy="updatedBy" formControlName="updatedBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.applicationUser.updatedOn" for="field_updatedOn">Updated On</label>
+          <div class="d-flex">
+            <input
+              id="field_updatedOn"
+              data-cy="updatedOn"
+              type="datetime-local"
+              class="form-control"
+              name="updatedOn"
+              formControlName="updatedOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.applicationUser.partyID" for="field_partyID">Party ID</label>
+          <select class="form-control" id="field_partyID" data-cy="partyID" name="partyID" formControlName="partyID">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="partyOption.id === editForm.get('partyID')!.value?.id ? editForm.get('partyID')!.value : partyOption"
+              *ngFor="let partyOption of partiesSharedCollection; trackBy: trackPartyById"
+            >
+              {{ partyOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

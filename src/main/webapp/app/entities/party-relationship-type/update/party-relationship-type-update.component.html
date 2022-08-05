@@ -1,0 +1,167 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-party-relationship-type-heading"
+        data-cy="PartyRelationshipTypeCreateUpdateHeading"
+        jhiTranslate="blogApp.partyRelationshipType.home.createOrEditLabel"
+      >
+        Create or edit a Party Relationship Type
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="blogApp.partyRelationshipType.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.partyRelationshipType.gUID" for="field_gUID">G UID</label>
+          <input type="number" class="form-control" name="gUID" id="field_gUID" data-cy="gUID" formControlName="gUID" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.partyRelationshipType.hasTable" for="field_hasTable">Has Table</label>
+          <input type="checkbox" class="form-check" name="hasTable" id="field_hasTable" data-cy="hasTable" formControlName="hasTable" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.partyRelationshipType.partyRelationshipName" for="field_partyRelationshipName"
+            >Party Relationship Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="partyRelationshipName"
+            id="field_partyRelationshipName"
+            data-cy="partyRelationshipName"
+            formControlName="partyRelationshipName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.partyRelationshipType.description" for="field_description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.partyRelationshipType.roleTypeIdValidFrom" for="field_roleTypeIdValidFrom"
+            >Role Type Id Valid From</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="roleTypeIdValidFrom"
+            id="field_roleTypeIdValidFrom"
+            data-cy="roleTypeIdValidFrom"
+            formControlName="roleTypeIdValidFrom"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.partyRelationshipType.roleTypeIdValidTo" for="field_roleTypeIdValidTo"
+            >Role Type Id Valid To</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="roleTypeIdValidTo"
+            id="field_roleTypeIdValidTo"
+            data-cy="roleTypeIdValidTo"
+            formControlName="roleTypeIdValidTo"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.partyRelationshipType.createdBy" for="field_createdBy">Created By</label>
+          <input type="number" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.partyRelationshipType.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.partyRelationshipType.updatedBy" for="field_updatedBy">Updated By</label>
+          <input type="number" class="form-control" name="updatedBy" id="field_updatedBy" data-cy="updatedBy" formControlName="updatedBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.partyRelationshipType.updatedOn" for="field_updatedOn">Updated On</label>
+          <div class="d-flex">
+            <input
+              id="field_updatedOn"
+              data-cy="updatedOn"
+              type="datetime-local"
+              class="form-control"
+              name="updatedOn"
+              formControlName="updatedOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.partyRelationshipType.partyRelationshipID" for="field_partyRelationshipID"
+            >Party Relationship ID</label
+          >
+          <select
+            class="form-control"
+            id="field_partyRelationshipID"
+            data-cy="partyRelationshipID"
+            name="partyRelationshipID"
+            formControlName="partyRelationshipID"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                partyRelationshipOption.id === editForm.get('partyRelationshipID')!.value?.id
+                  ? editForm.get('partyRelationshipID')!.value
+                  : partyRelationshipOption
+              "
+              *ngFor="let partyRelationshipOption of partyRelationshipsSharedCollection; trackBy: trackPartyRelationshipById"
+            >
+              {{ partyRelationshipOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

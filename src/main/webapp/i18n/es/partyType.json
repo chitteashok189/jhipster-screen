@@ -1,0 +1,33 @@
+{
+  "blogApp": {
+    "partyType": {
+      "home": {
+        "title": "Party Types",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Party Type",
+        "createOrEditLabel": "Crear o editar Party Type",
+        "notFound": "Ningún Party Types encontrado"
+      },
+      "created": "Un nuevo Party Type ha sido creado con el identificador {{ param }}",
+      "updated": "Un Party Type ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Party Type ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Party Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Party Type"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "parentTypeID": "Parent Type ID",
+      "hasTable": "Has Table",
+      "description": "Description",
+      "partyTypeAttr": "Party Type Attr",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "party": "Party"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "blogApp": {
+    "partyGroup": {
+      "home": {
+        "title": "Party Groups",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Party Group",
+        "createOrEditLabel": "Crear o editar Party Group",
+        "notFound": "Ningún Party Groups encontrado"
+      },
+      "created": "Un nuevo Party Group ha sido creado con el identificador {{ param }}",
+      "updated": "Un Party Group ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Party Group ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Party Group {{ id }}?"
+      },
+      "detail": {
+        "title": "Party Group"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "groupName": "Group Name",
+      "localGroupName": "Local Group Name",
+      "officeSiteName": "Office Site Name",
+      "comments": "Comments",
+      "logoImageUrl": "Logo Image Url",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "party": "Party"
+    }
+  }
+}

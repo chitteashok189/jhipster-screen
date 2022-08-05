@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Crop.
+    -->
+    <changeSet id="20220803085203-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="plantid_id"
+                                 baseTableName="crop"
+                                 constraintName="fk_crop__plantid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="plant"/>
+
+        <addForeignKeyConstraint baseColumnNames="plant_factoryid_id"
+                                 baseTableName="crop"
+                                 constraintName="fk_crop__plant_factoryid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="plant_factory"/>
+
+        <addForeignKeyConstraint baseColumnNames="toolid_id"
+                                 baseTableName="crop"
+                                 constraintName="fk_crop__toolid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tool"/>
+
+        <addForeignKeyConstraint baseColumnNames="seasonid_id"
+                                 baseTableName="crop"
+                                 constraintName="fk_crop__seasonid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="season"/>
+
+        <addForeignKeyConstraint baseColumnNames="productid_id"
+                                 baseTableName="crop"
+                                 constraintName="fk_crop__productid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product"/>
+    </changeSet>
+</databaseChangeLog>

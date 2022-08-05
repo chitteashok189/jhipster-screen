@@ -1,0 +1,170 @@
+<div>
+  <h2 id="page-heading" data-cy="RecipeHeading">
+    <span jhiTranslate="blogApp.recipe.home.title">Recipes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.recipe.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-recipe"
+        [routerLink]="['/recipe/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.recipe.home.createLabel"> Create a new Recipe </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="recipes?.length === 0">
+    <span jhiTranslate="blogApp.recipe.home.notFound">No recipes found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="recipes && recipes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.plantName">Plant Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.recipeType">Recipe Type</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.pHMin">P H Min</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.pHMax">P H Max</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.ecMin">Ec Min</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.eCMax">E C Max</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.airTempMax">Air Temp Max</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.airTempMin">Air Temp Min</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.humidityMax">Humidity Max</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.humidityMin">Humidity Min</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.nutrientTempMax">Nutrient Temp Max</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.nutrientTempMin">Nutrient Temp Min</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.luxGermMax">Lux Germ Max</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.luxGermMin">Lux Germ Min</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.lightGermDor">Light Germ Dor</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.lightGermCycle">Light Germ Cycle</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.luxGrowMax">Lux Grow Max</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.luxGrowMin">Lux Grow Min</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.lightGrowDor">Light Grow Dor</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.lightGrowCycle">Light Grow Cycle</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.co2LightMax">Co 2 Light Max</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.co2LightMin">Co 2 Light Min</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.co2DarkMax">Co 2 Dark Max</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.co2DarkMin">Co 2 Dark Min</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.dOMax">D O Max</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.dOMin">D O Min</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.mediaMoistureMax">Media Moisture Max</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.mediaMoistureMin">Media Moisture Min</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.nitrogen">Nitrogen</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.phosphorus">Phosphorus</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.potassium">Potassium</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.sulphur">Sulphur</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.calcium">Calcium</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.magnesium">Magnesium</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.manganese">Manganese</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.iron">Iron</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.boron">Boron</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.copper">Copper</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.zinc">Zinc</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.molybdenum">Molybdenum</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.germinationTAT">Germination TAT</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.identificationComment">Identification Comment</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.growingComment">Growing Comment</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.usageComment">Usage Comment</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.recipe.plantID">Plant ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let recipe of recipes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/recipe', recipe.id, 'view']">{{ recipe.id }}</a>
+          </td>
+          <td>{{ recipe.gUID }}</td>
+          <td>{{ recipe.plantName }}</td>
+          <td>{{ recipe.recipeType }}</td>
+          <td>{{ recipe.pHMin }}</td>
+          <td>{{ recipe.pHMax }}</td>
+          <td jhiTranslate="{{ 'blogApp.Ec.' + recipe.ecMin }}">{{ recipe.ecMin }}</td>
+          <td>{{ recipe.eCMax }}</td>
+          <td>{{ recipe.airTempMax }}</td>
+          <td>{{ recipe.airTempMin }}</td>
+          <td>{{ recipe.humidityMax }}</td>
+          <td>{{ recipe.humidityMin }}</td>
+          <td>{{ recipe.nutrientTempMax }}</td>
+          <td>{{ recipe.nutrientTempMin }}</td>
+          <td>{{ recipe.luxGermMax }}</td>
+          <td>{{ recipe.luxGermMin }}</td>
+          <td>{{ recipe.lightGermDor }}</td>
+          <td>{{ recipe.lightGermCycle }}</td>
+          <td>{{ recipe.luxGrowMax }}</td>
+          <td>{{ recipe.luxGrowMin }}</td>
+          <td>{{ recipe.lightGrowDor }}</td>
+          <td>{{ recipe.lightGrowCycle }}</td>
+          <td>{{ recipe.co2LightMax }}</td>
+          <td>{{ recipe.co2LightMin }}</td>
+          <td>{{ recipe.co2DarkMax }}</td>
+          <td>{{ recipe.co2DarkMin }}</td>
+          <td>{{ recipe.dOMax }}</td>
+          <td>{{ recipe.dOMin }}</td>
+          <td>{{ recipe.mediaMoistureMax }}</td>
+          <td>{{ recipe.mediaMoistureMin }}</td>
+          <td>{{ recipe.nitrogen }}</td>
+          <td>{{ recipe.phosphorus }}</td>
+          <td>{{ recipe.potassium }}</td>
+          <td>{{ recipe.sulphur }}</td>
+          <td>{{ recipe.calcium }}</td>
+          <td>{{ recipe.magnesium }}</td>
+          <td>{{ recipe.manganese }}</td>
+          <td>{{ recipe.iron }}</td>
+          <td>{{ recipe.boron }}</td>
+          <td>{{ recipe.copper }}</td>
+          <td>{{ recipe.zinc }}</td>
+          <td>{{ recipe.molybdenum }}</td>
+          <td>{{ recipe.germinationTAT }}</td>
+          <td>{{ recipe.identificationComment }}</td>
+          <td>{{ recipe.growingComment }}</td>
+          <td>{{ recipe.usageComment }}</td>
+          <td>{{ recipe.createdBy }}</td>
+          <td>{{ recipe.createdOn | formatMediumDatetime }}</td>
+          <td>{{ recipe.updatedBy }}</td>
+          <td>{{ recipe.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="recipe.plantID">
+              <a [routerLink]="['/plant', recipe.plantID?.id, 'view']">{{ recipe.plantID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/recipe', recipe.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/recipe', recipe.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(recipe)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

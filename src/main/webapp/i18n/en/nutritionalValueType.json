@@ -1,0 +1,14 @@
+{
+  "blogApp": {
+    "NutritionalValueType": {
+      "null": "",
+      "Vitamin": "Vitamin",
+      "A": "A",
+      "B": "B",
+      "C": "C",
+      "Polyphenolics": "Polyphenolics",
+      "Carotenoids": "Carotenoids",
+      "Glucosinolates": "Glucosinolates"
+    }
+  }
+}

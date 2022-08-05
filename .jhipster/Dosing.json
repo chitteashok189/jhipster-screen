@@ -1,0 +1,78 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085201",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "dosing",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "source",
+      "fieldType": "DosingSource",
+      "fieldValues": "Automatic,Manual"
+    },
+    {
+      "fieldName": "pH",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "eC",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dO",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nutrientTemperature",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "solarRadiation",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Dosing",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "device",
+      "otherEntityRelationshipName": "dosing",
+      "relationshipName": "deviceID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "plantFactory",
+      "otherEntityRelationshipName": "dosing",
+      "relationshipName": "plantFactoryID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

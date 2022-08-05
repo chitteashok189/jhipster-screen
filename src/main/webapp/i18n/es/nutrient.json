@@ -1,0 +1,35 @@
+{
+  "blogApp": {
+    "nutrient": {
+      "home": {
+        "title": "Nutrients",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Nutrient",
+        "createOrEditLabel": "Crear o editar Nutrient",
+        "notFound": "Ningún Nutrients encontrado"
+      },
+      "created": "Un nuevo Nutrient ha sido creado con el identificador {{ param }}",
+      "updated": "Un Nutrient ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Nutrient ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Nutrient {{ id }}?"
+      },
+      "detail": {
+        "title": "Nutrient"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "nutrientName": "Nutrient Name",
+      "type": "Type",
+      "brandName": "Brand Name",
+      "nutrientLabel": "Nutrient Label",
+      "nutrientForms": "Nutrient Forms",
+      "nutrientTypeID": "Nutrient Type ID",
+      "price": "Price",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On"
+    }
+  }
+}

@@ -1,0 +1,156 @@
+<div>
+
+
+  <ul class="nav nav-pills  mb-3" role="tablist">
+    <li class="nav-item" role="presentation">
+        <a class="nav-link active" data-bs-toggle="pill" href="/device" role="tab"
+            aria-selected="true">
+            <div class="d-flex align-items-center">
+                <div class="tab-icon">
+                    <span name="partly-sunny-outline" class="me-1"></span>
+                </div>
+                <div class="tab-title">Device</div>
+            </div>
+        </a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" data-bs-toggle="pill" href="/sensor" role="tab"
+            aria-selected="false">
+            <div class="d-flex align-items-center">
+                <div class="tab-icon">
+                    <span name="eyedrop-outline" class="me-1"></span>
+                </div>
+                <div class="tab-title">Sensors</div>
+            </div>
+        </a>
+    </li>
+    
+  </ul>
+
+  <h2 id="page-heading" data-cy="DeviceHeading">
+    <span jhiTranslate="blogApp.device.home.title">Devices</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.device.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-device"
+        [routerLink]="['/device/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.device.home.createLabel"> Create a new Device </span>
+      </button>&nbsp;
+      <button
+      id="jh-create-entity"
+      data-cy="entityCreateButton"
+      class="btn btn-primary jh-create-entity create-device-level"
+      [routerLink]="['/device-level/new']"
+    >
+      <fa-icon icon="plus"></fa-icon>
+      <span jhiTranslate="blogApp.deviceLevel.home.createLabel"> Create a new Device Level </span>
+    </button>&nbsp;
+    <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-device-model"
+        [routerLink]="['/device-model/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.deviceModel.home.createLabel"> Create a new Device Model </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="devices?.length === 0">
+    <span jhiTranslate="blogApp.device.home.notFound">No devices found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="devices && devices.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.device.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.device.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.device.deviceModel">Device Model</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.device.deviceAsset">Device Asset</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.device.deviceType">Device Type</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.device.hardwareID">Hardware ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.device.reportingIntervalLocation">Reporting Interval Location</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.device.parentDevice">Parent Device</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.device.properties">Properties</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.device.description">Description</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.device.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.device.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.device.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.device.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.device.plantFactoryID">Plant Factory ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.device.deviceLevelID">Device Level ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.device.deviceModelID">Device Model ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let device of devices; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/device', device.id, 'view']">{{ device.id }}</a>
+          </td>
+          <td>{{ device.gUID }}</td>
+          <td>{{ device.deviceModel }}</td>
+          <td>{{ device.deviceAsset }}</td>
+          <td jhiTranslate="{{ 'blogApp.DeviceType.' + device.deviceType }}">{{ device.deviceType }}</td>
+          <td>{{ device.hardwareID }}</td>
+          <td>{{ device.reportingIntervalLocation }}</td>
+          <td>{{ device.parentDevice }}</td>
+          <td>{{ device.properties }}</td>
+          <td>{{ device.description }}</td>
+          <td>{{ device.createdBy }}</td>
+          <td>{{ device.createdOn | formatMediumDatetime }}</td>
+          <td>{{ device.updatedBy }}</td>
+          <td>{{ device.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="device.plantFactoryID">
+              <a [routerLink]="['/plant-factory', device.plantFactoryID?.id, 'view']">{{ device.plantFactoryID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="device.deviceLevelID">
+              <a [routerLink]="['/device-level', device.deviceLevelID?.id, 'view']">{{ device.deviceLevelID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="device.deviceModelID">
+              <a [routerLink]="['/device-model', device.deviceModelID?.id, 'view']">{{ device.deviceModelID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/device', device.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/device', device.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(device)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

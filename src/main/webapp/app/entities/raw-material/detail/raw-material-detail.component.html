@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="rawMaterial">
+      <h2 data-cy="rawMaterialDetailsHeading"><span jhiTranslate="blogApp.rawMaterial.detail.title">Raw Material</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.rawMaterial.id">Id</span></dt>
+        <dd>
+          <span>{{ rawMaterial.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.rawMaterial.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ rawMaterial.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.rawMaterial.quantity">Quantity</span></dt>
+        <dd>
+          <span>{{ rawMaterial.quantity }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.rawMaterial.uOM">U OM</span></dt>
+        <dd>
+          <span>{{ rawMaterial.uOM }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.rawMaterial.materialType">Material Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.MaterialType.' + rawMaterial.materialType }}">{{ rawMaterial.materialType }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.rawMaterial.price">Price</span></dt>
+        <dd>
+          <span>{{ rawMaterial.price }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.rawMaterial.description">Description</span></dt>
+        <dd>
+          <span>{{ rawMaterial.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.rawMaterial.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ rawMaterial.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.rawMaterial.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ rawMaterial.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.rawMaterial.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ rawMaterial.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.rawMaterial.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ rawMaterial.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/raw-material', rawMaterial.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

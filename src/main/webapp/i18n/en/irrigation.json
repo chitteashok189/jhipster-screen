@@ -1,0 +1,35 @@
+{
+  "blogApp": {
+    "irrigation": {
+      "home": {
+        "title": "Irrigations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Irrigation",
+        "createOrEditLabel": "Create or edit a Irrigation",
+        "notFound": "No Irrigations found"
+      },
+      "created": "A new Irrigation is created with identifier {{ param }}",
+      "updated": "A Irrigation is updated with identifier {{ param }}",
+      "deleted": "A Irrigation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Irrigation {{ id }}?"
+      },
+      "detail": {
+        "title": "Irrigation"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "source": "Source",
+      "nutrientLevel": "Nutrient Level",
+      "solarRadiation": "Solar Radiation",
+      "inletFlow": "Inlet Flow",
+      "outletFlow": "Outlet Flow",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "deviceID": "Device ID",
+      "plantFactoryID": "Plant Factory ID"
+    }
+  }
+}

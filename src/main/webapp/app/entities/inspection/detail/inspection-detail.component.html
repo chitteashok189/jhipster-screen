@@ -1,0 +1,104 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="inspection">
+      <h2 data-cy="inspectionDetailsHeading"><span jhiTranslate="blogApp.inspection.detail.title">Inspection</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.inspection.id">Id</span></dt>
+        <dd>
+          <span>{{ inspection.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspection.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ inspection.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspection.inspectionSize">Inspection Size</span></dt>
+        <dd>
+          <span>{{ inspection.inspectionSize }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspection.shape">Shape</span></dt>
+        <dd>
+          <span>{{ inspection.shape }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspection.wholeness">Wholeness</span></dt>
+        <dd>
+          <span>{{ inspection.wholeness }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspection.gloss">Gloss</span></dt>
+        <dd>
+          <span>{{ inspection.gloss }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspection.consistency">Consistency</span></dt>
+        <dd>
+          <span>{{ inspection.consistency }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspection.defects">Defects</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.Defect.' + inspection.defects }}">{{ inspection.defects }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspection.colour">Colour</span></dt>
+        <dd>
+          <span>{{ inspection.colour }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspection.texture">Texture</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.Texture.' + inspection.texture }}">{{ inspection.texture }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspection.aroma">Aroma</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.Aroma.' + inspection.aroma }}">{{ inspection.aroma }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspection.flavour">Flavour</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.Flavour.' + inspection.flavour }}">{{ inspection.flavour }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspection.nutritionalValue">Nutritional Value</span></dt>
+        <dd>
+          <span>{{ inspection.nutritionalValue }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspection.nutritionalValueType">Nutritional Value Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.NutritionalValueType.' + inspection.nutritionalValueType }}">{{
+            inspection.nutritionalValueType
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspection.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ inspection.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspection.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ inspection.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspection.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ inspection.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspection.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ inspection.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspection.harvestID">Harvest ID</span></dt>
+        <dd>
+          <div *ngIf="inspection.harvestID">
+            <a [routerLink]="['/harvest', inspection.harvestID?.id, 'view']">{{ inspection.harvestID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/inspection', inspection.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,153 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-nutrient-heading" data-cy="NutrientCreateUpdateHeading" jhiTranslate="blogApp.nutrient.home.createOrEditLabel">
+        Create or edit a Nutrient
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="blogApp.nutrient.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.nutrient.gUID" for="field_gUID">G UID</label>
+          <input type="text" class="form-control" name="gUID" id="field_gUID" data-cy="gUID" formControlName="gUID" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.nutrient.nutrientName" for="field_nutrientName">Nutrient Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nutrientName"
+            id="field_nutrientName"
+            data-cy="nutrientName"
+            formControlName="nutrientName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.nutrient.type" for="field_type">Type</label>
+          <select class="form-control" name="type" formControlName="type" id="field_type" data-cy="type">
+            <option [ngValue]="null">{{ 'blogApp.NutrientType.null' | translate }}</option>
+            <option *ngFor="let nutrientType of nutrientTypeValues" [value]="nutrientType">
+              {{ 'blogApp.NutrientType.' + nutrientType | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.nutrient.brandName" for="field_brandName">Brand Name</label>
+          <input type="text" class="form-control" name="brandName" id="field_brandName" data-cy="brandName" formControlName="brandName" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.nutrient.nutrientLabel" for="field_nutrientLabel">Nutrient Label</label>
+          <input
+            type="number"
+            class="form-control"
+            name="nutrientLabel"
+            id="field_nutrientLabel"
+            data-cy="nutrientLabel"
+            formControlName="nutrientLabel"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.nutrient.nutrientForms" for="field_nutrientForms">Nutrient Forms</label>
+          <select
+            class="form-control"
+            name="nutrientForms"
+            formControlName="nutrientForms"
+            id="field_nutrientForms"
+            data-cy="nutrientForms"
+          >
+            <option [ngValue]="null">{{ 'blogApp.NutForms.null' | translate }}</option>
+            <option *ngFor="let nutForms of nutFormsValues" [value]="nutForms">{{ 'blogApp.NutForms.' + nutForms | translate }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.nutrient.nutrientTypeID" for="field_nutrientTypeID">Nutrient Type ID</label>
+          <select
+            class="form-control"
+            name="nutrientTypeID"
+            formControlName="nutrientTypeID"
+            id="field_nutrientTypeID"
+            data-cy="nutrientTypeID"
+          >
+            <option [ngValue]="null">{{ 'blogApp.NutTypeID.null' | translate }}</option>
+            <option *ngFor="let nutTypeID of nutTypeIDValues" [value]="nutTypeID">
+              {{ 'blogApp.NutTypeID.' + nutTypeID | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.nutrient.price" for="field_price">Price</label>
+          <input type="number" class="form-control" name="price" id="field_price" data-cy="price" formControlName="price" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.nutrient.createdBy" for="field_createdBy">Created By</label>
+          <input type="number" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.nutrient.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.nutrient.updatedBy" for="field_updatedBy">Updated By</label>
+          <input type="number" class="form-control" name="updatedBy" id="field_updatedBy" data-cy="updatedBy" formControlName="updatedBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.nutrient.updatedOn" for="field_updatedOn">Updated On</label>
+          <div class="d-flex">
+            <input
+              id="field_updatedOn"
+              data-cy="updatedOn"
+              type="datetime-local"
+              class="form-control"
+              name="updatedOn"
+              formControlName="updatedOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

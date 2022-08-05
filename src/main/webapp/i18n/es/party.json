@@ -1,0 +1,44 @@
+{
+  "blogApp": {
+    "party": {
+      "home": {
+        "title": "Parties",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Party",
+        "createOrEditLabel": "Crear o editar Party",
+        "notFound": "Ningún Parties encontrado"
+      },
+      "created": "Un nuevo Party ha sido creado con el identificador {{ param }}",
+      "updated": "Un Party ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Party ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Party {{ id }}?"
+      },
+      "detail": {
+        "title": "Party"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "partyName": "Party Name",
+      "statusID": "Status ID",
+      "description": "Description",
+      "externalID": "External ID",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "partyAttribute": "Party Attribute",
+      "partyClassification": "Party Classification",
+      "partyRole": "Party Role",
+      "partyNote": "Party Note",
+      "person": "Person",
+      "applicationUser": "Application User",
+      "farm": "Farm",
+      "partyGroupID": "Party Group ID",
+      "partyTypeID": "Party Type ID",
+      "applicationUserID": "Application User ID",
+      "partyRoleID": "Party Role ID",
+      "personID": "Person ID"
+    }
+  }
+}

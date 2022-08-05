@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Crop.
+    -->
+    <changeSet id="20220803085203-1" author="jhipster">
+        <createTable tableName="crop">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="g_uid" type="${uuidType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="crop_code" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="crop_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="crop_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="horticulture_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_hybrid" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="cultivar" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="sowing_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="sowing_depth" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="row_spacing_max" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="row_spacing_min" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="seed_depth_max" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="seed_depth_min" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="seed_spacing_max" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="seed_spacing_min" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="yearly_crops" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="growing_season" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="growing_phase" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="planting_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="plant_spacing" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="planting_material" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="transplantation_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="fertigationschedule_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="planned_yield" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="actual_yield" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="yield_unit" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_by" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_on" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="updated_by" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="updated_on" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="plantid_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="plant_factoryid_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="toolid_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="seasonid_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="productid_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="crop" columnName="sowing_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="crop" columnName="planting_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="crop" columnName="transplantation_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="crop" columnName="created_on" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="crop" columnName="updated_on" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20220803085203-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/crop.csv"
+                  separator=";"
+                  tableName="crop"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="g_uid" type="${uuidType}"/>
+            <column name="crop_code" type="string"/>
+            <column name="crop_name" type="string"/>
+            <column name="crop_type" type="string"/>
+            <column name="horticulture_type" type="string"/>
+            <column name="is_hybrid" type="boolean"/>
+            <column name="cultivar" type="string"/>
+            <column name="sowing_date" type="date"/>
+            <column name="sowing_depth" type="numeric"/>
+            <column name="row_spacing_max" type="numeric"/>
+            <column name="row_spacing_min" type="numeric"/>
+            <column name="seed_depth_max" type="numeric"/>
+            <column name="seed_depth_min" type="numeric"/>
+            <column name="seed_spacing_max" type="numeric"/>
+            <column name="seed_spacing_min" type="numeric"/>
+            <column name="yearly_crops" type="numeric"/>
+            <column name="growing_season" type="string"/>
+            <column name="growing_phase" type="string"/>
+            <column name="planting_date" type="date"/>
+            <column name="plant_spacing" type="numeric"/>
+            <column name="planting_material" type="string"/>
+            <column name="transplantation_date" type="date"/>
+            <column name="fertigationschedule_id" type="numeric"/>
+            <column name="planned_yield" type="numeric"/>
+            <column name="actual_yield" type="numeric"/>
+            <column name="yield_unit" type="numeric"/>
+            <column name="created_by" type="numeric"/>
+            <column name="created_on" type="date"/>
+            <column name="updated_by" type="numeric"/>
+            <column name="updated_on" type="date"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

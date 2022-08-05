@@ -1,0 +1,10 @@
+{
+  "blogApp": {
+    "ConType": {
+      "null": "",
+      "Biological": "Biological",
+      "Mechanical": "Mechanical",
+      "Cultural": "Cultural"
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085126",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "party_role",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "fromAgreement",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "toAgreement",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fromCommunicationEvent",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "toCommunicationEvent",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "partyIdFrom",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "partyIdTO",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PartyRole",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "partyRoleID",
+      "relationshipName": "party",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "roleType",
+      "otherEntityRelationshipName": "partyRoleID",
+      "relationshipName": "roleType",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "roleType",
+      "otherEntityRelationshipName": "partyRole",
+      "relationshipName": "roleTypeID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "partyRole",
+      "relationshipName": "partyID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

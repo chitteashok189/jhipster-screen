@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="partyGroup">
+      <h2 data-cy="partyGroupDetailsHeading"><span jhiTranslate="blogApp.partyGroup.detail.title">Party Group</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.partyGroup.id">Id</span></dt>
+        <dd>
+          <span>{{ partyGroup.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyGroup.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ partyGroup.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyGroup.groupName">Group Name</span></dt>
+        <dd>
+          <span>{{ partyGroup.groupName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyGroup.localGroupName">Local Group Name</span></dt>
+        <dd>
+          <span>{{ partyGroup.localGroupName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyGroup.officeSiteName">Office Site Name</span></dt>
+        <dd>
+          <span>{{ partyGroup.officeSiteName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyGroup.comments">Comments</span></dt>
+        <dd>
+          <span>{{ partyGroup.comments }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyGroup.logoImageUrl">Logo Image Url</span></dt>
+        <dd>
+          <span>{{ partyGroup.logoImageUrl }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyGroup.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ partyGroup.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyGroup.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ partyGroup.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyGroup.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ partyGroup.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyGroup.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ partyGroup.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/party-group', partyGroup.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

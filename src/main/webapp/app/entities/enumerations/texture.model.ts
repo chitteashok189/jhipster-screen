@@ -1,0 +1,25 @@
+export enum Texture {
+  Mealiness = 'Mealiness',
+
+  Succulence = 'Succulence',
+
+  Fibrous = 'Fibrous',
+
+  Matured = 'Matured',
+
+  Firm = 'Firm',
+
+  Soft = 'Soft',
+
+  Smooth = 'Smooth',
+
+  Creamy = 'Creamy',
+
+  Crumby = 'Crumby',
+
+  Crispy = 'Crispy',
+
+  Lumpy = 'Lumpy',
+
+  Gritty = 'Gritty',
+}

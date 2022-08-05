@@ -1,0 +1,80 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="irrigation">
+      <h2 data-cy="irrigationDetailsHeading"><span jhiTranslate="blogApp.irrigation.detail.title">Irrigation</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.irrigation.id">Id</span></dt>
+        <dd>
+          <span>{{ irrigation.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.irrigation.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ irrigation.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.irrigation.source">Source</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.IrriSource.' + irrigation.source }}">{{ irrigation.source }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.irrigation.nutrientLevel">Nutrient Level</span></dt>
+        <dd>
+          <span>{{ irrigation.nutrientLevel }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.irrigation.solarRadiation">Solar Radiation</span></dt>
+        <dd>
+          <span>{{ irrigation.solarRadiation }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.irrigation.inletFlow">Inlet Flow</span></dt>
+        <dd>
+          <span>{{ irrigation.inletFlow }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.irrigation.outletFlow">Outlet Flow</span></dt>
+        <dd>
+          <span>{{ irrigation.outletFlow }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.irrigation.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ irrigation.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.irrigation.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ irrigation.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.irrigation.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ irrigation.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.irrigation.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ irrigation.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.irrigation.deviceID">Device ID</span></dt>
+        <dd>
+          <div *ngIf="irrigation.deviceID">
+            <a [routerLink]="['/device', irrigation.deviceID?.id, 'view']">{{ irrigation.deviceID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.irrigation.plantFactoryID">Plant Factory ID</span></dt>
+        <dd>
+          <div *ngIf="irrigation.plantFactoryID">
+            <a [routerLink]="['/plant-factory', irrigation.plantFactoryID?.id, 'view']">{{ irrigation.plantFactoryID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/irrigation', irrigation.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

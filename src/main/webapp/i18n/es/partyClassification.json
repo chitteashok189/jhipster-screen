@@ -1,0 +1,31 @@
+{
+  "blogApp": {
+    "partyClassification": {
+      "home": {
+        "title": "Party Classifications",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Party Classification",
+        "createOrEditLabel": "Crear o editar Party Classification",
+        "notFound": "Ningún Party Classifications encontrado"
+      },
+      "created": "Un nuevo Party Classification ha sido creado con el identificador {{ param }}",
+      "updated": "Un Party Classification ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Party Classification ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Party Classification {{ id }}?"
+      },
+      "detail": {
+        "title": "Party Classification"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "partyID": "Party ID"
+    }
+  }
+}

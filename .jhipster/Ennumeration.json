@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085122",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "ennumeration",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "enumCode",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Ennumeration",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

@@ -1,0 +1,51 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085131",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "party_note",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "noteID",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PartyNote",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "partyNote",
+      "relationshipName": "partyID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

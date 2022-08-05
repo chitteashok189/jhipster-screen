@@ -1,0 +1,98 @@
+<div>
+  <h2 id="page-heading" data-cy="DisorderHeading">
+    <span jhiTranslate="blogApp.disorder.home.title">Disorders</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.disorder.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-disorder"
+        [routerLink]="['/disorder/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.disorder.home.createLabel"> Create a new Disorder </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="disorders?.length === 0">
+    <span jhiTranslate="blogApp.disorder.home.notFound">No disorders found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="disorders && disorders.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.disorder.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.disorder.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.disorder.physiologicalDisorder">Physiological Disorder</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.disorder.cause">Cause</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.disorder.controlMeasure">Control Measure</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.disorder.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.disorder.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.disorder.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.disorder.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.disorder.scoutingID">Scouting ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let disorder of disorders; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/disorder', disorder.id, 'view']">{{ disorder.id }}</a>
+          </td>
+          <td>{{ disorder.gUID }}</td>
+          <td>{{ disorder.physiologicalDisorder }}</td>
+          <td>{{ disorder.cause }}</td>
+          <td>{{ disorder.controlMeasure }}</td>
+          <td>{{ disorder.createdBy }}</td>
+          <td>{{ disorder.createdOn | formatMediumDatetime }}</td>
+          <td>{{ disorder.updatedBy }}</td>
+          <td>{{ disorder.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="disorder.scoutingID">
+              <a [routerLink]="['/scouting', disorder.scoutingID?.id, 'view']">{{ disorder.scoutingID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/disorder', disorder.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/disorder', disorder.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(disorder)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

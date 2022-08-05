@@ -1,0 +1,68 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085210",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "disease_control",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "controlType",
+      "fieldType": "DisConType",
+      "fieldValues": "Biological,Mechanical,Cultural"
+    },
+    {
+      "fieldName": "treatment",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "DiseaseControl",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "disease",
+      "otherEntityRelationshipName": "diseaseControl",
+      "relationshipName": "diseaseID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "crop",
+      "otherEntityRelationshipName": "diseaseControl",
+      "relationshipName": "cropID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "symptom",
+      "otherEntityRelationshipName": "diseaseControl",
+      "relationshipName": "symptomID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

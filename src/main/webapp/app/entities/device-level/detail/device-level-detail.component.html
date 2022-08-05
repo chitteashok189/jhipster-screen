@@ -1,0 +1,76 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="deviceLevel">
+      <h2 data-cy="deviceLevelDetailsHeading"><span jhiTranslate="blogApp.deviceLevel.detail.title">Device Level</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.deviceLevel.id">Id</span></dt>
+        <dd>
+          <span>{{ deviceLevel.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.deviceLevel.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ deviceLevel.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.deviceLevel.levelName">Level Name</span></dt>
+        <dd>
+          <span>{{ deviceLevel.levelName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.deviceLevel.deviceLevelType">Device Level Type</span></dt>
+        <dd>
+          <span>{{ deviceLevel.deviceLevelType }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.deviceLevel.manufacturer">Manufacturer</span></dt>
+        <dd>
+          <span>{{ deviceLevel.manufacturer }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.deviceLevel.productCode">Product Code</span></dt>
+        <dd>
+          <span>{{ deviceLevel.productCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.deviceLevel.ports">Ports</span></dt>
+        <dd>
+          <span>{{ deviceLevel.ports }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.deviceLevel.properties">Properties</span></dt>
+        <dd>
+          <span>{{ deviceLevel.properties }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.deviceLevel.description">Description</span></dt>
+        <dd>
+          <span>{{ deviceLevel.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.deviceLevel.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ deviceLevel.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.deviceLevel.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ deviceLevel.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.deviceLevel.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ deviceLevel.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.deviceLevel.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ deviceLevel.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/device-level', deviceLevel.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

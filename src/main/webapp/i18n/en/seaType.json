@@ -1,0 +1,10 @@
+{
+  "blogApp": {
+    "SeaType": {
+      "null": "",
+      "Kharif": "Kharif",
+      "Rabi": "Rabi",
+      "Summer": "Summer"
+    }
+  }
+}

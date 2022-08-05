@@ -1,0 +1,89 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="inspectionRecord">
+      <h2 data-cy="inspectionRecordDetailsHeading"><span jhiTranslate="blogApp.inspectionRecord.detail.title">Inspection Record</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.inspectionRecord.id">Id</span></dt>
+        <dd>
+          <span>{{ inspectionRecord.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspectionRecord.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ inspectionRecord.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspectionRecord.rawMaterialBatchNo">Raw Material Batch No</span></dt>
+        <dd>
+          <span>{{ inspectionRecord.rawMaterialBatchNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspectionRecord.productBatchNo">Product Batch No</span></dt>
+        <dd>
+          <span>{{ inspectionRecord.productBatchNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspectionRecord.rawMaterialBatchCode">Raw Material Batch Code</span></dt>
+        <dd>
+          <span>{{ inspectionRecord.rawMaterialBatchCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspectionRecord.inputBatchNo">Input Batch No</span></dt>
+        <dd>
+          <span>{{ inspectionRecord.inputBatchNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspectionRecord.inputBatchCode">Input Batch Code</span></dt>
+        <dd>
+          <span>{{ inspectionRecord.inputBatchCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspectionRecord.attachments">Attachments</span></dt>
+        <dd>
+          <div *ngIf="inspectionRecord.attachments">
+            <a (click)="openFile(inspectionRecord.attachments, inspectionRecord.attachmentsContentType)" jhiTranslate="entity.action.open"
+              >open</a
+            >
+            {{ inspectionRecord.attachmentsContentType }}, {{ byteSize(inspectionRecord.attachments) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspectionRecord.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ inspectionRecord.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspectionRecord.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ inspectionRecord.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspectionRecord.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ inspectionRecord.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspectionRecord.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ inspectionRecord.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspectionRecord.inspectionID">Inspection ID</span></dt>
+        <dd>
+          <div *ngIf="inspectionRecord.inspectionID">
+            <a [routerLink]="['/inspection', inspectionRecord.inspectionID?.id, 'view']">{{ inspectionRecord.inspectionID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.inspectionRecord.lotID">Lot ID</span></dt>
+        <dd>
+          <div *ngIf="inspectionRecord.lotID">
+            <a [routerLink]="['/lot', inspectionRecord.lotID?.id, 'view']">{{ inspectionRecord.lotID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/inspection-record', inspectionRecord.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

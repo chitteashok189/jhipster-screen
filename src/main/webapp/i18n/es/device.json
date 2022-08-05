@@ -1,0 +1,45 @@
+{
+  "blogApp": {
+    "device": {
+      "home": {
+        "title": "Devices",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Device",
+        "createOrEditLabel": "Crear o editar Device",
+        "notFound": "Ningún Devices encontrado"
+      },
+      "created": "Un nuevo Device ha sido creado con el identificador {{ param }}",
+      "updated": "Un Device ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Device ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Device {{ id }}?"
+      },
+      "detail": {
+        "title": "Device"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "deviceModel": "Device Model",
+      "deviceAsset": "Device Asset",
+      "deviceType": "Device Type",
+      "hardwareID": "Hardware ID",
+      "reportingIntervalLocation": "Reporting Interval Location",
+      "parentDevice": "Parent Device",
+      "properties": "Properties",
+      "description": "Description",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "plantFactory": "Plant Factory",
+      "sensor": "Sensor",
+      "climate": "Climate",
+      "irrigation": "Irrigation",
+      "dosing": "Dosing",
+      "light": "Light",
+      "plantFactoryID": "Plant Factory ID",
+      "deviceLevelID": "Device Level ID",
+      "deviceModelID": "Device Model ID"
+    }
+  }
+}

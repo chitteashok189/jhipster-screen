@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="securityGroupPermission">
+      <h2 data-cy="securityGroupPermissionDetailsHeading">
+        <span jhiTranslate="blogApp.securityGroupPermission.detail.title">Security Group Permission</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.securityGroupPermission.id">Id</span></dt>
+        <dd>
+          <span>{{ securityGroupPermission.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.securityGroupPermission.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ securityGroupPermission.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.securityGroupPermission.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ securityGroupPermission.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.securityGroupPermission.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ securityGroupPermission.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.securityGroupPermission.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ securityGroupPermission.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.securityGroupPermission.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ securityGroupPermission.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.securityGroupPermission.securityGroupID">Security Group ID</span></dt>
+        <dd>
+          <div *ngIf="securityGroupPermission.securityGroupID">
+            <a [routerLink]="['/security-group', securityGroupPermission.securityGroupID?.id, 'view']">{{
+              securityGroupPermission.securityGroupID?.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.securityGroupPermission.securityPermissionID">Security Permission ID</span></dt>
+        <dd>
+          <div *ngIf="securityGroupPermission.securityPermissionID">
+            <a [routerLink]="['/security-permission', securityGroupPermission.securityPermissionID?.id, 'view']">{{
+              securityGroupPermission.securityPermissionID?.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/security-group-permission', securityGroupPermission.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,112 @@
+<div>
+  <h2 id="page-heading" data-cy="ScoutingHeading">
+    <span jhiTranslate="blogApp.scouting.home.title">Scoutings</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.scouting.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-scouting"
+        [routerLink]="['/scouting/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.scouting.home.createLabel"> Create a new Scouting </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="scoutings?.length === 0">
+    <span jhiTranslate="blogApp.scouting.home.notFound">No scoutings found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="scoutings && scoutings.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.scouting.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.scouting.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.scouting.scoutingDate">Scouting Date</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.scouting.scout">Scout</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.scouting.scoutingType">Scouting Type</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.scouting.scoutingCoordinates">Scouting Coordinates</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.scouting.scoutingArea">Scouting Area</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.scouting.cropState">Crop State</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.scouting.comments">Comments</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.scouting.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.scouting.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.scouting.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.scouting.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.scouting.plantFactoryID">Plant Factory ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.scouting.cropID">Crop ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let scouting of scoutings; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/scouting', scouting.id, 'view']">{{ scouting.id }}</a>
+          </td>
+          <td>{{ scouting.gUID }}</td>
+          <td>{{ scouting.scoutingDate | formatMediumDatetime }}</td>
+          <td>{{ scouting.scout }}</td>
+          <td jhiTranslate="{{ 'blogApp.ScoutingType.' + scouting.scoutingType }}">{{ scouting.scoutingType }}</td>
+          <td>{{ scouting.scoutingCoordinates }}</td>
+          <td>{{ scouting.scoutingArea }}</td>
+          <td jhiTranslate="{{ 'blogApp.CropState.' + scouting.cropState }}">{{ scouting.cropState }}</td>
+          <td>{{ scouting.comments }}</td>
+          <td>{{ scouting.createdBy }}</td>
+          <td>{{ scouting.createdOn | formatMediumDatetime }}</td>
+          <td>{{ scouting.updatedBy }}</td>
+          <td>{{ scouting.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="scouting.plantFactoryID">
+              <a [routerLink]="['/plant-factory', scouting.plantFactoryID?.id, 'view']">{{ scouting.plantFactoryID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="scouting.cropID">
+              <a [routerLink]="['/crop', scouting.cropID?.id, 'view']">{{ scouting.cropID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/scouting', scouting.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/scouting', scouting.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(scouting)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

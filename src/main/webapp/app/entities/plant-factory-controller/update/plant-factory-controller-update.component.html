@@ -1,0 +1,202 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-plant-factory-controller-heading"
+        data-cy="PlantFactoryControllerCreateUpdateHeading"
+        jhiTranslate="blogApp.plantFactoryController.home.createOrEditLabel"
+      >
+        Create or edit a Plant Factory Controller
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="blogApp.plantFactoryController.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactoryController.gUID" for="field_gUID">G UID</label>
+          <input type="text" class="form-control" name="gUID" id="field_gUID" data-cy="gUID" formControlName="gUID" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactoryController.source" for="field_source">Source</label>
+          <select class="form-control" name="source" formControlName="source" id="field_source" data-cy="source">
+            <option [ngValue]="null">{{ 'blogApp.PlantSource.null' | translate }}</option>
+            <option *ngFor="let plantSource of plantSourceValues" [value]="plantSource">
+              {{ 'blogApp.PlantSource.' + plantSource | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactoryController.airTemperature" for="field_airTemperature"
+            >Air Temperature</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="airTemperature"
+            id="field_airTemperature"
+            data-cy="airTemperature"
+            formControlName="airTemperature"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactoryController.relativeHumidity" for="field_relativeHumidity"
+            >Relative Humidity</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="relativeHumidity"
+            id="field_relativeHumidity"
+            data-cy="relativeHumidity"
+            formControlName="relativeHumidity"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactoryController.vPD" for="field_vPD">V PD</label>
+          <input type="number" class="form-control" name="vPD" id="field_vPD" data-cy="vPD" formControlName="vPD" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactoryController.evapotranspiration" for="field_evapotranspiration"
+            >Evapotranspiration</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="evapotranspiration"
+            id="field_evapotranspiration"
+            data-cy="evapotranspiration"
+            formControlName="evapotranspiration"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactoryController.barometricPressure" for="field_barometricPressure"
+            >Barometric Pressure</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="barometricPressure"
+            id="field_barometricPressure"
+            data-cy="barometricPressure"
+            formControlName="barometricPressure"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactoryController.seaLevelPressure" for="field_seaLevelPressure"
+            >Sea Level Pressure</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="seaLevelPressure"
+            id="field_seaLevelPressure"
+            data-cy="seaLevelPressure"
+            formControlName="seaLevelPressure"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactoryController.co2Level" for="field_co2Level">Co 2 Level</label>
+          <input type="number" class="form-control" name="co2Level" id="field_co2Level" data-cy="co2Level" formControlName="co2Level" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactoryController.nutrientTankLevel" for="field_nutrientTankLevel"
+            >Nutrient Tank Level</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="nutrientTankLevel"
+            id="field_nutrientTankLevel"
+            data-cy="nutrientTankLevel"
+            formControlName="nutrientTankLevel"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactoryController.dewPoint" for="field_dewPoint">Dew Point</label>
+          <input type="number" class="form-control" name="dewPoint" id="field_dewPoint" data-cy="dewPoint" formControlName="dewPoint" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactoryController.heatIndex" for="field_heatIndex">Heat Index</label>
+          <input type="number" class="form-control" name="heatIndex" id="field_heatIndex" data-cy="heatIndex" formControlName="heatIndex" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactoryController.turbidity" for="field_turbidity">Turbidity</label>
+          <input type="number" class="form-control" name="turbidity" id="field_turbidity" data-cy="turbidity" formControlName="turbidity" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactoryController.createdBy" for="field_createdBy">Created By</label>
+          <input type="number" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactoryController.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactoryController.updatedBy" for="field_updatedBy">Updated By</label>
+          <input type="number" class="form-control" name="updatedBy" id="field_updatedBy" data-cy="updatedBy" formControlName="updatedBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactoryController.updatedOn" for="field_updatedOn">Updated On</label>
+          <div class="d-flex">
+            <input
+              id="field_updatedOn"
+              data-cy="updatedOn"
+              type="datetime-local"
+              class="form-control"
+              name="updatedOn"
+              formControlName="updatedOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

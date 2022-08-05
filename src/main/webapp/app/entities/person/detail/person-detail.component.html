@@ -1,0 +1,158 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="person">
+      <h2 data-cy="personDetailsHeading"><span jhiTranslate="blogApp.person.detail.title">Person</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.person.id">Id</span></dt>
+        <dd>
+          <span>{{ person.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ person.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.salutation">Salutation</span></dt>
+        <dd>
+          <span>{{ person.salutation }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ person.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.middleName">Middle Name</span></dt>
+        <dd>
+          <span>{{ person.middleName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ person.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.personalTitle">Personal Title</span></dt>
+        <dd>
+          <span>{{ person.personalTitle }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.suffix">Suffix</span></dt>
+        <dd>
+          <span>{{ person.suffix }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.nickName">Nick Name</span></dt>
+        <dd>
+          <span>{{ person.nickName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.firstNameLocal">First Name Local</span></dt>
+        <dd>
+          <span>{{ person.firstNameLocal }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.middleNameLocal">Middle Name Local</span></dt>
+        <dd>
+          <span>{{ person.middleNameLocal }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.lastNameLocal">Last Name Local</span></dt>
+        <dd>
+          <span>{{ person.lastNameLocal }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.otherLocal">Other Local</span></dt>
+        <dd>
+          <span>{{ person.otherLocal }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.gender">Gender</span></dt>
+        <dd>
+          <span>{{ person.gender }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.birthDate">Birth Date</span></dt>
+        <dd>
+          <span>{{ person.birthDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.heigth">Heigth</span></dt>
+        <dd>
+          <span>{{ person.heigth }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.weight">Weight</span></dt>
+        <dd>
+          <span>{{ person.weight }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.mothersMaidenName">Mothers Maiden Name</span></dt>
+        <dd>
+          <span>{{ person.mothersMaidenName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.maritialStatus">Maritial Status</span></dt>
+        <dd>
+          <span>{{ person.maritialStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.socialSecurityNo">Social Security No</span></dt>
+        <dd>
+          <span>{{ person.socialSecurityNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.passportNo">Passport No</span></dt>
+        <dd>
+          <span>{{ person.passportNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.passportExpiryDate">Passport Expiry Date</span></dt>
+        <dd>
+          <span>{{ person.passportExpiryDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.totalYearsWorkExperience">Total Years Work Experience</span></dt>
+        <dd>
+          <span>{{ person.totalYearsWorkExperience }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.comments">Comments</span></dt>
+        <dd>
+          <span>{{ person.comments }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.occupation">Occupation</span></dt>
+        <dd>
+          <span>{{ person.occupation }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.yearswithEmployer">Yearswith Employer</span></dt>
+        <dd>
+          <span>{{ person.yearswithEmployer }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.monthsWithEmployer">Months With Employer</span></dt>
+        <dd>
+          <span>{{ person.monthsWithEmployer }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.existingCustomer">Existing Customer</span></dt>
+        <dd>
+          <span>{{ person.existingCustomer }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ person.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ person.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ person.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ person.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.person.partyID">Party ID</span></dt>
+        <dd>
+          <div *ngIf="person.partyID">
+            <a [routerLink]="['/party', person.partyID?.id, 'view']">{{ person.partyID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/person', person.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

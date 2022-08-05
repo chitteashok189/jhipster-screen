@@ -1,0 +1,32 @@
+{
+  "blogApp": {
+    "harvest": {
+      "home": {
+        "title": "Harvests",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Harvest",
+        "createOrEditLabel": "Crear o editar Harvest",
+        "notFound": "Ningún Harvests encontrado"
+      },
+      "created": "Un nuevo Harvest ha sido creado con el identificador {{ param }}",
+      "updated": "Un Harvest ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Harvest ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Harvest {{ id }}?"
+      },
+      "detail": {
+        "title": "Harvest"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "harvestingDate": "Harvesting Date",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "inspection": "Inspection",
+      "cropID": "Crop ID",
+      "lotID": "Lot ID"
+    }
+  }
+}

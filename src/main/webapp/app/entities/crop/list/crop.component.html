@@ -1,0 +1,156 @@
+<div>
+  <h2 id="page-heading" data-cy="CropHeading">
+    <span jhiTranslate="blogApp.crop.home.title">Crops</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.crop.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-crop"
+        [routerLink]="['/crop/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.crop.home.createLabel"> Create a new Crop </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="crops?.length === 0">
+    <span jhiTranslate="blogApp.crop.home.notFound">No crops found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="crops && crops.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.crop.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.cropCode">Crop Code</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.cropName">Crop Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.cropType">Crop Type</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.horticultureType">Horticulture Type</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.isHybrid">Is Hybrid</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.cultivar">Cultivar</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.sowingDate">Sowing Date</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.sowingDepth">Sowing Depth</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.rowSpacingMax">Row Spacing Max</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.rowSpacingMin">Row Spacing Min</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.seedDepthMax">Seed Depth Max</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.seedDepthMin">Seed Depth Min</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.seedSpacingMax">Seed Spacing Max</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.seedSpacingMin">Seed Spacing Min</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.yearlyCrops">Yearly Crops</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.growingSeason">Growing Season</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.growingPhase">Growing Phase</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.plantingDate">Planting Date</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.plantSpacing">Plant Spacing</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.plantingMaterial">Planting Material</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.transplantationDate">Transplantation Date</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.fertigationscheduleID">Fertigationschedule ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.plannedYield">Planned Yield</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.actualYield">Actual Yield</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.yieldUnit">Yield Unit</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.plantID">Plant ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.plantFactoryID">Plant Factory ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.toolID">Tool ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.seasonID">Season ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.crop.productID">Product ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let crop of crops; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/crop', crop.id, 'view']">{{ crop.id }}</a>
+          </td>
+          <td>{{ crop.gUID }}</td>
+          <td>{{ crop.cropCode }}</td>
+          <td>{{ crop.cropName }}</td>
+          <td jhiTranslate="{{ 'blogApp.CropTyp.' + crop.cropType }}">{{ crop.cropType }}</td>
+          <td jhiTranslate="{{ 'blogApp.Horti.' + crop.horticultureType }}">{{ crop.horticultureType }}</td>
+          <td>{{ crop.isHybrid }}</td>
+          <td>{{ crop.cultivar }}</td>
+          <td>{{ crop.sowingDate | formatMediumDatetime }}</td>
+          <td>{{ crop.sowingDepth }}</td>
+          <td>{{ crop.rowSpacingMax }}</td>
+          <td>{{ crop.rowSpacingMin }}</td>
+          <td>{{ crop.seedDepthMax }}</td>
+          <td>{{ crop.seedDepthMin }}</td>
+          <td>{{ crop.seedSpacingMax }}</td>
+          <td>{{ crop.seedSpacingMin }}</td>
+          <td>{{ crop.yearlyCrops }}</td>
+          <td>{{ crop.growingSeason }}</td>
+          <td jhiTranslate="{{ 'blogApp.GroPhase.' + crop.growingPhase }}">{{ crop.growingPhase }}</td>
+          <td>{{ crop.plantingDate | formatMediumDatetime }}</td>
+          <td>{{ crop.plantSpacing }}</td>
+          <td jhiTranslate="{{ 'blogApp.PlantingMat.' + crop.plantingMaterial }}">{{ crop.plantingMaterial }}</td>
+          <td>{{ crop.transplantationDate | formatMediumDatetime }}</td>
+          <td>{{ crop.fertigationscheduleID }}</td>
+          <td>{{ crop.plannedYield }}</td>
+          <td>{{ crop.actualYield }}</td>
+          <td>{{ crop.yieldUnit }}</td>
+          <td>{{ crop.createdBy }}</td>
+          <td>{{ crop.createdOn | formatMediumDatetime }}</td>
+          <td>{{ crop.updatedBy }}</td>
+          <td>{{ crop.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="crop.plantID">
+              <a [routerLink]="['/plant', crop.plantID?.id, 'view']">{{ crop.plantID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="crop.plantFactoryID">
+              <a [routerLink]="['/plant-factory', crop.plantFactoryID?.id, 'view']">{{ crop.plantFactoryID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="crop.toolID">
+              <a [routerLink]="['/tool', crop.toolID?.id, 'view']">{{ crop.toolID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="crop.seasonID">
+              <a [routerLink]="['/season', crop.seasonID?.id, 'view']">{{ crop.seasonID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="crop.productID">
+              <a [routerLink]="['/product', crop.productID?.id, 'view']">{{ crop.productID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/crop', crop.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/crop', crop.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(crop)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

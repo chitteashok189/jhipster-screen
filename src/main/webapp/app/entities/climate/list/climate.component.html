@@ -1,0 +1,120 @@
+<div>
+  <h2 id="page-heading" data-cy="ClimateHeading">
+    <span jhiTranslate="blogApp.climate.home.title">Climates</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.climate.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-climate"
+        [routerLink]="['/climate/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.climate.home.createLabel"> Create a new Climate </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="climates?.length === 0">
+    <span jhiTranslate="blogApp.climate.home.notFound">No climates found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="climates && climates.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.climate.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.climate.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.climate.source">Source</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.climate.airTemperature">Air Temperature</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.climate.relativeHumidity">Relative Humidity</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.climate.vPD">V PD</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.climate.evapotranspiration">Evapotranspiration</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.climate.barometricPressure">Barometric Pressure</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.climate.seaLevelPressure">Sea Level Pressure</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.climate.co2Level">Co 2 Level</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.climate.dewPoint">Dew Point</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.climate.solarRadiation">Solar Radiation</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.climate.heatIndex">Heat Index</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.climate.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.climate.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.climate.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.climate.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.climate.deviceID">Device ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.climate.plantFactoryID">Plant Factory ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let climate of climates; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/climate', climate.id, 'view']">{{ climate.id }}</a>
+          </td>
+          <td>{{ climate.gUID }}</td>
+          <td jhiTranslate="{{ 'blogApp.CliSource.' + climate.source }}">{{ climate.source }}</td>
+          <td>{{ climate.airTemperature }}</td>
+          <td>{{ climate.relativeHumidity }}</td>
+          <td>{{ climate.vPD }}</td>
+          <td>{{ climate.evapotranspiration }}</td>
+          <td>{{ climate.barometricPressure }}</td>
+          <td>{{ climate.seaLevelPressure }}</td>
+          <td>{{ climate.co2Level }}</td>
+          <td>{{ climate.dewPoint }}</td>
+          <td>{{ climate.solarRadiation }}</td>
+          <td>{{ climate.heatIndex }}</td>
+          <td>{{ climate.createdBy }}</td>
+          <td>{{ climate.createdOn | formatMediumDatetime }}</td>
+          <td>{{ climate.updatedBy }}</td>
+          <td>{{ climate.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="climate.deviceID">
+              <a [routerLink]="['/device', climate.deviceID?.id, 'view']">{{ climate.deviceID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="climate.plantFactoryID">
+              <a [routerLink]="['/plant-factory', climate.plantFactoryID?.id, 'view']">{{ climate.plantFactoryID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/climate', climate.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/climate', climate.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(climate)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

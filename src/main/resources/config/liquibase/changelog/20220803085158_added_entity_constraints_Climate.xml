@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Climate.
+    -->
+    <changeSet id="20220803085158-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="deviceid_id"
+                                 baseTableName="climate"
+                                 constraintName="fk_climate__deviceid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="device"/>
+
+        <addForeignKeyConstraint baseColumnNames="plant_factoryid_id"
+                                 baseTableName="climate"
+                                 constraintName="fk_climate__plant_factoryid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="plant_factory"/>
+    </changeSet>
+</databaseChangeLog>

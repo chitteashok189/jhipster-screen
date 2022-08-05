@@ -1,0 +1,65 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085140",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "security_group_permission",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "SecurityGroupPermission",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "securityGroup",
+      "otherEntityRelationshipName": "securityGroupPermissionID",
+      "relationshipName": "securityGroup",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "securityPermission",
+      "otherEntityRelationshipName": "securityGroupPermissionID",
+      "relationshipName": "securityPermission",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "securityGroup",
+      "otherEntityRelationshipName": "securityGroupPermission",
+      "relationshipName": "securityGroupID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "securityPermission",
+      "otherEntityRelationshipName": "securityGroupPermission",
+      "relationshipName": "securityPermissionID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

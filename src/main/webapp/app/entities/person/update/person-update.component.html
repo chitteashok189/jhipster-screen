@@ -1,0 +1,359 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-person-heading" data-cy="PersonCreateUpdateHeading" jhiTranslate="blogApp.person.home.createOrEditLabel">
+        Create or edit a Person
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="blogApp.person.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.gUID" for="field_gUID">G UID</label>
+          <input type="text" class="form-control" name="gUID" id="field_gUID" data-cy="gUID" formControlName="gUID" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.salutation" for="field_salutation">Salutation</label>
+          <input
+            type="text"
+            class="form-control"
+            name="salutation"
+            id="field_salutation"
+            data-cy="salutation"
+            formControlName="salutation"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.firstName" for="field_firstName">First Name</label>
+          <input type="text" class="form-control" name="firstName" id="field_firstName" data-cy="firstName" formControlName="firstName" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.middleName" for="field_middleName">Middle Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="middleName"
+            id="field_middleName"
+            data-cy="middleName"
+            formControlName="middleName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.lastName" for="field_lastName">Last Name</label>
+          <input type="text" class="form-control" name="lastName" id="field_lastName" data-cy="lastName" formControlName="lastName" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.personalTitle" for="field_personalTitle">Personal Title</label>
+          <input
+            type="text"
+            class="form-control"
+            name="personalTitle"
+            id="field_personalTitle"
+            data-cy="personalTitle"
+            formControlName="personalTitle"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.suffix" for="field_suffix">Suffix</label>
+          <input type="text" class="form-control" name="suffix" id="field_suffix" data-cy="suffix" formControlName="suffix" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.nickName" for="field_nickName">Nick Name</label>
+          <input type="text" class="form-control" name="nickName" id="field_nickName" data-cy="nickName" formControlName="nickName" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.firstNameLocal" for="field_firstNameLocal">First Name Local</label>
+          <input
+            type="text"
+            class="form-control"
+            name="firstNameLocal"
+            id="field_firstNameLocal"
+            data-cy="firstNameLocal"
+            formControlName="firstNameLocal"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.middleNameLocal" for="field_middleNameLocal">Middle Name Local</label>
+          <input
+            type="text"
+            class="form-control"
+            name="middleNameLocal"
+            id="field_middleNameLocal"
+            data-cy="middleNameLocal"
+            formControlName="middleNameLocal"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.lastNameLocal" for="field_lastNameLocal">Last Name Local</label>
+          <input
+            type="text"
+            class="form-control"
+            name="lastNameLocal"
+            id="field_lastNameLocal"
+            data-cy="lastNameLocal"
+            formControlName="lastNameLocal"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.otherLocal" for="field_otherLocal">Other Local</label>
+          <input
+            type="text"
+            class="form-control"
+            name="otherLocal"
+            id="field_otherLocal"
+            data-cy="otherLocal"
+            formControlName="otherLocal"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.gender" for="field_gender">Gender</label>
+          <input type="text" class="form-control" name="gender" id="field_gender" data-cy="gender" formControlName="gender" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.birthDate" for="field_birthDate">Birth Date</label>
+          <div class="d-flex">
+            <input
+              id="field_birthDate"
+              data-cy="birthDate"
+              type="datetime-local"
+              class="form-control"
+              name="birthDate"
+              formControlName="birthDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.heigth" for="field_heigth">Heigth</label>
+          <input type="number" class="form-control" name="heigth" id="field_heigth" data-cy="heigth" formControlName="heigth" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.weight" for="field_weight">Weight</label>
+          <input type="number" class="form-control" name="weight" id="field_weight" data-cy="weight" formControlName="weight" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.mothersMaidenName" for="field_mothersMaidenName"
+            >Mothers Maiden Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="mothersMaidenName"
+            id="field_mothersMaidenName"
+            data-cy="mothersMaidenName"
+            formControlName="mothersMaidenName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.maritialStatus" for="field_maritialStatus">Maritial Status</label>
+          <input
+            type="text"
+            class="form-control"
+            name="maritialStatus"
+            id="field_maritialStatus"
+            data-cy="maritialStatus"
+            formControlName="maritialStatus"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.socialSecurityNo" for="field_socialSecurityNo">Social Security No</label>
+          <input
+            type="number"
+            class="form-control"
+            name="socialSecurityNo"
+            id="field_socialSecurityNo"
+            data-cy="socialSecurityNo"
+            formControlName="socialSecurityNo"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.passportNo" for="field_passportNo">Passport No</label>
+          <input
+            type="text"
+            class="form-control"
+            name="passportNo"
+            id="field_passportNo"
+            data-cy="passportNo"
+            formControlName="passportNo"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.passportExpiryDate" for="field_passportExpiryDate"
+            >Passport Expiry Date</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="passportExpiryDate"
+            id="field_passportExpiryDate"
+            data-cy="passportExpiryDate"
+            formControlName="passportExpiryDate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.totalYearsWorkExperience" for="field_totalYearsWorkExperience"
+            >Total Years Work Experience</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalYearsWorkExperience"
+            id="field_totalYearsWorkExperience"
+            data-cy="totalYearsWorkExperience"
+            formControlName="totalYearsWorkExperience"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.comments" for="field_comments">Comments</label>
+          <input type="text" class="form-control" name="comments" id="field_comments" data-cy="comments" formControlName="comments" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.occupation" for="field_occupation">Occupation</label>
+          <input
+            type="text"
+            class="form-control"
+            name="occupation"
+            id="field_occupation"
+            data-cy="occupation"
+            formControlName="occupation"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.yearswithEmployer" for="field_yearswithEmployer">Yearswith Employer</label>
+          <input
+            type="number"
+            class="form-control"
+            name="yearswithEmployer"
+            id="field_yearswithEmployer"
+            data-cy="yearswithEmployer"
+            formControlName="yearswithEmployer"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.monthsWithEmployer" for="field_monthsWithEmployer"
+            >Months With Employer</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="monthsWithEmployer"
+            id="field_monthsWithEmployer"
+            data-cy="monthsWithEmployer"
+            formControlName="monthsWithEmployer"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.existingCustomer" for="field_existingCustomer">Existing Customer</label>
+          <input
+            type="number"
+            class="form-control"
+            name="existingCustomer"
+            id="field_existingCustomer"
+            data-cy="existingCustomer"
+            formControlName="existingCustomer"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.createdBy" for="field_createdBy">Created By</label>
+          <input type="number" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.updatedBy" for="field_updatedBy">Updated By</label>
+          <input type="number" class="form-control" name="updatedBy" id="field_updatedBy" data-cy="updatedBy" formControlName="updatedBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.updatedOn" for="field_updatedOn">Updated On</label>
+          <div class="d-flex">
+            <input
+              id="field_updatedOn"
+              data-cy="updatedOn"
+              type="datetime-local"
+              class="form-control"
+              name="updatedOn"
+              formControlName="updatedOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.person.partyID" for="field_partyID">Party ID</label>
+          <select class="form-control" id="field_partyID" data-cy="partyID" name="partyID" formControlName="partyID">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="partyOption.id === editForm.get('partyID')!.value?.id ? editForm.get('partyID')!.value : partyOption"
+              *ngFor="let partyOption of partiesSharedCollection; trackBy: trackPartyById"
+            >
+              {{ partyOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

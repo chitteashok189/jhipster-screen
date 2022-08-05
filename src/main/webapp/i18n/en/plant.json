@@ -1,0 +1,57 @@
+{
+  "blogApp": {
+    "plant": {
+      "home": {
+        "title": "Plants",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Plant",
+        "createOrEditLabel": "Create or edit a Plant",
+        "notFound": "No Plants found"
+      },
+      "created": "A new Plant is created with identifier {{ param }}",
+      "updated": "A Plant is updated with identifier {{ param }}",
+      "deleted": "A Plant is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Plant {{ id }}?"
+      },
+      "detail": {
+        "title": "Plant"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "commonName": "Common Name",
+      "scientificName": "Scientific Name",
+      "familyName": "Family Name",
+      "plantSpacing": "Plant Spacing",
+      "seedingMonth": "Seeding Month",
+      "transplantMonth": "Transplant Month",
+      "harvestMonth": "Harvest Month",
+      "originCountry": "Origin Country",
+      "yearlyCrops": "Yearly Crops",
+      "nativeTemperature": "Native Temperature",
+      "nativeHumidity": "Native Humidity",
+      "nativeDayDuration": "Native Day Duration",
+      "nativeNightDuration": "Native Night Duration",
+      "nativeSoilMoisture": "Native Soil Moisture",
+      "plantingPeriod": "Planting Period",
+      "yieldUnit": "Yield Unit",
+      "growthHeightMin": "Growth Height Min",
+      "growthHeightMax": "Growth Height Max",
+      "grownSpreadMin": "Grown Spread Min",
+      "grownSpreadMax": "Grown Spread Max",
+      "grownWeightMax": "Grown Weight Max",
+      "grownWeightMin": "Grown Weight Min",
+      "growingMedia": "Growing Media",
+      "documents": "Documents",
+      "notes": "Notes",
+      "attachments": "Attachments",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "recipe": "Recipe",
+      "crop": "Crop",
+      "cropID": "Crop ID"
+    }
+  }
+}

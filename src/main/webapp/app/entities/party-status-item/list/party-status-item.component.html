@@ -1,0 +1,92 @@
+<div>
+  <h2 id="page-heading" data-cy="PartyStatusItemHeading">
+    <span jhiTranslate="blogApp.partyStatusItem.home.title">Party Status Items</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.partyStatusItem.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-party-status-item"
+        [routerLink]="['/party-status-item/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.partyStatusItem.home.createLabel"> Create a new Party Status Item </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="partyStatusItems?.length === 0">
+    <span jhiTranslate="blogApp.partyStatusItem.home.notFound">No partyStatusItems found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="partyStatusItems && partyStatusItems.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.partyStatusItem.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyStatusItem.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyStatusItem.statusCode">Status Code</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyStatusItem.sequenceID">Sequence ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyStatusItem.description">Description</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyStatusItem.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyStatusItem.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyStatusItem.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyStatusItem.updatedOn">Updated On</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let partyStatusItem of partyStatusItems; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/party-status-item', partyStatusItem.id, 'view']">{{ partyStatusItem.id }}</a>
+          </td>
+          <td>{{ partyStatusItem.gUID }}</td>
+          <td>{{ partyStatusItem.statusCode }}</td>
+          <td>{{ partyStatusItem.sequenceID }}</td>
+          <td>{{ partyStatusItem.description }}</td>
+          <td>{{ partyStatusItem.createdBy }}</td>
+          <td>{{ partyStatusItem.createdOn | formatMediumDatetime }}</td>
+          <td>{{ partyStatusItem.updatedBy }}</td>
+          <td>{{ partyStatusItem.updatedOn | formatMediumDatetime }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/party-status-item', partyStatusItem.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/party-status-item', partyStatusItem.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(partyStatusItem)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

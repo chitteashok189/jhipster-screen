@@ -1,0 +1,223 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085203",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "crop",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "cropCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cropName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cropType",
+      "fieldType": "CropTyp",
+      "fieldValues": "Food,Crops,Cash,Plantation,Horticulture"
+    },
+    {
+      "fieldName": "horticultureType",
+      "fieldType": "Horti",
+      "fieldValues": "Olericulture,Floriculture,Pomology,Landscaping,Arboriculture,Viticulture"
+    },
+    {
+      "fieldName": "isHybrid",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "cultivar",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sowingDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "sowingDepth",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "rowSpacingMax",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "rowSpacingMin",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "seedDepthMax",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "seedDepthMin",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "seedSpacingMax",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "seedSpacingMin",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "yearlyCrops",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "growingSeason",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "growingPhase",
+      "fieldType": "GroPhase",
+      "fieldValues": "Initial,Stage,Crop,Development,Mid,Season,Late"
+    },
+    {
+      "fieldName": "plantingDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "plantSpacing",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "plantingMaterial",
+      "fieldType": "PlantingMat",
+      "fieldValues": "Seeds,Seedlings,Stem,Cuttings,Corms,Bulbs,Suckers"
+    },
+    {
+      "fieldName": "transplantationDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "fertigationscheduleID",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "plannedYield",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "actualYield",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "yieldUnit",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Crop",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "plant",
+      "otherEntityRelationshipName": "cropID",
+      "relationshipName": "plant",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "calendar",
+      "otherEntityRelationshipName": "cropID",
+      "relationshipName": "calendar",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "scouting",
+      "otherEntityRelationshipName": "cropID",
+      "relationshipName": "scouting",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "pestControl",
+      "otherEntityRelationshipName": "cropID",
+      "relationshipName": "pestControl",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "diseaseControl",
+      "otherEntityRelationshipName": "cropID",
+      "relationshipName": "diseaseControl",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "activity",
+      "otherEntityRelationshipName": "cropID",
+      "relationshipName": "activity",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "harvest",
+      "otherEntityRelationshipName": "cropID",
+      "relationshipName": "harvest",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "lot",
+      "otherEntityRelationshipName": "cropID",
+      "relationshipName": "lot",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "plant",
+      "otherEntityRelationshipName": "crop",
+      "relationshipName": "plantID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "plantFactory",
+      "otherEntityRelationshipName": "crop",
+      "relationshipName": "plantFactoryID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "tool",
+      "otherEntityRelationshipName": "crop",
+      "relationshipName": "toolID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "season",
+      "otherEntityRelationshipName": "crop",
+      "relationshipName": "seasonID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "crop",
+      "relationshipName": "productID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

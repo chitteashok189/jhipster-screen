@@ -1,0 +1,36 @@
+{
+  "blogApp": {
+    "deviceLevel": {
+      "home": {
+        "title": "Device Levels",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Device Level",
+        "createOrEditLabel": "Create or edit a Device Level",
+        "notFound": "No Device Levels found"
+      },
+      "created": "A new Device Level is created with identifier {{ param }}",
+      "updated": "A Device Level is updated with identifier {{ param }}",
+      "deleted": "A Device Level is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Device Level {{ id }}?"
+      },
+      "detail": {
+        "title": "Device Level"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "levelName": "Level Name",
+      "deviceLevelType": "Device Level Type",
+      "manufacturer": "Manufacturer",
+      "productCode": "Product Code",
+      "ports": "Ports",
+      "properties": "Properties",
+      "description": "Description",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "device": "Device"
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085200",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "plant_factory_controller",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "source",
+      "fieldType": "PlantSource",
+      "fieldValues": "Automatic,Manual"
+    },
+    {
+      "fieldName": "airTemperature",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "relativeHumidity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "vPD",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "evapotranspiration",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "barometricPressure",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "seaLevelPressure",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "co2Level",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nutrientTankLevel",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dewPoint",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "heatIndex",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "turbidity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PlantFactoryController",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

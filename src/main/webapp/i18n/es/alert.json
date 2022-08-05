@@ -1,0 +1,43 @@
+{
+  "blogApp": {
+    "alert": {
+      "home": {
+        "title": "Alerts",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Alert",
+        "createOrEditLabel": "Crear o editar Alert",
+        "notFound": "Ningún Alerts encontrado"
+      },
+      "created": "Un nuevo Alert ha sido creado con el identificador {{ param }}",
+      "updated": "Un Alert ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Alert ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Alert {{ id }}?"
+      },
+      "detail": {
+        "title": "Alert"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "name": "Name",
+      "alertType": "Alert Type",
+      "description": "Description",
+      "datePeriod": "Date Period",
+      "durationDays": "Duration Days",
+      "minimumTemperature": "Minimum Temperature",
+      "maximumTemperature": "Maximum Temperature",
+      "minHumidity": "Min Humidity",
+      "maxHumidity": "Max Humidity",
+      "precipitationType": "Precipitation Type",
+      "minPrecipitation": "Min Precipitation",
+      "maxPrecipitation": "Max Precipitation",
+      "status": "Status",
+      "remediation": "Remediation",
+      "farmAssigned": "Farm Assigned",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On"
+    }
+  }
+}

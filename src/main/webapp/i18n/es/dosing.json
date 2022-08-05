@@ -1,0 +1,36 @@
+{
+  "blogApp": {
+    "dosing": {
+      "home": {
+        "title": "Dosings",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Dosing",
+        "createOrEditLabel": "Crear o editar Dosing",
+        "notFound": "Ningún Dosings encontrado"
+      },
+      "created": "Un nuevo Dosing ha sido creado con el identificador {{ param }}",
+      "updated": "Un Dosing ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Dosing ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Dosing {{ id }}?"
+      },
+      "detail": {
+        "title": "Dosing"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "source": "Source",
+      "pH": "P H",
+      "eC": "E C",
+      "dO": "D O",
+      "nutrientTemperature": "Nutrient Temperature",
+      "solarRadiation": "Solar Radiation",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "deviceID": "Device ID",
+      "plantFactoryID": "Plant Factory ID"
+    }
+  }
+}

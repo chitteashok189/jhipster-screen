@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Device.
+    -->
+    <changeSet id="20220803085146-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="plant_factoryid_id"
+                                 baseTableName="device"
+                                 constraintName="fk_device__plant_factoryid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="plant_factory"/>
+
+        <addForeignKeyConstraint baseColumnNames="device_levelid_id"
+                                 baseTableName="device"
+                                 constraintName="fk_device__device_levelid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="device_level"/>
+
+        <addForeignKeyConstraint baseColumnNames="device_modelid_id"
+                                 baseTableName="device"
+                                 constraintName="fk_device__device_modelid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="device_model"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,106 @@
+<div>
+  <h2 id="page-heading" data-cy="DiseaseHeading">
+    <span jhiTranslate="blogApp.disease.home.title">Diseases</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.disease.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-disease"
+        [routerLink]="['/disease/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.disease.home.createLabel"> Create a new Disease </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="diseases?.length === 0">
+    <span jhiTranslate="blogApp.disease.home.notFound">No diseases found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="diseases && diseases.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.disease.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.disease.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.disease.threatLevel">Threat Level</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.disease.name">Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.disease.causalOrganism">Causal Organism</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.disease.attachments">Attachments</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.disease.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.disease.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.disease.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.disease.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.disease.scoutingID">Scouting ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.disease.plantFactoryID">Plant Factory ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let disease of diseases; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/disease', disease.id, 'view']">{{ disease.id }}</a>
+          </td>
+          <td>{{ disease.gUID }}</td>
+          <td jhiTranslate="{{ 'blogApp.DisThreatLevel.' + disease.threatLevel }}">{{ disease.threatLevel }}</td>
+          <td>{{ disease.name }}</td>
+          <td>{{ disease.causalOrganism }}</td>
+          <td>{{ disease.attachments }}</td>
+          <td>{{ disease.createdBy }}</td>
+          <td>{{ disease.createdOn | formatMediumDatetime }}</td>
+          <td>{{ disease.updatedBy }}</td>
+          <td>{{ disease.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="disease.scoutingID">
+              <a [routerLink]="['/scouting', disease.scoutingID?.id, 'view']">{{ disease.scoutingID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="disease.plantFactoryID">
+              <a [routerLink]="['/plant-factory', disease.plantFactoryID?.id, 'view']">{{ disease.plantFactoryID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/disease', disease.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/disease', disease.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(disease)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

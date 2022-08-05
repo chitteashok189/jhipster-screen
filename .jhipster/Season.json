@@ -1,0 +1,79 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085157",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "season",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "seasonType",
+      "fieldType": "SeaType",
+      "fieldValues": "Kharif,Rabi,Summer"
+    },
+    {
+      "fieldName": "cropName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "area",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "seasonTime",
+      "fieldType": "SeaTime",
+      "fieldValues": "January,February,March,April,May,June,July,August,September,October,November,December"
+    },
+    {
+      "fieldName": "seasonstartDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "seasonEndDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Season",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "crop",
+      "otherEntityRelationshipName": "seasonID",
+      "relationshipName": "crop",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "calendar",
+      "otherEntityRelationshipName": "seasonID",
+      "relationshipName": "calendar",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

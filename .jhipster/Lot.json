@@ -1,0 +1,130 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085217",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "lot",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "lotCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lotQRCode",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    },
+    {
+      "fieldName": "lotSize",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "unitType",
+      "fieldType": "Unit",
+      "fieldValues": "Cavities,Cells"
+    },
+    {
+      "fieldName": "seedlingsGerminated",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "seedlingsDied",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "plantsWasted",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "traysSown",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "sowingTime",
+      "fieldType": "Sowing",
+      "fieldValues": "Daily,Weekly,Monthly,Yearly"
+    },
+    {
+      "fieldName": "traysTranplanted",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "transplantationTime",
+      "fieldType": "Transplantation",
+      "fieldValues": "Daily,Weekly,Monthly,Yearly"
+    },
+    {
+      "fieldName": "plantsHarvested",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "harvestTime",
+      "fieldType": "HarTime",
+      "fieldValues": "Daily,Weekly,Monthly,Yearly"
+    },
+    {
+      "fieldName": "packingDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "tranportationDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Lot",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "harvest",
+      "otherEntityRelationshipName": "lotID",
+      "relationshipName": "harvest",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "inspectionRecord",
+      "otherEntityRelationshipName": "lotID",
+      "relationshipName": "inspectionRecord",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "seed",
+      "otherEntityRelationshipName": "lot",
+      "relationshipName": "seedID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "crop",
+      "otherEntityRelationshipName": "lot",
+      "relationshipName": "cropID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

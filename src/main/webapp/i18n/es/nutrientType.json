@@ -1,0 +1,9 @@
+{
+  "blogApp": {
+    "NutrientType": {
+      "null": "",
+      "Organic": "Organic",
+      "Synthetic": "Synthetic"
+    }
+  }
+}

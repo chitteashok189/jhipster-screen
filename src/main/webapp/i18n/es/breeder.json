@@ -1,0 +1,32 @@
+{
+  "blogApp": {
+    "breeder": {
+      "home": {
+        "title": "Breeders",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Breeder",
+        "createOrEditLabel": "Crear o editar Breeder",
+        "notFound": "Ningún Breeders encontrado"
+      },
+      "created": "Un nuevo Breeder ha sido creado con el identificador {{ param }}",
+      "updated": "Un Breeder ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Breeder ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Breeder {{ id }}?"
+      },
+      "detail": {
+        "title": "Breeder"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "breederName": "Breeder Name",
+      "breederType": "Breeder Type",
+      "breederStatus": "Breeder Status",
+      "breederDescription": "Breeder Description",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On"
+    }
+  }
+}

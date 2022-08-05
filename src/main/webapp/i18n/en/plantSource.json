@@ -1,0 +1,9 @@
+{
+  "blogApp": {
+    "PlantSource": {
+      "null": "",
+      "Automatic": "Automatic",
+      "Manual": "Manual"
+    }
+  }
+}

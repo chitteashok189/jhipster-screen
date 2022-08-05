@@ -1,0 +1,31 @@
+{
+  "blogApp": {
+    "partyStatusItem": {
+      "home": {
+        "title": "Party Status Items",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Party Status Item",
+        "createOrEditLabel": "Crear o editar Party Status Item",
+        "notFound": "Ningún Party Status Items encontrado"
+      },
+      "created": "Un nuevo Party Status Item ha sido creado con el identificador {{ param }}",
+      "updated": "Un Party Status Item ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Party Status Item ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Party Status Item {{ id }}?"
+      },
+      "detail": {
+        "title": "Party Status Item"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "statusCode": "Status Code",
+      "sequenceID": "Sequence ID",
+      "description": "Description",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On"
+    }
+  }
+}

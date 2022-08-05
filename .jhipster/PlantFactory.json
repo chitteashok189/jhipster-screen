@@ -1,0 +1,137 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085142",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "plant_factory",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "plantFactoryName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "plantFactoryTypeID",
+      "fieldType": "ProFarmType",
+      "fieldValues": "SN_Shade,Net,NVPH_Naturally,Ventilated,Polyhouse,PFAL_Protected,Farming,With,Artificial,Lighting,PFNL_Protected,Natural"
+    },
+    {
+      "fieldName": "plantFactorySubType",
+      "fieldType": "ProSubType",
+      "fieldValues": "Femto,Pico,Nano,Micro,Giga,Tera,Mega"
+    },
+    {
+      "fieldName": "plantFactoryDescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PlantFactory",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "zone",
+      "otherEntityRelationshipName": "plantFactoryID",
+      "relationshipName": "zone",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "device",
+      "otherEntityRelationshipName": "plantFactoryID",
+      "relationshipName": "device",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "climate",
+      "otherEntityRelationshipName": "plantFactoryID",
+      "relationshipName": "climate",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "irrigation",
+      "otherEntityRelationshipName": "plantFactoryID",
+      "relationshipName": "irrigation",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "dosing",
+      "otherEntityRelationshipName": "plantFactoryID",
+      "relationshipName": "dosing",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "light",
+      "otherEntityRelationshipName": "plantFactoryID",
+      "relationshipName": "light",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "crop",
+      "otherEntityRelationshipName": "plantFactoryID",
+      "relationshipName": "crop",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "calendar",
+      "otherEntityRelationshipName": "plantFactoryID",
+      "relationshipName": "calendar",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "scouting",
+      "otherEntityRelationshipName": "plantFactoryID",
+      "relationshipName": "scouting",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "pest",
+      "otherEntityRelationshipName": "plantFactoryID",
+      "relationshipName": "pest",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "disease",
+      "otherEntityRelationshipName": "plantFactoryID",
+      "relationshipName": "disease",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "farm",
+      "otherEntityRelationshipName": "plantFactory",
+      "relationshipName": "farmID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "device",
+      "otherEntityRelationshipName": "plantFactory",
+      "relationshipName": "deviceID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

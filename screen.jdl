@@ -1,0 +1,1245 @@
+
+entity Party{
+    Id Long,
+    GUID UUID,
+    PartyName String,
+    statusID Boolean,
+    description String,
+    externalID Integer,
+    createdBy Long,
+    CreatedOn ZonedDateTime,
+    updatedBy Long,
+    updatedOn ZonedDateTime
+}
+entity PartyGroup{
+    Id Long,
+    GUID Long,
+    groupName String,
+    localGroupName String,
+    officeSiteName String,
+    comments String,
+    logoImageUrl String,
+    createdBy Long,
+    CreatedOn ZonedDateTime,
+    updatedBy Long,
+    updatedOn ZonedDateTime
+}
+entity PartyType{
+    Id Long,
+    GUID UUID,
+    parentTypeID ParentType,
+    hasTable String,
+    description String,
+    partyTypeAttr String,
+    createdBy Long,
+    CreatedOn ZonedDateTime,
+    updatedBy Long,
+    updatedOn ZonedDateTime
+}
+
+
+enum ParentType{
+Automated Agent,  Person, Party Group,
+Informal Group, Family, Group, Legal Organization, 
+Team, Corporation, Government Agency
+}
+entity PartyTypeAttribute{
+	Id Long,
+    GUID Long,
+    attributeName String,
+    createdBy Long,
+    CreatedOn ZonedDateTime,
+    updatedBy Long,
+    updatedOn ZonedDateTime
+}
+
+entity Ennumeration{
+	Id Long,
+    enumCode Integer,
+    description String
+}
+
+entity EnnumerationType{
+	ennumerationType Long,
+    hasTable Boolean,
+    description String,
+    ennumeration String
+}
+
+entity PartyAttribute{
+	Id Long,
+    GUID UUID,
+    attributeName String,
+    attributeValue Integer,
+    createdBy Long,
+    CreatedOn ZonedDateTime,
+    updatedBy Long,
+    updatedOn ZonedDateTime
+}
+
+entity PartyClassification{
+	Id Long,
+    GUID UUID,
+    fromDate Instant,
+    thruDate Instant,
+    createdBy Long,
+    CreatedOn ZonedDateTime,
+    updatedBy Long,
+    updatedOn ZonedDateTime
+}
+
+entity PartyRole{
+	Id Long,
+    GUID UUID,
+    fromAgreement String,
+    toAgreement String,
+    fromCommunicationEvent String,
+    toCommunicationEvent String,
+    partyIdFrom Long,
+    PartyIdTO Long,
+    createdBy Long,
+    CreatedOn ZonedDateTime,
+    updatedBy Long,
+    updatedOn ZonedDateTime
+}
+
+entity PartyRelationship{
+	Id Long,
+    GUID UUID,
+    partyIdTo Long,
+    partyIdFrom Long,
+    roleTypeIdFrom Long,
+    roleTypeIdTo Long,
+    fromDate Instant,
+    thruDate Instant,
+    relationshipName String,
+    positionTitle String,
+    comments String,
+    createdBy Long,
+    CreatedOn ZonedDateTime,
+    updatedBy Long,
+    updatedOn ZonedDateTime
+}
+
+entity PartyRelationshipType{
+	Id Long,
+    GUID Long,
+    hasTable Boolean,
+    partyRelationshipName String,
+    description String,
+    roleTypeIdValidFrom Long,
+    roleTypeIdValidTo Long,
+    createdBy Long,
+    CreatedOn ZonedDateTime,
+    updatedBy Long,
+    updatedOn ZonedDateTime
+}
+
+entity RoleType{
+	Id Long,
+    GUID UUID,
+    hasTable Boolean,
+    description String,
+    childRoleType Long,
+    validPartyRelationshipType Long,
+    validFromPartyRelationshipType Long,
+    partyInvitationRoleAssociation String,
+    createdBy Long,
+    CreatedOn ZonedDateTime,
+    updatedBy Long,
+    updatedOn ZonedDateTime
+}
+
+entity RoleTypeAttribute{
+	Id Long,
+    GUID UUID,
+    attributeName String,
+	description String,
+    createdBy Long,
+    CreatedOn ZonedDateTime,
+    updatedBy Long,
+    updatedOn ZonedDateTime
+}
+
+entity PartyNote{
+	Id Long,
+    GUID UUID,
+    NoteID Long,
+    createdBy Long,
+    CreatedOn ZonedDateTime,
+    updatedBy Long,
+    updatedOn ZonedDateTime
+}
+
+entity PartyStatus{
+	Id Long,
+    GUID UUID,
+    statusDate Instant,
+    createdBy Long,
+    CreatedOn ZonedDateTime,
+    updatedBy Long,
+    updatedOn ZonedDateTime
+}
+
+entity PartyStatusType{
+	Id Long,
+    GUID UUID,
+    parentTypeID Long,
+    hasTable Boolean,
+    description String,
+    childStatusType Long,
+    createdBy Long,
+    CreatedOn ZonedDateTime,
+    updatedBy Long,
+    updatedOn ZonedDateTime
+}
+
+entity PartyStatusItem{
+	Id Long,
+    GUID UUID,
+    statusCode Integer,
+    sequenceID Long,
+    description String,
+    createdBy Long,
+    CreatedOn ZonedDateTime,
+    updatedBy Long,
+    updatedOn ZonedDateTime
+}
+
+entity Person{
+	Id Long,
+    GUID UUID,
+    salutation String,
+    firstName String,
+    middleName String,
+    lastName String,
+    personalTitle String,
+    suffix String,
+    nickName String,
+    firstNameLocal String,
+    middleNameLocal String,
+    lastNameLocal String,
+    otherLocal String,
+    gender String,
+    birthDate Instant,
+    heigth Integer,
+    weight Integer,
+    mothersMaidenName String,
+    maritialStatus String,
+    socialSecurityNo Integer,
+    passportNo String,
+    passportExpiryDate String,
+    totalYearsWorkExperience Integer,
+    comments String,
+    occupation String,
+    yearswithEmployer Integer,
+    monthsWithEmployer Integer,
+    existingCustomer Integer,
+    createdBy Long,
+    CreatedOn ZonedDateTime,
+    updatedBy Long,
+    updatedOn ZonedDateTime
+}
+
+entity ApplicationUser{
+	Id Long,
+    GUID UUID,
+    currentPassword String,
+    passwordHint String,
+    isSystemEnables Boolean,
+    hasLoggedOut Boolean,
+    requirePasswordChange Boolean,
+    lastCurrencyUom Integer,
+    lastLocale Integer,
+    lastTimeZone Integer,
+    disabledDateTime Instant,
+    successiveFailedLogins Integer,
+    applicationUserSecurityGroup String,
+    createdBy Long,
+    CreatedOn ZonedDateTime,
+    updatedBy Long,
+    updatedOn ZonedDateTime
+} 
+
+entity SecurityGroup{
+	Id Long,
+    GUID UUID,
+    description String,
+    createdBy Long,
+    CreatedOn ZonedDateTime,
+    updatedBy Long,
+    updatedOn ZonedDateTime
+}
+
+entity SecurityPermission{
+	Id Long,
+    GUID UUID,
+    description String,
+    createdBy Long,
+    CreatedOn ZonedDateTime,
+    updatedBy Long,
+    updatedOn ZonedDateTime
+}
+
+entity ApplicationUserSecurityGroup{
+	Id Long,
+    GUID UUID,
+    fromDate Instant,
+    thruDate Instant,
+    createdBy Long,
+    CreatedOn ZonedDateTime,
+    updatedBy Long,
+    updatedOn ZonedDateTime
+}
+
+entity SecurityGroupPermission{
+Id Long,
+GUID UUID,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+entity Farm{
+Id Long,
+GUID UUID,
+FarmName String,
+FarmType FarmType,
+FarmDescription String,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+
+enum FarmType{
+Organic Farm, Commercial Grain Farm,
+Commercial Mixed Farm, Cooperative Farm, Vineyard, Ranch, 
+Flower Farm, Family Farm, Hay Farms, Orchard Farm, 
+Subsistence Farm, Plantation Farm, Dairy Farm
+}
+
+entity PlantFactory{
+Id Long,
+GUID UUID,
+PlantFactoryName String,
+PlantFactoryTypeID ProFarmType,
+PlantFactorySubType ProSubType,
+PlantFactoryDescription String,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+
+}
+enum ProFarmType{
+SN_Shade Net, NVPH_Naturally Ventilated Polyhouse,
+PFAL_Protected Farming With Artificial Lighting, 
+PFNL_Protected Farming With Natural Lighting
+}
+enum ProSubType{
+Femto, Pico, Nano, Micro, Giga, Tera, Mega
+}
+entity Zone{
+Id Long,
+GUID UUID,
+ZoneType ZoneType,
+ZoneName String,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum ZoneType{
+Leafy Greens, Tubers, Fruit, Flowers
+}
+entity GrowBed{
+Id Long,
+GUID UUID,
+GrowBedType GrowBedType,
+GrowBedName String,
+Manufacturer String,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum GrowBedType{
+Vertical Rack, Hydroponic  Table, Dutch Bucket Bench, 
+Ebb And Flow Table_Single Layer, Ebb And Flow Table_Multilayer
+}
+entity Location{
+Id Long,
+GUID UUID,
+BuildingNo Integer,
+Street String,
+Area String,
+Country Long,
+State Long,
+City Long,
+PostalCode String,
+OtherAddress String,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+entity Device{
+Id Long,
+GUID UUID,
+DeviceModel String,
+DeviceAsset String,
+DeviceType DeviceType, 
+HardwareID Long,
+ReportingIntervalLocation Integer,
+ParentDevice String, 
+Properties String,
+Description String,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum DeviceType{
+Input Devices, Output Devices, Storage Devices, IOT Devices, Mobile Devices
+}
+entity DeviceLevel{
+Id Long,
+GUID UUID,
+LevelName String,
+DeviceLevelType Long,
+Manufacturer String,
+ProductCode Integer,
+Ports Integer,
+Properties String,
+Description String,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+entity DeviceModel{
+Id Long,
+GUID UUID,
+ModelName String, 
+Type Long,
+Manufacturer String,
+ProductCode Integer, 
+Properties Long,
+Description String,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+entity Sensor{
+Id Long,
+GUID UUID,
+SensorName String,
+SensorModelName String,
+HardwareID Long,
+Port Integer,
+Properties String,
+Description String,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+entity SensorModel{
+Id Long,
+GUID UUID,
+SensorType Long,
+Manufacturer String,
+ProductCode String,
+SensorMeasure Integer
+ModelName String,
+Properties String,
+Description String,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+
+entity Plant{
+Id Long,
+GUID UUID,
+CommonName String,
+ScientificName String,
+FamilyName String,
+PlantSpacing Integer,
+SeedingMonth Seeding,
+TransplantMonth TransplantMonth,
+HarvestMonth HarvestMonth,
+OriginCountry Long,
+YearlyCrops Integer,
+NativeTemperature Integer,
+NativeHumidity Integer,
+NativeDayDuration Integer,
+NativeNightDuration Integer,
+NativeSoilMoisture Integer,
+PlantingPeriod Integer,
+YieldUnit Integer,
+GrowthHeightMin Integer,
+GrowthHeightMax Integer,
+GrownSpreadMin Integer,
+GrownSpreadMax Integer,
+GrownWeightMax Integer,
+GrownWeightMin Integer,
+GrowingMedia String,
+Documents String,
+Notes String,
+Attachments Blob,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+ enum Seeding{
+ January, February, March, April, May, June ,
+ July, August, September, October, November, December
+ }
+ enum TransplantMonth{
+ January, February, March, April, May, June ,
+ July, August, September, October, November, December
+ }
+ enum HarvestMonth{
+ January, February, March, April, May, June ,
+ July, August, September, October, November, December
+ }
+ entity Product{
+Id Long,
+GUID UUID,
+ProductCode String,
+ProductName String,
+ProductPrice Integer,
+ProductType ProType,
+UOM Integer,
+OtherProductDetails String,
+PreviousEntry Long,
+Manufacturer String,
+ProductDescription String,
+ImageFileName String,
+ProductEntryName String,
+Capacity Integer,
+Length Integer,
+Width Integer,
+Height Integer,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+
+}
+enum ProType{
+Vegetables, Fruits, Ornamental, Medicinal, Aromatic
+}
+entity Seed{
+Id Long,
+GUID UUID,
+BreederID String,  
+SeedClass SeedClass,
+Variety String,
+SeedRate SeedRate,
+GerminationPercentage Integer,
+Treatment Treatment,
+Origin String,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum SeedClass{
+Certified, Foundation, Breeder, Nuclear, Registered
+}
+enum SeedRate{
+Seeds_Ha, Kg_Ha
+}
+enum Treatment{
+Dry Treatment, Wet Treatment, Slurry Treatment, UV Treatment
+}
+entity Breeder{
+Id Long,
+GUID UUID,
+BreederName String,
+BreederType Long,
+BreederStatus Long,
+BreederDescription String,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+entity RawMaterial{
+Id Long,
+GUID UUID,
+Quantity Integer,
+UOM Integer,
+MaterialType MaterialType,
+Price Integer,
+Description String,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum MaterialType{
+Vegetables, Flowers, Fruits, Wood, Latex, Resin, Grains
+}
+entity Recipe{
+Id Long,
+GUID UUID,
+PlantName String
+RecipeType String,
+PHMin Long,
+PHMax Long
+EcMin Ec,
+ECMax Integer,
+AirTempMax Integer,
+AirTempMin Integer,
+HumidityMax Integer,
+HumidityMin Integer,
+NutrientTempMax Integer,
+NutrientTempMin Integer,
+LuxGermMax Integer,
+LuxGermMin Integer,
+LightGermDor Integer,
+LightGermCycle Integer,
+LuxGrowMax Integer,
+LuxGrowMin Integer,
+LightGrowDor Integer,
+LightGrowCycle Integer,
+Co2LightMax Integer,
+Co2LightMin Integer,
+Co2DarkMax Integer,
+Co2DarkMin Integer,
+DOMax Integer,
+DOMin Integer,
+MediaMoistureMax Integer,
+MediaMoistureMin Integer,
+Nitrogen Integer,
+Phosphorus Integer,
+Potassium Integer,
+Sulphur Integer,
+Calcium Integer,
+Magnesium Integer,
+Manganese Integer,
+Iron Integer,
+Boron Integer,
+Copper Integer,
+Zinc Integer,
+Molybdenum Integer,
+GerminationTAT Integer,
+IdentificationComment String,
+GrowingComment String,
+UsageComment String,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum Ec{
+Olericulture, Floriculture, Pomology, 
+Landscaping, Arboriculture, Viticulture
+
+}
+entity Season{
+Id Long,
+GUID UUID,
+SeasonType SeaType,
+CropName String,
+Area Integer,
+SeasonTime SeaTime,
+SeasonstartDate Instant,
+SeasonEndDate Instant,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum SeaType{
+Kharif, Rabi, Summer
+}
+enum SeaTime{
+January, February, March, April, May, 
+June, July, August, September, October,
+November, December
+}
+entity Climate{
+Id Long,
+GUID UUID,
+Source CliSource,
+AirTemperature Integer,
+RelativeHumidity Integer,
+VPD Integer,
+Evapotranspiration Integer,
+BarometricPressure Integer,
+SeaLevelPressure Integer,
+Co2Level Integer,
+DewPoint Integer,
+SolarRadiation Integer,
+HeatIndex Integer,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum CliSource{
+Automatic, Manual
+}
+entity Irrigation{
+Id Long,
+GUID UUID,
+Source IrriSource,
+NutrientLevel Integer,
+SolarRadiation Integer,
+InletFlow Integer,
+OutletFlow Integer,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum IrriSource{
+Automatic, Manual
+}
+entity PlantFactoryController{
+Id Long,
+GUID UUID,
+Source PlantSource,
+AirTemperature Integer,
+RelativeHumidity Integer,
+VPD Integer,
+Evapotranspiration Integer,
+BarometricPressure Integer,
+SeaLevelPressure Integer,
+Co2Level Integer,
+NutrientTankLevel Integer,
+DewPoint Integer,
+HeatIndex Integer,
+Turbidity Integer,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum PlantSource{
+Automatic, Manual
+}
+entity Dosing{
+Id Long,
+GUID UUID,
+Source DosingSource,
+PH Integer,
+EC Integer,
+DO Integer,
+NutrientTemperature Integer,
+SolarRadiation Integer,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum DosingSource{
+Automatic, Manual
+}
+entity Light{
+Id Long,
+GUID UUID,
+Source LightSource,
+LightIntensity Integer,
+DailyLightIntegral Integer,
+PAR Integer,
+PPFD Integer,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum LightSource{
+Automatic, Manual
+}
+
+entity Crop{
+Id Long,
+GUID UUID,
+CropCode String,
+CropName String,
+CropType CropTyp,
+HorticultureType Horti,
+IsHybrid Boolean,
+Cultivar String,
+SowingDate Instant,
+SowingDepth Integer,
+RowSpacingMax Integer,
+RowSpacingMin Integer,
+SeedDepthMax Integer,
+SeedDepthMin Integer,
+SeedSpacingMax Integer,
+SeedSpacingMin Integer,
+YearlyCrops Integer,
+GrowingSeason String,
+GrowingPhase GroPhase,
+PlantingDate Instant,
+PlantSpacing Integer,
+PlantingMaterial PlantingMat,
+TransplantationDate Instant,
+FertigationscheduleID Long,
+PlannedYield Integer,
+ActualYield Integer,
+YieldUnit Integer,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum CropTyp{
+Food Crops, Cash Crops, Plantation Crops, Horticulture Crops
+}
+enum Horti{
+Olericulture, Floriculture, Pomology, Landscaping, Arboriculture, Viticulture
+}
+
+enum GroPhase{
+Initial Stage, Crop Development Stage, Mid Season Stage, Late Season Stage
+}
+enum PlantingMat{
+Seeds, Seedlings, Stem Cuttings, Corms, Bulbs, Suckers
+}
+entity Calendar{
+Id Long,
+GUID UUID,
+CalenderDate Instant,
+CalenderYear Integer,
+DayOfWeek Integer,
+MonthOfYear Integer,
+WeekOfMonth Integer,
+WeekOfQuarter Integer,
+WeekOfYear Integer,
+DayOfQuarter Integer,
+DayOfYear Integer,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+
+}
+entity Weather{
+Id Long,
+GUID UUID,
+CityID Long,
+StartTimestamp Integer,
+EndTimestamp Integer,
+WeatherStatusID Long,
+Temperature Integer,
+FeelsLikeTemperature Integer,
+Humidity Integer,
+WindSpeed Integer,
+WindDirection Integer,
+Pressureinmmhg Integer,
+Visibilityinmph Integer,
+CloudCover Integer,
+Precipitation Integer,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+entity Scouting{
+Id Long,
+GUID UUID,
+ScoutingDate Instant, 
+Scout String,
+ScoutingType ScoutingType,
+ScoutingCoordinates Integer,
+ScoutingArea Integer,
+CropState CropState,
+Comments String,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum ScoutingType{
+Growth, Weeds, Insect, Pest, Disease, Water, Others
+}
+enum CropState{
+Bad, Normal, Good
+}
+entity Pest{
+Id Long,
+GUID UUID,
+ThreatLevel ThreatLevel,
+Name String,
+ScientificName String,
+Attachements Long,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum ThreatLevel{
+High, Moderate, Low
+}
+entity PestControl{
+Id Long,
+GUID UUID,
+NatureOfDamage String,
+ControlType ConType,
+ControlMeasures String,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum ConType{
+Biological, Mechanical, Cultural
+}
+entity Disease{
+Id Long,
+GUID UUID,
+ThreatLevel DisThreatLevel,
+Name String,
+CausalOrganism String,
+Attachments Long,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum DisThreatLevel{
+High, Moderate, Low
+}
+entity DiseaseControl{
+Id Long,
+GUID UUID,
+ControlType DisConType,
+Treatment String,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum DisConType{
+Biological, Mechanical, Cultural
+}
+entity Nutrient{
+Id Long,
+GUID UUID,
+NutrientName String,
+Type NutrientType,
+BrandName String,
+NutrientLabel Integer,
+NutrientForms NutForms,
+NutrientTypeID NutTypeID,
+Price Integer,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum  NutrientType{
+Organic, Synthetic
+}
+enum NutForms{
+Solid Or Granular Fertilizers, Liquid Fertilizers
+}
+enum NutTypeID{
+Inorganic Mineral, Organic Fertilizers
+}
+entity Activity{
+Id Long,
+GUID UUID,
+ActivityType ActType,
+StartDate Instant,
+EndDate Instant,
+Description String,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum ActType{
+Sowing, Pruning, Planting, Irrigation, 
+Dosing, Harvesting, Packing,
+Storage, Transportation
+}
+entity Symptom{
+Id Long,
+GUID UUID,
+Observation String,
+SymptomImage Blob,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+entity Disorder{
+Id Long,
+GUID UUID,
+PhysiologicalDisorder String,
+Cause String,
+ControlMeasure String,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+entity Tool{
+Id Long,
+GUID UUID,
+ToolType ToolType,
+ToolName String,
+Manufacturer String,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum ToolType{
+Spade, Rake, Shovel, Hoe, Hand Cultivator, Sickle, 
+Wheelbarrow, Hand Pruners, Tractor, Hand Sprayer
+}
+entity Harvest{
+Id Long,
+GUID UUID,
+HarvestingDate Instant,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+entity Lot{
+Id Long,
+GUID UUID,
+LotCode String,
+LotQRCode Blob,
+LotSize Integer,
+UnitType Unit,
+SeedlingsGerminated Integer,
+SeedlingsDied Integer,
+PlantsWasted Integer,
+TraysSown Integer,
+SowingTime Sowing,
+TraysTranplanted Integer,
+TransplantationTime Transplantation,
+PlantsHarvested Integer,
+HarvestTime HarTime,
+PackingDate Instant,
+TranportationDate Instant,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum Unit{
+Cavities, Cells
+}
+enum Sowing{
+Daily, Weekly, Monthly, Yearly
+}
+enum Transplantation {
+Daily, Weekly, Monthly, Yearly
+}
+enum HarTime{
+Daily, Weekly, Monthly, Yearly
+}
+entity Inspection{
+Id Long,
+GUID UUID,
+InspectionSize Integer,
+Shape Integer,
+Wholeness Integer,
+Gloss Integer,
+Consistency Integer,
+Defects Defect,
+Colour String,
+Texture Texture,
+Aroma Aroma,
+Flavour Flavour,
+NutritionalValue Integer,
+NutritionalValueType NutritionalValueType,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum Defect{
+Blemishes, Bruises, Spots, Extraneous_matter
+}
+enum Texture{
+Mealiness, Succulence, Fibrous, Matured, Firm, Soft, Smooth, 
+Creamy, Crumby, Crispy, Lumpy, Gritty
+}
+enum Aroma{
+Ripeness, Sweetness, Fruitness
+}
+enum Flavour{
+Sweet, Sour, Salty, Bitter
+}
+enum NutritionalValueType{
+Vitamin A, Vitamin B, Vitamin C,
+Polyphenolics, Carotenoids, Glucosinolates
+}
+entity InspectionRecord{
+Id Long,
+GUID UUID,
+RawMaterialBatchNo Integer,
+ProductBatchNo Integer,
+RawMaterialBatchCode Integer,
+InputBatchNo Integer,
+InputBatchCode Integer,
+Attachments Blob,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+entity Alert{
+Id Long,
+GUID UUID,
+Name String,
+AlertType AlertType,
+Description String,
+DatePeriod Integer,
+DurationDays Integer,
+MinimumTemperature Integer,
+MaximumTemperature Integer,
+MinHumidity Integer,
+MaxHumidity Integer,
+PrecipitationType PreType,
+MinPrecipitation Integer,
+MaxPrecipitation Integer,
+Status AlertStatus,
+Remediation Remediation,
+FarmAssigned String,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum AlertType{
+Disease Alert, Pest Alert, Weed Alert, Spraying Alert, 
+Weather Alert, Irrigation Alert, Fertigation Alert,
+Humidity Alerts, Solar Radiation Alert, Rainfall Alert
+}
+enum PreType{
+Rain, Snow, Hail, Sleet
+}
+enum AlertStatus{
+Active, Inactive
+}
+enum Remediation{
+Manual, Automatic
+}
+entity Reminder{
+Id Long,
+GUID UUID,
+Name String,
+Date Instant,
+Time Integer,
+Item RemItem,
+Description Long,
+createdBy Long,
+CreatedOn ZonedDateTime,
+updatedBy Long,
+updatedOn ZonedDateTime
+}
+enum RemItem{
+Pest, Disease, Weed, Weather, Irrigation, Doser, Lighting
+}
+
+relationship OneToMany{
+     PartyGroup to Party{partyGroupID},
+     PartyType to Party{partyTypeID}
+     ApplicationUser to Party{applicationUserID}
+     PartyRole to Party{partyRoleID}
+     Person to Party{personID}
+     Party to PartyAttribute{partyID}
+     Party to PartyClassification{partyID}
+     RoleType to PartyRole{roleTypeID}
+     Party to PartyRole{partyID}
+     PartyRelationshipType to PartyRelationship{partyRelationshipTypeID}
+     SecurityGroup to PartyRelationship{securityGroupID}
+     PartyRelationship to PartyRelationshipType{partyRelationshipID}
+     PartyRole to RoleType{partyRoleID}
+     RoleTypeAttribute to RoleType{roleTypeAttributeID}
+     RoleType to RoleTypeAttribute{roleTypeID}
+     Party to PartyNote{partyID}
+     Party to Person{partyID}
+     Party to ApplicationUser{partyID}
+     ApplicationUserSecurityGroup to SecurityGroup{applicationUserSecurityGroupID}
+     SecurityGroupPermission to SecurityGroup{SecurityGroupPermissionID}
+     SecurityGroupPermission to SecurityPermission{securityGroupPermissionID}
+     SecurityGroup to ApplicationUserSecurityGroup{securityGroupID}
+     SecurityGroup to SecurityGroupPermission{securityGroupID}
+     SecurityPermission to SecurityGroupPermission{securityPermissionID}
+
+
+
+
+
+     Party to Farm{partyID}
+     Location to Farm{locationID}
+     Farm to PlantFactory{farmID}
+     PlantFactory to Zone{plantFactoryID}
+     Device to PlantFactory{deviceID}
+     GrowBed to Zone{growBedID}
+     PlantFactory to Device{plantFactoryID}
+     DeviceLevel to Device{deviceLevelID}
+     DeviceModel to Device{deviceModelID}
+     Location to Sensor{locationID}
+     Device to Sensor{deviceID}
+     SensorModel to Sensor{sensorModelID}
+     Crop to Plant{cropID}
+     Plant to Recipe{plantID}
+     Device to Climate{deviceID}
+     PlantFactory to Climate{plantFactoryID}
+     Device to Irrigation{deviceID}
+     PlantFactory to Irrigation{plantFactoryID}
+     Device to Dosing{deviceID}
+     PlantFactory to Dosing{plantFactoryID}
+     Device to Light{deviceID}
+     PlantFactory to Light{plantFactoryID}
+     Plant to Crop{plantID}
+     PlantFactory to Crop{plantFactoryID}
+     Tool to Crop{toolID}
+     Season to Crop{seasonID}
+     Product to Crop{productID}
+     PlantFactory to Calendar{plantFactoryID}
+     Zone to Calendar{zoneID}
+     Crop to Calendar{cropID}
+     Tool to Calendar{toolID}
+     Season to Calendar{seasonID}
+     Calendar to Weather{calendarID}
+     PlantFactory to Scouting{plantFactoryID}
+     Crop to Scouting{cropID}
+     Scouting to Pest{scoutingID}
+     PlantFactory to Pest{plantFactoryID}
+     Pest to PestControl{pestID}
+     Crop to PestControl{cropID}
+     Scouting to Disease{scoutingID}
+     PlantFactory to Disease{plantFactoryID}
+     Disease to DiseaseControl{diseaseID}
+     Crop to DiseaseControl{cropID}
+     Symptom to DiseaseControl{symptomID}
+     Zone to Activity{zoneID}
+     Crop to Activity{cropID}
+     Scouting to Symptom{scoutingID}
+     Disease to Symptom{diseaseID}
+     Pest to Symptom{pestID}
+     Scouting to Disorder{scoutingID}
+     Crop to Harvest{cropID}
+     Lot to Harvest{lotID}
+     Seed to Lot{seedID}
+     Crop to Lot{cropID}
+     Harvest to Inspection{harvestID}
+     Inspection to InspectionRecord{inspectionID}
+     Lot to InspectionRecord{lotID}
+
+    }

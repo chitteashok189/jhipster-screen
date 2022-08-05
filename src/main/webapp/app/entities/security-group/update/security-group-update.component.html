@@ -1,0 +1,154 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-security-group-heading"
+        data-cy="SecurityGroupCreateUpdateHeading"
+        jhiTranslate="blogApp.securityGroup.home.createOrEditLabel"
+      >
+        Create or edit a Security Group
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="blogApp.securityGroup.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.securityGroup.gUID" for="field_gUID">G UID</label>
+          <input type="text" class="form-control" name="gUID" id="field_gUID" data-cy="gUID" formControlName="gUID" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.securityGroup.description" for="field_description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.securityGroup.createdBy" for="field_createdBy">Created By</label>
+          <input type="number" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.securityGroup.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.securityGroup.updatedBy" for="field_updatedBy">Updated By</label>
+          <input type="number" class="form-control" name="updatedBy" id="field_updatedBy" data-cy="updatedBy" formControlName="updatedBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.securityGroup.updatedOn" for="field_updatedOn">Updated On</label>
+          <div class="d-flex">
+            <input
+              id="field_updatedOn"
+              data-cy="updatedOn"
+              type="datetime-local"
+              class="form-control"
+              name="updatedOn"
+              formControlName="updatedOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="blogApp.securityGroup.applicationUserSecurityGroupID"
+            for="field_applicationUserSecurityGroupID"
+            >Application User Security Group ID</label
+          >
+          <select
+            class="form-control"
+            id="field_applicationUserSecurityGroupID"
+            data-cy="applicationUserSecurityGroupID"
+            name="applicationUserSecurityGroupID"
+            formControlName="applicationUserSecurityGroupID"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                applicationUserSecurityGroupOption.id === editForm.get('applicationUserSecurityGroupID')!.value?.id
+                  ? editForm.get('applicationUserSecurityGroupID')!.value
+                  : applicationUserSecurityGroupOption
+              "
+              *ngFor="
+                let applicationUserSecurityGroupOption of applicationUserSecurityGroupsSharedCollection;
+                trackBy: trackApplicationUserSecurityGroupById
+              "
+            >
+              {{ applicationUserSecurityGroupOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.securityGroup.securityGroupPermissionID" for="field_securityGroupPermissionID"
+            >Security Group Permission ID</label
+          >
+          <select
+            class="form-control"
+            id="field_securityGroupPermissionID"
+            data-cy="securityGroupPermissionID"
+            name="securityGroupPermissionID"
+            formControlName="securityGroupPermissionID"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                securityGroupPermissionOption.id === editForm.get('securityGroupPermissionID')!.value?.id
+                  ? editForm.get('securityGroupPermissionID')!.value
+                  : securityGroupPermissionOption
+              "
+              *ngFor="
+                let securityGroupPermissionOption of securityGroupPermissionsSharedCollection;
+                trackBy: trackSecurityGroupPermissionById
+              "
+            >
+              {{ securityGroupPermissionOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

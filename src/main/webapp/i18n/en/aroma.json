@@ -1,0 +1,10 @@
+{
+  "blogApp": {
+    "Aroma": {
+      "null": "",
+      "Ripeness": "Ripeness",
+      "Sweetness": "Sweetness",
+      "Fruitness": "Fruitness"
+    }
+  }
+}

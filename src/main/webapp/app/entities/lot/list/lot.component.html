@@ -1,0 +1,121 @@
+<div>
+  <h2 id="page-heading" data-cy="LotHeading">
+    <span jhiTranslate="blogApp.lot.home.title">Lots</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.lot.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-lot"
+        [routerLink]="['/lot/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.lot.home.createLabel"> Create a new Lot </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="lots?.length === 0">
+    <span jhiTranslate="blogApp.lot.home.notFound">No lots found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="lots && lots.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.lot.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.lot.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.lot.lotCode">Lot Code</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.lot.lotQRCode">Lot QR Code</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.lot.lotSize">Lot Size</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.lot.unitType">Unit Type</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.lot.seedlingsGerminated">Seedlings Germinated</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.lot.seedlingsDied">Seedlings Died</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.lot.plantsWasted">Plants Wasted</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.lot.traysSown">Trays Sown</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.lot.sowingTime">Sowing Time</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.lot.traysTranplanted">Trays Tranplanted</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.lot.transplantationTime">Transplantation Time</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.lot.plantsHarvested">Plants Harvested</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.lot.harvestTime">Harvest Time</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.lot.packingDate">Packing Date</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.lot.tranportationDate">Tranportation Date</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.lot.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.lot.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.lot.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.lot.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.lot.seedID">Seed ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.lot.cropID">Crop ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let lot of lots; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/lot', lot.id, 'view']">{{ lot.id }}</a>
+          </td>
+          <td>{{ lot.gUID }}</td>
+          <td>{{ lot.lotCode }}</td>
+          <td>
+            <a *ngIf="lot.lotQRCode" (click)="openFile(lot.lotQRCode, lot.lotQRCodeContentType)" jhiTranslate="entity.action.open">open</a>
+            <span *ngIf="lot.lotQRCode">{{ lot.lotQRCodeContentType }}, {{ byteSize(lot.lotQRCode) }}</span>
+          </td>
+          <td>{{ lot.lotSize }}</td>
+          <td jhiTranslate="{{ 'blogApp.Unit.' + lot.unitType }}">{{ lot.unitType }}</td>
+          <td>{{ lot.seedlingsGerminated }}</td>
+          <td>{{ lot.seedlingsDied }}</td>
+          <td>{{ lot.plantsWasted }}</td>
+          <td>{{ lot.traysSown }}</td>
+          <td jhiTranslate="{{ 'blogApp.Sowing.' + lot.sowingTime }}">{{ lot.sowingTime }}</td>
+          <td>{{ lot.traysTranplanted }}</td>
+          <td jhiTranslate="{{ 'blogApp.Transplantation.' + lot.transplantationTime }}">{{ lot.transplantationTime }}</td>
+          <td>{{ lot.plantsHarvested }}</td>
+          <td jhiTranslate="{{ 'blogApp.HarTime.' + lot.harvestTime }}">{{ lot.harvestTime }}</td>
+          <td>{{ lot.packingDate | formatMediumDatetime }}</td>
+          <td>{{ lot.tranportationDate | formatMediumDatetime }}</td>
+          <td>{{ lot.createdBy }}</td>
+          <td>{{ lot.createdOn | formatMediumDatetime }}</td>
+          <td>{{ lot.updatedBy }}</td>
+          <td>{{ lot.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="lot.seedID">
+              <a [routerLink]="['/seed', lot.seedID?.id, 'view']">{{ lot.seedID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="lot.cropID">
+              <a [routerLink]="['/crop', lot.cropID?.id, 'view']">{{ lot.cropID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/lot', lot.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/lot', lot.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(lot)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

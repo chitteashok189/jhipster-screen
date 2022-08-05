@@ -1,0 +1,36 @@
+{
+  "blogApp": {
+    "sensorModel": {
+      "home": {
+        "title": "Sensor Models",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Sensor Model",
+        "createOrEditLabel": "Crear o editar Sensor Model",
+        "notFound": "Ningún Sensor Models encontrado"
+      },
+      "created": "Un nuevo Sensor Model ha sido creado con el identificador {{ param }}",
+      "updated": "Un Sensor Model ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Sensor Model ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Sensor Model {{ id }}?"
+      },
+      "detail": {
+        "title": "Sensor Model"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "sensorType": "Sensor Type",
+      "manufacturer": "Manufacturer",
+      "productCode": "Product Code",
+      "sensorMeasure": "Sensor Measure",
+      "modelName": "Model Name",
+      "properties": "Properties",
+      "description": "Description",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "sensor": "Sensor"
+    }
+  }
+}

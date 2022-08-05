@@ -1,0 +1,104 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085220",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "alert",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "alertType",
+      "fieldType": "AlertType",
+      "fieldValues": "Disease,Alert,Pest,Weed,Spraying,Weather,Irrigation,Fertigation,Humidity,Alerts,Solar,Radiation,Rainfall"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "datePeriod",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "durationDays",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "minimumTemperature",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "maximumTemperature",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "minHumidity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "maxHumidity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "precipitationType",
+      "fieldType": "PreType",
+      "fieldValues": "Rain,Snow,Hail,Sleet"
+    },
+    {
+      "fieldName": "minPrecipitation",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "maxPrecipitation",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "AlertStatus",
+      "fieldValues": "Active,Inactive"
+    },
+    {
+      "fieldName": "remediation",
+      "fieldType": "Remediation",
+      "fieldValues": "Manual,Automatic"
+    },
+    {
+      "fieldName": "farmAssigned",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Alert",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

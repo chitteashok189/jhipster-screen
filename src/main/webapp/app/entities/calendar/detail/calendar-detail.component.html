@@ -1,0 +1,114 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="calendar">
+      <h2 data-cy="calendarDetailsHeading"><span jhiTranslate="blogApp.calendar.detail.title">Calendar</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.calendar.id">Id</span></dt>
+        <dd>
+          <span>{{ calendar.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.calendar.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ calendar.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.calendar.calenderDate">Calender Date</span></dt>
+        <dd>
+          <span>{{ calendar.calenderDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.calendar.calenderYear">Calender Year</span></dt>
+        <dd>
+          <span>{{ calendar.calenderYear }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.calendar.dayOfWeek">Day Of Week</span></dt>
+        <dd>
+          <span>{{ calendar.dayOfWeek }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.calendar.monthOfYear">Month Of Year</span></dt>
+        <dd>
+          <span>{{ calendar.monthOfYear }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.calendar.weekOfMonth">Week Of Month</span></dt>
+        <dd>
+          <span>{{ calendar.weekOfMonth }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.calendar.weekOfQuarter">Week Of Quarter</span></dt>
+        <dd>
+          <span>{{ calendar.weekOfQuarter }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.calendar.weekOfYear">Week Of Year</span></dt>
+        <dd>
+          <span>{{ calendar.weekOfYear }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.calendar.dayOfQuarter">Day Of Quarter</span></dt>
+        <dd>
+          <span>{{ calendar.dayOfQuarter }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.calendar.dayOfYear">Day Of Year</span></dt>
+        <dd>
+          <span>{{ calendar.dayOfYear }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.calendar.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ calendar.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.calendar.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ calendar.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.calendar.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ calendar.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.calendar.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ calendar.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.calendar.plantFactoryID">Plant Factory ID</span></dt>
+        <dd>
+          <div *ngIf="calendar.plantFactoryID">
+            <a [routerLink]="['/plant-factory', calendar.plantFactoryID?.id, 'view']">{{ calendar.plantFactoryID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.calendar.zoneID">Zone ID</span></dt>
+        <dd>
+          <div *ngIf="calendar.zoneID">
+            <a [routerLink]="['/zone', calendar.zoneID?.id, 'view']">{{ calendar.zoneID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.calendar.cropID">Crop ID</span></dt>
+        <dd>
+          <div *ngIf="calendar.cropID">
+            <a [routerLink]="['/crop', calendar.cropID?.id, 'view']">{{ calendar.cropID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.calendar.toolID">Tool ID</span></dt>
+        <dd>
+          <div *ngIf="calendar.toolID">
+            <a [routerLink]="['/tool', calendar.toolID?.id, 'view']">{{ calendar.toolID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.calendar.seasonID">Season ID</span></dt>
+        <dd>
+          <div *ngIf="calendar.seasonID">
+            <a [routerLink]="['/season', calendar.seasonID?.id, 'view']">{{ calendar.seasonID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/calendar', calendar.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

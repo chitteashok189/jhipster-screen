@@ -1,0 +1,36 @@
+{
+  "blogApp": {
+    "inspectionRecord": {
+      "home": {
+        "title": "Inspection Records",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Inspection Record",
+        "createOrEditLabel": "Crear o editar Inspection Record",
+        "notFound": "Ningún Inspection Records encontrado"
+      },
+      "created": "Un nuevo Inspection Record ha sido creado con el identificador {{ param }}",
+      "updated": "Un Inspection Record ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Inspection Record ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Inspection Record {{ id }}?"
+      },
+      "detail": {
+        "title": "Inspection Record"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "rawMaterialBatchNo": "Raw Material Batch No",
+      "productBatchNo": "Product Batch No",
+      "rawMaterialBatchCode": "Raw Material Batch Code",
+      "inputBatchNo": "Input Batch No",
+      "inputBatchCode": "Input Batch Code",
+      "attachments": "Attachments",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "inspectionID": "Inspection ID",
+      "lotID": "Lot ID"
+    }
+  }
+}

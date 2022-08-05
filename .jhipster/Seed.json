@@ -1,0 +1,78 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085153",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "seed",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "breederID",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "seedClass",
+      "fieldType": "SeedClass",
+      "fieldValues": "Certified,Foundation,Breeder,Nuclear,Registered"
+    },
+    {
+      "fieldName": "variety",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "seedRate",
+      "fieldType": "SeedRate",
+      "fieldValues": "Seeds_Ha,Kg_Ha"
+    },
+    {
+      "fieldName": "germinationPercentage",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "treatment",
+      "fieldType": "Treatment",
+      "fieldValues": "Dry,Treatment,Wet,Slurry,UV"
+    },
+    {
+      "fieldName": "origin",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Seed",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "lot",
+      "otherEntityRelationshipName": "seedID",
+      "relationshipName": "lot",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

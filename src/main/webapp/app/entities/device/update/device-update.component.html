@@ -1,0 +1,361 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-device-heading" data-cy="DeviceCreateUpdateHeading" jhiTranslate="blogApp.device.home.createOrEditLabel">
+        Create or edit a Device
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="blogApp.device.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.device.gUID" for="field_gUID">G UID</label>
+          <input type="text" class="form-control" name="gUID" id="field_gUID" data-cy="gUID" formControlName="gUID" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.device.deviceModel" for="field_deviceModel">Device Model</label>
+          <input
+            type="text"
+            class="form-control"
+            name="deviceModel"
+            id="field_deviceModel"
+            data-cy="deviceModel"
+            formControlName="deviceModel"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.device.deviceAsset" for="field_deviceAsset">Device Asset</label>
+          <input
+            type="text"
+            class="form-control"
+            name="deviceAsset"
+            id="field_deviceAsset"
+            data-cy="deviceAsset"
+            formControlName="deviceAsset"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.device.deviceType" for="field_deviceType">Device Type</label>
+          <select class="form-control" name="deviceType" formControlName="deviceType" id="field_deviceType" data-cy="deviceType">
+            <option [ngValue]="null">{{ 'blogApp.DeviceType.null' | translate }}</option>
+            <option *ngFor="let deviceType of deviceTypeValues" [value]="deviceType">
+              {{ 'blogApp.DeviceType.' + deviceType | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.device.hardwareID" for="field_hardwareID">Hardware ID</label>
+          <input
+            type="number"
+            class="form-control"
+            name="hardwareID"
+            id="field_hardwareID"
+            data-cy="hardwareID"
+            formControlName="hardwareID"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.device.reportingIntervalLocation" for="field_reportingIntervalLocation"
+            >Reporting Interval Location</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="reportingIntervalLocation"
+            id="field_reportingIntervalLocation"
+            data-cy="reportingIntervalLocation"
+            formControlName="reportingIntervalLocation"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.device.parentDevice" for="field_parentDevice">Parent Device</label>
+          <input
+            type="text"
+            class="form-control"
+            name="parentDevice"
+            id="field_parentDevice"
+            data-cy="parentDevice"
+            formControlName="parentDevice"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.device.properties" for="field_properties">Properties</label>
+          <input
+            type="text"
+            class="form-control"
+            name="properties"
+            id="field_properties"
+            data-cy="properties"
+            formControlName="properties"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.device.description" for="field_description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.device.createdBy" for="field_createdBy">Created By</label>
+          <input type="number" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.device.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.device.updatedBy" for="field_updatedBy">Updated By</label>
+          <input type="number" class="form-control" name="updatedBy" id="field_updatedBy" data-cy="updatedBy" formControlName="updatedBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.device.updatedOn" for="field_updatedOn">Updated On</label>
+          <div class="d-flex">
+            <input
+              id="field_updatedOn"
+              data-cy="updatedOn"
+              type="datetime-local"
+              class="form-control"
+              name="updatedOn"
+              formControlName="updatedOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.device.plantFactoryID" for="field_plantFactoryID">Plant Factory ID</label>
+          <select
+            class="form-control"
+            id="field_plantFactoryID"
+            data-cy="plantFactoryID"
+            name="plantFactoryID"
+            formControlName="plantFactoryID"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                plantFactoryOption.id === editForm.get('plantFactoryID')!.value?.id
+                  ? editForm.get('plantFactoryID')!.value
+                  : plantFactoryOption
+              "
+              *ngFor="let plantFactoryOption of plantFactoriesSharedCollection; trackBy: trackPlantFactoryById"
+            >
+              {{ plantFactoryOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.device.deviceLevelID" for="field_deviceLevelID">Device Level ID</label>
+          <select
+            class="form-control"
+            id="field_deviceLevelID"
+            data-cy="deviceLevelID"
+            name="deviceLevelID"
+            formControlName="deviceLevelID"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                deviceLevelOption.id === editForm.get('deviceLevelID')!.value?.id ? editForm.get('deviceLevelID')!.value : deviceLevelOption
+              "
+              *ngFor="let deviceLevelOption of deviceLevelsSharedCollection; trackBy: trackDeviceLevelById"
+            >
+              {{ deviceLevelOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.device.deviceModelID" for="field_deviceModelID">Device Model ID</label>
+          <select
+            class="form-control"
+            id="field_deviceModelID"
+            data-cy="deviceModelID"
+            name="deviceModelID"
+            formControlName="deviceModelID"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                deviceModelOption.id === editForm.get('deviceModelID')!.value?.id ? editForm.get('deviceModelID')!.value : deviceModelOption
+              "
+              *ngFor="let deviceModelOption of deviceModelsSharedCollection; trackBy: trackDeviceModelById"
+            >
+              {{ deviceModelOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+<!-- Sensor -->
+<div>
+  <h2 id="page-heading" data-cy="SensorHeading">
+    <span jhiTranslate="blogApp.sensor.home.title">Sensors</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.sensor.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-sensor"
+        [routerLink]="['/sensor/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.sensor.home.createLabel"> Create a new Sensor </span>
+      </button>&nbsp;
+      <button
+      id="jh-create-entity"
+      data-cy="entityCreateButton"
+      class="btn btn-primary jh-create-entity create-sensor-model"
+      [routerLink]="['/sensor-model/new']"
+    >
+      <fa-icon icon="plus"></fa-icon>
+      <span jhiTranslate="blogApp.sensorModel.home.createLabel"> Create a new Sensor Model </span>
+    </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="sensors?.length === 0">
+    <span jhiTranslate="blogApp.sensor.home.notFound">No sensors found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="sensors && sensors.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.sensorName">Sensor Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.sensorModelName">Sensor Model Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.hardwareID">Hardware ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.port">Port</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.properties">Properties</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.description">Description</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.locationID">Location ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.deviceID">Device ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensor.sensorModelID">Sensor Model ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sensor of sensors; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/sensor', sensor.id, 'view']">{{ sensor.id }}</a>
+          </td>
+          <td>{{ sensor.gUID }}</td>
+          <td>{{ sensor.sensorName }}</td>
+          <td>{{ sensor.sensorModelName }}</td>
+          <td>{{ sensor.hardwareID }}</td>
+          <td>{{ sensor.port }}</td>
+          <td>{{ sensor.properties }}</td>
+          <td>{{ sensor.description }}</td>
+          <td>{{ sensor.createdBy }}</td>
+          <td>{{ sensor.createdOn | formatMediumDatetime }}</td>
+          <td>{{ sensor.updatedBy }}</td>
+          <td>{{ sensor.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="sensor.locationID">
+              <a [routerLink]="['/location', sensor.locationID?.id, 'view']">{{ sensor.locationID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="sensor.deviceID">
+              <a [routerLink]="['/device', sensor.deviceID?.id, 'view']">{{ sensor.deviceID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="sensor.sensorModelID">
+              <a [routerLink]="['/sensor-model', sensor.sensorModelID?.id, 'view']">{{ sensor.sensorModelID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/sensor', sensor.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/sensor', sensor.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <!-- <button type="submit" (click)="delete(sensor)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button> -->
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

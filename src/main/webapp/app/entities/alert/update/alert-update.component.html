@@ -1,0 +1,252 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-alert-heading" data-cy="AlertCreateUpdateHeading" jhiTranslate="blogApp.alert.home.createOrEditLabel">
+        Create or edit a Alert
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="blogApp.alert.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.alert.gUID" for="field_gUID">G UID</label>
+          <input type="text" class="form-control" name="gUID" id="field_gUID" data-cy="gUID" formControlName="gUID" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.alert.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.alert.alertType" for="field_alertType">Alert Type</label>
+          <select class="form-control" name="alertType" formControlName="alertType" id="field_alertType" data-cy="alertType">
+            <option [ngValue]="null">{{ 'blogApp.AlertType.null' | translate }}</option>
+            <option *ngFor="let alertType of alertTypeValues" [value]="alertType">
+              {{ 'blogApp.AlertType.' + alertType | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.alert.description" for="field_description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.alert.datePeriod" for="field_datePeriod">Date Period</label>
+          <input
+            type="number"
+            class="form-control"
+            name="datePeriod"
+            id="field_datePeriod"
+            data-cy="datePeriod"
+            formControlName="datePeriod"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.alert.durationDays" for="field_durationDays">Duration Days</label>
+          <input
+            type="number"
+            class="form-control"
+            name="durationDays"
+            id="field_durationDays"
+            data-cy="durationDays"
+            formControlName="durationDays"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.alert.minimumTemperature" for="field_minimumTemperature"
+            >Minimum Temperature</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="minimumTemperature"
+            id="field_minimumTemperature"
+            data-cy="minimumTemperature"
+            formControlName="minimumTemperature"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.alert.maximumTemperature" for="field_maximumTemperature"
+            >Maximum Temperature</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="maximumTemperature"
+            id="field_maximumTemperature"
+            data-cy="maximumTemperature"
+            formControlName="maximumTemperature"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.alert.minHumidity" for="field_minHumidity">Min Humidity</label>
+          <input
+            type="number"
+            class="form-control"
+            name="minHumidity"
+            id="field_minHumidity"
+            data-cy="minHumidity"
+            formControlName="minHumidity"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.alert.maxHumidity" for="field_maxHumidity">Max Humidity</label>
+          <input
+            type="number"
+            class="form-control"
+            name="maxHumidity"
+            id="field_maxHumidity"
+            data-cy="maxHumidity"
+            formControlName="maxHumidity"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.alert.precipitationType" for="field_precipitationType">Precipitation Type</label>
+          <select
+            class="form-control"
+            name="precipitationType"
+            formControlName="precipitationType"
+            id="field_precipitationType"
+            data-cy="precipitationType"
+          >
+            <option [ngValue]="null">{{ 'blogApp.PreType.null' | translate }}</option>
+            <option *ngFor="let preType of preTypeValues" [value]="preType">{{ 'blogApp.PreType.' + preType | translate }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.alert.minPrecipitation" for="field_minPrecipitation">Min Precipitation</label>
+          <input
+            type="number"
+            class="form-control"
+            name="minPrecipitation"
+            id="field_minPrecipitation"
+            data-cy="minPrecipitation"
+            formControlName="minPrecipitation"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.alert.maxPrecipitation" for="field_maxPrecipitation">Max Precipitation</label>
+          <input
+            type="number"
+            class="form-control"
+            name="maxPrecipitation"
+            id="field_maxPrecipitation"
+            data-cy="maxPrecipitation"
+            formControlName="maxPrecipitation"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.alert.status" for="field_status">Status</label>
+          <select class="form-control" name="status" formControlName="status" id="field_status" data-cy="status">
+            <option [ngValue]="null">{{ 'blogApp.AlertStatus.null' | translate }}</option>
+            <option *ngFor="let alertStatus of alertStatusValues" [value]="alertStatus">
+              {{ 'blogApp.AlertStatus.' + alertStatus | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.alert.remediation" for="field_remediation">Remediation</label>
+          <select class="form-control" name="remediation" formControlName="remediation" id="field_remediation" data-cy="remediation">
+            <option [ngValue]="null">{{ 'blogApp.Remediation.null' | translate }}</option>
+            <option *ngFor="let remediation of remediationValues" [value]="remediation">
+              {{ 'blogApp.Remediation.' + remediation | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.alert.farmAssigned" for="field_farmAssigned">Farm Assigned</label>
+          <input
+            type="text"
+            class="form-control"
+            name="farmAssigned"
+            id="field_farmAssigned"
+            data-cy="farmAssigned"
+            formControlName="farmAssigned"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.alert.createdBy" for="field_createdBy">Created By</label>
+          <input type="number" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.alert.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.alert.updatedBy" for="field_updatedBy">Updated By</label>
+          <input type="number" class="form-control" name="updatedBy" id="field_updatedBy" data-cy="updatedBy" formControlName="updatedBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.alert.updatedOn" for="field_updatedOn">Updated On</label>
+          <div class="d-flex">
+            <input
+              id="field_updatedOn"
+              data-cy="updatedOn"
+              type="datetime-local"
+              class="form-control"
+              name="updatedOn"
+              formControlName="updatedOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

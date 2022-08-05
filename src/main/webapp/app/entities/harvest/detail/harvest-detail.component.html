@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="harvest">
+      <h2 data-cy="harvestDetailsHeading"><span jhiTranslate="blogApp.harvest.detail.title">Harvest</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.harvest.id">Id</span></dt>
+        <dd>
+          <span>{{ harvest.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.harvest.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ harvest.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.harvest.harvestingDate">Harvesting Date</span></dt>
+        <dd>
+          <span>{{ harvest.harvestingDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.harvest.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ harvest.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.harvest.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ harvest.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.harvest.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ harvest.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.harvest.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ harvest.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.harvest.cropID">Crop ID</span></dt>
+        <dd>
+          <div *ngIf="harvest.cropID">
+            <a [routerLink]="['/crop', harvest.cropID?.id, 'view']">{{ harvest.cropID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.harvest.lotID">Lot ID</span></dt>
+        <dd>
+          <div *ngIf="harvest.lotID">
+            <a [routerLink]="['/lot', harvest.lotID?.id, 'view']">{{ harvest.lotID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/harvest', harvest.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

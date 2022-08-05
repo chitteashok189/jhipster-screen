@@ -1,0 +1,42 @@
+{
+  "blogApp": {
+    "weather": {
+      "home": {
+        "title": "Weathers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Weather",
+        "createOrEditLabel": "Create or edit a Weather",
+        "notFound": "No Weathers found"
+      },
+      "created": "A new Weather is created with identifier {{ param }}",
+      "updated": "A Weather is updated with identifier {{ param }}",
+      "deleted": "A Weather is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Weather {{ id }}?"
+      },
+      "detail": {
+        "title": "Weather"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "cityID": "City ID",
+      "startTimestamp": "Start Timestamp",
+      "endTimestamp": "End Timestamp",
+      "weatherStatusID": "Weather Status ID",
+      "temperature": "Temperature",
+      "feelsLikeTemperature": "Feels Like Temperature",
+      "humidity": "Humidity",
+      "windSpeed": "Wind Speed",
+      "windDirection": "Wind Direction",
+      "pressureinmmhg": "Pressureinmmhg",
+      "visibilityinmph": "Visibilityinmph",
+      "cloudCover": "Cloud Cover",
+      "precipitation": "Precipitation",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "calendarID": "Calendar ID"
+    }
+  }
+}

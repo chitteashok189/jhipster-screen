@@ -1,0 +1,76 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="nutrient">
+      <h2 data-cy="nutrientDetailsHeading"><span jhiTranslate="blogApp.nutrient.detail.title">Nutrient</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.nutrient.id">Id</span></dt>
+        <dd>
+          <span>{{ nutrient.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.nutrient.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ nutrient.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.nutrient.nutrientName">Nutrient Name</span></dt>
+        <dd>
+          <span>{{ nutrient.nutrientName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.nutrient.type">Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.NutrientType.' + nutrient.type }}">{{ nutrient.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.nutrient.brandName">Brand Name</span></dt>
+        <dd>
+          <span>{{ nutrient.brandName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.nutrient.nutrientLabel">Nutrient Label</span></dt>
+        <dd>
+          <span>{{ nutrient.nutrientLabel }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.nutrient.nutrientForms">Nutrient Forms</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.NutForms.' + nutrient.nutrientForms }}">{{ nutrient.nutrientForms }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.nutrient.nutrientTypeID">Nutrient Type ID</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.NutTypeID.' + nutrient.nutrientTypeID }}">{{ nutrient.nutrientTypeID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.nutrient.price">Price</span></dt>
+        <dd>
+          <span>{{ nutrient.price }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.nutrient.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ nutrient.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.nutrient.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ nutrient.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.nutrient.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ nutrient.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.nutrient.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ nutrient.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/nutrient', nutrient.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

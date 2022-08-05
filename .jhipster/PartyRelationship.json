@@ -1,0 +1,95 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085127",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "party_relationship",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "partyIdTo",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "partyIdFrom",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "roleTypeIdFrom",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "roleTypeIdTo",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "fromDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "thruDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "relationshipName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "positionTitle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "comments",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PartyRelationship",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "partyRelationshipType",
+      "otherEntityRelationshipName": "partyRelationshipID",
+      "relationshipName": "partyRelationshipType",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "partyRelationshipType",
+      "otherEntityRelationshipName": "partyRelationship",
+      "relationshipName": "partyRelationshipTypeID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "securityGroup",
+      "otherEntityRelationshipName": "partyRelationship",
+      "relationshipName": "securityGroupID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

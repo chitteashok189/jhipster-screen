@@ -1,0 +1,12 @@
+{
+  "blogApp": {
+    "ZoneType": {
+      "null": "",
+      "Leafy": "Leafy",
+      "Greens": "Greens",
+      "Tubers": "Tubers",
+      "Fruit": "Fruit",
+      "Flowers": "Flowers"
+    }
+  }
+}

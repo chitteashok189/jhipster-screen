@@ -1,0 +1,72 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085141",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "farm",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "farmName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "farmType",
+      "fieldType": "FarmType",
+      "fieldValues": "Organic,Farm,Commercial,Grain,Mixed,Cooperative,Vineyard,Ranch,Flower,Family,Hay,Farms,Orchard,Subsistence,Plantation,Dairy"
+    },
+    {
+      "fieldName": "farmDescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Farm",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "plantFactory",
+      "otherEntityRelationshipName": "farmID",
+      "relationshipName": "plantFactory",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "farm",
+      "relationshipName": "partyID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "location",
+      "otherEntityRelationshipName": "farm",
+      "relationshipName": "locationID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

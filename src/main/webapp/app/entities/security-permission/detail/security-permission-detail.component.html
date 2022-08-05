@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="securityPermission">
+      <h2 data-cy="securityPermissionDetailsHeading">
+        <span jhiTranslate="blogApp.securityPermission.detail.title">Security Permission</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.securityPermission.id">Id</span></dt>
+        <dd>
+          <span>{{ securityPermission.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.securityPermission.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ securityPermission.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.securityPermission.description">Description</span></dt>
+        <dd>
+          <span>{{ securityPermission.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.securityPermission.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ securityPermission.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.securityPermission.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ securityPermission.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.securityPermission.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ securityPermission.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.securityPermission.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ securityPermission.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.securityPermission.securityGroupPermissionID">Security Group Permission ID</span></dt>
+        <dd>
+          <div *ngIf="securityPermission.securityGroupPermissionID">
+            <a [routerLink]="['/security-group-permission', securityPermission.securityGroupPermissionID?.id, 'view']">{{
+              securityPermission.securityGroupPermissionID?.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/security-permission', securityPermission.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,100 @@
+<div>
+  <h2 id="page-heading" data-cy="HarvestHeading">
+    <span jhiTranslate="blogApp.harvest.home.title">Harvests</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.harvest.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-harvest"
+        [routerLink]="['/harvest/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.harvest.home.createLabel"> Create a new Harvest </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="harvests?.length === 0">
+    <span jhiTranslate="blogApp.harvest.home.notFound">No harvests found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="harvests && harvests.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.harvest.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.harvest.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.harvest.harvestingDate">Harvesting Date</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.harvest.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.harvest.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.harvest.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.harvest.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.harvest.cropID">Crop ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.harvest.lotID">Lot ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let harvest of harvests; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/harvest', harvest.id, 'view']">{{ harvest.id }}</a>
+          </td>
+          <td>{{ harvest.gUID }}</td>
+          <td>{{ harvest.harvestingDate | formatMediumDatetime }}</td>
+          <td>{{ harvest.createdBy }}</td>
+          <td>{{ harvest.createdOn | formatMediumDatetime }}</td>
+          <td>{{ harvest.updatedBy }}</td>
+          <td>{{ harvest.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="harvest.cropID">
+              <a [routerLink]="['/crop', harvest.cropID?.id, 'view']">{{ harvest.cropID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="harvest.lotID">
+              <a [routerLink]="['/lot', harvest.lotID?.id, 'view']">{{ harvest.lotID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/harvest', harvest.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/harvest', harvest.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(harvest)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

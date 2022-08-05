@@ -1,0 +1,108 @@
+<div>
+  <h2 id="page-heading" data-cy="DiseaseControlHeading">
+    <span jhiTranslate="blogApp.diseaseControl.home.title">Disease Controls</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.diseaseControl.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-disease-control"
+        [routerLink]="['/disease-control/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.diseaseControl.home.createLabel"> Create a new Disease Control </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="diseaseControls?.length === 0">
+    <span jhiTranslate="blogApp.diseaseControl.home.notFound">No diseaseControls found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="diseaseControls && diseaseControls.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.diseaseControl.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.diseaseControl.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.diseaseControl.controlType">Control Type</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.diseaseControl.treatment">Treatment</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.diseaseControl.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.diseaseControl.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.diseaseControl.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.diseaseControl.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.diseaseControl.diseaseID">Disease ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.diseaseControl.cropID">Crop ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.diseaseControl.symptomID">Symptom ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let diseaseControl of diseaseControls; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/disease-control', diseaseControl.id, 'view']">{{ diseaseControl.id }}</a>
+          </td>
+          <td>{{ diseaseControl.gUID }}</td>
+          <td jhiTranslate="{{ 'blogApp.DisConType.' + diseaseControl.controlType }}">{{ diseaseControl.controlType }}</td>
+          <td>{{ diseaseControl.treatment }}</td>
+          <td>{{ diseaseControl.createdBy }}</td>
+          <td>{{ diseaseControl.createdOn | formatMediumDatetime }}</td>
+          <td>{{ diseaseControl.updatedBy }}</td>
+          <td>{{ diseaseControl.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="diseaseControl.diseaseID">
+              <a [routerLink]="['/disease', diseaseControl.diseaseID?.id, 'view']">{{ diseaseControl.diseaseID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="diseaseControl.cropID">
+              <a [routerLink]="['/crop', diseaseControl.cropID?.id, 'view']">{{ diseaseControl.cropID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="diseaseControl.symptomID">
+              <a [routerLink]="['/symptom', diseaseControl.symptomID?.id, 'view']">{{ diseaseControl.symptomID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/disease-control', diseaseControl.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/disease-control', diseaseControl.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(diseaseControl)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

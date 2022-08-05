@@ -1,0 +1,74 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="diseaseControl">
+      <h2 data-cy="diseaseControlDetailsHeading"><span jhiTranslate="blogApp.diseaseControl.detail.title">Disease Control</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.diseaseControl.id">Id</span></dt>
+        <dd>
+          <span>{{ diseaseControl.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.diseaseControl.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ diseaseControl.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.diseaseControl.controlType">Control Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.DisConType.' + diseaseControl.controlType }}">{{ diseaseControl.controlType }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.diseaseControl.treatment">Treatment</span></dt>
+        <dd>
+          <span>{{ diseaseControl.treatment }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.diseaseControl.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ diseaseControl.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.diseaseControl.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ diseaseControl.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.diseaseControl.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ diseaseControl.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.diseaseControl.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ diseaseControl.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.diseaseControl.diseaseID">Disease ID</span></dt>
+        <dd>
+          <div *ngIf="diseaseControl.diseaseID">
+            <a [routerLink]="['/disease', diseaseControl.diseaseID?.id, 'view']">{{ diseaseControl.diseaseID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.diseaseControl.cropID">Crop ID</span></dt>
+        <dd>
+          <div *ngIf="diseaseControl.cropID">
+            <a [routerLink]="['/crop', diseaseControl.cropID?.id, 'view']">{{ diseaseControl.cropID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.diseaseControl.symptomID">Symptom ID</span></dt>
+        <dd>
+          <div *ngIf="diseaseControl.symptomID">
+            <a [routerLink]="['/symptom', diseaseControl.symptomID?.id, 'view']">{{ diseaseControl.symptomID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/disease-control', diseaseControl.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

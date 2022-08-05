@@ -1,0 +1,10 @@
+{
+  "blogApp": {
+    "DisConType": {
+      "null": "",
+      "Biological": "Biological",
+      "Mechanical": "Mechanical",
+      "Cultural": "Cultural"
+    }
+  }
+}

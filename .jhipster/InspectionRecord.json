@@ -1,0 +1,78 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085219",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "inspection_record",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "rawMaterialBatchNo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "productBatchNo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "rawMaterialBatchCode",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "inputBatchNo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "inputBatchCode",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "attachments",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "InspectionRecord",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "inspection",
+      "otherEntityRelationshipName": "inspectionRecord",
+      "relationshipName": "inspectionID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "lot",
+      "otherEntityRelationshipName": "inspectionRecord",
+      "relationshipName": "lotID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

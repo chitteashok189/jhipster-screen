@@ -1,0 +1,430 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-crop-heading" data-cy="CropCreateUpdateHeading" jhiTranslate="blogApp.crop.home.createOrEditLabel">
+        Create or edit a Crop
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="blogApp.crop.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.gUID" for="field_gUID">G UID</label>
+          <input type="text" class="form-control" name="gUID" id="field_gUID" data-cy="gUID" formControlName="gUID" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.cropCode" for="field_cropCode">Crop Code</label>
+          <input type="text" class="form-control" name="cropCode" id="field_cropCode" data-cy="cropCode" formControlName="cropCode" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.cropName" for="field_cropName">Crop Name</label>
+          <input type="text" class="form-control" name="cropName" id="field_cropName" data-cy="cropName" formControlName="cropName" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.cropType" for="field_cropType">Crop Type</label>
+          <select class="form-control" name="cropType" formControlName="cropType" id="field_cropType" data-cy="cropType">
+            <option [ngValue]="null">{{ 'blogApp.CropTyp.null' | translate }}</option>
+            <option *ngFor="let cropTyp of cropTypValues" [value]="cropTyp">{{ 'blogApp.CropTyp.' + cropTyp | translate }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.horticultureType" for="field_horticultureType">Horticulture Type</label>
+          <select
+            class="form-control"
+            name="horticultureType"
+            formControlName="horticultureType"
+            id="field_horticultureType"
+            data-cy="horticultureType"
+          >
+            <option [ngValue]="null">{{ 'blogApp.Horti.null' | translate }}</option>
+            <option *ngFor="let horti of hortiValues" [value]="horti">{{ 'blogApp.Horti.' + horti | translate }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.isHybrid" for="field_isHybrid">Is Hybrid</label>
+          <input type="checkbox" class="form-check" name="isHybrid" id="field_isHybrid" data-cy="isHybrid" formControlName="isHybrid" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.cultivar" for="field_cultivar">Cultivar</label>
+          <input type="text" class="form-control" name="cultivar" id="field_cultivar" data-cy="cultivar" formControlName="cultivar" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.sowingDate" for="field_sowingDate">Sowing Date</label>
+          <div class="d-flex">
+            <input
+              id="field_sowingDate"
+              data-cy="sowingDate"
+              type="datetime-local"
+              class="form-control"
+              name="sowingDate"
+              formControlName="sowingDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.sowingDepth" for="field_sowingDepth">Sowing Depth</label>
+          <input
+            type="number"
+            class="form-control"
+            name="sowingDepth"
+            id="field_sowingDepth"
+            data-cy="sowingDepth"
+            formControlName="sowingDepth"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.rowSpacingMax" for="field_rowSpacingMax">Row Spacing Max</label>
+          <input
+            type="number"
+            class="form-control"
+            name="rowSpacingMax"
+            id="field_rowSpacingMax"
+            data-cy="rowSpacingMax"
+            formControlName="rowSpacingMax"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.rowSpacingMin" for="field_rowSpacingMin">Row Spacing Min</label>
+          <input
+            type="number"
+            class="form-control"
+            name="rowSpacingMin"
+            id="field_rowSpacingMin"
+            data-cy="rowSpacingMin"
+            formControlName="rowSpacingMin"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.seedDepthMax" for="field_seedDepthMax">Seed Depth Max</label>
+          <input
+            type="number"
+            class="form-control"
+            name="seedDepthMax"
+            id="field_seedDepthMax"
+            data-cy="seedDepthMax"
+            formControlName="seedDepthMax"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.seedDepthMin" for="field_seedDepthMin">Seed Depth Min</label>
+          <input
+            type="number"
+            class="form-control"
+            name="seedDepthMin"
+            id="field_seedDepthMin"
+            data-cy="seedDepthMin"
+            formControlName="seedDepthMin"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.seedSpacingMax" for="field_seedSpacingMax">Seed Spacing Max</label>
+          <input
+            type="number"
+            class="form-control"
+            name="seedSpacingMax"
+            id="field_seedSpacingMax"
+            data-cy="seedSpacingMax"
+            formControlName="seedSpacingMax"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.seedSpacingMin" for="field_seedSpacingMin">Seed Spacing Min</label>
+          <input
+            type="number"
+            class="form-control"
+            name="seedSpacingMin"
+            id="field_seedSpacingMin"
+            data-cy="seedSpacingMin"
+            formControlName="seedSpacingMin"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.yearlyCrops" for="field_yearlyCrops">Yearly Crops</label>
+          <input
+            type="number"
+            class="form-control"
+            name="yearlyCrops"
+            id="field_yearlyCrops"
+            data-cy="yearlyCrops"
+            formControlName="yearlyCrops"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.growingSeason" for="field_growingSeason">Growing Season</label>
+          <input
+            type="text"
+            class="form-control"
+            name="growingSeason"
+            id="field_growingSeason"
+            data-cy="growingSeason"
+            formControlName="growingSeason"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.growingPhase" for="field_growingPhase">Growing Phase</label>
+          <select class="form-control" name="growingPhase" formControlName="growingPhase" id="field_growingPhase" data-cy="growingPhase">
+            <option [ngValue]="null">{{ 'blogApp.GroPhase.null' | translate }}</option>
+            <option *ngFor="let groPhase of groPhaseValues" [value]="groPhase">{{ 'blogApp.GroPhase.' + groPhase | translate }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.plantingDate" for="field_plantingDate">Planting Date</label>
+          <div class="d-flex">
+            <input
+              id="field_plantingDate"
+              data-cy="plantingDate"
+              type="datetime-local"
+              class="form-control"
+              name="plantingDate"
+              formControlName="plantingDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.plantSpacing" for="field_plantSpacing">Plant Spacing</label>
+          <input
+            type="number"
+            class="form-control"
+            name="plantSpacing"
+            id="field_plantSpacing"
+            data-cy="plantSpacing"
+            formControlName="plantSpacing"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.plantingMaterial" for="field_plantingMaterial">Planting Material</label>
+          <select
+            class="form-control"
+            name="plantingMaterial"
+            formControlName="plantingMaterial"
+            id="field_plantingMaterial"
+            data-cy="plantingMaterial"
+          >
+            <option [ngValue]="null">{{ 'blogApp.PlantingMat.null' | translate }}</option>
+            <option *ngFor="let plantingMat of plantingMatValues" [value]="plantingMat">
+              {{ 'blogApp.PlantingMat.' + plantingMat | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.transplantationDate" for="field_transplantationDate"
+            >Transplantation Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_transplantationDate"
+              data-cy="transplantationDate"
+              type="datetime-local"
+              class="form-control"
+              name="transplantationDate"
+              formControlName="transplantationDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.fertigationscheduleID" for="field_fertigationscheduleID"
+            >Fertigationschedule ID</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="fertigationscheduleID"
+            id="field_fertigationscheduleID"
+            data-cy="fertigationscheduleID"
+            formControlName="fertigationscheduleID"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.plannedYield" for="field_plannedYield">Planned Yield</label>
+          <input
+            type="number"
+            class="form-control"
+            name="plannedYield"
+            id="field_plannedYield"
+            data-cy="plannedYield"
+            formControlName="plannedYield"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.actualYield" for="field_actualYield">Actual Yield</label>
+          <input
+            type="number"
+            class="form-control"
+            name="actualYield"
+            id="field_actualYield"
+            data-cy="actualYield"
+            formControlName="actualYield"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.yieldUnit" for="field_yieldUnit">Yield Unit</label>
+          <input type="number" class="form-control" name="yieldUnit" id="field_yieldUnit" data-cy="yieldUnit" formControlName="yieldUnit" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.createdBy" for="field_createdBy">Created By</label>
+          <input type="number" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.updatedBy" for="field_updatedBy">Updated By</label>
+          <input type="number" class="form-control" name="updatedBy" id="field_updatedBy" data-cy="updatedBy" formControlName="updatedBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.updatedOn" for="field_updatedOn">Updated On</label>
+          <div class="d-flex">
+            <input
+              id="field_updatedOn"
+              data-cy="updatedOn"
+              type="datetime-local"
+              class="form-control"
+              name="updatedOn"
+              formControlName="updatedOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.plantID" for="field_plantID">Plant ID</label>
+          <select class="form-control" id="field_plantID" data-cy="plantID" name="plantID" formControlName="plantID">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="plantOption.id === editForm.get('plantID')!.value?.id ? editForm.get('plantID')!.value : plantOption"
+              *ngFor="let plantOption of plantsSharedCollection; trackBy: trackPlantById"
+            >
+              {{ plantOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.plantFactoryID" for="field_plantFactoryID">Plant Factory ID</label>
+          <select
+            class="form-control"
+            id="field_plantFactoryID"
+            data-cy="plantFactoryID"
+            name="plantFactoryID"
+            formControlName="plantFactoryID"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                plantFactoryOption.id === editForm.get('plantFactoryID')!.value?.id
+                  ? editForm.get('plantFactoryID')!.value
+                  : plantFactoryOption
+              "
+              *ngFor="let plantFactoryOption of plantFactoriesSharedCollection; trackBy: trackPlantFactoryById"
+            >
+              {{ plantFactoryOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.toolID" for="field_toolID">Tool ID</label>
+          <select class="form-control" id="field_toolID" data-cy="toolID" name="toolID" formControlName="toolID">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="toolOption.id === editForm.get('toolID')!.value?.id ? editForm.get('toolID')!.value : toolOption"
+              *ngFor="let toolOption of toolsSharedCollection; trackBy: trackToolById"
+            >
+              {{ toolOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.seasonID" for="field_seasonID">Season ID</label>
+          <select class="form-control" id="field_seasonID" data-cy="seasonID" name="seasonID" formControlName="seasonID">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="seasonOption.id === editForm.get('seasonID')!.value?.id ? editForm.get('seasonID')!.value : seasonOption"
+              *ngFor="let seasonOption of seasonsSharedCollection; trackBy: trackSeasonById"
+            >
+              {{ seasonOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.crop.productID" for="field_productID">Product ID</label>
+          <select class="form-control" id="field_productID" data-cy="productID" name="productID" formControlName="productID">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="productOption.id === editForm.get('productID')!.value?.id ? editForm.get('productID')!.value : productOption"
+              *ngFor="let productOption of productsSharedCollection; trackBy: trackProductById"
+            >
+              {{ productOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

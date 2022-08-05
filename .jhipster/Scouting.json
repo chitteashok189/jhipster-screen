@@ -1,0 +1,107 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085206",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "scouting",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "scoutingDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "scout",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "scoutingType",
+      "fieldType": "ScoutingType",
+      "fieldValues": "Growth,Weeds,Insect,Pest,Disease,Water,Others"
+    },
+    {
+      "fieldName": "scoutingCoordinates",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "scoutingArea",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "cropState",
+      "fieldType": "CropState",
+      "fieldValues": "Bad,Normal,Good"
+    },
+    {
+      "fieldName": "comments",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Scouting",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "pest",
+      "otherEntityRelationshipName": "scoutingID",
+      "relationshipName": "pest",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "disease",
+      "otherEntityRelationshipName": "scoutingID",
+      "relationshipName": "disease",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "symptom",
+      "otherEntityRelationshipName": "scoutingID",
+      "relationshipName": "symptom",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "disorder",
+      "otherEntityRelationshipName": "scoutingID",
+      "relationshipName": "disorder",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "plantFactory",
+      "otherEntityRelationshipName": "scouting",
+      "relationshipName": "plantFactoryID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "crop",
+      "otherEntityRelationshipName": "scouting",
+      "relationshipName": "cropID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

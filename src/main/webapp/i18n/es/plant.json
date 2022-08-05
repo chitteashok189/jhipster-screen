@@ -1,0 +1,57 @@
+{
+  "blogApp": {
+    "plant": {
+      "home": {
+        "title": "Plants",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Plant",
+        "createOrEditLabel": "Crear o editar Plant",
+        "notFound": "Ningún Plants encontrado"
+      },
+      "created": "Un nuevo Plant ha sido creado con el identificador {{ param }}",
+      "updated": "Un Plant ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Plant ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Plant {{ id }}?"
+      },
+      "detail": {
+        "title": "Plant"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "commonName": "Common Name",
+      "scientificName": "Scientific Name",
+      "familyName": "Family Name",
+      "plantSpacing": "Plant Spacing",
+      "seedingMonth": "Seeding Month",
+      "transplantMonth": "Transplant Month",
+      "harvestMonth": "Harvest Month",
+      "originCountry": "Origin Country",
+      "yearlyCrops": "Yearly Crops",
+      "nativeTemperature": "Native Temperature",
+      "nativeHumidity": "Native Humidity",
+      "nativeDayDuration": "Native Day Duration",
+      "nativeNightDuration": "Native Night Duration",
+      "nativeSoilMoisture": "Native Soil Moisture",
+      "plantingPeriod": "Planting Period",
+      "yieldUnit": "Yield Unit",
+      "growthHeightMin": "Growth Height Min",
+      "growthHeightMax": "Growth Height Max",
+      "grownSpreadMin": "Grown Spread Min",
+      "grownSpreadMax": "Grown Spread Max",
+      "grownWeightMax": "Grown Weight Max",
+      "grownWeightMin": "Grown Weight Min",
+      "growingMedia": "Growing Media",
+      "documents": "Documents",
+      "notes": "Notes",
+      "attachments": "Attachments",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "recipe": "Recipe",
+      "crop": "Crop",
+      "cropID": "Crop ID"
+    }
+  }
+}

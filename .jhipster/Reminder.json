@@ -1,0 +1,61 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085221",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "reminder",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "time",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "item",
+      "fieldType": "RemItem",
+      "fieldValues": "Pest,Disease,Weed,Weather,Irrigation,Doser,Lighting"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Reminder",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

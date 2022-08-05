@@ -1,0 +1,66 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085208",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "pest_control",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "natureOfDamage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "controlType",
+      "fieldType": "ConType",
+      "fieldValues": "Biological,Mechanical,Cultural"
+    },
+    {
+      "fieldName": "controlMeasures",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PestControl",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "pest",
+      "otherEntityRelationshipName": "pestControl",
+      "relationshipName": "pestID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "crop",
+      "otherEntityRelationshipName": "pestControl",
+      "relationshipName": "cropID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

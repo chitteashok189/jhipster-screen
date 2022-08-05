@@ -1,0 +1,33 @@
+{
+  "blogApp": {
+    "reminder": {
+      "home": {
+        "title": "Reminders",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Reminder",
+        "createOrEditLabel": "Crear o editar Reminder",
+        "notFound": "Ningún Reminders encontrado"
+      },
+      "created": "Un nuevo Reminder ha sido creado con el identificador {{ param }}",
+      "updated": "Un Reminder ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Reminder ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Reminder {{ id }}?"
+      },
+      "detail": {
+        "title": "Reminder"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "name": "Name",
+      "date": "Date",
+      "time": "Time",
+      "item": "Item",
+      "description": "Description",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On"
+    }
+  }
+}

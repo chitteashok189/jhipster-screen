@@ -1,0 +1,88 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="scouting">
+      <h2 data-cy="scoutingDetailsHeading"><span jhiTranslate="blogApp.scouting.detail.title">Scouting</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.scouting.id">Id</span></dt>
+        <dd>
+          <span>{{ scouting.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.scouting.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ scouting.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.scouting.scoutingDate">Scouting Date</span></dt>
+        <dd>
+          <span>{{ scouting.scoutingDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.scouting.scout">Scout</span></dt>
+        <dd>
+          <span>{{ scouting.scout }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.scouting.scoutingType">Scouting Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.ScoutingType.' + scouting.scoutingType }}">{{ scouting.scoutingType }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.scouting.scoutingCoordinates">Scouting Coordinates</span></dt>
+        <dd>
+          <span>{{ scouting.scoutingCoordinates }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.scouting.scoutingArea">Scouting Area</span></dt>
+        <dd>
+          <span>{{ scouting.scoutingArea }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.scouting.cropState">Crop State</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.CropState.' + scouting.cropState }}">{{ scouting.cropState }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.scouting.comments">Comments</span></dt>
+        <dd>
+          <span>{{ scouting.comments }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.scouting.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ scouting.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.scouting.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ scouting.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.scouting.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ scouting.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.scouting.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ scouting.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.scouting.plantFactoryID">Plant Factory ID</span></dt>
+        <dd>
+          <div *ngIf="scouting.plantFactoryID">
+            <a [routerLink]="['/plant-factory', scouting.plantFactoryID?.id, 'view']">{{ scouting.plantFactoryID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.scouting.cropID">Crop ID</span></dt>
+        <dd>
+          <div *ngIf="scouting.cropID">
+            <a [routerLink]="['/crop', scouting.cropID?.id, 'view']">{{ scouting.cropID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/scouting', scouting.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

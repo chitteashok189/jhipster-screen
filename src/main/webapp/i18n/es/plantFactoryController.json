@@ -1,0 +1,40 @@
+{
+  "blogApp": {
+    "plantFactoryController": {
+      "home": {
+        "title": "Plant Factory Controllers",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Plant Factory Controller",
+        "createOrEditLabel": "Crear o editar Plant Factory Controller",
+        "notFound": "Ningún Plant Factory Controllers encontrado"
+      },
+      "created": "Un nuevo Plant Factory Controller ha sido creado con el identificador {{ param }}",
+      "updated": "Un Plant Factory Controller ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Plant Factory Controller ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Plant Factory Controller {{ id }}?"
+      },
+      "detail": {
+        "title": "Plant Factory Controller"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "source": "Source",
+      "airTemperature": "Air Temperature",
+      "relativeHumidity": "Relative Humidity",
+      "vPD": "V PD",
+      "evapotranspiration": "Evapotranspiration",
+      "barometricPressure": "Barometric Pressure",
+      "seaLevelPressure": "Sea Level Pressure",
+      "co2Level": "Co 2 Level",
+      "nutrientTankLevel": "Nutrient Tank Level",
+      "dewPoint": "Dew Point",
+      "heatIndex": "Heat Index",
+      "turbidity": "Turbidity",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On"
+    }
+  }
+}

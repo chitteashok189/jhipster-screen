@@ -1,0 +1,34 @@
+{
+  "blogApp": {
+    "farm": {
+      "home": {
+        "title": "Farms",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Farm",
+        "createOrEditLabel": "Crear o editar Farm",
+        "notFound": "Ningún Farms encontrado"
+      },
+      "created": "Un nuevo Farm ha sido creado con el identificador {{ param }}",
+      "updated": "Un Farm ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Farm ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Farm {{ id }}?"
+      },
+      "detail": {
+        "title": "Farm"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "farmName": "Farm Name",
+      "farmType": "Farm Type",
+      "farmDescription": "Farm Description",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "plantFactory": "Plant Factory",
+      "partyID": "Party ID",
+      "locationID": "Location ID"
+    }
+  }
+}

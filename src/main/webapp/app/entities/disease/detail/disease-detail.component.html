@@ -1,0 +1,76 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="disease">
+      <h2 data-cy="diseaseDetailsHeading"><span jhiTranslate="blogApp.disease.detail.title">Disease</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.disease.id">Id</span></dt>
+        <dd>
+          <span>{{ disease.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.disease.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ disease.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.disease.threatLevel">Threat Level</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.DisThreatLevel.' + disease.threatLevel }}">{{ disease.threatLevel }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.disease.name">Name</span></dt>
+        <dd>
+          <span>{{ disease.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.disease.causalOrganism">Causal Organism</span></dt>
+        <dd>
+          <span>{{ disease.causalOrganism }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.disease.attachments">Attachments</span></dt>
+        <dd>
+          <span>{{ disease.attachments }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.disease.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ disease.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.disease.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ disease.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.disease.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ disease.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.disease.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ disease.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.disease.scoutingID">Scouting ID</span></dt>
+        <dd>
+          <div *ngIf="disease.scoutingID">
+            <a [routerLink]="['/scouting', disease.scoutingID?.id, 'view']">{{ disease.scoutingID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.disease.plantFactoryID">Plant Factory ID</span></dt>
+        <dd>
+          <div *ngIf="disease.plantFactoryID">
+            <a [routerLink]="['/plant-factory', disease.plantFactoryID?.id, 'view']">{{ disease.plantFactoryID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/disease', disease.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

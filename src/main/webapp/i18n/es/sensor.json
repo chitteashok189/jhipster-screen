@@ -1,0 +1,37 @@
+{
+  "blogApp": {
+    "sensor": {
+      "home": {
+        "title": "Sensors",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Sensor",
+        "createOrEditLabel": "Crear o editar Sensor",
+        "notFound": "Ningún Sensors encontrado"
+      },
+      "created": "Un nuevo Sensor ha sido creado con el identificador {{ param }}",
+      "updated": "Un Sensor ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Sensor ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Sensor {{ id }}?"
+      },
+      "detail": {
+        "title": "Sensor"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "sensorName": "Sensor Name",
+      "sensorModelName": "Sensor Model Name",
+      "hardwareID": "Hardware ID",
+      "port": "Port",
+      "properties": "Properties",
+      "description": "Description",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "locationID": "Location ID",
+      "deviceID": "Device ID",
+      "sensorModelID": "Sensor Model ID"
+    }
+  }
+}

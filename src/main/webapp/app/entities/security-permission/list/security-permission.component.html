@@ -1,0 +1,96 @@
+<div>
+  <h2 id="page-heading" data-cy="SecurityPermissionHeading">
+    <span jhiTranslate="blogApp.securityPermission.home.title">Security Permissions</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.securityPermission.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-security-permission"
+        [routerLink]="['/security-permission/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.securityPermission.home.createLabel"> Create a new Security Permission </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="securityPermissions?.length === 0">
+    <span jhiTranslate="blogApp.securityPermission.home.notFound">No securityPermissions found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="securityPermissions && securityPermissions.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.securityPermission.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.securityPermission.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.securityPermission.description">Description</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.securityPermission.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.securityPermission.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.securityPermission.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.securityPermission.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.securityPermission.securityGroupPermissionID">Security Group Permission ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let securityPermission of securityPermissions; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/security-permission', securityPermission.id, 'view']">{{ securityPermission.id }}</a>
+          </td>
+          <td>{{ securityPermission.gUID }}</td>
+          <td>{{ securityPermission.description }}</td>
+          <td>{{ securityPermission.createdBy }}</td>
+          <td>{{ securityPermission.createdOn | formatMediumDatetime }}</td>
+          <td>{{ securityPermission.updatedBy }}</td>
+          <td>{{ securityPermission.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="securityPermission.securityGroupPermissionID">
+              <a [routerLink]="['/security-group-permission', securityPermission.securityGroupPermissionID?.id, 'view']">{{
+                securityPermission.securityGroupPermissionID?.id
+              }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/security-permission', securityPermission.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/security-permission', securityPermission.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(securityPermission)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

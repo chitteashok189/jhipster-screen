@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="breeder">
+      <h2 data-cy="breederDetailsHeading"><span jhiTranslate="blogApp.breeder.detail.title">Breeder</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.breeder.id">Id</span></dt>
+        <dd>
+          <span>{{ breeder.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.breeder.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ breeder.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.breeder.breederName">Breeder Name</span></dt>
+        <dd>
+          <span>{{ breeder.breederName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.breeder.breederType">Breeder Type</span></dt>
+        <dd>
+          <span>{{ breeder.breederType }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.breeder.breederStatus">Breeder Status</span></dt>
+        <dd>
+          <span>{{ breeder.breederStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.breeder.breederDescription">Breeder Description</span></dt>
+        <dd>
+          <span>{{ breeder.breederDescription }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.breeder.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ breeder.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.breeder.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ breeder.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.breeder.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ breeder.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.breeder.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ breeder.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/breeder', breeder.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="disorder">
+      <h2 data-cy="disorderDetailsHeading"><span jhiTranslate="blogApp.disorder.detail.title">Disorder</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.disorder.id">Id</span></dt>
+        <dd>
+          <span>{{ disorder.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.disorder.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ disorder.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.disorder.physiologicalDisorder">Physiological Disorder</span></dt>
+        <dd>
+          <span>{{ disorder.physiologicalDisorder }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.disorder.cause">Cause</span></dt>
+        <dd>
+          <span>{{ disorder.cause }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.disorder.controlMeasure">Control Measure</span></dt>
+        <dd>
+          <span>{{ disorder.controlMeasure }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.disorder.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ disorder.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.disorder.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ disorder.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.disorder.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ disorder.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.disorder.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ disorder.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.disorder.scoutingID">Scouting ID</span></dt>
+        <dd>
+          <div *ngIf="disorder.scoutingID">
+            <a [routerLink]="['/scouting', disorder.scoutingID?.id, 'view']">{{ disorder.scoutingID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/disorder', disorder.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,106 @@
+<div>
+  <h2 id="page-heading" data-cy="SecurityGroupHeading">
+    <span jhiTranslate="blogApp.securityGroup.home.title">Security Groups</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.securityGroup.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-security-group"
+        [routerLink]="['/security-group/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.securityGroup.home.createLabel"> Create a new Security Group </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="securityGroups?.length === 0">
+    <span jhiTranslate="blogApp.securityGroup.home.notFound">No securityGroups found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="securityGroups && securityGroups.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.securityGroup.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.securityGroup.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.securityGroup.description">Description</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.securityGroup.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.securityGroup.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.securityGroup.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.securityGroup.updatedOn">Updated On</span></th>
+          <th scope="col">
+            <span jhiTranslate="blogApp.securityGroup.applicationUserSecurityGroupID">Application User Security Group ID</span>
+          </th>
+          <th scope="col"><span jhiTranslate="blogApp.securityGroup.securityGroupPermissionID">Security Group Permission ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let securityGroup of securityGroups; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/security-group', securityGroup.id, 'view']">{{ securityGroup.id }}</a>
+          </td>
+          <td>{{ securityGroup.gUID }}</td>
+          <td>{{ securityGroup.description }}</td>
+          <td>{{ securityGroup.createdBy }}</td>
+          <td>{{ securityGroup.createdOn | formatMediumDatetime }}</td>
+          <td>{{ securityGroup.updatedBy }}</td>
+          <td>{{ securityGroup.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="securityGroup.applicationUserSecurityGroupID">
+              <a [routerLink]="['/application-user-security-group', securityGroup.applicationUserSecurityGroupID?.id, 'view']">{{
+                securityGroup.applicationUserSecurityGroupID?.id
+              }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="securityGroup.securityGroupPermissionID">
+              <a [routerLink]="['/security-group-permission', securityGroup.securityGroupPermissionID?.id, 'view']">{{
+                securityGroup.securityGroupPermissionID?.id
+              }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/security-group', securityGroup.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/security-group', securityGroup.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(securityGroup)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

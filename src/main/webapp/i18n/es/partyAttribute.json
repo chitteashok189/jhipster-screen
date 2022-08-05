@@ -1,0 +1,31 @@
+{
+  "blogApp": {
+    "partyAttribute": {
+      "home": {
+        "title": "Party Attributes",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Party Attribute",
+        "createOrEditLabel": "Crear o editar Party Attribute",
+        "notFound": "Ningún Party Attributes encontrado"
+      },
+      "created": "Un nuevo Party Attribute ha sido creado con el identificador {{ param }}",
+      "updated": "Un Party Attribute ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Party Attribute ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Party Attribute {{ id }}?"
+      },
+      "detail": {
+        "title": "Party Attribute"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "attributeName": "Attribute Name",
+      "attributeValue": "Attribute Value",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "partyID": "Party ID"
+    }
+  }
+}

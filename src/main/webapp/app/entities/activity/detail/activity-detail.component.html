@@ -1,0 +1,76 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="activity">
+      <h2 data-cy="activityDetailsHeading"><span jhiTranslate="blogApp.activity.detail.title">Activity</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.activity.id">Id</span></dt>
+        <dd>
+          <span>{{ activity.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.activity.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ activity.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.activity.activityType">Activity Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.ActType.' + activity.activityType }}">{{ activity.activityType }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.activity.startDate">Start Date</span></dt>
+        <dd>
+          <span>{{ activity.startDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.activity.endDate">End Date</span></dt>
+        <dd>
+          <span>{{ activity.endDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.activity.description">Description</span></dt>
+        <dd>
+          <span>{{ activity.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.activity.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ activity.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.activity.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ activity.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.activity.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ activity.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.activity.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ activity.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.activity.zoneID">Zone ID</span></dt>
+        <dd>
+          <div *ngIf="activity.zoneID">
+            <a [routerLink]="['/zone', activity.zoneID?.id, 'view']">{{ activity.zoneID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.activity.cropID">Crop ID</span></dt>
+        <dd>
+          <div *ngIf="activity.cropID">
+            <a [routerLink]="['/crop', activity.cropID?.id, 'view']">{{ activity.cropID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/activity', activity.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="roleTypeAttribute">
+      <h2 data-cy="roleTypeAttributeDetailsHeading">
+        <span jhiTranslate="blogApp.roleTypeAttribute.detail.title">Role Type Attribute</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.roleTypeAttribute.id">Id</span></dt>
+        <dd>
+          <span>{{ roleTypeAttribute.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.roleTypeAttribute.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ roleTypeAttribute.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.roleTypeAttribute.attributeName">Attribute Name</span></dt>
+        <dd>
+          <span>{{ roleTypeAttribute.attributeName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.roleTypeAttribute.description">Description</span></dt>
+        <dd>
+          <span>{{ roleTypeAttribute.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.roleTypeAttribute.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ roleTypeAttribute.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.roleTypeAttribute.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ roleTypeAttribute.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.roleTypeAttribute.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ roleTypeAttribute.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.roleTypeAttribute.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ roleTypeAttribute.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.roleTypeAttribute.roleTypeID">Role Type ID</span></dt>
+        <dd>
+          <div *ngIf="roleTypeAttribute.roleTypeID">
+            <a [routerLink]="['/role-type', roleTypeAttribute.roleTypeID?.id, 'view']">{{ roleTypeAttribute.roleTypeID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/role-type-attribute', roleTypeAttribute.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="location">
+      <h2 data-cy="locationDetailsHeading"><span jhiTranslate="blogApp.location.detail.title">Location</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.location.id">Id</span></dt>
+        <dd>
+          <span>{{ location.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.location.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ location.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.location.buildingNo">Building No</span></dt>
+        <dd>
+          <span>{{ location.buildingNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.location.street">Street</span></dt>
+        <dd>
+          <span>{{ location.street }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.location.area">Area</span></dt>
+        <dd>
+          <span>{{ location.area }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.location.country">Country</span></dt>
+        <dd>
+          <span>{{ location.country }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.location.state">State</span></dt>
+        <dd>
+          <span>{{ location.state }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.location.city">City</span></dt>
+        <dd>
+          <span>{{ location.city }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.location.postalCode">Postal Code</span></dt>
+        <dd>
+          <span>{{ location.postalCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.location.otherAddress">Other Address</span></dt>
+        <dd>
+          <span>{{ location.otherAddress }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.location.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ location.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.location.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ location.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.location.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ location.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.location.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ location.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/location', location.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

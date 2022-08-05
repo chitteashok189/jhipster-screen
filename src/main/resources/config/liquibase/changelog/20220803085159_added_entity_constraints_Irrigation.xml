@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Irrigation.
+    -->
+    <changeSet id="20220803085159-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="deviceid_id"
+                                 baseTableName="irrigation"
+                                 constraintName="fk_irrigation__deviceid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="device"/>
+
+        <addForeignKeyConstraint baseColumnNames="plant_factoryid_id"
+                                 baseTableName="irrigation"
+                                 constraintName="fk_irrigation__plant_factoryid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="plant_factory"/>
+    </changeSet>
+</databaseChangeLog>

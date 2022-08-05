@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="growBed">
+      <h2 data-cy="growBedDetailsHeading"><span jhiTranslate="blogApp.growBed.detail.title">Grow Bed</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.growBed.id">Id</span></dt>
+        <dd>
+          <span>{{ growBed.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.growBed.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ growBed.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.growBed.growBedType">Grow Bed Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.GrowBedType.' + growBed.growBedType }}">{{ growBed.growBedType }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.growBed.growBedName">Grow Bed Name</span></dt>
+        <dd>
+          <span>{{ growBed.growBedName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.growBed.manufacturer">Manufacturer</span></dt>
+        <dd>
+          <span>{{ growBed.manufacturer }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.growBed.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ growBed.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.growBed.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ growBed.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.growBed.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ growBed.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.growBed.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ growBed.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/grow-bed', growBed.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

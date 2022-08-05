@@ -1,0 +1,32 @@
+{
+  "blogApp": {
+    "applicationUserSecurityGroup": {
+      "home": {
+        "title": "Application User Security Groups",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Application User Security Group",
+        "createOrEditLabel": "Crear o editar Application User Security Group",
+        "notFound": "Ningún Application User Security Groups encontrado"
+      },
+      "created": "Un nuevo Application User Security Group ha sido creado con el identificador {{ param }}",
+      "updated": "Un Application User Security Group ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Application User Security Group ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Application User Security Group {{ id }}?"
+      },
+      "detail": {
+        "title": "Application User Security Group"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "fromDate": "From Date",
+      "thruDate": "Thru Date",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "securityGroup": "Security Group",
+      "securityGroupID": "Security Group ID"
+    }
+  }
+}

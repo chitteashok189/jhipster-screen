@@ -1,0 +1,108 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="product">
+      <h2 data-cy="productDetailsHeading"><span jhiTranslate="blogApp.product.detail.title">Product</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.product.id">Id</span></dt>
+        <dd>
+          <span>{{ product.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.product.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ product.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.product.productCode">Product Code</span></dt>
+        <dd>
+          <span>{{ product.productCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.product.productName">Product Name</span></dt>
+        <dd>
+          <span>{{ product.productName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.product.productPrice">Product Price</span></dt>
+        <dd>
+          <span>{{ product.productPrice }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.product.productType">Product Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.ProType.' + product.productType }}">{{ product.productType }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.product.uOM">U OM</span></dt>
+        <dd>
+          <span>{{ product.uOM }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.product.otherProductDetails">Other Product Details</span></dt>
+        <dd>
+          <span>{{ product.otherProductDetails }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.product.previousEntry">Previous Entry</span></dt>
+        <dd>
+          <span>{{ product.previousEntry }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.product.manufacturer">Manufacturer</span></dt>
+        <dd>
+          <span>{{ product.manufacturer }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.product.productDescription">Product Description</span></dt>
+        <dd>
+          <span>{{ product.productDescription }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.product.imageFileName">Image File Name</span></dt>
+        <dd>
+          <span>{{ product.imageFileName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.product.productEntryName">Product Entry Name</span></dt>
+        <dd>
+          <span>{{ product.productEntryName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.product.capacity">Capacity</span></dt>
+        <dd>
+          <span>{{ product.capacity }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.product.length">Length</span></dt>
+        <dd>
+          <span>{{ product.length }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.product.width">Width</span></dt>
+        <dd>
+          <span>{{ product.width }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.product.height">Height</span></dt>
+        <dd>
+          <span>{{ product.height }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.product.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ product.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.product.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ product.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.product.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ product.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.product.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ product.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/product', product.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

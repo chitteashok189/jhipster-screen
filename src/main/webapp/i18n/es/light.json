@@ -1,0 +1,35 @@
+{
+  "blogApp": {
+    "light": {
+      "home": {
+        "title": "Lights",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Light",
+        "createOrEditLabel": "Crear o editar Light",
+        "notFound": "Ningún Lights encontrado"
+      },
+      "created": "Un nuevo Light ha sido creado con el identificador {{ param }}",
+      "updated": "Un Light ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Light ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Light {{ id }}?"
+      },
+      "detail": {
+        "title": "Light"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "source": "Source",
+      "lightIntensity": "Light Intensity",
+      "dailyLightIntegral": "Daily Light Integral",
+      "pAR": "P AR",
+      "pPFD": "P PFD",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "deviceID": "Device ID",
+      "plantFactoryID": "Plant Factory ID"
+    }
+  }
+}

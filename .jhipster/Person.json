@@ -1,0 +1,157 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085135",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "person",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "salutation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "firstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "middleName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "personalTitle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "suffix",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nickName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "firstNameLocal",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "middleNameLocal",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastNameLocal",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "otherLocal",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "gender",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "birthDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "heigth",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "weight",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "mothersMaidenName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "maritialStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "socialSecurityNo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "passportNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "passportExpiryDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "totalYearsWorkExperience",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "comments",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "occupation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "yearswithEmployer",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "monthsWithEmployer",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "existingCustomer",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Person",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "personID",
+      "relationshipName": "party",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "party",
+      "otherEntityRelationshipName": "person",
+      "relationshipName": "partyID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

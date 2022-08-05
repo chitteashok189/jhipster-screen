@@ -1,0 +1,98 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="device">
+      <h2 data-cy="deviceDetailsHeading"><span jhiTranslate="blogApp.device.detail.title">Device</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.device.id">Id</span></dt>
+        <dd>
+          <span>{{ device.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.device.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ device.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.device.deviceModel">Device Model</span></dt>
+        <dd>
+          <span>{{ device.deviceModel }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.device.deviceAsset">Device Asset</span></dt>
+        <dd>
+          <span>{{ device.deviceAsset }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.device.deviceType">Device Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.DeviceType.' + device.deviceType }}">{{ device.deviceType }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.device.hardwareID">Hardware ID</span></dt>
+        <dd>
+          <span>{{ device.hardwareID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.device.reportingIntervalLocation">Reporting Interval Location</span></dt>
+        <dd>
+          <span>{{ device.reportingIntervalLocation }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.device.parentDevice">Parent Device</span></dt>
+        <dd>
+          <span>{{ device.parentDevice }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.device.properties">Properties</span></dt>
+        <dd>
+          <span>{{ device.properties }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.device.description">Description</span></dt>
+        <dd>
+          <span>{{ device.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.device.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ device.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.device.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ device.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.device.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ device.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.device.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ device.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.device.plantFactoryID">Plant Factory ID</span></dt>
+        <dd>
+          <div *ngIf="device.plantFactoryID">
+            <a [routerLink]="['/plant-factory', device.plantFactoryID?.id, 'view']">{{ device.plantFactoryID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.device.deviceLevelID">Device Level ID</span></dt>
+        <dd>
+          <div *ngIf="device.deviceLevelID">
+            <a [routerLink]="['/device-level', device.deviceLevelID?.id, 'view']">{{ device.deviceLevelID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.device.deviceModelID">Device Model ID</span></dt>
+        <dd>
+          <div *ngIf="device.deviceModelID">
+            <a [routerLink]="['/device-model', device.deviceModelID?.id, 'view']">{{ device.deviceModelID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/device', device.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

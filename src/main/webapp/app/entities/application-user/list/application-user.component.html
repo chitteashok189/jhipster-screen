@@ -1,0 +1,116 @@
+<div>
+  <h2 id="page-heading" data-cy="ApplicationUserHeading">
+    <span jhiTranslate="blogApp.applicationUser.home.title">Application Users</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.applicationUser.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-application-user"
+        [routerLink]="['/application-user/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.applicationUser.home.createLabel"> Create a new Application User </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="applicationUsers?.length === 0">
+    <span jhiTranslate="blogApp.applicationUser.home.notFound">No applicationUsers found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="applicationUsers && applicationUsers.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.applicationUser.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.applicationUser.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.applicationUser.currentPassword">Current Password</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.applicationUser.passwordHint">Password Hint</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.applicationUser.isSystemEnables">Is System Enables</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.applicationUser.hasLoggedOut">Has Logged Out</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.applicationUser.requirePasswordChange">Require Password Change</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.applicationUser.lastCurrencyUom">Last Currency Uom</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.applicationUser.lastLocale">Last Locale</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.applicationUser.lastTimeZone">Last Time Zone</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.applicationUser.disabledDateTime">Disabled Date Time</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.applicationUser.successiveFailedLogins">Successive Failed Logins</span></th>
+          <th scope="col">
+            <span jhiTranslate="blogApp.applicationUser.applicationUserSecurityGroup">Application User Security Group</span>
+          </th>
+          <th scope="col"><span jhiTranslate="blogApp.applicationUser.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.applicationUser.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.applicationUser.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.applicationUser.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.applicationUser.partyID">Party ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let applicationUser of applicationUsers; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/application-user', applicationUser.id, 'view']">{{ applicationUser.id }}</a>
+          </td>
+          <td>{{ applicationUser.gUID }}</td>
+          <td>{{ applicationUser.currentPassword }}</td>
+          <td>{{ applicationUser.passwordHint }}</td>
+          <td>{{ applicationUser.isSystemEnables }}</td>
+          <td>{{ applicationUser.hasLoggedOut }}</td>
+          <td>{{ applicationUser.requirePasswordChange }}</td>
+          <td>{{ applicationUser.lastCurrencyUom }}</td>
+          <td>{{ applicationUser.lastLocale }}</td>
+          <td>{{ applicationUser.lastTimeZone }}</td>
+          <td>{{ applicationUser.disabledDateTime | formatMediumDatetime }}</td>
+          <td>{{ applicationUser.successiveFailedLogins }}</td>
+          <td>{{ applicationUser.applicationUserSecurityGroup }}</td>
+          <td>{{ applicationUser.createdBy }}</td>
+          <td>{{ applicationUser.createdOn | formatMediumDatetime }}</td>
+          <td>{{ applicationUser.updatedBy }}</td>
+          <td>{{ applicationUser.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="applicationUser.partyID">
+              <a [routerLink]="['/party', applicationUser.partyID?.id, 'view']">{{ applicationUser.partyID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/application-user', applicationUser.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/application-user', applicationUser.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(applicationUser)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

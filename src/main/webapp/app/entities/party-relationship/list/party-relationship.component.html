@@ -1,0 +1,120 @@
+<div>
+  <h2 id="page-heading" data-cy="PartyRelationshipHeading">
+    <span jhiTranslate="blogApp.partyRelationship.home.title">Party Relationships</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.partyRelationship.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-party-relationship"
+        [routerLink]="['/party-relationship/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.partyRelationship.home.createLabel"> Create a new Party Relationship </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="partyRelationships?.length === 0">
+    <span jhiTranslate="blogApp.partyRelationship.home.notFound">No partyRelationships found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="partyRelationships && partyRelationships.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationship.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationship.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationship.partyIdTo">Party Id To</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationship.partyIdFrom">Party Id From</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationship.roleTypeIdFrom">Role Type Id From</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationship.roleTypeIdTo">Role Type Id To</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationship.fromDate">From Date</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationship.thruDate">Thru Date</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationship.relationshipName">Relationship Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationship.positionTitle">Position Title</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationship.comments">Comments</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationship.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationship.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationship.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationship.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationship.partyRelationshipTypeID">Party Relationship Type ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRelationship.securityGroupID">Security Group ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let partyRelationship of partyRelationships; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/party-relationship', partyRelationship.id, 'view']">{{ partyRelationship.id }}</a>
+          </td>
+          <td>{{ partyRelationship.gUID }}</td>
+          <td>{{ partyRelationship.partyIdTo }}</td>
+          <td>{{ partyRelationship.partyIdFrom }}</td>
+          <td>{{ partyRelationship.roleTypeIdFrom }}</td>
+          <td>{{ partyRelationship.roleTypeIdTo }}</td>
+          <td>{{ partyRelationship.fromDate | formatMediumDatetime }}</td>
+          <td>{{ partyRelationship.thruDate | formatMediumDatetime }}</td>
+          <td>{{ partyRelationship.relationshipName }}</td>
+          <td>{{ partyRelationship.positionTitle }}</td>
+          <td>{{ partyRelationship.comments }}</td>
+          <td>{{ partyRelationship.createdBy }}</td>
+          <td>{{ partyRelationship.createdOn | formatMediumDatetime }}</td>
+          <td>{{ partyRelationship.updatedBy }}</td>
+          <td>{{ partyRelationship.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="partyRelationship.partyRelationshipTypeID">
+              <a [routerLink]="['/party-relationship-type', partyRelationship.partyRelationshipTypeID?.id, 'view']">{{
+                partyRelationship.partyRelationshipTypeID?.id
+              }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="partyRelationship.securityGroupID">
+              <a [routerLink]="['/security-group', partyRelationship.securityGroupID?.id, 'view']">{{
+                partyRelationship.securityGroupID?.id
+              }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/party-relationship', partyRelationship.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/party-relationship', partyRelationship.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(partyRelationship)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

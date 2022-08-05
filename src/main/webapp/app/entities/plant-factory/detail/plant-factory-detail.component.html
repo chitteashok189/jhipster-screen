@@ -1,0 +1,76 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="plantFactory">
+      <h2 data-cy="plantFactoryDetailsHeading"><span jhiTranslate="blogApp.plantFactory.detail.title">Plant Factory</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.plantFactory.id">Id</span></dt>
+        <dd>
+          <span>{{ plantFactory.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactory.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ plantFactory.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactory.plantFactoryName">Plant Factory Name</span></dt>
+        <dd>
+          <span>{{ plantFactory.plantFactoryName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactory.plantFactoryTypeID">Plant Factory Type ID</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.ProFarmType.' + plantFactory.plantFactoryTypeID }}">{{ plantFactory.plantFactoryTypeID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactory.plantFactorySubType">Plant Factory Sub Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.ProSubType.' + plantFactory.plantFactorySubType }}">{{ plantFactory.plantFactorySubType }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactory.plantFactoryDescription">Plant Factory Description</span></dt>
+        <dd>
+          <span>{{ plantFactory.plantFactoryDescription }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactory.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ plantFactory.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactory.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ plantFactory.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactory.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ plantFactory.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactory.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ plantFactory.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactory.farmID">Farm ID</span></dt>
+        <dd>
+          <div *ngIf="plantFactory.farmID">
+            <a [routerLink]="['/farm', plantFactory.farmID?.id, 'view']">{{ plantFactory.farmID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.plantFactory.deviceID">Device ID</span></dt>
+        <dd>
+          <div *ngIf="plantFactory.deviceID">
+            <a [routerLink]="['/device', plantFactory.deviceID?.id, 'view']">{{ plantFactory.deviceID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/plant-factory', plantFactory.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085143",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "zone",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "zoneType",
+      "fieldType": "ZoneType",
+      "fieldValues": "Leafy,Greens,Tubers,Fruit,Flowers"
+    },
+    {
+      "fieldName": "zoneName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Zone",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "calendar",
+      "otherEntityRelationshipName": "zoneID",
+      "relationshipName": "calendar",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "activity",
+      "otherEntityRelationshipName": "zoneID",
+      "relationshipName": "activity",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "plantFactory",
+      "otherEntityRelationshipName": "zone",
+      "relationshipName": "plantFactoryID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "growBed",
+      "otherEntityRelationshipName": "zone",
+      "relationshipName": "growBedID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

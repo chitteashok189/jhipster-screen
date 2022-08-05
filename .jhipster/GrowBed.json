@@ -1,0 +1,60 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085144",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "grow_bed",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "growBedType",
+      "fieldType": "GrowBedType",
+      "fieldValues": "Vertical,Rack,Hydroponic,Table,Dutch,Bucket,Bench,Ebb,And,Flow,Table_Single,Layer,Table_Multilayer"
+    },
+    {
+      "fieldName": "growBedName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "manufacturer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "GrowBed",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "zone",
+      "otherEntityRelationshipName": "growBedID",
+      "relationshipName": "zone",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,61 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085130",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "role_type_attribute",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "attributeName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "RoleTypeAttribute",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "roleType",
+      "otherEntityRelationshipName": "roleTypeAttributeID",
+      "relationshipName": "roleType",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "roleType",
+      "otherEntityRelationshipName": "roleTypeAttribute",
+      "relationshipName": "roleTypeID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

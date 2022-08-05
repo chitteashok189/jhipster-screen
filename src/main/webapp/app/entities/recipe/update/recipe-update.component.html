@@ -1,0 +1,506 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-recipe-heading" data-cy="RecipeCreateUpdateHeading" jhiTranslate="blogApp.recipe.home.createOrEditLabel">
+        Create or edit a Recipe
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="blogApp.recipe.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.gUID" for="field_gUID">G UID</label>
+          <input type="text" class="form-control" name="gUID" id="field_gUID" data-cy="gUID" formControlName="gUID" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.plantName" for="field_plantName">Plant Name</label>
+          <input type="text" class="form-control" name="plantName" id="field_plantName" data-cy="plantName" formControlName="plantName" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.recipeType" for="field_recipeType">Recipe Type</label>
+          <input
+            type="text"
+            class="form-control"
+            name="recipeType"
+            id="field_recipeType"
+            data-cy="recipeType"
+            formControlName="recipeType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.pHMin" for="field_pHMin">P H Min</label>
+          <input type="number" class="form-control" name="pHMin" id="field_pHMin" data-cy="pHMin" formControlName="pHMin" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.pHMax" for="field_pHMax">P H Max</label>
+          <input type="number" class="form-control" name="pHMax" id="field_pHMax" data-cy="pHMax" formControlName="pHMax" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.ecMin" for="field_ecMin">Ec Min</label>
+          <select class="form-control" name="ecMin" formControlName="ecMin" id="field_ecMin" data-cy="ecMin">
+            <option [ngValue]="null">{{ 'blogApp.Ec.null' | translate }}</option>
+            <option *ngFor="let ec of ecValues" [value]="ec">{{ 'blogApp.Ec.' + ec | translate }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.eCMax" for="field_eCMax">E C Max</label>
+          <input type="number" class="form-control" name="eCMax" id="field_eCMax" data-cy="eCMax" formControlName="eCMax" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.airTempMax" for="field_airTempMax">Air Temp Max</label>
+          <input
+            type="number"
+            class="form-control"
+            name="airTempMax"
+            id="field_airTempMax"
+            data-cy="airTempMax"
+            formControlName="airTempMax"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.airTempMin" for="field_airTempMin">Air Temp Min</label>
+          <input
+            type="number"
+            class="form-control"
+            name="airTempMin"
+            id="field_airTempMin"
+            data-cy="airTempMin"
+            formControlName="airTempMin"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.humidityMax" for="field_humidityMax">Humidity Max</label>
+          <input
+            type="number"
+            class="form-control"
+            name="humidityMax"
+            id="field_humidityMax"
+            data-cy="humidityMax"
+            formControlName="humidityMax"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.humidityMin" for="field_humidityMin">Humidity Min</label>
+          <input
+            type="number"
+            class="form-control"
+            name="humidityMin"
+            id="field_humidityMin"
+            data-cy="humidityMin"
+            formControlName="humidityMin"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.nutrientTempMax" for="field_nutrientTempMax">Nutrient Temp Max</label>
+          <input
+            type="number"
+            class="form-control"
+            name="nutrientTempMax"
+            id="field_nutrientTempMax"
+            data-cy="nutrientTempMax"
+            formControlName="nutrientTempMax"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.nutrientTempMin" for="field_nutrientTempMin">Nutrient Temp Min</label>
+          <input
+            type="number"
+            class="form-control"
+            name="nutrientTempMin"
+            id="field_nutrientTempMin"
+            data-cy="nutrientTempMin"
+            formControlName="nutrientTempMin"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.luxGermMax" for="field_luxGermMax">Lux Germ Max</label>
+          <input
+            type="number"
+            class="form-control"
+            name="luxGermMax"
+            id="field_luxGermMax"
+            data-cy="luxGermMax"
+            formControlName="luxGermMax"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.luxGermMin" for="field_luxGermMin">Lux Germ Min</label>
+          <input
+            type="number"
+            class="form-control"
+            name="luxGermMin"
+            id="field_luxGermMin"
+            data-cy="luxGermMin"
+            formControlName="luxGermMin"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.lightGermDor" for="field_lightGermDor">Light Germ Dor</label>
+          <input
+            type="number"
+            class="form-control"
+            name="lightGermDor"
+            id="field_lightGermDor"
+            data-cy="lightGermDor"
+            formControlName="lightGermDor"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.lightGermCycle" for="field_lightGermCycle">Light Germ Cycle</label>
+          <input
+            type="number"
+            class="form-control"
+            name="lightGermCycle"
+            id="field_lightGermCycle"
+            data-cy="lightGermCycle"
+            formControlName="lightGermCycle"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.luxGrowMax" for="field_luxGrowMax">Lux Grow Max</label>
+          <input
+            type="number"
+            class="form-control"
+            name="luxGrowMax"
+            id="field_luxGrowMax"
+            data-cy="luxGrowMax"
+            formControlName="luxGrowMax"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.luxGrowMin" for="field_luxGrowMin">Lux Grow Min</label>
+          <input
+            type="number"
+            class="form-control"
+            name="luxGrowMin"
+            id="field_luxGrowMin"
+            data-cy="luxGrowMin"
+            formControlName="luxGrowMin"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.lightGrowDor" for="field_lightGrowDor">Light Grow Dor</label>
+          <input
+            type="number"
+            class="form-control"
+            name="lightGrowDor"
+            id="field_lightGrowDor"
+            data-cy="lightGrowDor"
+            formControlName="lightGrowDor"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.lightGrowCycle" for="field_lightGrowCycle">Light Grow Cycle</label>
+          <input
+            type="number"
+            class="form-control"
+            name="lightGrowCycle"
+            id="field_lightGrowCycle"
+            data-cy="lightGrowCycle"
+            formControlName="lightGrowCycle"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.co2LightMax" for="field_co2LightMax">Co 2 Light Max</label>
+          <input
+            type="number"
+            class="form-control"
+            name="co2LightMax"
+            id="field_co2LightMax"
+            data-cy="co2LightMax"
+            formControlName="co2LightMax"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.co2LightMin" for="field_co2LightMin">Co 2 Light Min</label>
+          <input
+            type="number"
+            class="form-control"
+            name="co2LightMin"
+            id="field_co2LightMin"
+            data-cy="co2LightMin"
+            formControlName="co2LightMin"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.co2DarkMax" for="field_co2DarkMax">Co 2 Dark Max</label>
+          <input
+            type="number"
+            class="form-control"
+            name="co2DarkMax"
+            id="field_co2DarkMax"
+            data-cy="co2DarkMax"
+            formControlName="co2DarkMax"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.co2DarkMin" for="field_co2DarkMin">Co 2 Dark Min</label>
+          <input
+            type="number"
+            class="form-control"
+            name="co2DarkMin"
+            id="field_co2DarkMin"
+            data-cy="co2DarkMin"
+            formControlName="co2DarkMin"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.dOMax" for="field_dOMax">D O Max</label>
+          <input type="number" class="form-control" name="dOMax" id="field_dOMax" data-cy="dOMax" formControlName="dOMax" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.dOMin" for="field_dOMin">D O Min</label>
+          <input type="number" class="form-control" name="dOMin" id="field_dOMin" data-cy="dOMin" formControlName="dOMin" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.mediaMoistureMax" for="field_mediaMoistureMax">Media Moisture Max</label>
+          <input
+            type="number"
+            class="form-control"
+            name="mediaMoistureMax"
+            id="field_mediaMoistureMax"
+            data-cy="mediaMoistureMax"
+            formControlName="mediaMoistureMax"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.mediaMoistureMin" for="field_mediaMoistureMin">Media Moisture Min</label>
+          <input
+            type="number"
+            class="form-control"
+            name="mediaMoistureMin"
+            id="field_mediaMoistureMin"
+            data-cy="mediaMoistureMin"
+            formControlName="mediaMoistureMin"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.nitrogen" for="field_nitrogen">Nitrogen</label>
+          <input type="number" class="form-control" name="nitrogen" id="field_nitrogen" data-cy="nitrogen" formControlName="nitrogen" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.phosphorus" for="field_phosphorus">Phosphorus</label>
+          <input
+            type="number"
+            class="form-control"
+            name="phosphorus"
+            id="field_phosphorus"
+            data-cy="phosphorus"
+            formControlName="phosphorus"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.potassium" for="field_potassium">Potassium</label>
+          <input type="number" class="form-control" name="potassium" id="field_potassium" data-cy="potassium" formControlName="potassium" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.sulphur" for="field_sulphur">Sulphur</label>
+          <input type="number" class="form-control" name="sulphur" id="field_sulphur" data-cy="sulphur" formControlName="sulphur" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.calcium" for="field_calcium">Calcium</label>
+          <input type="number" class="form-control" name="calcium" id="field_calcium" data-cy="calcium" formControlName="calcium" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.magnesium" for="field_magnesium">Magnesium</label>
+          <input type="number" class="form-control" name="magnesium" id="field_magnesium" data-cy="magnesium" formControlName="magnesium" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.manganese" for="field_manganese">Manganese</label>
+          <input type="number" class="form-control" name="manganese" id="field_manganese" data-cy="manganese" formControlName="manganese" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.iron" for="field_iron">Iron</label>
+          <input type="number" class="form-control" name="iron" id="field_iron" data-cy="iron" formControlName="iron" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.boron" for="field_boron">Boron</label>
+          <input type="number" class="form-control" name="boron" id="field_boron" data-cy="boron" formControlName="boron" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.copper" for="field_copper">Copper</label>
+          <input type="number" class="form-control" name="copper" id="field_copper" data-cy="copper" formControlName="copper" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.zinc" for="field_zinc">Zinc</label>
+          <input type="number" class="form-control" name="zinc" id="field_zinc" data-cy="zinc" formControlName="zinc" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.molybdenum" for="field_molybdenum">Molybdenum</label>
+          <input
+            type="number"
+            class="form-control"
+            name="molybdenum"
+            id="field_molybdenum"
+            data-cy="molybdenum"
+            formControlName="molybdenum"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.germinationTAT" for="field_germinationTAT">Germination TAT</label>
+          <input
+            type="number"
+            class="form-control"
+            name="germinationTAT"
+            id="field_germinationTAT"
+            data-cy="germinationTAT"
+            formControlName="germinationTAT"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.identificationComment" for="field_identificationComment"
+            >Identification Comment</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="identificationComment"
+            id="field_identificationComment"
+            data-cy="identificationComment"
+            formControlName="identificationComment"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.growingComment" for="field_growingComment">Growing Comment</label>
+          <input
+            type="text"
+            class="form-control"
+            name="growingComment"
+            id="field_growingComment"
+            data-cy="growingComment"
+            formControlName="growingComment"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.usageComment" for="field_usageComment">Usage Comment</label>
+          <input
+            type="text"
+            class="form-control"
+            name="usageComment"
+            id="field_usageComment"
+            data-cy="usageComment"
+            formControlName="usageComment"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.createdBy" for="field_createdBy">Created By</label>
+          <input type="number" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.updatedBy" for="field_updatedBy">Updated By</label>
+          <input type="number" class="form-control" name="updatedBy" id="field_updatedBy" data-cy="updatedBy" formControlName="updatedBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.updatedOn" for="field_updatedOn">Updated On</label>
+          <div class="d-flex">
+            <input
+              id="field_updatedOn"
+              data-cy="updatedOn"
+              type="datetime-local"
+              class="form-control"
+              name="updatedOn"
+              formControlName="updatedOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.recipe.plantID" for="field_plantID">Plant ID</label>
+          <select class="form-control" id="field_plantID" data-cy="plantID" name="plantID" formControlName="plantID">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="plantOption.id === editForm.get('plantID')!.value?.id ? editForm.get('plantID')!.value : plantOption"
+              *ngFor="let plantOption of plantsSharedCollection; trackBy: trackPlantById"
+            >
+              {{ plantOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

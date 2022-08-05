@@ -1,0 +1,32 @@
+{
+  "blogApp": {
+    "disorder": {
+      "home": {
+        "title": "Disorders",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Disorder",
+        "createOrEditLabel": "Crear o editar Disorder",
+        "notFound": "Ningún Disorders encontrado"
+      },
+      "created": "Un nuevo Disorder ha sido creado con el identificador {{ param }}",
+      "updated": "Un Disorder ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Disorder ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Disorder {{ id }}?"
+      },
+      "detail": {
+        "title": "Disorder"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "physiologicalDisorder": "Physiological Disorder",
+      "cause": "Cause",
+      "controlMeasure": "Control Measure",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "scoutingID": "Scouting ID"
+    }
+  }
+}

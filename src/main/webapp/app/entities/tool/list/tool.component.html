@@ -1,0 +1,82 @@
+<div>
+  <h2 id="page-heading" data-cy="ToolHeading">
+    <span jhiTranslate="blogApp.tool.home.title">Tools</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.tool.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tool"
+        [routerLink]="['/tool/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.tool.home.createLabel"> Create a new Tool </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tools?.length === 0">
+    <span jhiTranslate="blogApp.tool.home.notFound">No tools found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tools && tools.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.tool.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.tool.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.tool.toolType">Tool Type</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.tool.toolName">Tool Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.tool.manufacturer">Manufacturer</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.tool.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.tool.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.tool.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.tool.updatedOn">Updated On</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tool of tools; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/tool', tool.id, 'view']">{{ tool.id }}</a>
+          </td>
+          <td>{{ tool.gUID }}</td>
+          <td jhiTranslate="{{ 'blogApp.ToolType.' + tool.toolType }}">{{ tool.toolType }}</td>
+          <td>{{ tool.toolName }}</td>
+          <td>{{ tool.manufacturer }}</td>
+          <td>{{ tool.createdBy }}</td>
+          <td>{{ tool.createdOn | formatMediumDatetime }}</td>
+          <td>{{ tool.updatedBy }}</td>
+          <td>{{ tool.updatedOn | formatMediumDatetime }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/tool', tool.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/tool', tool.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tool)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

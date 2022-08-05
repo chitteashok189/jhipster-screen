@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Lot.
+    -->
+    <changeSet id="20220803085217-1" author="jhipster">
+        <createTable tableName="lot">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="g_uid" type="${uuidType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="lot_code" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="lot_qr_code" type="longblob">
+                <constraints nullable="true" />
+            </column>
+            <column name="lot_qr_code_content_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="lot_size" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="unit_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="seedlings_germinated" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="seedlings_died" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="plants_wasted" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="trays_sown" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="sowing_time" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="trays_tranplanted" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="transplantation_time" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="plants_harvested" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="harvest_time" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="packing_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="tranportation_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_by" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_on" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="updated_by" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="updated_on" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="seedid_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cropid_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="lot" columnName="packing_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="lot" columnName="tranportation_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="lot" columnName="created_on" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="lot" columnName="updated_on" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20220803085217-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/lot.csv"
+                  separator=";"
+                  tableName="lot"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="g_uid" type="${uuidType}"/>
+            <column name="lot_code" type="string"/>
+            <column name="lot_qr_code" type="blob"/>
+            <column name="lot_qr_code_content_type" type="string"/>
+            <column name="lot_size" type="numeric"/>
+            <column name="unit_type" type="string"/>
+            <column name="seedlings_germinated" type="numeric"/>
+            <column name="seedlings_died" type="numeric"/>
+            <column name="plants_wasted" type="numeric"/>
+            <column name="trays_sown" type="numeric"/>
+            <column name="sowing_time" type="string"/>
+            <column name="trays_tranplanted" type="numeric"/>
+            <column name="transplantation_time" type="string"/>
+            <column name="plants_harvested" type="numeric"/>
+            <column name="harvest_time" type="string"/>
+            <column name="packing_date" type="date"/>
+            <column name="tranportation_date" type="date"/>
+            <column name="created_by" type="numeric"/>
+            <column name="created_on" type="date"/>
+            <column name="updated_by" type="numeric"/>
+            <column name="updated_on" type="date"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

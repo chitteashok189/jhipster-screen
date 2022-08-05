@@ -1,0 +1,29 @@
+{
+  "blogApp": {
+    "partyStatus": {
+      "home": {
+        "title": "Party Statuses",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Party Status",
+        "createOrEditLabel": "Crear o editar Party Status",
+        "notFound": "Ningún Party Statuses encontrado"
+      },
+      "created": "Un nuevo Party Status ha sido creado con el identificador {{ param }}",
+      "updated": "Un Party Status ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Party Status ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Party Status {{ id }}?"
+      },
+      "detail": {
+        "title": "Party Status"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "statusDate": "Status Date",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On"
+    }
+  }
+}

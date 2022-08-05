@@ -1,0 +1,32 @@
+{
+  "blogApp": {
+    "roleTypeAttribute": {
+      "home": {
+        "title": "Role Type Attributes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Role Type Attribute",
+        "createOrEditLabel": "Create or edit a Role Type Attribute",
+        "notFound": "No Role Type Attributes found"
+      },
+      "created": "A new Role Type Attribute is created with identifier {{ param }}",
+      "updated": "A Role Type Attribute is updated with identifier {{ param }}",
+      "deleted": "A Role Type Attribute is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Role Type Attribute {{ id }}?"
+      },
+      "detail": {
+        "title": "Role Type Attribute"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "attributeName": "Attribute Name",
+      "description": "Description",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "roleType": "Role Type",
+      "roleTypeID": "Role Type ID"
+    }
+  }
+}

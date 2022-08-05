@@ -1,0 +1,110 @@
+<div>
+  <h2 id="page-heading" data-cy="PartyRoleHeading">
+    <span jhiTranslate="blogApp.partyRole.home.title">Party Roles</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.partyRole.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-party-role"
+        [routerLink]="['/party-role/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.partyRole.home.createLabel"> Create a new Party Role </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="partyRoles?.length === 0">
+    <span jhiTranslate="blogApp.partyRole.home.notFound">No partyRoles found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="partyRoles && partyRoles.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.partyRole.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRole.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRole.fromAgreement">From Agreement</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRole.toAgreement">To Agreement</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRole.fromCommunicationEvent">From Communication Event</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRole.toCommunicationEvent">To Communication Event</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRole.partyIdFrom">Party Id From</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRole.partyIdTO">Party Id TO</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRole.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRole.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRole.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRole.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRole.roleTypeID">Role Type ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyRole.partyID">Party ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let partyRole of partyRoles; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/party-role', partyRole.id, 'view']">{{ partyRole.id }}</a>
+          </td>
+          <td>{{ partyRole.gUID }}</td>
+          <td>{{ partyRole.fromAgreement }}</td>
+          <td>{{ partyRole.toAgreement }}</td>
+          <td>{{ partyRole.fromCommunicationEvent }}</td>
+          <td>{{ partyRole.toCommunicationEvent }}</td>
+          <td>{{ partyRole.partyIdFrom }}</td>
+          <td>{{ partyRole.partyIdTO }}</td>
+          <td>{{ partyRole.createdBy }}</td>
+          <td>{{ partyRole.createdOn | formatMediumDatetime }}</td>
+          <td>{{ partyRole.updatedBy }}</td>
+          <td>{{ partyRole.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="partyRole.roleTypeID">
+              <a [routerLink]="['/role-type', partyRole.roleTypeID?.id, 'view']">{{ partyRole.roleTypeID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="partyRole.partyID">
+              <a [routerLink]="['/party', partyRole.partyID?.id, 'view']">{{ partyRole.partyID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/party-role', partyRole.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/party-role', partyRole.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(partyRole)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

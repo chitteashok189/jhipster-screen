@@ -1,0 +1,10 @@
+{
+  "blogApp": {
+    "DisThreatLevel": {
+      "null": "",
+      "High": "High",
+      "Moderate": "Moderate",
+      "Low": "Low"
+    }
+  }
+}

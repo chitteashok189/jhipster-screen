@@ -1,0 +1,35 @@
+{
+  "blogApp": {
+    "deviceModel": {
+      "home": {
+        "title": "Device Models",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Device Model",
+        "createOrEditLabel": "Create or edit a Device Model",
+        "notFound": "No Device Models found"
+      },
+      "created": "A new Device Model is created with identifier {{ param }}",
+      "updated": "A Device Model is updated with identifier {{ param }}",
+      "deleted": "A Device Model is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Device Model {{ id }}?"
+      },
+      "detail": {
+        "title": "Device Model"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "modelName": "Model Name",
+      "type": "Type",
+      "manufacturer": "Manufacturer",
+      "productCode": "Product Code",
+      "properties": "Properties",
+      "description": "Description",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "device": "Device"
+    }
+  }
+}

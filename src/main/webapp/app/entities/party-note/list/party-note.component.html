@@ -1,0 +1,94 @@
+<div>
+  <h2 id="page-heading" data-cy="PartyNoteHeading">
+    <span jhiTranslate="blogApp.partyNote.home.title">Party Notes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.partyNote.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-party-note"
+        [routerLink]="['/party-note/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.partyNote.home.createLabel"> Create a new Party Note </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="partyNotes?.length === 0">
+    <span jhiTranslate="blogApp.partyNote.home.notFound">No partyNotes found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="partyNotes && partyNotes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.partyNote.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyNote.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyNote.noteID">Note ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyNote.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyNote.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyNote.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyNote.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyNote.partyID">Party ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let partyNote of partyNotes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/party-note', partyNote.id, 'view']">{{ partyNote.id }}</a>
+          </td>
+          <td>{{ partyNote.gUID }}</td>
+          <td>{{ partyNote.noteID }}</td>
+          <td>{{ partyNote.createdBy }}</td>
+          <td>{{ partyNote.createdOn | formatMediumDatetime }}</td>
+          <td>{{ partyNote.updatedBy }}</td>
+          <td>{{ partyNote.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="partyNote.partyID">
+              <a [routerLink]="['/party', partyNote.partyID?.id, 'view']">{{ partyNote.partyID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/party-note', partyNote.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/party-note', partyNote.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(partyNote)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

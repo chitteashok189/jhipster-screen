@@ -1,0 +1,12 @@
+{
+  "blogApp": {
+    "SeedClass": {
+      "null": "",
+      "Certified": "Certified",
+      "Foundation": "Foundation",
+      "Breeder": "Breeder",
+      "Nuclear": "Nuclear",
+      "Registered": "Registered"
+    }
+  }
+}

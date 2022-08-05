@@ -1,0 +1,66 @@
+{
+  "blogApp": {
+    "crop": {
+      "home": {
+        "title": "Crops",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Crop",
+        "createOrEditLabel": "Crear o editar Crop",
+        "notFound": "Ningún Crops encontrado"
+      },
+      "created": "Un nuevo Crop ha sido creado con el identificador {{ param }}",
+      "updated": "Un Crop ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Crop ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Crop {{ id }}?"
+      },
+      "detail": {
+        "title": "Crop"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "cropCode": "Crop Code",
+      "cropName": "Crop Name",
+      "cropType": "Crop Type",
+      "horticultureType": "Horticulture Type",
+      "isHybrid": "Is Hybrid",
+      "cultivar": "Cultivar",
+      "sowingDate": "Sowing Date",
+      "sowingDepth": "Sowing Depth",
+      "rowSpacingMax": "Row Spacing Max",
+      "rowSpacingMin": "Row Spacing Min",
+      "seedDepthMax": "Seed Depth Max",
+      "seedDepthMin": "Seed Depth Min",
+      "seedSpacingMax": "Seed Spacing Max",
+      "seedSpacingMin": "Seed Spacing Min",
+      "yearlyCrops": "Yearly Crops",
+      "growingSeason": "Growing Season",
+      "growingPhase": "Growing Phase",
+      "plantingDate": "Planting Date",
+      "plantSpacing": "Plant Spacing",
+      "plantingMaterial": "Planting Material",
+      "transplantationDate": "Transplantation Date",
+      "fertigationscheduleID": "Fertigationschedule ID",
+      "plannedYield": "Planned Yield",
+      "actualYield": "Actual Yield",
+      "yieldUnit": "Yield Unit",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "plant": "Plant",
+      "calendar": "Calendar",
+      "scouting": "Scouting",
+      "pestControl": "Pest Control",
+      "diseaseControl": "Disease Control",
+      "activity": "Activity",
+      "harvest": "Harvest",
+      "lot": "Lot",
+      "plantID": "Plant ID",
+      "plantFactoryID": "Plant Factory ID",
+      "toolID": "Tool ID",
+      "seasonID": "Season ID",
+      "productID": "Product ID"
+    }
+  }
+}

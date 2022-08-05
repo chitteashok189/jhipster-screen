@@ -1,0 +1,34 @@
+{
+  "blogApp": {
+    "securityGroup": {
+      "home": {
+        "title": "Security Groups",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Security Group",
+        "createOrEditLabel": "Create or edit a Security Group",
+        "notFound": "No Security Groups found"
+      },
+      "created": "A new Security Group is created with identifier {{ param }}",
+      "updated": "A Security Group is updated with identifier {{ param }}",
+      "deleted": "A Security Group is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Security Group {{ id }}?"
+      },
+      "detail": {
+        "title": "Security Group"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "description": "Description",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "partyRelationship": "Party Relationship",
+      "applicationUserSecurityGroup": "Application User Security Group",
+      "securityGroupPermission": "Security Group Permission",
+      "applicationUserSecurityGroupID": "Application User Security Group ID",
+      "securityGroupPermissionID": "Security Group Permission ID"
+    }
+  }
+}

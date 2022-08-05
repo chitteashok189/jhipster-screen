@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Calendar.
+    -->
+    <changeSet id="20220803085204-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="plant_factoryid_id"
+                                 baseTableName="calendar"
+                                 constraintName="fk_calendar__plant_factoryid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="plant_factory"/>
+
+        <addForeignKeyConstraint baseColumnNames="zoneid_id"
+                                 baseTableName="calendar"
+                                 constraintName="fk_calendar__zoneid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="zone"/>
+
+        <addForeignKeyConstraint baseColumnNames="cropid_id"
+                                 baseTableName="calendar"
+                                 constraintName="fk_calendar__cropid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="crop"/>
+
+        <addForeignKeyConstraint baseColumnNames="toolid_id"
+                                 baseTableName="calendar"
+                                 constraintName="fk_calendar__toolid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tool"/>
+
+        <addForeignKeyConstraint baseColumnNames="seasonid_id"
+                                 baseTableName="calendar"
+                                 constraintName="fk_calendar__seasonid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="season"/>
+    </changeSet>
+</databaseChangeLog>

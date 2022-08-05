@@ -1,0 +1,84 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="dosing">
+      <h2 data-cy="dosingDetailsHeading"><span jhiTranslate="blogApp.dosing.detail.title">Dosing</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.dosing.id">Id</span></dt>
+        <dd>
+          <span>{{ dosing.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.dosing.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ dosing.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.dosing.source">Source</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.DosingSource.' + dosing.source }}">{{ dosing.source }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.dosing.pH">P H</span></dt>
+        <dd>
+          <span>{{ dosing.pH }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.dosing.eC">E C</span></dt>
+        <dd>
+          <span>{{ dosing.eC }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.dosing.dO">D O</span></dt>
+        <dd>
+          <span>{{ dosing.dO }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.dosing.nutrientTemperature">Nutrient Temperature</span></dt>
+        <dd>
+          <span>{{ dosing.nutrientTemperature }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.dosing.solarRadiation">Solar Radiation</span></dt>
+        <dd>
+          <span>{{ dosing.solarRadiation }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.dosing.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ dosing.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.dosing.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ dosing.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.dosing.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ dosing.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.dosing.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ dosing.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.dosing.deviceID">Device ID</span></dt>
+        <dd>
+          <div *ngIf="dosing.deviceID">
+            <a [routerLink]="['/device', dosing.deviceID?.id, 'view']">{{ dosing.deviceID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.dosing.plantFactoryID">Plant Factory ID</span></dt>
+        <dd>
+          <div *ngIf="dosing.plantFactoryID">
+            <a [routerLink]="['/plant-factory', dosing.plantFactoryID?.id, 'view']">{{ dosing.plantFactoryID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/dosing', dosing.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

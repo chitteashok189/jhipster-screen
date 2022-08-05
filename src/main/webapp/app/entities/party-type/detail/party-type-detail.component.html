@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="partyType">
+      <h2 data-cy="partyTypeDetailsHeading"><span jhiTranslate="blogApp.partyType.detail.title">Party Type</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.partyType.id">Id</span></dt>
+        <dd>
+          <span>{{ partyType.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyType.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ partyType.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyType.parentTypeID">Parent Type ID</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.ParentType.' + partyType.parentTypeID }}">{{ partyType.parentTypeID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyType.hasTable">Has Table</span></dt>
+        <dd>
+          <span>{{ partyType.hasTable }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyType.description">Description</span></dt>
+        <dd>
+          <span>{{ partyType.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyType.partyTypeAttr">Party Type Attr</span></dt>
+        <dd>
+          <span>{{ partyType.partyTypeAttr }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyType.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ partyType.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyType.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ partyType.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyType.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ partyType.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyType.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ partyType.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/party-type', partyType.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

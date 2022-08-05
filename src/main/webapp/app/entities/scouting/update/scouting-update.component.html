@@ -1,0 +1,186 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-scouting-heading" data-cy="ScoutingCreateUpdateHeading" jhiTranslate="blogApp.scouting.home.createOrEditLabel">
+        Create or edit a Scouting
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="blogApp.scouting.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.scouting.gUID" for="field_gUID">G UID</label>
+          <input type="text" class="form-control" name="gUID" id="field_gUID" data-cy="gUID" formControlName="gUID" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.scouting.scoutingDate" for="field_scoutingDate">Scouting Date</label>
+          <div class="d-flex">
+            <input
+              id="field_scoutingDate"
+              data-cy="scoutingDate"
+              type="datetime-local"
+              class="form-control"
+              name="scoutingDate"
+              formControlName="scoutingDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.scouting.scout" for="field_scout">Scout</label>
+          <input type="text" class="form-control" name="scout" id="field_scout" data-cy="scout" formControlName="scout" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.scouting.scoutingType" for="field_scoutingType">Scouting Type</label>
+          <select class="form-control" name="scoutingType" formControlName="scoutingType" id="field_scoutingType" data-cy="scoutingType">
+            <option [ngValue]="null">{{ 'blogApp.ScoutingType.null' | translate }}</option>
+            <option *ngFor="let scoutingType of scoutingTypeValues" [value]="scoutingType">
+              {{ 'blogApp.ScoutingType.' + scoutingType | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.scouting.scoutingCoordinates" for="field_scoutingCoordinates"
+            >Scouting Coordinates</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="scoutingCoordinates"
+            id="field_scoutingCoordinates"
+            data-cy="scoutingCoordinates"
+            formControlName="scoutingCoordinates"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.scouting.scoutingArea" for="field_scoutingArea">Scouting Area</label>
+          <input
+            type="number"
+            class="form-control"
+            name="scoutingArea"
+            id="field_scoutingArea"
+            data-cy="scoutingArea"
+            formControlName="scoutingArea"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.scouting.cropState" for="field_cropState">Crop State</label>
+          <select class="form-control" name="cropState" formControlName="cropState" id="field_cropState" data-cy="cropState">
+            <option [ngValue]="null">{{ 'blogApp.CropState.null' | translate }}</option>
+            <option *ngFor="let cropState of cropStateValues" [value]="cropState">
+              {{ 'blogApp.CropState.' + cropState | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.scouting.comments" for="field_comments">Comments</label>
+          <input type="text" class="form-control" name="comments" id="field_comments" data-cy="comments" formControlName="comments" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.scouting.createdBy" for="field_createdBy">Created By</label>
+          <input type="number" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.scouting.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.scouting.updatedBy" for="field_updatedBy">Updated By</label>
+          <input type="number" class="form-control" name="updatedBy" id="field_updatedBy" data-cy="updatedBy" formControlName="updatedBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.scouting.updatedOn" for="field_updatedOn">Updated On</label>
+          <div class="d-flex">
+            <input
+              id="field_updatedOn"
+              data-cy="updatedOn"
+              type="datetime-local"
+              class="form-control"
+              name="updatedOn"
+              formControlName="updatedOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.scouting.plantFactoryID" for="field_plantFactoryID">Plant Factory ID</label>
+          <select
+            class="form-control"
+            id="field_plantFactoryID"
+            data-cy="plantFactoryID"
+            name="plantFactoryID"
+            formControlName="plantFactoryID"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                plantFactoryOption.id === editForm.get('plantFactoryID')!.value?.id
+                  ? editForm.get('plantFactoryID')!.value
+                  : plantFactoryOption
+              "
+              *ngFor="let plantFactoryOption of plantFactoriesSharedCollection; trackBy: trackPlantFactoryById"
+            >
+              {{ plantFactoryOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.scouting.cropID" for="field_cropID">Crop ID</label>
+          <select class="form-control" id="field_cropID" data-cy="cropID" name="cropID" formControlName="cropID">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="cropOption.id === editForm.get('cropID')!.value?.id ? editForm.get('cropID')!.value : cropOption"
+              *ngFor="let cropOption of cropsSharedCollection; trackBy: trackCropById"
+            >
+              {{ cropOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

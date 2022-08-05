@@ -1,0 +1,116 @@
+<div>
+  <h2 id="page-heading" data-cy="ProductHeading">
+    <span jhiTranslate="blogApp.product.home.title">Products</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.product.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-product"
+        [routerLink]="['/product/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.product.home.createLabel"> Create a new Product </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="products?.length === 0">
+    <span jhiTranslate="blogApp.product.home.notFound">No products found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="products && products.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.product.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.product.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.product.productCode">Product Code</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.product.productName">Product Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.product.productPrice">Product Price</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.product.productType">Product Type</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.product.uOM">U OM</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.product.otherProductDetails">Other Product Details</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.product.previousEntry">Previous Entry</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.product.manufacturer">Manufacturer</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.product.productDescription">Product Description</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.product.imageFileName">Image File Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.product.productEntryName">Product Entry Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.product.capacity">Capacity</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.product.length">Length</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.product.width">Width</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.product.height">Height</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.product.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.product.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.product.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.product.updatedOn">Updated On</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/product', product.id, 'view']">{{ product.id }}</a>
+          </td>
+          <td>{{ product.gUID }}</td>
+          <td>{{ product.productCode }}</td>
+          <td>{{ product.productName }}</td>
+          <td>{{ product.productPrice }}</td>
+          <td jhiTranslate="{{ 'blogApp.ProType.' + product.productType }}">{{ product.productType }}</td>
+          <td>{{ product.uOM }}</td>
+          <td>{{ product.otherProductDetails }}</td>
+          <td>{{ product.previousEntry }}</td>
+          <td>{{ product.manufacturer }}</td>
+          <td>{{ product.productDescription }}</td>
+          <td>{{ product.imageFileName }}</td>
+          <td>{{ product.productEntryName }}</td>
+          <td>{{ product.capacity }}</td>
+          <td>{{ product.length }}</td>
+          <td>{{ product.width }}</td>
+          <td>{{ product.height }}</td>
+          <td>{{ product.createdBy }}</td>
+          <td>{{ product.createdOn | formatMediumDatetime }}</td>
+          <td>{{ product.updatedBy }}</td>
+          <td>{{ product.updatedOn | formatMediumDatetime }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/product', product.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/product', product.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(product)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

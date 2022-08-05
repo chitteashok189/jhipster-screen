@@ -1,0 +1,36 @@
+{
+  "blogApp": {
+    "seed": {
+      "home": {
+        "title": "Seeds",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Seed",
+        "createOrEditLabel": "Create or edit a Seed",
+        "notFound": "No Seeds found"
+      },
+      "created": "A new Seed is created with identifier {{ param }}",
+      "updated": "A Seed is updated with identifier {{ param }}",
+      "deleted": "A Seed is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Seed {{ id }}?"
+      },
+      "detail": {
+        "title": "Seed"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "breederID": "Breeder ID",
+      "seedClass": "Seed Class",
+      "variety": "Variety",
+      "seedRate": "Seed Rate",
+      "germinationPercentage": "Germination Percentage",
+      "treatment": "Treatment",
+      "origin": "Origin",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "lot": "Lot"
+    }
+  }
+}

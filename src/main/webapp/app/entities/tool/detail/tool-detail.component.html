@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tool">
+      <h2 data-cy="toolDetailsHeading"><span jhiTranslate="blogApp.tool.detail.title">Tool</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.tool.id">Id</span></dt>
+        <dd>
+          <span>{{ tool.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.tool.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ tool.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.tool.toolType">Tool Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.ToolType.' + tool.toolType }}">{{ tool.toolType }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.tool.toolName">Tool Name</span></dt>
+        <dd>
+          <span>{{ tool.toolName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.tool.manufacturer">Manufacturer</span></dt>
+        <dd>
+          <span>{{ tool.manufacturer }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.tool.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ tool.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.tool.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ tool.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.tool.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ tool.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.tool.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ tool.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tool', tool.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

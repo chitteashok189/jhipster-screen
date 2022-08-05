@@ -1,0 +1,99 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085205",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "weather",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "cityID",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "startTimestamp",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "endTimestamp",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "weatherStatusID",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "temperature",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "feelsLikeTemperature",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "humidity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "windSpeed",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "windDirection",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "pressureinmmhg",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "visibilityinmph",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "cloudCover",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "precipitation",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Weather",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "calendar",
+      "otherEntityRelationshipName": "weather",
+      "relationshipName": "calendarID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

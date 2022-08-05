@@ -1,0 +1,74 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085159",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "irrigation",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "source",
+      "fieldType": "IrriSource",
+      "fieldValues": "Automatic,Manual"
+    },
+    {
+      "fieldName": "nutrientLevel",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "solarRadiation",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "inletFlow",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "outletFlow",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Irrigation",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "device",
+      "otherEntityRelationshipName": "irrigation",
+      "relationshipName": "deviceID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "plantFactory",
+      "otherEntityRelationshipName": "irrigation",
+      "relationshipName": "plantFactoryID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,100 @@
+<div>
+  <h2 id="page-heading" data-cy="DeviceLevelHeading">
+    <span jhiTranslate="blogApp.deviceLevel.home.title">Device Levels</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.deviceLevel.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-device-level"
+        [routerLink]="['/device-level/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.deviceLevel.home.createLabel"> Create a new Device Level </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="deviceLevels?.length === 0">
+    <span jhiTranslate="blogApp.deviceLevel.home.notFound">No deviceLevels found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="deviceLevels && deviceLevels.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.deviceLevel.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceLevel.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceLevel.levelName">Level Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceLevel.deviceLevelType">Device Level Type</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceLevel.manufacturer">Manufacturer</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceLevel.productCode">Product Code</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceLevel.ports">Ports</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceLevel.properties">Properties</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceLevel.description">Description</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceLevel.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceLevel.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceLevel.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceLevel.updatedOn">Updated On</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let deviceLevel of deviceLevels; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/device-level', deviceLevel.id, 'view']">{{ deviceLevel.id }}</a>
+          </td>
+          <td>{{ deviceLevel.gUID }}</td>
+          <td>{{ deviceLevel.levelName }}</td>
+          <td>{{ deviceLevel.deviceLevelType }}</td>
+          <td>{{ deviceLevel.manufacturer }}</td>
+          <td>{{ deviceLevel.productCode }}</td>
+          <td>{{ deviceLevel.ports }}</td>
+          <td>{{ deviceLevel.properties }}</td>
+          <td>{{ deviceLevel.description }}</td>
+          <td>{{ deviceLevel.createdBy }}</td>
+          <td>{{ deviceLevel.createdOn | formatMediumDatetime }}</td>
+          <td>{{ deviceLevel.updatedBy }}</td>
+          <td>{{ deviceLevel.updatedOn | formatMediumDatetime }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/device-level', deviceLevel.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/device-level', deviceLevel.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(deviceLevel)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

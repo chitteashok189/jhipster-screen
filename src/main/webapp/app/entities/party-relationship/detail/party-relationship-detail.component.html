@@ -1,0 +1,102 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="partyRelationship">
+      <h2 data-cy="partyRelationshipDetailsHeading">
+        <span jhiTranslate="blogApp.partyRelationship.detail.title">Party Relationship</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.partyRelationship.id">Id</span></dt>
+        <dd>
+          <span>{{ partyRelationship.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyRelationship.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ partyRelationship.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyRelationship.partyIdTo">Party Id To</span></dt>
+        <dd>
+          <span>{{ partyRelationship.partyIdTo }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyRelationship.partyIdFrom">Party Id From</span></dt>
+        <dd>
+          <span>{{ partyRelationship.partyIdFrom }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyRelationship.roleTypeIdFrom">Role Type Id From</span></dt>
+        <dd>
+          <span>{{ partyRelationship.roleTypeIdFrom }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyRelationship.roleTypeIdTo">Role Type Id To</span></dt>
+        <dd>
+          <span>{{ partyRelationship.roleTypeIdTo }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyRelationship.fromDate">From Date</span></dt>
+        <dd>
+          <span>{{ partyRelationship.fromDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyRelationship.thruDate">Thru Date</span></dt>
+        <dd>
+          <span>{{ partyRelationship.thruDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyRelationship.relationshipName">Relationship Name</span></dt>
+        <dd>
+          <span>{{ partyRelationship.relationshipName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyRelationship.positionTitle">Position Title</span></dt>
+        <dd>
+          <span>{{ partyRelationship.positionTitle }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyRelationship.comments">Comments</span></dt>
+        <dd>
+          <span>{{ partyRelationship.comments }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyRelationship.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ partyRelationship.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyRelationship.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ partyRelationship.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyRelationship.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ partyRelationship.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyRelationship.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ partyRelationship.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyRelationship.partyRelationshipTypeID">Party Relationship Type ID</span></dt>
+        <dd>
+          <div *ngIf="partyRelationship.partyRelationshipTypeID">
+            <a [routerLink]="['/party-relationship-type', partyRelationship.partyRelationshipTypeID?.id, 'view']">{{
+              partyRelationship.partyRelationshipTypeID?.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyRelationship.securityGroupID">Security Group ID</span></dt>
+        <dd>
+          <div *ngIf="partyRelationship.securityGroupID">
+            <a [routerLink]="['/security-group', partyRelationship.securityGroupID?.id, 'view']">{{
+              partyRelationship.securityGroupID?.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/party-relationship', partyRelationship.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

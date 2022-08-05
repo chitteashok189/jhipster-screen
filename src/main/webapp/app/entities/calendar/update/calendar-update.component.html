@@ -1,0 +1,251 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-calendar-heading" data-cy="CalendarCreateUpdateHeading" jhiTranslate="blogApp.calendar.home.createOrEditLabel">
+        Create or edit a Calendar
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="blogApp.calendar.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.calendar.gUID" for="field_gUID">G UID</label>
+          <input type="text" class="form-control" name="gUID" id="field_gUID" data-cy="gUID" formControlName="gUID" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.calendar.calenderDate" for="field_calenderDate">Calender Date</label>
+          <div class="d-flex">
+            <input
+              id="field_calenderDate"
+              data-cy="calenderDate"
+              type="datetime-local"
+              class="form-control"
+              name="calenderDate"
+              formControlName="calenderDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.calendar.calenderYear" for="field_calenderYear">Calender Year</label>
+          <input
+            type="number"
+            class="form-control"
+            name="calenderYear"
+            id="field_calenderYear"
+            data-cy="calenderYear"
+            formControlName="calenderYear"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.calendar.dayOfWeek" for="field_dayOfWeek">Day Of Week</label>
+          <input type="number" class="form-control" name="dayOfWeek" id="field_dayOfWeek" data-cy="dayOfWeek" formControlName="dayOfWeek" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.calendar.monthOfYear" for="field_monthOfYear">Month Of Year</label>
+          <input
+            type="number"
+            class="form-control"
+            name="monthOfYear"
+            id="field_monthOfYear"
+            data-cy="monthOfYear"
+            formControlName="monthOfYear"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.calendar.weekOfMonth" for="field_weekOfMonth">Week Of Month</label>
+          <input
+            type="number"
+            class="form-control"
+            name="weekOfMonth"
+            id="field_weekOfMonth"
+            data-cy="weekOfMonth"
+            formControlName="weekOfMonth"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.calendar.weekOfQuarter" for="field_weekOfQuarter">Week Of Quarter</label>
+          <input
+            type="number"
+            class="form-control"
+            name="weekOfQuarter"
+            id="field_weekOfQuarter"
+            data-cy="weekOfQuarter"
+            formControlName="weekOfQuarter"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.calendar.weekOfYear" for="field_weekOfYear">Week Of Year</label>
+          <input
+            type="number"
+            class="form-control"
+            name="weekOfYear"
+            id="field_weekOfYear"
+            data-cy="weekOfYear"
+            formControlName="weekOfYear"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.calendar.dayOfQuarter" for="field_dayOfQuarter">Day Of Quarter</label>
+          <input
+            type="number"
+            class="form-control"
+            name="dayOfQuarter"
+            id="field_dayOfQuarter"
+            data-cy="dayOfQuarter"
+            formControlName="dayOfQuarter"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.calendar.dayOfYear" for="field_dayOfYear">Day Of Year</label>
+          <input type="number" class="form-control" name="dayOfYear" id="field_dayOfYear" data-cy="dayOfYear" formControlName="dayOfYear" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.calendar.createdBy" for="field_createdBy">Created By</label>
+          <input type="number" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.calendar.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.calendar.updatedBy" for="field_updatedBy">Updated By</label>
+          <input type="number" class="form-control" name="updatedBy" id="field_updatedBy" data-cy="updatedBy" formControlName="updatedBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.calendar.updatedOn" for="field_updatedOn">Updated On</label>
+          <div class="d-flex">
+            <input
+              id="field_updatedOn"
+              data-cy="updatedOn"
+              type="datetime-local"
+              class="form-control"
+              name="updatedOn"
+              formControlName="updatedOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.calendar.plantFactoryID" for="field_plantFactoryID">Plant Factory ID</label>
+          <select
+            class="form-control"
+            id="field_plantFactoryID"
+            data-cy="plantFactoryID"
+            name="plantFactoryID"
+            formControlName="plantFactoryID"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                plantFactoryOption.id === editForm.get('plantFactoryID')!.value?.id
+                  ? editForm.get('plantFactoryID')!.value
+                  : plantFactoryOption
+              "
+              *ngFor="let plantFactoryOption of plantFactoriesSharedCollection; trackBy: trackPlantFactoryById"
+            >
+              {{ plantFactoryOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.calendar.zoneID" for="field_zoneID">Zone ID</label>
+          <select class="form-control" id="field_zoneID" data-cy="zoneID" name="zoneID" formControlName="zoneID">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="zoneOption.id === editForm.get('zoneID')!.value?.id ? editForm.get('zoneID')!.value : zoneOption"
+              *ngFor="let zoneOption of zonesSharedCollection; trackBy: trackZoneById"
+            >
+              {{ zoneOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.calendar.cropID" for="field_cropID">Crop ID</label>
+          <select class="form-control" id="field_cropID" data-cy="cropID" name="cropID" formControlName="cropID">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="cropOption.id === editForm.get('cropID')!.value?.id ? editForm.get('cropID')!.value : cropOption"
+              *ngFor="let cropOption of cropsSharedCollection; trackBy: trackCropById"
+            >
+              {{ cropOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.calendar.toolID" for="field_toolID">Tool ID</label>
+          <select class="form-control" id="field_toolID" data-cy="toolID" name="toolID" formControlName="toolID">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="toolOption.id === editForm.get('toolID')!.value?.id ? editForm.get('toolID')!.value : toolOption"
+              *ngFor="let toolOption of toolsSharedCollection; trackBy: trackToolById"
+            >
+              {{ toolOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.calendar.seasonID" for="field_seasonID">Season ID</label>
+          <select class="form-control" id="field_seasonID" data-cy="seasonID" name="seasonID" formControlName="seasonID">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="seasonOption.id === editForm.get('seasonID')!.value?.id ? editForm.get('seasonID')!.value : seasonOption"
+              *ngFor="let seasonOption of seasonsSharedCollection; trackBy: trackSeasonById"
+            >
+              {{ seasonOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

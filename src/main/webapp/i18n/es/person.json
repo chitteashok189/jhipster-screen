@@ -1,0 +1,56 @@
+{
+  "blogApp": {
+    "person": {
+      "home": {
+        "title": "People",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Person",
+        "createOrEditLabel": "Crear o editar Person",
+        "notFound": "Ningún People encontrado"
+      },
+      "created": "Un nuevo Person ha sido creado con el identificador {{ param }}",
+      "updated": "Un Person ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Person ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Person {{ id }}?"
+      },
+      "detail": {
+        "title": "Person"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "salutation": "Salutation",
+      "firstName": "First Name",
+      "middleName": "Middle Name",
+      "lastName": "Last Name",
+      "personalTitle": "Personal Title",
+      "suffix": "Suffix",
+      "nickName": "Nick Name",
+      "firstNameLocal": "First Name Local",
+      "middleNameLocal": "Middle Name Local",
+      "lastNameLocal": "Last Name Local",
+      "otherLocal": "Other Local",
+      "gender": "Gender",
+      "birthDate": "Birth Date",
+      "heigth": "Heigth",
+      "weight": "Weight",
+      "mothersMaidenName": "Mothers Maiden Name",
+      "maritialStatus": "Maritial Status",
+      "socialSecurityNo": "Social Security No",
+      "passportNo": "Passport No",
+      "passportExpiryDate": "Passport Expiry Date",
+      "totalYearsWorkExperience": "Total Years Work Experience",
+      "comments": "Comments",
+      "occupation": "Occupation",
+      "yearswithEmployer": "Yearswith Employer",
+      "monthsWithEmployer": "Months With Employer",
+      "existingCustomer": "Existing Customer",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "party": "Party",
+      "partyID": "Party ID"
+    }
+  }
+}

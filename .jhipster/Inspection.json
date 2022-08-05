@@ -1,0 +1,106 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085218",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "inspection",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "inspectionSize",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "shape",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "wholeness",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "gloss",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "consistency",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "defects",
+      "fieldType": "Defect",
+      "fieldValues": "Blemishes,Bruises,Spots,Extraneous_matter"
+    },
+    {
+      "fieldName": "colour",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "texture",
+      "fieldType": "Texture",
+      "fieldValues": "Mealiness,Succulence,Fibrous,Matured,Firm,Soft,Smooth,Creamy,Crumby,Crispy,Lumpy,Gritty"
+    },
+    {
+      "fieldName": "aroma",
+      "fieldType": "Aroma",
+      "fieldValues": "Ripeness,Sweetness,Fruitness"
+    },
+    {
+      "fieldName": "flavour",
+      "fieldType": "Flavour",
+      "fieldValues": "Sweet,Sour,Salty,Bitter"
+    },
+    {
+      "fieldName": "nutritionalValue",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nutritionalValueType",
+      "fieldType": "NutritionalValueType",
+      "fieldValues": "Vitamin,A,B,C,Polyphenolics,Carotenoids,Glucosinolates"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Inspection",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "inspectionRecord",
+      "otherEntityRelationshipName": "inspectionID",
+      "relationshipName": "inspectionRecord",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "harvest",
+      "otherEntityRelationshipName": "inspection",
+      "relationshipName": "harvestID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

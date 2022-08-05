@@ -1,0 +1,11 @@
+id;g_uid;observation;symptom_image;symptom_image_content_type;created_by;created_on;updated_by;updated_on
+1;b8b844e7-fdd3-4dc3-af7c-a6834e520e98;Tennessee;../fake-data/blob/hipster.png;image/png;10903;2022-08-02T14:36:48;98779;2022-08-03T03:36:26
+2;9d086527-dbcf-46ad-a9b9-59d13bb94b9d;matrix Associate Common;../fake-data/blob/hipster.png;image/png;4498;2022-08-03T06:52:58;97408;2022-08-02T12:45:15
+3;668e2efb-1985-4120-8525-a378181646b8;extranet;../fake-data/blob/hipster.png;image/png;50103;2022-08-03T05:01:16;10777;2022-08-02T13:32:31
+4;7bff3d2a-2ad1-4b33-947a-1b8b64ff364d;Rustic Loan Bedfordshire;../fake-data/blob/hipster.png;image/png;67747;2022-08-02T21:33:03;43159;2022-08-03T01:09:36
+5;8a15c5bd-eaeb-4c46-89c5-5924d19dcc5c;Fully-configurable China;../fake-data/blob/hipster.png;image/png;85496;2022-08-02T12:48:02;9454;2022-08-02T16:48:22
+6;4d3fac86-98df-4bff-8236-d99ed9b678e0;Right-sized;../fake-data/blob/hipster.png;image/png;87158;2022-08-02T15:52:15;97092;2022-08-03T08:45:40
+7;51dce0c3-cfa0-43f8-9ff9-0a87dd751f02;Fantastic architect Granite;../fake-data/blob/hipster.png;image/png;76596;2022-08-03T04:40:49;99473;2022-08-02T18:27:01
+8;ba6320e8-d57c-43bc-9bbd-0b550faf8bb9;Loan Avon Balanced;../fake-data/blob/hipster.png;image/png;45225;2022-08-03T04:28:59;83608;2022-08-03T07:48:43
+9;c2fa2bd6-1d07-4403-adbb-3ebd4ad35ad1;parsing;../fake-data/blob/hipster.png;image/png;71861;2022-08-03T07:51:57;93799;2022-08-02T10:12:56
+10;dc4a9c1b-db4f-4f72-b4b7-799908cc6aeb;Accounts Pants;../fake-data/blob/hipster.png;image/png;16697;2022-08-03T03:34:05;85790;2022-08-02T16:43:54

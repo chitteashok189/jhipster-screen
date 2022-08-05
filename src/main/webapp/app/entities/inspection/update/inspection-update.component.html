@@ -1,0 +1,200 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-inspection-heading" data-cy="InspectionCreateUpdateHeading" jhiTranslate="blogApp.inspection.home.createOrEditLabel">
+        Create or edit a Inspection
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="blogApp.inspection.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.inspection.gUID" for="field_gUID">G UID</label>
+          <input type="text" class="form-control" name="gUID" id="field_gUID" data-cy="gUID" formControlName="gUID" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.inspection.inspectionSize" for="field_inspectionSize">Inspection Size</label>
+          <input
+            type="number"
+            class="form-control"
+            name="inspectionSize"
+            id="field_inspectionSize"
+            data-cy="inspectionSize"
+            formControlName="inspectionSize"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.inspection.shape" for="field_shape">Shape</label>
+          <input type="number" class="form-control" name="shape" id="field_shape" data-cy="shape" formControlName="shape" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.inspection.wholeness" for="field_wholeness">Wholeness</label>
+          <input type="number" class="form-control" name="wholeness" id="field_wholeness" data-cy="wholeness" formControlName="wholeness" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.inspection.gloss" for="field_gloss">Gloss</label>
+          <input type="number" class="form-control" name="gloss" id="field_gloss" data-cy="gloss" formControlName="gloss" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.inspection.consistency" for="field_consistency">Consistency</label>
+          <input
+            type="number"
+            class="form-control"
+            name="consistency"
+            id="field_consistency"
+            data-cy="consistency"
+            formControlName="consistency"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.inspection.defects" for="field_defects">Defects</label>
+          <select class="form-control" name="defects" formControlName="defects" id="field_defects" data-cy="defects">
+            <option [ngValue]="null">{{ 'blogApp.Defect.null' | translate }}</option>
+            <option *ngFor="let defect of defectValues" [value]="defect">{{ 'blogApp.Defect.' + defect | translate }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.inspection.colour" for="field_colour">Colour</label>
+          <input type="text" class="form-control" name="colour" id="field_colour" data-cy="colour" formControlName="colour" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.inspection.texture" for="field_texture">Texture</label>
+          <select class="form-control" name="texture" formControlName="texture" id="field_texture" data-cy="texture">
+            <option [ngValue]="null">{{ 'blogApp.Texture.null' | translate }}</option>
+            <option *ngFor="let texture of textureValues" [value]="texture">{{ 'blogApp.Texture.' + texture | translate }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.inspection.aroma" for="field_aroma">Aroma</label>
+          <select class="form-control" name="aroma" formControlName="aroma" id="field_aroma" data-cy="aroma">
+            <option [ngValue]="null">{{ 'blogApp.Aroma.null' | translate }}</option>
+            <option *ngFor="let aroma of aromaValues" [value]="aroma">{{ 'blogApp.Aroma.' + aroma | translate }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.inspection.flavour" for="field_flavour">Flavour</label>
+          <select class="form-control" name="flavour" formControlName="flavour" id="field_flavour" data-cy="flavour">
+            <option [ngValue]="null">{{ 'blogApp.Flavour.null' | translate }}</option>
+            <option *ngFor="let flavour of flavourValues" [value]="flavour">{{ 'blogApp.Flavour.' + flavour | translate }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.inspection.nutritionalValue" for="field_nutritionalValue"
+            >Nutritional Value</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="nutritionalValue"
+            id="field_nutritionalValue"
+            data-cy="nutritionalValue"
+            formControlName="nutritionalValue"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.inspection.nutritionalValueType" for="field_nutritionalValueType"
+            >Nutritional Value Type</label
+          >
+          <select
+            class="form-control"
+            name="nutritionalValueType"
+            formControlName="nutritionalValueType"
+            id="field_nutritionalValueType"
+            data-cy="nutritionalValueType"
+          >
+            <option [ngValue]="null">{{ 'blogApp.NutritionalValueType.null' | translate }}</option>
+            <option *ngFor="let nutritionalValueType of nutritionalValueTypeValues" [value]="nutritionalValueType">
+              {{ 'blogApp.NutritionalValueType.' + nutritionalValueType | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.inspection.createdBy" for="field_createdBy">Created By</label>
+          <input type="number" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.inspection.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.inspection.updatedBy" for="field_updatedBy">Updated By</label>
+          <input type="number" class="form-control" name="updatedBy" id="field_updatedBy" data-cy="updatedBy" formControlName="updatedBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.inspection.updatedOn" for="field_updatedOn">Updated On</label>
+          <div class="d-flex">
+            <input
+              id="field_updatedOn"
+              data-cy="updatedOn"
+              type="datetime-local"
+              class="form-control"
+              name="updatedOn"
+              formControlName="updatedOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.inspection.harvestID" for="field_harvestID">Harvest ID</label>
+          <select class="form-control" id="field_harvestID" data-cy="harvestID" name="harvestID" formControlName="harvestID">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="harvestOption.id === editForm.get('harvestID')!.value?.id ? editForm.get('harvestID')!.value : harvestOption"
+              *ngFor="let harvestOption of harvestsSharedCollection; trackBy: trackHarvestById"
+            >
+              {{ harvestOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

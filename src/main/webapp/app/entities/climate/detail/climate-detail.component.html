@@ -1,0 +1,104 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="climate">
+      <h2 data-cy="climateDetailsHeading"><span jhiTranslate="blogApp.climate.detail.title">Climate</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.climate.id">Id</span></dt>
+        <dd>
+          <span>{{ climate.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.climate.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ climate.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.climate.source">Source</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.CliSource.' + climate.source }}">{{ climate.source }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.climate.airTemperature">Air Temperature</span></dt>
+        <dd>
+          <span>{{ climate.airTemperature }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.climate.relativeHumidity">Relative Humidity</span></dt>
+        <dd>
+          <span>{{ climate.relativeHumidity }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.climate.vPD">V PD</span></dt>
+        <dd>
+          <span>{{ climate.vPD }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.climate.evapotranspiration">Evapotranspiration</span></dt>
+        <dd>
+          <span>{{ climate.evapotranspiration }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.climate.barometricPressure">Barometric Pressure</span></dt>
+        <dd>
+          <span>{{ climate.barometricPressure }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.climate.seaLevelPressure">Sea Level Pressure</span></dt>
+        <dd>
+          <span>{{ climate.seaLevelPressure }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.climate.co2Level">Co 2 Level</span></dt>
+        <dd>
+          <span>{{ climate.co2Level }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.climate.dewPoint">Dew Point</span></dt>
+        <dd>
+          <span>{{ climate.dewPoint }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.climate.solarRadiation">Solar Radiation</span></dt>
+        <dd>
+          <span>{{ climate.solarRadiation }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.climate.heatIndex">Heat Index</span></dt>
+        <dd>
+          <span>{{ climate.heatIndex }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.climate.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ climate.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.climate.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ climate.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.climate.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ climate.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.climate.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ climate.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.climate.deviceID">Device ID</span></dt>
+        <dd>
+          <div *ngIf="climate.deviceID">
+            <a [routerLink]="['/device', climate.deviceID?.id, 'view']">{{ climate.deviceID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.climate.plantFactoryID">Plant Factory ID</span></dt>
+        <dd>
+          <div *ngIf="climate.plantFactoryID">
+            <a [routerLink]="['/plant-factory', climate.plantFactoryID?.id, 'view']">{{ climate.plantFactoryID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/climate', climate.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

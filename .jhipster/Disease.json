@@ -1,0 +1,82 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085209",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "disease",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "threatLevel",
+      "fieldType": "DisThreatLevel",
+      "fieldValues": "High,Moderate,Low"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "causalOrganism",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "attachments",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Disease",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "diseaseControl",
+      "otherEntityRelationshipName": "diseaseID",
+      "relationshipName": "diseaseControl",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "symptom",
+      "otherEntityRelationshipName": "diseaseID",
+      "relationshipName": "symptom",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "scouting",
+      "otherEntityRelationshipName": "disease",
+      "relationshipName": "scoutingID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "plantFactory",
+      "otherEntityRelationshipName": "disease",
+      "relationshipName": "plantFactoryID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

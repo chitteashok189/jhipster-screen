@@ -1,0 +1,129 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085118",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "party",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "partyName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "statusID",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "externalID",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Party",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "partyAttribute",
+      "otherEntityRelationshipName": "partyID",
+      "relationshipName": "partyAttribute",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "partyClassification",
+      "otherEntityRelationshipName": "partyID",
+      "relationshipName": "partyClassification",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "partyRole",
+      "otherEntityRelationshipName": "partyID",
+      "relationshipName": "partyRole",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "partyNote",
+      "otherEntityRelationshipName": "partyID",
+      "relationshipName": "partyNote",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "person",
+      "otherEntityRelationshipName": "partyID",
+      "relationshipName": "person",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "applicationUser",
+      "otherEntityRelationshipName": "partyID",
+      "relationshipName": "applicationUser",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "farm",
+      "otherEntityRelationshipName": "partyID",
+      "relationshipName": "farm",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "partyGroup",
+      "otherEntityRelationshipName": "party",
+      "relationshipName": "partyGroupID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "partyType",
+      "otherEntityRelationshipName": "party",
+      "relationshipName": "partyTypeID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "applicationUser",
+      "otherEntityRelationshipName": "party",
+      "relationshipName": "applicationUserID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "partyRole",
+      "otherEntityRelationshipName": "party",
+      "relationshipName": "partyRoleID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "person",
+      "otherEntityRelationshipName": "party",
+      "relationshipName": "personID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

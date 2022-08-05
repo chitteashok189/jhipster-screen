@@ -1,0 +1,98 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="applicationUser">
+      <h2 data-cy="applicationUserDetailsHeading"><span jhiTranslate="blogApp.applicationUser.detail.title">Application User</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.applicationUser.id">Id</span></dt>
+        <dd>
+          <span>{{ applicationUser.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUser.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ applicationUser.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUser.currentPassword">Current Password</span></dt>
+        <dd>
+          <span>{{ applicationUser.currentPassword }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUser.passwordHint">Password Hint</span></dt>
+        <dd>
+          <span>{{ applicationUser.passwordHint }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUser.isSystemEnables">Is System Enables</span></dt>
+        <dd>
+          <span>{{ applicationUser.isSystemEnables }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUser.hasLoggedOut">Has Logged Out</span></dt>
+        <dd>
+          <span>{{ applicationUser.hasLoggedOut }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUser.requirePasswordChange">Require Password Change</span></dt>
+        <dd>
+          <span>{{ applicationUser.requirePasswordChange }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUser.lastCurrencyUom">Last Currency Uom</span></dt>
+        <dd>
+          <span>{{ applicationUser.lastCurrencyUom }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUser.lastLocale">Last Locale</span></dt>
+        <dd>
+          <span>{{ applicationUser.lastLocale }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUser.lastTimeZone">Last Time Zone</span></dt>
+        <dd>
+          <span>{{ applicationUser.lastTimeZone }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUser.disabledDateTime">Disabled Date Time</span></dt>
+        <dd>
+          <span>{{ applicationUser.disabledDateTime | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUser.successiveFailedLogins">Successive Failed Logins</span></dt>
+        <dd>
+          <span>{{ applicationUser.successiveFailedLogins }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUser.applicationUserSecurityGroup">Application User Security Group</span></dt>
+        <dd>
+          <span>{{ applicationUser.applicationUserSecurityGroup }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUser.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ applicationUser.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUser.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ applicationUser.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUser.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ applicationUser.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUser.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ applicationUser.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.applicationUser.partyID">Party ID</span></dt>
+        <dd>
+          <div *ngIf="applicationUser.partyID">
+            <a [routerLink]="['/party', applicationUser.partyID?.id, 'view']">{{ applicationUser.partyID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/application-user', applicationUser.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

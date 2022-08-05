@@ -1,0 +1,75 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085137",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "security_group",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "SecurityGroup",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "partyRelationship",
+      "otherEntityRelationshipName": "securityGroupID",
+      "relationshipName": "partyRelationship",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "applicationUserSecurityGroup",
+      "otherEntityRelationshipName": "securityGroupID",
+      "relationshipName": "applicationUserSecurityGroup",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "securityGroupPermission",
+      "otherEntityRelationshipName": "securityGroupID",
+      "relationshipName": "securityGroupPermission",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "applicationUserSecurityGroup",
+      "otherEntityRelationshipName": "securityGroup",
+      "relationshipName": "applicationUserSecurityGroupID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "securityGroupPermission",
+      "otherEntityRelationshipName": "securityGroup",
+      "relationshipName": "securityGroupPermissionID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

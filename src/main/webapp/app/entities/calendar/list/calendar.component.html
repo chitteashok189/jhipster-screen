@@ -1,0 +1,134 @@
+<div>
+  <h2 id="page-heading" data-cy="CalendarHeading">
+    <span jhiTranslate="blogApp.calendar.home.title">Calendars</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.calendar.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-calendar"
+        [routerLink]="['/calendar/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.calendar.home.createLabel"> Create a new Calendar </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="calendars?.length === 0">
+    <span jhiTranslate="blogApp.calendar.home.notFound">No calendars found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="calendars && calendars.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.calendar.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.calendar.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.calendar.calenderDate">Calender Date</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.calendar.calenderYear">Calender Year</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.calendar.dayOfWeek">Day Of Week</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.calendar.monthOfYear">Month Of Year</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.calendar.weekOfMonth">Week Of Month</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.calendar.weekOfQuarter">Week Of Quarter</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.calendar.weekOfYear">Week Of Year</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.calendar.dayOfQuarter">Day Of Quarter</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.calendar.dayOfYear">Day Of Year</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.calendar.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.calendar.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.calendar.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.calendar.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.calendar.plantFactoryID">Plant Factory ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.calendar.zoneID">Zone ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.calendar.cropID">Crop ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.calendar.toolID">Tool ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.calendar.seasonID">Season ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let calendar of calendars; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/calendar', calendar.id, 'view']">{{ calendar.id }}</a>
+          </td>
+          <td>{{ calendar.gUID }}</td>
+          <td>{{ calendar.calenderDate | formatMediumDatetime }}</td>
+          <td>{{ calendar.calenderYear }}</td>
+          <td>{{ calendar.dayOfWeek }}</td>
+          <td>{{ calendar.monthOfYear }}</td>
+          <td>{{ calendar.weekOfMonth }}</td>
+          <td>{{ calendar.weekOfQuarter }}</td>
+          <td>{{ calendar.weekOfYear }}</td>
+          <td>{{ calendar.dayOfQuarter }}</td>
+          <td>{{ calendar.dayOfYear }}</td>
+          <td>{{ calendar.createdBy }}</td>
+          <td>{{ calendar.createdOn | formatMediumDatetime }}</td>
+          <td>{{ calendar.updatedBy }}</td>
+          <td>{{ calendar.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="calendar.plantFactoryID">
+              <a [routerLink]="['/plant-factory', calendar.plantFactoryID?.id, 'view']">{{ calendar.plantFactoryID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="calendar.zoneID">
+              <a [routerLink]="['/zone', calendar.zoneID?.id, 'view']">{{ calendar.zoneID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="calendar.cropID">
+              <a [routerLink]="['/crop', calendar.cropID?.id, 'view']">{{ calendar.cropID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="calendar.toolID">
+              <a [routerLink]="['/tool', calendar.toolID?.id, 'view']">{{ calendar.toolID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="calendar.seasonID">
+              <a [routerLink]="['/season', calendar.seasonID?.id, 'view']">{{ calendar.seasonID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/calendar', calendar.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/calendar', calendar.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(calendar)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

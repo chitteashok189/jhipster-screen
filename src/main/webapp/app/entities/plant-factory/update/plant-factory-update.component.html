@@ -1,0 +1,173 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-plant-factory-heading"
+        data-cy="PlantFactoryCreateUpdateHeading"
+        jhiTranslate="blogApp.plantFactory.home.createOrEditLabel"
+      >
+        Create or edit a Plant Factory
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="blogApp.plantFactory.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactory.gUID" for="field_gUID">G UID</label>
+          <input type="text" class="form-control" name="gUID" id="field_gUID" data-cy="gUID" formControlName="gUID" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactory.plantFactoryName" for="field_plantFactoryName"
+            >Plant Factory Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="plantFactoryName"
+            id="field_plantFactoryName"
+            data-cy="plantFactoryName"
+            formControlName="plantFactoryName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactory.plantFactoryTypeID" for="field_plantFactoryTypeID"
+            >Plant Factory Type ID</label
+          >
+          <select
+            class="form-control"
+            name="plantFactoryTypeID"
+            formControlName="plantFactoryTypeID"
+            id="field_plantFactoryTypeID"
+            data-cy="plantFactoryTypeID"
+          >
+            <option [ngValue]="null">{{ 'blogApp.ProFarmType.null' | translate }}</option>
+            <option *ngFor="let proFarmType of proFarmTypeValues" [value]="proFarmType">
+              {{ 'blogApp.ProFarmType.' + proFarmType | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactory.plantFactorySubType" for="field_plantFactorySubType"
+            >Plant Factory Sub Type</label
+          >
+          <select
+            class="form-control"
+            name="plantFactorySubType"
+            formControlName="plantFactorySubType"
+            id="field_plantFactorySubType"
+            data-cy="plantFactorySubType"
+          >
+            <option [ngValue]="null">{{ 'blogApp.ProSubType.null' | translate }}</option>
+            <option *ngFor="let proSubType of proSubTypeValues" [value]="proSubType">
+              {{ 'blogApp.ProSubType.' + proSubType | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactory.plantFactoryDescription" for="field_plantFactoryDescription"
+            >Plant Factory Description</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="plantFactoryDescription"
+            id="field_plantFactoryDescription"
+            data-cy="plantFactoryDescription"
+            formControlName="plantFactoryDescription"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactory.createdBy" for="field_createdBy">Created By</label>
+          <input type="number" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactory.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactory.updatedBy" for="field_updatedBy">Updated By</label>
+          <input type="number" class="form-control" name="updatedBy" id="field_updatedBy" data-cy="updatedBy" formControlName="updatedBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactory.updatedOn" for="field_updatedOn">Updated On</label>
+          <div class="d-flex">
+            <input
+              id="field_updatedOn"
+              data-cy="updatedOn"
+              type="datetime-local"
+              class="form-control"
+              name="updatedOn"
+              formControlName="updatedOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactory.farmID" for="field_farmID">Farm ID</label>
+          <select class="form-control" id="field_farmID" data-cy="farmID" name="farmID" formControlName="farmID">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="farmOption.id === editForm.get('farmID')!.value?.id ? editForm.get('farmID')!.value : farmOption"
+              *ngFor="let farmOption of farmsSharedCollection; trackBy: trackFarmById"
+            >
+              {{ farmOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plantFactory.deviceID" for="field_deviceID">Device ID</label>
+          <select class="form-control" id="field_deviceID" data-cy="deviceID" name="deviceID" formControlName="deviceID">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="deviceOption.id === editForm.get('deviceID')!.value?.id ? editForm.get('deviceID')!.value : deviceOption"
+              *ngFor="let deviceOption of devicesSharedCollection; trackBy: trackDeviceById"
+            >
+              {{ deviceOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

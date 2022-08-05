@@ -1,0 +1,72 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="pestControl">
+      <h2 data-cy="pestControlDetailsHeading"><span jhiTranslate="blogApp.pestControl.detail.title">Pest Control</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.pestControl.id">Id</span></dt>
+        <dd>
+          <span>{{ pestControl.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.pestControl.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ pestControl.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.pestControl.natureOfDamage">Nature Of Damage</span></dt>
+        <dd>
+          <span>{{ pestControl.natureOfDamage }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.pestControl.controlType">Control Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.ConType.' + pestControl.controlType }}">{{ pestControl.controlType }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.pestControl.controlMeasures">Control Measures</span></dt>
+        <dd>
+          <span>{{ pestControl.controlMeasures }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.pestControl.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ pestControl.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.pestControl.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ pestControl.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.pestControl.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ pestControl.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.pestControl.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ pestControl.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.pestControl.pestID">Pest ID</span></dt>
+        <dd>
+          <div *ngIf="pestControl.pestID">
+            <a [routerLink]="['/pest', pestControl.pestID?.id, 'view']">{{ pestControl.pestID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.pestControl.cropID">Crop ID</span></dt>
+        <dd>
+          <div *ngIf="pestControl.cropID">
+            <a [routerLink]="['/crop', pestControl.cropID?.id, 'view']">{{ pestControl.cropID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/pest-control', pestControl.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

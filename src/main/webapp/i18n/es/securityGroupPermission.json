@@ -1,0 +1,32 @@
+{
+  "blogApp": {
+    "securityGroupPermission": {
+      "home": {
+        "title": "Security Group Permissions",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Security Group Permission",
+        "createOrEditLabel": "Crear o editar Security Group Permission",
+        "notFound": "Ningún Security Group Permissions encontrado"
+      },
+      "created": "Un nuevo Security Group Permission ha sido creado con el identificador {{ param }}",
+      "updated": "Un Security Group Permission ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Security Group Permission ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Security Group Permission {{ id }}?"
+      },
+      "detail": {
+        "title": "Security Group Permission"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "securityGroup": "Security Group",
+      "securityPermission": "Security Permission",
+      "securityGroupID": "Security Group ID",
+      "securityPermissionID": "Security Permission ID"
+    }
+  }
+}

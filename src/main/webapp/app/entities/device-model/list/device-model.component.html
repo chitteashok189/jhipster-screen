@@ -1,0 +1,98 @@
+<div>
+  <h2 id="page-heading" data-cy="DeviceModelHeading">
+    <span jhiTranslate="blogApp.deviceModel.home.title">Device Models</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.deviceModel.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-device-model"
+        [routerLink]="['/device-model/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.deviceModel.home.createLabel"> Create a new Device Model </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="deviceModels?.length === 0">
+    <span jhiTranslate="blogApp.deviceModel.home.notFound">No deviceModels found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="deviceModels && deviceModels.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.deviceModel.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceModel.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceModel.modelName">Model Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceModel.type">Type</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceModel.manufacturer">Manufacturer</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceModel.productCode">Product Code</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceModel.properties">Properties</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceModel.description">Description</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceModel.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceModel.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceModel.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.deviceModel.updatedOn">Updated On</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let deviceModel of deviceModels; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/device-model', deviceModel.id, 'view']">{{ deviceModel.id }}</a>
+          </td>
+          <td>{{ deviceModel.gUID }}</td>
+          <td>{{ deviceModel.modelName }}</td>
+          <td>{{ deviceModel.type }}</td>
+          <td>{{ deviceModel.manufacturer }}</td>
+          <td>{{ deviceModel.productCode }}</td>
+          <td>{{ deviceModel.properties }}</td>
+          <td>{{ deviceModel.description }}</td>
+          <td>{{ deviceModel.createdBy }}</td>
+          <td>{{ deviceModel.createdOn | formatMediumDatetime }}</td>
+          <td>{{ deviceModel.updatedBy }}</td>
+          <td>{{ deviceModel.updatedOn | formatMediumDatetime }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/device-model', deviceModel.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/device-model', deviceModel.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(deviceModel)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

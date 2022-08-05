@@ -1,0 +1,10 @@
+{
+  "blogApp": {
+    "CropState": {
+      "null": "",
+      "Bad": "Bad",
+      "Normal": "Normal",
+      "Good": "Good"
+    }
+  }
+}

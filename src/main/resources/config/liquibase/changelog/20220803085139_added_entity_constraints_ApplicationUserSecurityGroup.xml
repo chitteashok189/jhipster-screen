@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity ApplicationUserSecurityGroup.
+    -->
+    <changeSet id="20220803085139-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="security_groupid_id"
+                                 baseTableName="application_user_security_grou"
+                                 constraintName="fk_application_user_security_grou__security_groupid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="security_group"/>
+    </changeSet>
+</databaseChangeLog>

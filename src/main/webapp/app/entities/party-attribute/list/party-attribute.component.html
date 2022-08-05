@@ -1,0 +1,96 @@
+<div>
+  <h2 id="page-heading" data-cy="PartyAttributeHeading">
+    <span jhiTranslate="blogApp.partyAttribute.home.title">Party Attributes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.partyAttribute.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-party-attribute"
+        [routerLink]="['/party-attribute/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.partyAttribute.home.createLabel"> Create a new Party Attribute </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="partyAttributes?.length === 0">
+    <span jhiTranslate="blogApp.partyAttribute.home.notFound">No partyAttributes found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="partyAttributes && partyAttributes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.partyAttribute.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyAttribute.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyAttribute.attributeName">Attribute Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyAttribute.attributeValue">Attribute Value</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyAttribute.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyAttribute.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyAttribute.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyAttribute.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.partyAttribute.partyID">Party ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let partyAttribute of partyAttributes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/party-attribute', partyAttribute.id, 'view']">{{ partyAttribute.id }}</a>
+          </td>
+          <td>{{ partyAttribute.gUID }}</td>
+          <td>{{ partyAttribute.attributeName }}</td>
+          <td>{{ partyAttribute.attributeValue }}</td>
+          <td>{{ partyAttribute.createdBy }}</td>
+          <td>{{ partyAttribute.createdOn | formatMediumDatetime }}</td>
+          <td>{{ partyAttribute.updatedBy }}</td>
+          <td>{{ partyAttribute.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="partyAttribute.partyID">
+              <a [routerLink]="['/party', partyAttribute.partyID?.id, 'view']">{{ partyAttribute.partyID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/party-attribute', partyAttribute.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/party-attribute', partyAttribute.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(partyAttribute)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

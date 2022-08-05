@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity SecurityGroupPermission.
+    -->
+    <changeSet id="20220803085140-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="security_groupid_id"
+                                 baseTableName="security_group_permission"
+                                 constraintName="fk_security_group_permission__security_groupid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="security_group"/>
+
+        <addForeignKeyConstraint baseColumnNames="security_permissionid_id"
+                                 baseTableName="security_group_permission"
+                                 constraintName="fk_security_group_permission__security_permissionid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="security_permission"/>
+    </changeSet>
+</databaseChangeLog>

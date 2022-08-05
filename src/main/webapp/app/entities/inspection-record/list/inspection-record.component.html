@@ -1,0 +1,120 @@
+<div>
+  <h2 id="page-heading" data-cy="InspectionRecordHeading">
+    <span jhiTranslate="blogApp.inspectionRecord.home.title">Inspection Records</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.inspectionRecord.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-inspection-record"
+        [routerLink]="['/inspection-record/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.inspectionRecord.home.createLabel"> Create a new Inspection Record </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="inspectionRecords?.length === 0">
+    <span jhiTranslate="blogApp.inspectionRecord.home.notFound">No inspectionRecords found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="inspectionRecords && inspectionRecords.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.inspectionRecord.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspectionRecord.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspectionRecord.rawMaterialBatchNo">Raw Material Batch No</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspectionRecord.productBatchNo">Product Batch No</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspectionRecord.rawMaterialBatchCode">Raw Material Batch Code</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspectionRecord.inputBatchNo">Input Batch No</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspectionRecord.inputBatchCode">Input Batch Code</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspectionRecord.attachments">Attachments</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspectionRecord.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspectionRecord.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspectionRecord.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspectionRecord.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspectionRecord.inspectionID">Inspection ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspectionRecord.lotID">Lot ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let inspectionRecord of inspectionRecords; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/inspection-record', inspectionRecord.id, 'view']">{{ inspectionRecord.id }}</a>
+          </td>
+          <td>{{ inspectionRecord.gUID }}</td>
+          <td>{{ inspectionRecord.rawMaterialBatchNo }}</td>
+          <td>{{ inspectionRecord.productBatchNo }}</td>
+          <td>{{ inspectionRecord.rawMaterialBatchCode }}</td>
+          <td>{{ inspectionRecord.inputBatchNo }}</td>
+          <td>{{ inspectionRecord.inputBatchCode }}</td>
+          <td>
+            <a
+              *ngIf="inspectionRecord.attachments"
+              (click)="openFile(inspectionRecord.attachments, inspectionRecord.attachmentsContentType)"
+              jhiTranslate="entity.action.open"
+              >open</a
+            >
+            <span *ngIf="inspectionRecord.attachments"
+              >{{ inspectionRecord.attachmentsContentType }}, {{ byteSize(inspectionRecord.attachments) }}</span
+            >
+          </td>
+          <td>{{ inspectionRecord.createdBy }}</td>
+          <td>{{ inspectionRecord.createdOn | formatMediumDatetime }}</td>
+          <td>{{ inspectionRecord.updatedBy }}</td>
+          <td>{{ inspectionRecord.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="inspectionRecord.inspectionID">
+              <a [routerLink]="['/inspection', inspectionRecord.inspectionID?.id, 'view']">{{ inspectionRecord.inspectionID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="inspectionRecord.lotID">
+              <a [routerLink]="['/lot', inspectionRecord.lotID?.id, 'view']">{{ inspectionRecord.lotID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/inspection-record', inspectionRecord.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/inspection-record', inspectionRecord.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(inspectionRecord)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

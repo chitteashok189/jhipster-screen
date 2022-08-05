@@ -1,0 +1,128 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085146",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "device",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "deviceModel",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deviceAsset",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deviceType",
+      "fieldType": "DeviceType",
+      "fieldValues": "Input,Devices,Output,Storage,IOT,Mobile"
+    },
+    {
+      "fieldName": "hardwareID",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "reportingIntervalLocation",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "parentDevice",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "properties",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Device",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "plantFactory",
+      "otherEntityRelationshipName": "deviceID",
+      "relationshipName": "plantFactory",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "sensor",
+      "otherEntityRelationshipName": "deviceID",
+      "relationshipName": "sensor",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "climate",
+      "otherEntityRelationshipName": "deviceID",
+      "relationshipName": "climate",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "irrigation",
+      "otherEntityRelationshipName": "deviceID",
+      "relationshipName": "irrigation",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "dosing",
+      "otherEntityRelationshipName": "deviceID",
+      "relationshipName": "dosing",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "light",
+      "otherEntityRelationshipName": "deviceID",
+      "relationshipName": "light",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "plantFactory",
+      "otherEntityRelationshipName": "device",
+      "relationshipName": "plantFactoryID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "deviceLevel",
+      "otherEntityRelationshipName": "device",
+      "relationshipName": "deviceLevelID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "deviceModel",
+      "otherEntityRelationshipName": "device",
+      "relationshipName": "deviceModelID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

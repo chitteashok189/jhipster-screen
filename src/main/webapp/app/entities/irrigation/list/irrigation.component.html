@@ -1,0 +1,108 @@
+<div>
+  <h2 id="page-heading" data-cy="IrrigationHeading">
+    <span jhiTranslate="blogApp.irrigation.home.title">Irrigations</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.irrigation.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-irrigation"
+        [routerLink]="['/irrigation/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.irrigation.home.createLabel"> Create a new Irrigation </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="irrigations?.length === 0">
+    <span jhiTranslate="blogApp.irrigation.home.notFound">No irrigations found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="irrigations && irrigations.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.irrigation.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.irrigation.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.irrigation.source">Source</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.irrigation.nutrientLevel">Nutrient Level</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.irrigation.solarRadiation">Solar Radiation</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.irrigation.inletFlow">Inlet Flow</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.irrigation.outletFlow">Outlet Flow</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.irrigation.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.irrigation.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.irrigation.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.irrigation.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.irrigation.deviceID">Device ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.irrigation.plantFactoryID">Plant Factory ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let irrigation of irrigations; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/irrigation', irrigation.id, 'view']">{{ irrigation.id }}</a>
+          </td>
+          <td>{{ irrigation.gUID }}</td>
+          <td jhiTranslate="{{ 'blogApp.IrriSource.' + irrigation.source }}">{{ irrigation.source }}</td>
+          <td>{{ irrigation.nutrientLevel }}</td>
+          <td>{{ irrigation.solarRadiation }}</td>
+          <td>{{ irrigation.inletFlow }}</td>
+          <td>{{ irrigation.outletFlow }}</td>
+          <td>{{ irrigation.createdBy }}</td>
+          <td>{{ irrigation.createdOn | formatMediumDatetime }}</td>
+          <td>{{ irrigation.updatedBy }}</td>
+          <td>{{ irrigation.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="irrigation.deviceID">
+              <a [routerLink]="['/device', irrigation.deviceID?.id, 'view']">{{ irrigation.deviceID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="irrigation.plantFactoryID">
+              <a [routerLink]="['/plant-factory', irrigation.plantFactoryID?.id, 'view']">{{ irrigation.plantFactoryID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/irrigation', irrigation.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/irrigation', irrigation.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(irrigation)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

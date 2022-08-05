@@ -1,0 +1,100 @@
+<div>
+  <h2 id="page-heading" data-cy="SensorModelHeading">
+    <span jhiTranslate="blogApp.sensorModel.home.title">Sensor Models</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.sensorModel.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-sensor-model"
+        [routerLink]="['/sensor-model/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.sensorModel.home.createLabel"> Create a new Sensor Model </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="sensorModels?.length === 0">
+    <span jhiTranslate="blogApp.sensorModel.home.notFound">No sensorModels found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="sensorModels && sensorModels.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.sensorModel.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensorModel.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensorModel.sensorType">Sensor Type</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensorModel.manufacturer">Manufacturer</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensorModel.productCode">Product Code</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensorModel.sensorMeasure">Sensor Measure</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensorModel.modelName">Model Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensorModel.properties">Properties</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensorModel.description">Description</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensorModel.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensorModel.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensorModel.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.sensorModel.updatedOn">Updated On</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sensorModel of sensorModels; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/sensor-model', sensorModel.id, 'view']">{{ sensorModel.id }}</a>
+          </td>
+          <td>{{ sensorModel.gUID }}</td>
+          <td>{{ sensorModel.sensorType }}</td>
+          <td>{{ sensorModel.manufacturer }}</td>
+          <td>{{ sensorModel.productCode }}</td>
+          <td>{{ sensorModel.sensorMeasure }}</td>
+          <td>{{ sensorModel.modelName }}</td>
+          <td>{{ sensorModel.properties }}</td>
+          <td>{{ sensorModel.description }}</td>
+          <td>{{ sensorModel.createdBy }}</td>
+          <td>{{ sensorModel.createdOn | formatMediumDatetime }}</td>
+          <td>{{ sensorModel.updatedBy }}</td>
+          <td>{{ sensorModel.updatedOn | formatMediumDatetime }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/sensor-model', sensorModel.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/sensor-model', sensorModel.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(sensorModel)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

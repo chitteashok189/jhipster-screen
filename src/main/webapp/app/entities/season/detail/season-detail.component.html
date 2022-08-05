@@ -1,0 +1,72 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="season">
+      <h2 data-cy="seasonDetailsHeading"><span jhiTranslate="blogApp.season.detail.title">Season</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.season.id">Id</span></dt>
+        <dd>
+          <span>{{ season.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.season.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ season.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.season.seasonType">Season Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.SeaType.' + season.seasonType }}">{{ season.seasonType }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.season.cropName">Crop Name</span></dt>
+        <dd>
+          <span>{{ season.cropName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.season.area">Area</span></dt>
+        <dd>
+          <span>{{ season.area }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.season.seasonTime">Season Time</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.SeaTime.' + season.seasonTime }}">{{ season.seasonTime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.season.seasonstartDate">Seasonstart Date</span></dt>
+        <dd>
+          <span>{{ season.seasonstartDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.season.seasonEndDate">Season End Date</span></dt>
+        <dd>
+          <span>{{ season.seasonEndDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.season.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ season.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.season.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ season.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.season.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ season.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.season.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ season.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/season', season.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

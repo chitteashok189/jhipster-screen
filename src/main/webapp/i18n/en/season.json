@@ -1,0 +1,36 @@
+{
+  "blogApp": {
+    "season": {
+      "home": {
+        "title": "Seasons",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Season",
+        "createOrEditLabel": "Create or edit a Season",
+        "notFound": "No Seasons found"
+      },
+      "created": "A new Season is created with identifier {{ param }}",
+      "updated": "A Season is updated with identifier {{ param }}",
+      "deleted": "A Season is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Season {{ id }}?"
+      },
+      "detail": {
+        "title": "Season"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "seasonType": "Season Type",
+      "cropName": "Crop Name",
+      "area": "Area",
+      "seasonTime": "Season Time",
+      "seasonstartDate": "Seasonstart Date",
+      "seasonEndDate": "Season End Date",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "crop": "Crop",
+      "calendar": "Calendar"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "blogApp": {
+    "partyRelationshipType": {
+      "home": {
+        "title": "Party Relationship Types",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Party Relationship Type",
+        "createOrEditLabel": "Crear o editar Party Relationship Type",
+        "notFound": "Ningún Party Relationship Types encontrado"
+      },
+      "created": "Un nuevo Party Relationship Type ha sido creado con el identificador {{ param }}",
+      "updated": "Un Party Relationship Type ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Party Relationship Type ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Party Relationship Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Party Relationship Type"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "hasTable": "Has Table",
+      "partyRelationshipName": "Party Relationship Name",
+      "description": "Description",
+      "roleTypeIdValidFrom": "Role Type Id Valid From",
+      "roleTypeIdValidTo": "Role Type Id Valid To",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "partyRelationship": "Party Relationship",
+      "partyRelationshipID": "Party Relationship ID"
+    }
+  }
+}

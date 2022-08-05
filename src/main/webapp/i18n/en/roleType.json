@@ -1,0 +1,38 @@
+{
+  "blogApp": {
+    "roleType": {
+      "home": {
+        "title": "Role Types",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Role Type",
+        "createOrEditLabel": "Create or edit a Role Type",
+        "notFound": "No Role Types found"
+      },
+      "created": "A new Role Type is created with identifier {{ param }}",
+      "updated": "A Role Type is updated with identifier {{ param }}",
+      "deleted": "A Role Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Role Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Role Type"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "hasTable": "Has Table",
+      "description": "Description",
+      "childRoleType": "Child Role Type",
+      "validPartyRelationshipType": "Valid Party Relationship Type",
+      "validFromPartyRelationshipType": "Valid From Party Relationship Type",
+      "partyInvitationRoleAssociation": "Party Invitation Role Association",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "partyRole": "Party Role",
+      "roleTypeAttribute": "Role Type Attribute",
+      "partyRoleID": "Party Role ID",
+      "roleTypeAttributeID": "Role Type Attribute ID"
+    }
+  }
+}

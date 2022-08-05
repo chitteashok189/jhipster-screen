@@ -1,0 +1,36 @@
+{
+  "blogApp": {
+    "disease": {
+      "home": {
+        "title": "Diseases",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Disease",
+        "createOrEditLabel": "Crear o editar Disease",
+        "notFound": "Ningún Diseases encontrado"
+      },
+      "created": "Un nuevo Disease ha sido creado con el identificador {{ param }}",
+      "updated": "Un Disease ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Disease ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Disease {{ id }}?"
+      },
+      "detail": {
+        "title": "Disease"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "threatLevel": "Threat Level",
+      "name": "Name",
+      "causalOrganism": "Causal Organism",
+      "attachments": "Attachments",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "diseaseControl": "Disease Control",
+      "symptom": "Symptom",
+      "scoutingID": "Scouting ID",
+      "plantFactoryID": "Plant Factory ID"
+    }
+  }
+}

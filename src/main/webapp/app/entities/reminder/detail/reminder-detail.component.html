@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="reminder">
+      <h2 data-cy="reminderDetailsHeading"><span jhiTranslate="blogApp.reminder.detail.title">Reminder</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.reminder.id">Id</span></dt>
+        <dd>
+          <span>{{ reminder.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.reminder.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ reminder.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.reminder.name">Name</span></dt>
+        <dd>
+          <span>{{ reminder.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.reminder.date">Date</span></dt>
+        <dd>
+          <span>{{ reminder.date | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.reminder.time">Time</span></dt>
+        <dd>
+          <span>{{ reminder.time }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.reminder.item">Item</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.RemItem.' + reminder.item }}">{{ reminder.item }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.reminder.description">Description</span></dt>
+        <dd>
+          <span>{{ reminder.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.reminder.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ reminder.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.reminder.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ reminder.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.reminder.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ reminder.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.reminder.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ reminder.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/reminder', reminder.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<div>
+  <h2 id="page-heading" data-cy="EnnumerationHeading">
+    <span jhiTranslate="blogApp.ennumeration.home.title">Ennumerations</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.ennumeration.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-ennumeration"
+        [routerLink]="['/ennumeration/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.ennumeration.home.createLabel"> Create a new Ennumeration </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="ennumerations?.length === 0">
+    <span jhiTranslate="blogApp.ennumeration.home.notFound">No ennumerations found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="ennumerations && ennumerations.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.ennumeration.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.ennumeration.enumCode">Enum Code</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.ennumeration.description">Description</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ennumeration of ennumerations; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/ennumeration', ennumeration.id, 'view']">{{ ennumeration.id }}</a>
+          </td>
+          <td>{{ ennumeration.enumCode }}</td>
+          <td>{{ ennumeration.description }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/ennumeration', ennumeration.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/ennumeration', ennumeration.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(ennumeration)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+{
+  "blogApp": {
+    "recipe": {
+      "home": {
+        "title": "Recipes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Recipe",
+        "createOrEditLabel": "Create or edit a Recipe",
+        "notFound": "No Recipes found"
+      },
+      "created": "A new Recipe is created with identifier {{ param }}",
+      "updated": "A Recipe is updated with identifier {{ param }}",
+      "deleted": "A Recipe is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Recipe {{ id }}?"
+      },
+      "detail": {
+        "title": "Recipe"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "plantName": "Plant Name",
+      "recipeType": "Recipe Type",
+      "pHMin": "P H Min",
+      "pHMax": "P H Max",
+      "ecMin": "Ec Min",
+      "eCMax": "E C Max",
+      "airTempMax": "Air Temp Max",
+      "airTempMin": "Air Temp Min",
+      "humidityMax": "Humidity Max",
+      "humidityMin": "Humidity Min",
+      "nutrientTempMax": "Nutrient Temp Max",
+      "nutrientTempMin": "Nutrient Temp Min",
+      "luxGermMax": "Lux Germ Max",
+      "luxGermMin": "Lux Germ Min",
+      "lightGermDor": "Light Germ Dor",
+      "lightGermCycle": "Light Germ Cycle",
+      "luxGrowMax": "Lux Grow Max",
+      "luxGrowMin": "Lux Grow Min",
+      "lightGrowDor": "Light Grow Dor",
+      "lightGrowCycle": "Light Grow Cycle",
+      "co2LightMax": "Co 2 Light Max",
+      "co2LightMin": "Co 2 Light Min",
+      "co2DarkMax": "Co 2 Dark Max",
+      "co2DarkMin": "Co 2 Dark Min",
+      "dOMax": "D O Max",
+      "dOMin": "D O Min",
+      "mediaMoistureMax": "Media Moisture Max",
+      "mediaMoistureMin": "Media Moisture Min",
+      "nitrogen": "Nitrogen",
+      "phosphorus": "Phosphorus",
+      "potassium": "Potassium",
+      "sulphur": "Sulphur",
+      "calcium": "Calcium",
+      "magnesium": "Magnesium",
+      "manganese": "Manganese",
+      "iron": "Iron",
+      "boron": "Boron",
+      "copper": "Copper",
+      "zinc": "Zinc",
+      "molybdenum": "Molybdenum",
+      "germinationTAT": "Germination TAT",
+      "identificationComment": "Identification Comment",
+      "growingComment": "Growing Comment",
+      "usageComment": "Usage Comment",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "plantID": "Plant ID"
+    }
+  }
+}

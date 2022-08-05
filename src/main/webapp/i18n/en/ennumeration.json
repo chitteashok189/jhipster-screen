@@ -1,0 +1,25 @@
+{
+  "blogApp": {
+    "ennumeration": {
+      "home": {
+        "title": "Ennumerations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Ennumeration",
+        "createOrEditLabel": "Create or edit a Ennumeration",
+        "notFound": "No Ennumerations found"
+      },
+      "created": "A new Ennumeration is created with identifier {{ param }}",
+      "updated": "A Ennumeration is updated with identifier {{ param }}",
+      "deleted": "A Ennumeration is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ennumeration {{ id }}?"
+      },
+      "detail": {
+        "title": "Ennumeration"
+      },
+      "id": "Id",
+      "enumCode": "Enum Code",
+      "description": "Description"
+    }
+  }
+}

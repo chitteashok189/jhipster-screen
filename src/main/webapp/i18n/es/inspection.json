@@ -1,0 +1,42 @@
+{
+  "blogApp": {
+    "inspection": {
+      "home": {
+        "title": "Inspections",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Inspection",
+        "createOrEditLabel": "Crear o editar Inspection",
+        "notFound": "Ningún Inspections encontrado"
+      },
+      "created": "Un nuevo Inspection ha sido creado con el identificador {{ param }}",
+      "updated": "Un Inspection ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Inspection ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Inspection {{ id }}?"
+      },
+      "detail": {
+        "title": "Inspection"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "inspectionSize": "Inspection Size",
+      "shape": "Shape",
+      "wholeness": "Wholeness",
+      "gloss": "Gloss",
+      "consistency": "Consistency",
+      "defects": "Defects",
+      "colour": "Colour",
+      "texture": "Texture",
+      "aroma": "Aroma",
+      "flavour": "Flavour",
+      "nutritionalValue": "Nutritional Value",
+      "nutritionalValueType": "Nutritional Value Type",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "inspectionRecord": "Inspection Record",
+      "harvestID": "Harvest ID"
+    }
+  }
+}

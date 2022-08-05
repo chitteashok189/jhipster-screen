@@ -1,0 +1,106 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="weather">
+      <h2 data-cy="weatherDetailsHeading"><span jhiTranslate="blogApp.weather.detail.title">Weather</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.weather.id">Id</span></dt>
+        <dd>
+          <span>{{ weather.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.weather.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ weather.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.weather.cityID">City ID</span></dt>
+        <dd>
+          <span>{{ weather.cityID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.weather.startTimestamp">Start Timestamp</span></dt>
+        <dd>
+          <span>{{ weather.startTimestamp }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.weather.endTimestamp">End Timestamp</span></dt>
+        <dd>
+          <span>{{ weather.endTimestamp }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.weather.weatherStatusID">Weather Status ID</span></dt>
+        <dd>
+          <span>{{ weather.weatherStatusID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.weather.temperature">Temperature</span></dt>
+        <dd>
+          <span>{{ weather.temperature }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.weather.feelsLikeTemperature">Feels Like Temperature</span></dt>
+        <dd>
+          <span>{{ weather.feelsLikeTemperature }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.weather.humidity">Humidity</span></dt>
+        <dd>
+          <span>{{ weather.humidity }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.weather.windSpeed">Wind Speed</span></dt>
+        <dd>
+          <span>{{ weather.windSpeed }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.weather.windDirection">Wind Direction</span></dt>
+        <dd>
+          <span>{{ weather.windDirection }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.weather.pressureinmmhg">Pressureinmmhg</span></dt>
+        <dd>
+          <span>{{ weather.pressureinmmhg }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.weather.visibilityinmph">Visibilityinmph</span></dt>
+        <dd>
+          <span>{{ weather.visibilityinmph }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.weather.cloudCover">Cloud Cover</span></dt>
+        <dd>
+          <span>{{ weather.cloudCover }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.weather.precipitation">Precipitation</span></dt>
+        <dd>
+          <span>{{ weather.precipitation }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.weather.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ weather.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.weather.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ weather.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.weather.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ weather.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.weather.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ weather.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.weather.calendarID">Calendar ID</span></dt>
+        <dd>
+          <div *ngIf="weather.calendarID">
+            <a [routerLink]="['/calendar', weather.calendarID?.id, 'view']">{{ weather.calendarID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/weather', weather.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

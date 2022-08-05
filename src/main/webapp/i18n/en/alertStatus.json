@@ -1,0 +1,9 @@
+{
+  "blogApp": {
+    "AlertStatus": {
+      "null": "",
+      "Active": "Active",
+      "Inactive": "Inactive"
+    }
+  }
+}

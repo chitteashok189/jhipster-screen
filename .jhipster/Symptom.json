@@ -1,0 +1,74 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085213",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "symptom",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "observation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "symptomImage",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Symptom",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "diseaseControl",
+      "otherEntityRelationshipName": "symptomID",
+      "relationshipName": "diseaseControl",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "scouting",
+      "otherEntityRelationshipName": "symptom",
+      "relationshipName": "scoutingID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "disease",
+      "otherEntityRelationshipName": "symptom",
+      "relationshipName": "diseaseID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "pest",
+      "otherEntityRelationshipName": "symptom",
+      "relationshipName": "pestID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

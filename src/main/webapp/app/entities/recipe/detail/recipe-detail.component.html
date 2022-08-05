@@ -1,0 +1,230 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="recipe">
+      <h2 data-cy="recipeDetailsHeading"><span jhiTranslate="blogApp.recipe.detail.title">Recipe</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.recipe.id">Id</span></dt>
+        <dd>
+          <span>{{ recipe.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ recipe.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.plantName">Plant Name</span></dt>
+        <dd>
+          <span>{{ recipe.plantName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.recipeType">Recipe Type</span></dt>
+        <dd>
+          <span>{{ recipe.recipeType }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.pHMin">P H Min</span></dt>
+        <dd>
+          <span>{{ recipe.pHMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.pHMax">P H Max</span></dt>
+        <dd>
+          <span>{{ recipe.pHMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.ecMin">Ec Min</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'blogApp.Ec.' + recipe.ecMin }}">{{ recipe.ecMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.eCMax">E C Max</span></dt>
+        <dd>
+          <span>{{ recipe.eCMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.airTempMax">Air Temp Max</span></dt>
+        <dd>
+          <span>{{ recipe.airTempMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.airTempMin">Air Temp Min</span></dt>
+        <dd>
+          <span>{{ recipe.airTempMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.humidityMax">Humidity Max</span></dt>
+        <dd>
+          <span>{{ recipe.humidityMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.humidityMin">Humidity Min</span></dt>
+        <dd>
+          <span>{{ recipe.humidityMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.nutrientTempMax">Nutrient Temp Max</span></dt>
+        <dd>
+          <span>{{ recipe.nutrientTempMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.nutrientTempMin">Nutrient Temp Min</span></dt>
+        <dd>
+          <span>{{ recipe.nutrientTempMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.luxGermMax">Lux Germ Max</span></dt>
+        <dd>
+          <span>{{ recipe.luxGermMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.luxGermMin">Lux Germ Min</span></dt>
+        <dd>
+          <span>{{ recipe.luxGermMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.lightGermDor">Light Germ Dor</span></dt>
+        <dd>
+          <span>{{ recipe.lightGermDor }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.lightGermCycle">Light Germ Cycle</span></dt>
+        <dd>
+          <span>{{ recipe.lightGermCycle }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.luxGrowMax">Lux Grow Max</span></dt>
+        <dd>
+          <span>{{ recipe.luxGrowMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.luxGrowMin">Lux Grow Min</span></dt>
+        <dd>
+          <span>{{ recipe.luxGrowMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.lightGrowDor">Light Grow Dor</span></dt>
+        <dd>
+          <span>{{ recipe.lightGrowDor }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.lightGrowCycle">Light Grow Cycle</span></dt>
+        <dd>
+          <span>{{ recipe.lightGrowCycle }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.co2LightMax">Co 2 Light Max</span></dt>
+        <dd>
+          <span>{{ recipe.co2LightMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.co2LightMin">Co 2 Light Min</span></dt>
+        <dd>
+          <span>{{ recipe.co2LightMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.co2DarkMax">Co 2 Dark Max</span></dt>
+        <dd>
+          <span>{{ recipe.co2DarkMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.co2DarkMin">Co 2 Dark Min</span></dt>
+        <dd>
+          <span>{{ recipe.co2DarkMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.dOMax">D O Max</span></dt>
+        <dd>
+          <span>{{ recipe.dOMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.dOMin">D O Min</span></dt>
+        <dd>
+          <span>{{ recipe.dOMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.mediaMoistureMax">Media Moisture Max</span></dt>
+        <dd>
+          <span>{{ recipe.mediaMoistureMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.mediaMoistureMin">Media Moisture Min</span></dt>
+        <dd>
+          <span>{{ recipe.mediaMoistureMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.nitrogen">Nitrogen</span></dt>
+        <dd>
+          <span>{{ recipe.nitrogen }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.phosphorus">Phosphorus</span></dt>
+        <dd>
+          <span>{{ recipe.phosphorus }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.potassium">Potassium</span></dt>
+        <dd>
+          <span>{{ recipe.potassium }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.sulphur">Sulphur</span></dt>
+        <dd>
+          <span>{{ recipe.sulphur }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.calcium">Calcium</span></dt>
+        <dd>
+          <span>{{ recipe.calcium }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.magnesium">Magnesium</span></dt>
+        <dd>
+          <span>{{ recipe.magnesium }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.manganese">Manganese</span></dt>
+        <dd>
+          <span>{{ recipe.manganese }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.iron">Iron</span></dt>
+        <dd>
+          <span>{{ recipe.iron }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.boron">Boron</span></dt>
+        <dd>
+          <span>{{ recipe.boron }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.copper">Copper</span></dt>
+        <dd>
+          <span>{{ recipe.copper }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.zinc">Zinc</span></dt>
+        <dd>
+          <span>{{ recipe.zinc }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.molybdenum">Molybdenum</span></dt>
+        <dd>
+          <span>{{ recipe.molybdenum }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.germinationTAT">Germination TAT</span></dt>
+        <dd>
+          <span>{{ recipe.germinationTAT }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.identificationComment">Identification Comment</span></dt>
+        <dd>
+          <span>{{ recipe.identificationComment }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.growingComment">Growing Comment</span></dt>
+        <dd>
+          <span>{{ recipe.growingComment }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.usageComment">Usage Comment</span></dt>
+        <dd>
+          <span>{{ recipe.usageComment }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ recipe.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ recipe.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ recipe.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ recipe.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.recipe.plantID">Plant ID</span></dt>
+        <dd>
+          <div *ngIf="recipe.plantID">
+            <a [routerLink]="['/plant', recipe.plantID?.id, 'view']">{{ recipe.plantID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/recipe', recipe.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+{
+  "blogApp": {
+    "symptom": {
+      "home": {
+        "title": "Symptoms",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Symptom",
+        "createOrEditLabel": "Crear o editar Symptom",
+        "notFound": "Ningún Symptoms encontrado"
+      },
+      "created": "Un nuevo Symptom ha sido creado con el identificador {{ param }}",
+      "updated": "Un Symptom ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Symptom ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Symptom {{ id }}?"
+      },
+      "detail": {
+        "title": "Symptom"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "observation": "Observation",
+      "symptomImage": "Symptom Image",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "diseaseControl": "Disease Control",
+      "scoutingID": "Scouting ID",
+      "diseaseID": "Disease ID",
+      "pestID": "Pest ID"
+    }
+  }
+}

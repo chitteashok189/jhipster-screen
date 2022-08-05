@@ -1,0 +1,100 @@
+<div>
+  <h2 id="page-heading" data-cy="DosingHeading">
+    <span jhiTranslate="blogApp.dosing.home.title">Dosings</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.dosing.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-dosing"
+        [routerLink]="['/dosing/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.dosing.home.createLabel"> Create a new Dosing </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="dosings?.length === 0">
+    <span jhiTranslate="blogApp.dosing.home.notFound">No dosings found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="dosings && dosings.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.dosing.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.dosing.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.dosing.source">Source</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.dosing.pH">P H</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.dosing.eC">E C</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.dosing.dO">D O</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.dosing.nutrientTemperature">Nutrient Temperature</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.dosing.solarRadiation">Solar Radiation</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.dosing.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.dosing.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.dosing.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.dosing.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.dosing.deviceID">Device ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.dosing.plantFactoryID">Plant Factory ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dosing of dosings; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/dosing', dosing.id, 'view']">{{ dosing.id }}</a>
+          </td>
+          <td>{{ dosing.gUID }}</td>
+          <td jhiTranslate="{{ 'blogApp.DosingSource.' + dosing.source }}">{{ dosing.source }}</td>
+          <td>{{ dosing.pH }}</td>
+          <td>{{ dosing.eC }}</td>
+          <td>{{ dosing.dO }}</td>
+          <td>{{ dosing.nutrientTemperature }}</td>
+          <td>{{ dosing.solarRadiation }}</td>
+          <td>{{ dosing.createdBy }}</td>
+          <td>{{ dosing.createdOn | formatMediumDatetime }}</td>
+          <td>{{ dosing.updatedBy }}</td>
+          <td>{{ dosing.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="dosing.deviceID">
+              <a [routerLink]="['/device', dosing.deviceID?.id, 'view']">{{ dosing.deviceID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="dosing.plantFactoryID">
+              <a [routerLink]="['/plant-factory', dosing.plantFactoryID?.id, 'view']">{{ dosing.plantFactoryID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/dosing', dosing.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/dosing', dosing.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(dosing)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

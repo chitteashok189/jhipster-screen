@@ -1,0 +1,41 @@
+{
+  "blogApp": {
+    "applicationUser": {
+      "home": {
+        "title": "Application Users",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Application User",
+        "createOrEditLabel": "Crear o editar Application User",
+        "notFound": "Ningún Application Users encontrado"
+      },
+      "created": "Un nuevo Application User ha sido creado con el identificador {{ param }}",
+      "updated": "Un Application User ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Application User ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Application User {{ id }}?"
+      },
+      "detail": {
+        "title": "Application User"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "currentPassword": "Current Password",
+      "passwordHint": "Password Hint",
+      "isSystemEnables": "Is System Enables",
+      "hasLoggedOut": "Has Logged Out",
+      "requirePasswordChange": "Require Password Change",
+      "lastCurrencyUom": "Last Currency Uom",
+      "lastLocale": "Last Locale",
+      "lastTimeZone": "Last Time Zone",
+      "disabledDateTime": "Disabled Date Time",
+      "successiveFailedLogins": "Successive Failed Logins",
+      "applicationUserSecurityGroup": "Application User Security Group",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "party": "Party",
+      "partyID": "Party ID"
+    }
+  }
+}

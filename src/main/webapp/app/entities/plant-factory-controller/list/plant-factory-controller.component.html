@@ -1,0 +1,110 @@
+<div>
+  <h2 id="page-heading" data-cy="PlantFactoryControllerHeading">
+    <span jhiTranslate="blogApp.plantFactoryController.home.title">Plant Factory Controllers</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.plantFactoryController.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-plant-factory-controller"
+        [routerLink]="['/plant-factory-controller/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.plantFactoryController.home.createLabel"> Create a new Plant Factory Controller </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="plantFactoryControllers?.length === 0">
+    <span jhiTranslate="blogApp.plantFactoryController.home.notFound">No plantFactoryControllers found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="plantFactoryControllers && plantFactoryControllers.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactoryController.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactoryController.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactoryController.source">Source</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactoryController.airTemperature">Air Temperature</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactoryController.relativeHumidity">Relative Humidity</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactoryController.vPD">V PD</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactoryController.evapotranspiration">Evapotranspiration</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactoryController.barometricPressure">Barometric Pressure</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactoryController.seaLevelPressure">Sea Level Pressure</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactoryController.co2Level">Co 2 Level</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactoryController.nutrientTankLevel">Nutrient Tank Level</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactoryController.dewPoint">Dew Point</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactoryController.heatIndex">Heat Index</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactoryController.turbidity">Turbidity</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactoryController.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactoryController.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactoryController.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactoryController.updatedOn">Updated On</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let plantFactoryController of plantFactoryControllers; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/plant-factory-controller', plantFactoryController.id, 'view']">{{ plantFactoryController.id }}</a>
+          </td>
+          <td>{{ plantFactoryController.gUID }}</td>
+          <td jhiTranslate="{{ 'blogApp.PlantSource.' + plantFactoryController.source }}">{{ plantFactoryController.source }}</td>
+          <td>{{ plantFactoryController.airTemperature }}</td>
+          <td>{{ plantFactoryController.relativeHumidity }}</td>
+          <td>{{ plantFactoryController.vPD }}</td>
+          <td>{{ plantFactoryController.evapotranspiration }}</td>
+          <td>{{ plantFactoryController.barometricPressure }}</td>
+          <td>{{ plantFactoryController.seaLevelPressure }}</td>
+          <td>{{ plantFactoryController.co2Level }}</td>
+          <td>{{ plantFactoryController.nutrientTankLevel }}</td>
+          <td>{{ plantFactoryController.dewPoint }}</td>
+          <td>{{ plantFactoryController.heatIndex }}</td>
+          <td>{{ plantFactoryController.turbidity }}</td>
+          <td>{{ plantFactoryController.createdBy }}</td>
+          <td>{{ plantFactoryController.createdOn | formatMediumDatetime }}</td>
+          <td>{{ plantFactoryController.updatedBy }}</td>
+          <td>{{ plantFactoryController.updatedOn | formatMediumDatetime }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/plant-factory-controller', plantFactoryController.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/plant-factory-controller', plantFactoryController.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(plantFactoryController)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

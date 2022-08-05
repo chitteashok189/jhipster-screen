@@ -1,0 +1,106 @@
+<div>
+  <h2 id="page-heading" data-cy="PlantFactoryHeading">
+    <span jhiTranslate="blogApp.plantFactory.home.title">Plant Factories</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.plantFactory.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-plant-factory"
+        [routerLink]="['/plant-factory/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.plantFactory.home.createLabel"> Create a new Plant Factory </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="plantFactories?.length === 0">
+    <span jhiTranslate="blogApp.plantFactory.home.notFound">No plantFactories found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="plantFactories && plantFactories.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactory.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactory.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactory.plantFactoryName">Plant Factory Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactory.plantFactoryTypeID">Plant Factory Type ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactory.plantFactorySubType">Plant Factory Sub Type</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactory.plantFactoryDescription">Plant Factory Description</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactory.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactory.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactory.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactory.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactory.farmID">Farm ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.plantFactory.deviceID">Device ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let plantFactory of plantFactories; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/plant-factory', plantFactory.id, 'view']">{{ plantFactory.id }}</a>
+          </td>
+          <td>{{ plantFactory.gUID }}</td>
+          <td>{{ plantFactory.plantFactoryName }}</td>
+          <td jhiTranslate="{{ 'blogApp.ProFarmType.' + plantFactory.plantFactoryTypeID }}">{{ plantFactory.plantFactoryTypeID }}</td>
+          <td jhiTranslate="{{ 'blogApp.ProSubType.' + plantFactory.plantFactorySubType }}">{{ plantFactory.plantFactorySubType }}</td>
+          <td>{{ plantFactory.plantFactoryDescription }}</td>
+          <td>{{ plantFactory.createdBy }}</td>
+          <td>{{ plantFactory.createdOn | formatMediumDatetime }}</td>
+          <td>{{ plantFactory.updatedBy }}</td>
+          <td>{{ plantFactory.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="plantFactory.farmID">
+              <a [routerLink]="['/farm', plantFactory.farmID?.id, 'view']">{{ plantFactory.farmID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="plantFactory.deviceID">
+              <a [routerLink]="['/device', plantFactory.deviceID?.id, 'view']">{{ plantFactory.deviceID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/plant-factory', plantFactory.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/plant-factory', plantFactory.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(plantFactory)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

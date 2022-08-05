@@ -1,0 +1,118 @@
+<div>
+  <h2 id="page-heading" data-cy="InspectionHeading">
+    <span jhiTranslate="blogApp.inspection.home.title">Inspections</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.inspection.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-inspection"
+        [routerLink]="['/inspection/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.inspection.home.createLabel"> Create a new Inspection </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="inspections?.length === 0">
+    <span jhiTranslate="blogApp.inspection.home.notFound">No inspections found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="inspections && inspections.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.inspection.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspection.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspection.inspectionSize">Inspection Size</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspection.shape">Shape</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspection.wholeness">Wholeness</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspection.gloss">Gloss</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspection.consistency">Consistency</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspection.defects">Defects</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspection.colour">Colour</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspection.texture">Texture</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspection.aroma">Aroma</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspection.flavour">Flavour</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspection.nutritionalValue">Nutritional Value</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspection.nutritionalValueType">Nutritional Value Type</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspection.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspection.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspection.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspection.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.inspection.harvestID">Harvest ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let inspection of inspections; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/inspection', inspection.id, 'view']">{{ inspection.id }}</a>
+          </td>
+          <td>{{ inspection.gUID }}</td>
+          <td>{{ inspection.inspectionSize }}</td>
+          <td>{{ inspection.shape }}</td>
+          <td>{{ inspection.wholeness }}</td>
+          <td>{{ inspection.gloss }}</td>
+          <td>{{ inspection.consistency }}</td>
+          <td jhiTranslate="{{ 'blogApp.Defect.' + inspection.defects }}">{{ inspection.defects }}</td>
+          <td>{{ inspection.colour }}</td>
+          <td jhiTranslate="{{ 'blogApp.Texture.' + inspection.texture }}">{{ inspection.texture }}</td>
+          <td jhiTranslate="{{ 'blogApp.Aroma.' + inspection.aroma }}">{{ inspection.aroma }}</td>
+          <td jhiTranslate="{{ 'blogApp.Flavour.' + inspection.flavour }}">{{ inspection.flavour }}</td>
+          <td>{{ inspection.nutritionalValue }}</td>
+          <td jhiTranslate="{{ 'blogApp.NutritionalValueType.' + inspection.nutritionalValueType }}">
+            {{ inspection.nutritionalValueType }}
+          </td>
+          <td>{{ inspection.createdBy }}</td>
+          <td>{{ inspection.createdOn | formatMediumDatetime }}</td>
+          <td>{{ inspection.updatedBy }}</td>
+          <td>{{ inspection.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="inspection.harvestID">
+              <a [routerLink]="['/harvest', inspection.harvestID?.id, 'view']">{{ inspection.harvestID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/inspection', inspection.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/inspection', inspection.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(inspection)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

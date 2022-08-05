@@ -1,0 +1,12 @@
+{
+  "blogApp": {
+    "Treatment": {
+      "null": "",
+      "Dry": "Dry",
+      "Treatment": "Treatment",
+      "Wet": "Wet",
+      "Slurry": "Slurry",
+      "UV": "UV"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "blogApp": {
+    "growBed": {
+      "home": {
+        "title": "Grow Beds",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Grow Bed",
+        "createOrEditLabel": "Create or edit a Grow Bed",
+        "notFound": "No Grow Beds found"
+      },
+      "created": "A new Grow Bed is created with identifier {{ param }}",
+      "updated": "A Grow Bed is updated with identifier {{ param }}",
+      "deleted": "A Grow Bed is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Grow Bed {{ id }}?"
+      },
+      "detail": {
+        "title": "Grow Bed"
+      },
+      "id": "Id",
+      "gUID": "G UID",
+      "growBedType": "Grow Bed Type",
+      "growBedName": "Grow Bed Name",
+      "manufacturer": "Manufacturer",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "updatedBy": "Updated By",
+      "updatedOn": "Updated On",
+      "zone": "Zone"
+    }
+  }
+}

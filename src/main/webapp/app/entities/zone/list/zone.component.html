@@ -1,0 +1,92 @@
+<div>
+  <h2 id="page-heading" data-cy="ZoneHeading">
+    <span jhiTranslate="blogApp.zone.home.title">Zones</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.zone.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-zone"
+        [routerLink]="['/zone/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.zone.home.createLabel"> Create a new Zone </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="zones?.length === 0">
+    <span jhiTranslate="blogApp.zone.home.notFound">No zones found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="zones && zones.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.zone.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.zone.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.zone.zoneType">Zone Type</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.zone.zoneName">Zone Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.zone.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.zone.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.zone.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.zone.updatedOn">Updated On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.zone.plantFactoryID">Plant Factory ID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.zone.growBedID">Grow Bed ID</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let zone of zones; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/zone', zone.id, 'view']">{{ zone.id }}</a>
+          </td>
+          <td>{{ zone.gUID }}</td>
+          <td jhiTranslate="{{ 'blogApp.ZoneType.' + zone.zoneType }}">{{ zone.zoneType }}</td>
+          <td>{{ zone.zoneName }}</td>
+          <td>{{ zone.createdBy }}</td>
+          <td>{{ zone.createdOn | formatMediumDatetime }}</td>
+          <td>{{ zone.updatedBy }}</td>
+          <td>{{ zone.updatedOn | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="zone.plantFactoryID">
+              <a [routerLink]="['/plant-factory', zone.plantFactoryID?.id, 'view']">{{ zone.plantFactoryID?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="zone.growBedID">
+              <a [routerLink]="['/grow-bed', zone.growBedID?.id, 'view']">{{ zone.growBedID?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/zone', zone.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/zone', zone.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(zone)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="partyStatusType">
+      <h2 data-cy="partyStatusTypeDetailsHeading"><span jhiTranslate="blogApp.partyStatusType.detail.title">Party Status Type</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.partyStatusType.id">Id</span></dt>
+        <dd>
+          <span>{{ partyStatusType.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatusType.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ partyStatusType.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatusType.parentTypeID">Parent Type ID</span></dt>
+        <dd>
+          <span>{{ partyStatusType.parentTypeID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatusType.hasTable">Has Table</span></dt>
+        <dd>
+          <span>{{ partyStatusType.hasTable }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatusType.description">Description</span></dt>
+        <dd>
+          <span>{{ partyStatusType.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatusType.childStatusType">Child Status Type</span></dt>
+        <dd>
+          <span>{{ partyStatusType.childStatusType }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatusType.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ partyStatusType.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatusType.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ partyStatusType.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatusType.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ partyStatusType.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.partyStatusType.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ partyStatusType.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/party-status-type', partyStatusType.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

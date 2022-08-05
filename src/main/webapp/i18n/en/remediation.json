@@ -1,0 +1,9 @@
+{
+  "blogApp": {
+    "Remediation": {
+      "null": "",
+      "Manual": "Manual",
+      "Automatic": "Automatic"
+    }
+  }
+}

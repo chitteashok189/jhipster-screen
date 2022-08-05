@@ -1,0 +1,94 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="party">
+      <h2 data-cy="partyDetailsHeading"><span jhiTranslate="blogApp.party.detail.title">Party</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.party.id">Id</span></dt>
+        <dd>
+          <span>{{ party.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.party.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ party.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.party.partyName">Party Name</span></dt>
+        <dd>
+          <span>{{ party.partyName }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.party.statusID">Status ID</span></dt>
+        <dd>
+          <span>{{ party.statusID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.party.description">Description</span></dt>
+        <dd>
+          <span>{{ party.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.party.externalID">External ID</span></dt>
+        <dd>
+          <span>{{ party.externalID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.party.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ party.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.party.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ party.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.party.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ party.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.party.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ party.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.party.partyGroupID">Party Group ID</span></dt>
+        <dd>
+          <div *ngIf="party.partyGroupID">
+            <a [routerLink]="['/party-group', party.partyGroupID?.id, 'view']">{{ party.partyGroupID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.party.partyTypeID">Party Type ID</span></dt>
+        <dd>
+          <div *ngIf="party.partyTypeID">
+            <a [routerLink]="['/party-type', party.partyTypeID?.id, 'view']">{{ party.partyTypeID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.party.applicationUserID">Application User ID</span></dt>
+        <dd>
+          <div *ngIf="party.applicationUserID">
+            <a [routerLink]="['/application-user', party.applicationUserID?.id, 'view']">{{ party.applicationUserID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.party.partyRoleID">Party Role ID</span></dt>
+        <dd>
+          <div *ngIf="party.partyRoleID">
+            <a [routerLink]="['/party-role', party.partyRoleID?.id, 'view']">{{ party.partyRoleID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.party.personID">Person ID</span></dt>
+        <dd>
+          <div *ngIf="party.personID">
+            <a [routerLink]="['/person', party.personID?.id, 'view']">{{ party.personID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/party', party.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

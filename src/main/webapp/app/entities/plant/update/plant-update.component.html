@@ -1,0 +1,419 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-plant-heading" data-cy="PlantCreateUpdateHeading" jhiTranslate="blogApp.plant.home.createOrEditLabel">
+        Create or edit a Plant
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="blogApp.plant.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.gUID" for="field_gUID">G UID</label>
+          <input type="text" class="form-control" name="gUID" id="field_gUID" data-cy="gUID" formControlName="gUID" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.commonName" for="field_commonName">Common Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="commonName"
+            id="field_commonName"
+            data-cy="commonName"
+            formControlName="commonName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.scientificName" for="field_scientificName">Scientific Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="scientificName"
+            id="field_scientificName"
+            data-cy="scientificName"
+            formControlName="scientificName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.familyName" for="field_familyName">Family Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="familyName"
+            id="field_familyName"
+            data-cy="familyName"
+            formControlName="familyName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.plantSpacing" for="field_plantSpacing">Plant Spacing</label>
+          <input
+            type="number"
+            class="form-control"
+            name="plantSpacing"
+            id="field_plantSpacing"
+            data-cy="plantSpacing"
+            formControlName="plantSpacing"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.seedingMonth" for="field_seedingMonth">Seeding Month</label>
+          <select class="form-control" name="seedingMonth" formControlName="seedingMonth" id="field_seedingMonth" data-cy="seedingMonth">
+            <option [ngValue]="null">{{ 'blogApp.Seeding.null' | translate }}</option>
+            <option *ngFor="let seeding of seedingValues" [value]="seeding">{{ 'blogApp.Seeding.' + seeding | translate }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.transplantMonth" for="field_transplantMonth">Transplant Month</label>
+          <select
+            class="form-control"
+            name="transplantMonth"
+            formControlName="transplantMonth"
+            id="field_transplantMonth"
+            data-cy="transplantMonth"
+          >
+            <option [ngValue]="null">{{ 'blogApp.TransplantMonth.null' | translate }}</option>
+            <option *ngFor="let transplantMonth of transplantMonthValues" [value]="transplantMonth">
+              {{ 'blogApp.TransplantMonth.' + transplantMonth | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.harvestMonth" for="field_harvestMonth">Harvest Month</label>
+          <select class="form-control" name="harvestMonth" formControlName="harvestMonth" id="field_harvestMonth" data-cy="harvestMonth">
+            <option [ngValue]="null">{{ 'blogApp.HarvestMonth.null' | translate }}</option>
+            <option *ngFor="let harvestMonth of harvestMonthValues" [value]="harvestMonth">
+              {{ 'blogApp.HarvestMonth.' + harvestMonth | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.originCountry" for="field_originCountry">Origin Country</label>
+          <input
+            type="number"
+            class="form-control"
+            name="originCountry"
+            id="field_originCountry"
+            data-cy="originCountry"
+            formControlName="originCountry"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.yearlyCrops" for="field_yearlyCrops">Yearly Crops</label>
+          <input
+            type="number"
+            class="form-control"
+            name="yearlyCrops"
+            id="field_yearlyCrops"
+            data-cy="yearlyCrops"
+            formControlName="yearlyCrops"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.nativeTemperature" for="field_nativeTemperature">Native Temperature</label>
+          <input
+            type="number"
+            class="form-control"
+            name="nativeTemperature"
+            id="field_nativeTemperature"
+            data-cy="nativeTemperature"
+            formControlName="nativeTemperature"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.nativeHumidity" for="field_nativeHumidity">Native Humidity</label>
+          <input
+            type="number"
+            class="form-control"
+            name="nativeHumidity"
+            id="field_nativeHumidity"
+            data-cy="nativeHumidity"
+            formControlName="nativeHumidity"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.nativeDayDuration" for="field_nativeDayDuration">Native Day Duration</label>
+          <input
+            type="number"
+            class="form-control"
+            name="nativeDayDuration"
+            id="field_nativeDayDuration"
+            data-cy="nativeDayDuration"
+            formControlName="nativeDayDuration"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.nativeNightDuration" for="field_nativeNightDuration"
+            >Native Night Duration</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="nativeNightDuration"
+            id="field_nativeNightDuration"
+            data-cy="nativeNightDuration"
+            formControlName="nativeNightDuration"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.nativeSoilMoisture" for="field_nativeSoilMoisture"
+            >Native Soil Moisture</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="nativeSoilMoisture"
+            id="field_nativeSoilMoisture"
+            data-cy="nativeSoilMoisture"
+            formControlName="nativeSoilMoisture"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.plantingPeriod" for="field_plantingPeriod">Planting Period</label>
+          <input
+            type="number"
+            class="form-control"
+            name="plantingPeriod"
+            id="field_plantingPeriod"
+            data-cy="plantingPeriod"
+            formControlName="plantingPeriod"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.yieldUnit" for="field_yieldUnit">Yield Unit</label>
+          <input type="number" class="form-control" name="yieldUnit" id="field_yieldUnit" data-cy="yieldUnit" formControlName="yieldUnit" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.growthHeightMin" for="field_growthHeightMin">Growth Height Min</label>
+          <input
+            type="number"
+            class="form-control"
+            name="growthHeightMin"
+            id="field_growthHeightMin"
+            data-cy="growthHeightMin"
+            formControlName="growthHeightMin"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.growthHeightMax" for="field_growthHeightMax">Growth Height Max</label>
+          <input
+            type="number"
+            class="form-control"
+            name="growthHeightMax"
+            id="field_growthHeightMax"
+            data-cy="growthHeightMax"
+            formControlName="growthHeightMax"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.grownSpreadMin" for="field_grownSpreadMin">Grown Spread Min</label>
+          <input
+            type="number"
+            class="form-control"
+            name="grownSpreadMin"
+            id="field_grownSpreadMin"
+            data-cy="grownSpreadMin"
+            formControlName="grownSpreadMin"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.grownSpreadMax" for="field_grownSpreadMax">Grown Spread Max</label>
+          <input
+            type="number"
+            class="form-control"
+            name="grownSpreadMax"
+            id="field_grownSpreadMax"
+            data-cy="grownSpreadMax"
+            formControlName="grownSpreadMax"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.grownWeightMax" for="field_grownWeightMax">Grown Weight Max</label>
+          <input
+            type="number"
+            class="form-control"
+            name="grownWeightMax"
+            id="field_grownWeightMax"
+            data-cy="grownWeightMax"
+            formControlName="grownWeightMax"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.grownWeightMin" for="field_grownWeightMin">Grown Weight Min</label>
+          <input
+            type="number"
+            class="form-control"
+            name="grownWeightMin"
+            id="field_grownWeightMin"
+            data-cy="grownWeightMin"
+            formControlName="grownWeightMin"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.growingMedia" for="field_growingMedia">Growing Media</label>
+          <input
+            type="text"
+            class="form-control"
+            name="growingMedia"
+            id="field_growingMedia"
+            data-cy="growingMedia"
+            formControlName="growingMedia"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.documents" for="field_documents">Documents</label>
+          <input type="text" class="form-control" name="documents" id="field_documents" data-cy="documents" formControlName="documents" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.notes" for="field_notes">Notes</label>
+          <input type="text" class="form-control" name="notes" id="field_notes" data-cy="notes" formControlName="notes" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.attachments" for="field_attachments">Attachments</label>
+          <div>
+            <div *ngIf="editForm.get('attachments')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('attachments')!.value, editForm.get('attachmentsContentType')!.value)"
+                jhiTranslate="entity.action.open"
+                >open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('attachmentsContentType')!.value }}, {{ byteSize(editForm.get('attachments')!.value) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ attachments: null }); editForm.patchValue({ attachmentsContentType: null })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_attachments"
+              data-cy="attachments"
+              (change)="setFileData($event, 'attachments', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="attachments"
+            id="field_attachments"
+            data-cy="attachments"
+            formControlName="attachments"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="attachmentsContentType"
+            id="field_attachmentsContentType"
+            formControlName="attachmentsContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.createdBy" for="field_createdBy">Created By</label>
+          <input type="number" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.updatedBy" for="field_updatedBy">Updated By</label>
+          <input type="number" class="form-control" name="updatedBy" id="field_updatedBy" data-cy="updatedBy" formControlName="updatedBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.updatedOn" for="field_updatedOn">Updated On</label>
+          <div class="d-flex">
+            <input
+              id="field_updatedOn"
+              data-cy="updatedOn"
+              type="datetime-local"
+              class="form-control"
+              name="updatedOn"
+              formControlName="updatedOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="blogApp.plant.cropID" for="field_cropID">Crop ID</label>
+          <select class="form-control" id="field_cropID" data-cy="cropID" name="cropID" formControlName="cropID">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="cropOption.id === editForm.get('cropID')!.value?.id ? editForm.get('cropID')!.value : cropOption"
+              *ngFor="let cropOption of cropsSharedCollection; trackBy: trackCropById"
+            >
+              {{ cropOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

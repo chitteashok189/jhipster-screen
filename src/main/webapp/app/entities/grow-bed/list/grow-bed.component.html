@@ -1,0 +1,92 @@
+<div>
+  <h2 id="page-heading" data-cy="GrowBedHeading">
+    <span jhiTranslate="blogApp.growBed.home.title">Grow Beds</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="blogApp.growBed.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-grow-bed"
+        [routerLink]="['/grow-bed/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="blogApp.growBed.home.createLabel"> Create a new Grow Bed </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="growBeds?.length === 0">
+    <span jhiTranslate="blogApp.growBed.home.notFound">No growBeds found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="growBeds && growBeds.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="blogApp.growBed.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.growBed.gUID">G UID</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.growBed.growBedType">Grow Bed Type</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.growBed.growBedName">Grow Bed Name</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.growBed.manufacturer">Manufacturer</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.growBed.createdBy">Created By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.growBed.createdOn">Created On</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.growBed.updatedBy">Updated By</span></th>
+          <th scope="col"><span jhiTranslate="blogApp.growBed.updatedOn">Updated On</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let growBed of growBeds; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/grow-bed', growBed.id, 'view']">{{ growBed.id }}</a>
+          </td>
+          <td>{{ growBed.gUID }}</td>
+          <td jhiTranslate="{{ 'blogApp.GrowBedType.' + growBed.growBedType }}">{{ growBed.growBedType }}</td>
+          <td>{{ growBed.growBedName }}</td>
+          <td>{{ growBed.manufacturer }}</td>
+          <td>{{ growBed.createdBy }}</td>
+          <td>{{ growBed.createdOn | formatMediumDatetime }}</td>
+          <td>{{ growBed.updatedBy }}</td>
+          <td>{{ growBed.updatedOn | formatMediumDatetime }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/grow-bed', growBed.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/grow-bed', growBed.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(growBed)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

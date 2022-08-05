@@ -1,0 +1,84 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="roleType">
+      <h2 data-cy="roleTypeDetailsHeading"><span jhiTranslate="blogApp.roleType.detail.title">Role Type</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="blogApp.roleType.id">Id</span></dt>
+        <dd>
+          <span>{{ roleType.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.roleType.gUID">G UID</span></dt>
+        <dd>
+          <span>{{ roleType.gUID }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.roleType.hasTable">Has Table</span></dt>
+        <dd>
+          <span>{{ roleType.hasTable }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.roleType.description">Description</span></dt>
+        <dd>
+          <span>{{ roleType.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.roleType.childRoleType">Child Role Type</span></dt>
+        <dd>
+          <span>{{ roleType.childRoleType }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.roleType.validPartyRelationshipType">Valid Party Relationship Type</span></dt>
+        <dd>
+          <span>{{ roleType.validPartyRelationshipType }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.roleType.validFromPartyRelationshipType">Valid From Party Relationship Type</span></dt>
+        <dd>
+          <span>{{ roleType.validFromPartyRelationshipType }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.roleType.partyInvitationRoleAssociation">Party Invitation Role Association</span></dt>
+        <dd>
+          <span>{{ roleType.partyInvitationRoleAssociation }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.roleType.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ roleType.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.roleType.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ roleType.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.roleType.updatedBy">Updated By</span></dt>
+        <dd>
+          <span>{{ roleType.updatedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.roleType.updatedOn">Updated On</span></dt>
+        <dd>
+          <span>{{ roleType.updatedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="blogApp.roleType.partyRoleID">Party Role ID</span></dt>
+        <dd>
+          <div *ngIf="roleType.partyRoleID">
+            <a [routerLink]="['/party-role', roleType.partyRoleID?.id, 'view']">{{ roleType.partyRoleID?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="blogApp.roleType.roleTypeAttributeID">Role Type Attribute ID</span></dt>
+        <dd>
+          <div *ngIf="roleType.roleTypeAttributeID">
+            <a [routerLink]="['/role-type-attribute', roleType.roleTypeAttributeID?.id, 'view']">{{ roleType.roleTypeAttributeID?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/role-type', roleType.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

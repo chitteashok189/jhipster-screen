@@ -1,0 +1,108 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085152",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "product",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "productCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productPrice",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "productType",
+      "fieldType": "ProType",
+      "fieldValues": "Vegetables,Fruits,Ornamental,Medicinal,Aromatic"
+    },
+    {
+      "fieldName": "uOM",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "otherProductDetails",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "previousEntry",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "manufacturer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productDescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "imageFileName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productEntryName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "capacity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "length",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "width",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "height",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Product",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "crop",
+      "otherEntityRelationshipName": "productID",
+      "relationshipName": "crop",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

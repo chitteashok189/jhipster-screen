@@ -1,0 +1,83 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085149",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "sensor",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "sensorName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sensorModelName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hardwareID",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "port",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "properties",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Sensor",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "location",
+      "otherEntityRelationshipName": "sensor",
+      "relationshipName": "locationID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "device",
+      "otherEntityRelationshipName": "sensor",
+      "relationshipName": "deviceID",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "sensorModel",
+      "otherEntityRelationshipName": "sensor",
+      "relationshipName": "sensorModelID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

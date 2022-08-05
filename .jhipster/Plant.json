@@ -1,0 +1,167 @@
+{
+  "applications": "*",
+  "changelogDate": "20220803085151",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "plant",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "gUID",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "commonName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "scientificName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "familyName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "plantSpacing",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "seedingMonth",
+      "fieldType": "Seeding",
+      "fieldValues": "January,February,March,April,May,June,July,August,September,October,November,December"
+    },
+    {
+      "fieldName": "transplantMonth",
+      "fieldType": "TransplantMonth",
+      "fieldValues": "January,February,March,April,May,June,July,August,September,October,November,December"
+    },
+    {
+      "fieldName": "harvestMonth",
+      "fieldType": "HarvestMonth",
+      "fieldValues": "January,February,March,April,May,June,July,August,September,October,November,December"
+    },
+    {
+      "fieldName": "originCountry",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "yearlyCrops",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nativeTemperature",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nativeHumidity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nativeDayDuration",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nativeNightDuration",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nativeSoilMoisture",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "plantingPeriod",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "yieldUnit",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "growthHeightMin",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "growthHeightMax",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "grownSpreadMin",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "grownSpreadMax",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "grownWeightMax",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "grownWeightMin",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "growingMedia",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "documents",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "notes",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "attachments",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Plant",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "recipe",
+      "otherEntityRelationshipName": "plantID",
+      "relationshipName": "recipe",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "crop",
+      "otherEntityRelationshipName": "plantID",
+      "relationshipName": "crop",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "crop",
+      "otherEntityRelationshipName": "plant",
+      "relationshipName": "cropID",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}
